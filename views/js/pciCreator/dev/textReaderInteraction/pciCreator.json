@@ -4,7 +4,7 @@
     "description": "The Paging widget combines a scrolling widget with additional paging controls.",
     "version": "0.1",
     "author": "Aleh Hutnikau",
-    "email": "hutnikau@1pt.com",
+    "email": "contact@taotesting.com",
     "libraries": [
         "IMSGlobal/jquery_2_1_1",
         "./runtime/js/renderer",
