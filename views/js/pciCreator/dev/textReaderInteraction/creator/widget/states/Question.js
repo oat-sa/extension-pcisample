@@ -20,13 +20,12 @@ define([
     'taoQtiItem/qtiCreator/widgets/states/factory',
     'taoQtiItem/qtiCreator/widgets/interactions/states/Question',
     'taoQtiItem/qtiCreator/widgets/helpers/formElement',
-    'taoQtiItem/qtiCreator/editor/simpleContentEditableElement',
     'taoQtiItem/qtiCreator/editor/containerEditor',
     'tpl!textReaderInteraction/creator/tpl/propertiesForm',
     'lodash',
     'jquery',
     'css!textReaderInteraction/creator/css/textReaderInteraction'
-], function (stateFactory, Question, formElement, simpleEditor, containerEditor, formTpl, _, $) {
+], function (stateFactory, Question, formElement, containerEditor, formTpl, _, $) {
     'use strict';
     var stateQuestion = stateFactory.extend(Question, function () {
         var that = this,
@@ -127,7 +126,6 @@ define([
 
         $container.off('.' + interaction.typeIdentifier);
 
-        simpleEditor.destroy($container);
         containerEditor.destroy($container.find('.js-page-column'));
     });
 
