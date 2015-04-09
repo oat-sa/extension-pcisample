@@ -74,7 +74,8 @@ define([
          * @returns {Object}
          */
         afterCreate : function (pci) {
-            return;
+            var response = pci.getResponseDeclaration();
+            response.defaultValue = [true];
         },
         /**
          * (required) Gives the qti pci xml template 
