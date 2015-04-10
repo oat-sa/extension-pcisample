@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:pci="http://www.imsglobal.org/xsd/portableCustomInteraction" xmlns:html5="html5" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1  http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" identifier="i14266716643037139" title="Item title" adaptive="false" timeDependent="false">
-  <responseDeclaration baseType="boolean" cardinality="single" identifier="RESPONSE"/>
+  <responseDeclaration baseType="boolean" cardinality="single" identifier="RESPONSE">
+    <defaultValue>
+      <value>true</value>
+    </defaultValue>
+  </responseDeclaration>
   <outcomeDeclaration cardinality="single" baseType="float" identifier="SCORE"/>
   <stylesheet href="style/custom/tao-user-styles.css" title="" type="text/css" media="all"/>
   <stylesheet href="textReaderInteraction/runtime/css/textReaderInteraction.css" title="" type="text/css" media="all"/>
