@@ -24,7 +24,7 @@ return array(
 	'label' => 'QTI PCI samples',
 	'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '0.1',
+    'version' => '0.2',
 	'author' => 'Open Assessment Technologies',
 	'requires' => array('qtiItemPci' => '>=0.1'),
 	// for compatibility
@@ -38,6 +38,7 @@ return array(
 			dirname(__FILE__).'/scripts/install/addHook.php'
 		)
     ),
+    'update' => 'oat\\pciSamples\\scripts\\update\\Updater',
     'uninstall' => array(
     ),
     'autoload' => array (
