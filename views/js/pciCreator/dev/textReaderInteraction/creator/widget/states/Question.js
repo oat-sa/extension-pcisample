@@ -205,16 +205,14 @@ define([
      * @returns {undefined}
      */
     function initEditors($container, interaction) {
-        var $pages = $container.find('.js-tab-content'),
-            markup = $('[data-serial="' + interaction.serial + '"] .tr-content').html();
+        var $pages = $container.find('.js-tab-content');
     
         $pages.each(function () {
             var pageId = $(this).data('page-id'),
                 pageIndex = $(this).data('page-num');
             
             $(this).find('.js-page-column').each(function () {
-                var colIndex = $(this).data('page-col-index'),
-                    markupSelector = '.tr-tabs-' + pageIndex + ' [data-page-col-index="' + colIndex + '"]';
+                var colIndex = $(this).data('page-col-index');
                     
                 containerEditor.create($(this), {
                     change : function (text) {
@@ -225,8 +223,7 @@ define([
                             pageData.content[this.colIndex] = text;
                         }
                     },
-                    markup : markup,
-                    markupSelector : markupSelector,
+                    markup : interaction.properties.pages[pageIndex].content[colIndex],
                     related : interaction,
                     colIndex : colIndex
                 });
