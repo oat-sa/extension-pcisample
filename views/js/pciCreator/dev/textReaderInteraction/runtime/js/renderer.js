@@ -3,9 +3,10 @@ define(
     [
         'IMSGlobal/jquery_2_1_1',
         'OAT/handlebars',
-        'textReaderInteraction/runtime/js/tabs'
+        'textReaderInteraction/runtime/js/tabs',
+        'taoQtiItem/qtiCommonRenderer/helpers/PortableElement'
     ],
-    function ($, Handlebars, Tabs) {
+    function ($, Handlebars, Tabs, PortableElement) {
         'use strict';
 
         return function (options) {
@@ -51,7 +52,9 @@ define(
              * @return {object} this
              */
             this.renderPages = function (data) {
-                var templateData = {};
+                var templateData = {},
+                    markup,
+                    fixedMarkup;
 
                 this.options.$container.trigger('beforerenderpages.' + that.eventNs);
 
@@ -59,9 +62,16 @@ define(
                 if (that.options.templates.pages) {
                     _.assign(templateData, data, that.getTemplateData(data));
 
-                    this.options.$container.find('.js-page-container').html(
-                        that.options.templates.pages(templateData, that.getTemplateOptions())
-                    );
+                    markup = that.options.templates.pages(templateData, that.getTemplateOptions());
+
+                    if (typeof that.options.interaction !== 'undefined' && typeof that.options.interaction.renderer !== 'undefined') {
+                        fixedMarkup = PortableElement.fixMarkupMediaSources(
+                            markup,
+                            that.options.interaction.renderer
+                        );
+                    }
+
+                    this.options.$container.find('.js-page-container').html(fixedMarkup || markup);
                 }
 
                 //init tabs
