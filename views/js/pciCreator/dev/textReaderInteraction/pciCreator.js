@@ -35,7 +35,8 @@ define([
                             templates : {
                                 pages : pagesTpl,
                                 navigation : navigationTpl
-                            }
+                            },
+                            interaction: pci
                         });
                     }
                     pci.widgetRenderer.setState(state.name);

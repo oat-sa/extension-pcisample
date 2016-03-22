@@ -32,12 +32,12 @@ class Updater extends \common_ext_ExtensionUpdater
      */
     public function update($initialVersion) {
         
-        $currentVersion = $initialVersion;
-		if ($currentVersion == '0.1') {
-			$currentVersion = '0.2';
+        
+		if ($this->isBetween('0', '0.2.1')) {
+			$this->setVersion('0.2.1');
 		}
 
 
-		return $currentVersion;
+		return null;
 	}
 }
