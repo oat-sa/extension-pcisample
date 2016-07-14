@@ -22,7 +22,9 @@
 namespace oat\pciSamples\scripts\update;
 
 
-class Updater extends \common_ext_ExtensionUpdater 
+use oat\pciSamples\scripts\install\RegisterPci;
+
+class Updater extends \common_ext_ExtensionUpdater
 {
 
 	/**
@@ -37,7 +39,10 @@ class Updater extends \common_ext_ExtensionUpdater
 			$this->setVersion('0.2.1');
 		}
 
-
-		return null;
+		if($this->isVersion('0.2.1')){
+			$registerPci = new RegisterPci();
+			$registerPci([]);
+			$this->setVersion('1.0.0');
+		}
 	}
 }
