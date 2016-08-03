@@ -34,7 +34,6 @@ class RegisterPci extends common_ext_action_InstallAction
         $viewDir = \common_ext_ExtensionsManager::singleton()->getExtensionById('pciSamples')->getConstant('DIR_VIEWS');
 
         $sourceTextReader = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'textReaderInteraction']).DIRECTORY_SEPARATOR;
-        var_dump($sourceTextReader);
         $service->registerFromDirectorySource($sourceTextReader);
 
         return new \common_report_Report(\common_report_Report::TYPE_SUCCESS, 'Portable Element Plugins for Qti Creator added to Tao Qti Item extension');
