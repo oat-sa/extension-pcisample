@@ -1,20 +1,20 @@
-/**  
+/**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
  * of the License (non-upgradable).
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- * 
+ *
  * Copyright (c) 2015 (original work) Open Assessment Technologies;
- *               
+ *
  */
 define([
     'taoQtiItem/qtiCreator/widgets/states/factory',
@@ -80,7 +80,7 @@ define([
                 newCols.push(currentCols[colNum] || "");
             }
             newCols[numberOfColumns - 1] += '<br>' + currentCols.slice(numberOfColumns).join('<br>');
-            
+
             //set editors content
             $.each(newCols, function (key, val) {
                 var editor = $page.find('[data-page-col-index="' + key + '"] .container-editor').data('editor');
@@ -88,17 +88,17 @@ define([
                     editor.setData(val);
                 }
             });
-            
+
             interaction.properties.pages[currentPageIndex].content = newCols;
             interaction.widgetRenderer.renderPages(interaction.properties);
             interaction.widgetRenderer.tabsManager.index(currentPageIndex);
-        });    
-            
+        });
+
         //Enable page CKEditor on selected tab and disable on the rest tabs.
         $container.on('selectpage.' + interaction.typeIdentifier, function (event, currentPageIndex) {
             var editor,
                 pageIndex;
-                
+
             $container.find('.js-page-column').each(function () {
                 pageIndex = parseInt($(this).closest('.tr-page').data('page-num'), 10);
                 editor = $(this).find('.container-editor').data('editor');
@@ -143,16 +143,16 @@ define([
         $('.js-page-height-select').val(interaction.properties.pageHeight);
         $('.js-tab-position').val(interaction.properties.tabsPosition);
         $('.js-navigation-select').val(interaction.properties.navigation);
-        
+
         $('.js-tab-position-panel').toggle(interaction.properties.navigation !== 'buttons');
         $('.js-button-labels-panel').toggle(interaction.properties.navigation !== 'tabs');
-        
+
         if (interaction.properties.navigation === 'both') {
             var $positionSelect = $('.js-tab-position');
             $('select.js-tab-position option[value="bottom"]').attr('disabled', 'disabled');
             $positionSelect.trigger('change');
         }
-        
+
         //init form javascript
         formElement.initWidget($form);
 
@@ -169,11 +169,11 @@ define([
             navigation : function (interaction, value) {
                 $('.js-tab-position-panel').toggle(value !== 'buttons');
                 $('.js-button-labels-panel').toggle(value !== 'tabs');
-                
+
                 if (value === 'buttons') {
                     interaction.properties.tabsPosition = 'top';
                 }
-                
+
                 $('select.js-tab-position option[value="bottom"]').removeAttr('disabled');
                 if (value === 'both') {
                     var $positionSelect = $('select.js-tab-position');
@@ -183,7 +183,7 @@ define([
                     $('select.js-tab-position option[value="bottom"]').attr('disabled', 'disabled');
                     $positionSelect.trigger('change');
                 }
-                
+
                 interaction.properties.navigation = value;
                 interaction.widgetRenderer.renderAll(interaction.properties);
             },
@@ -201,19 +201,19 @@ define([
     /**
      * Function initializes the editors on the each page.
      * @param {jQuery DOM element} $container - interaction container
-     * @param {object} interaction 
+     * @param {object} interaction
      * @returns {undefined}
      */
     function initEditors($container, interaction) {
         var $pages = $container.find('.js-tab-content');
-    
+
         $pages.each(function () {
             var pageId = $(this).data('page-id'),
                 pageIndex = $(this).data('page-num');
-            
+
             $(this).find('.js-page-column').each(function () {
                 var colIndex = $(this).data('page-col-index');
-                    
+
                 containerEditor.create($(this), {
                     change : function (text) {
                         var pageData = _.find(interaction.properties.pages, function (page) {
@@ -227,7 +227,7 @@ define([
                     related : interaction,
                     colIndex : colIndex
                 });
-            }); 
+            });
         });
     }
 
