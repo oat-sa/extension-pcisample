@@ -1,6 +1,6 @@
 {
     "identifier": "i14736962087153128",
-    "serial": "item_57d80e3d1dfc5735356969",
+    "serial": "item_57d81d30482e2421246543",
     "qtiClass": "assessmentItem",
     "attributes": {
         "identifier": "i14736962087153128",
@@ -14,17 +14,17 @@
         "class": ""
     },
     "body": {
-        "serial": "container_containeritembody_57d80e3d1dfa0614487275",
-        "body": "\n        <div class=\"grid-row\">\n            <div class=\"col-12\">\n                {{interaction_portablecustominteraction_57d80e3d224fd305229456}}\n            <\/div>\n        <\/div>\n    ",
+        "serial": "container_containeritembody_57d81d30482b3731470864",
+        "body": "\n        <div class=\"grid-row\">\n            <div class=\"col-12\">\n                {{interaction_portablecustominteraction_57d81d304c0be892002385}}\n            <\/div>\n        <\/div>\n    ",
         "elements": {
-            "interaction_portablecustominteraction_57d80e3d224fd305229456": {
-                "serial": "interaction_portablecustominteraction_57d80e3d224fd305229456",
+            "interaction_portablecustominteraction_57d81d304c0be892002385": {
+                "serial": "interaction_portablecustominteraction_57d81d304c0be892002385",
                 "qtiClass": "customInteraction",
                 "attributes": {
                     "responseIdentifier": "RESPONSE"
                 },
                 "debug": {
-                    "relatedItem": "item_57d80e3d1dfc5735356969"
+                    "relatedItem": "item_57d81d30482e2421246543"
                 },
                 "choices": {},
                 "typeIdentifier": "textReaderInteraction",
@@ -42,7 +42,7 @@
                         {
                             "label": "Page 1",
                             "content": [
-                                "<strong>Tao<\/strong> or <strong>Dao<\/strong> (\/ta\u028a\/, \/da\u028a\/; Chinese: \u9053; pinyin: [About this sound] &#160;D\u00e0o&#160;(help\u00b7info)) is a Chinese word signifying 'way', 'path', 'route', or sometimes more loosely, 'doctrine' or 'principle'. Within the context of traditional Chinese philosophy and religion, the Tao is the intuitive knowing of \"life\" that cannot be grasped full-heartedly as just a concept but is known nonetheless through actual living experience of one's everyday being. The Tao differs from conventional (Western) ontology in that it is an active and holistic practice of the natural order of Nature and its universal awakening, rather than a static, atomistic one.<br \/>\n                                            <br \/>\n                                            Laozi in the <span class=\"tooltip\">Tao Te Ching<\/span> explains that the Tao is not a 'name' for a 'thing' but the underlying natural order of the Universe whose ultimate essence is difficult to circumscribe due to it being non conceptual yet evident' in one's being of aliveness.[citation needed] The Tao is \"eternally nameless\u201d (Tao Te Ching-32. Laozi) and to be distinguished from the countless 'named' things which are considered to be its manifestations, the reality of life before its descriptions of it.<br \/>\n                                            <br \/>\n                                            The Tao lends its name to the religious tradition (Wade\u2013Giles, Tao Chiao; Pinyin, Daojiao) and philosophical tradition (Wade\u2013Giles, Tao chia; Pinyin, Daojia) that are both referred to in English with the single term Taoism.<br \/>\n                                            <br \/>\n                                            <img alt=\"tao4\" src=\"tao4.png\" width=\"21%\" \/><br \/>\n                                            &#160;"
+                                "<strong>Tao<\/strong> or <strong>Dao<\/strong> (\/ta\u028a\/, \/da\u028a\/; Chinese: \u9053; pinyin: [About this sound] &#160;D\u00e0o&#160;(help\u00b7info)) is a Chinese word signifying 'way', 'path', 'route', or sometimes more loosely, 'doctrine' or 'principle'. Within the context of traditional Chinese philosophy and religion, the Tao is the intuitive knowing of \"life\" that cannot be grasped full-heartedly as just a concept but is known nonetheless through actual living experience of one's everyday being. The Tao differs from conventional (Western) ontology in that it is an active and holistic practice of the natural order of Nature and its universal awakening, rather than a static, atomistic one.<br \/>\n                                            <br \/>\n                                            Laozi in the <dl class=\"tooltip\"><dt>Tao Te Ching<\/dt><dd>The Tao Te Ching, along with the Zhuangzi, is a fundamental text for both philosophical and religious Taoism, and strongly influenced other schools, such as Legalism, Confucianism, and Chinese Buddhism, which when first introduced into China was largely interpreted through the use of Daoist words and concepts.<\/dd><\/dl> explains that the Tao is not a 'name' for a 'thing' but the underlying natural order of the Universe whose ultimate essence is difficult to circumscribe due to it being non conceptual yet evident' in one's being of aliveness.[citation needed] The Tao is \"eternally nameless\u201d (Tao Te Ching-32. Laozi) and to be distinguished from the countless 'named' things which are considered to be its manifestations, the reality of life before its descriptions of it.<br \/>\n                                            <br \/>\n                                            The Tao lends its name to the religious tradition (Wade\u2013Giles, Tao Chiao; Pinyin, Daojiao) and philosophical tradition (Wade\u2013Giles, Tao chia; Pinyin, Daojia) that are both referred to in English with the single term Taoism.<br \/>\n                                            <br \/>\n                                            <img alt=\"tao4\" src=\"tao4.png\" width=\"21%\" \/><br \/>\n                                            &#160;"
                             ],
                             "id": "0"
                         },
@@ -74,11 +74,11 @@
             }
         },
         "debug": {
-            "relatedItem": "item_57d80e3d1dfc5735356969"
+            "relatedItem": "item_57d81d30482e2421246543"
         }
     },
     "debug": {
-        "relatedItem": "item_57d80e3d1dfc5735356969"
+        "relatedItem": "item_57d81d30482e2421246543"
     },
     "namespaces": {
         "": "http:\/\/www.imsglobal.org\/xsd\/imsqti_v2p1",
@@ -92,8 +92,8 @@
         "http:\/\/www.imsglobal.org\/xsd\/imsqti_v2p1": "http:\/\/www.imsglobal.org\/xsd\/qti\/qtiv2p1\/imsqti_v2p1.xsd"
     },
     "stylesheets": {
-        "stylesheet_57d80e3d1fae4857179709": {
-            "serial": "stylesheet_57d80e3d1fae4857179709",
+        "stylesheet_57d81d3049a56241253335": {
+            "serial": "stylesheet_57d81d3049a56241253335",
             "qtiClass": "stylesheet",
             "attributes": {
                 "href": "textReaderInteraction\/runtime\/css\/textReaderInteraction.css",
@@ -102,11 +102,11 @@
                 "title": ""
             },
             "debug": {
-                "relatedItem": "item_57d80e3d1dfc5735356969"
+                "relatedItem": "item_57d81d30482e2421246543"
             }
         },
-        "stylesheet_57d80e3d2013b543985351": {
-            "serial": "stylesheet_57d80e3d2013b543985351",
+        "stylesheet_57d81d304a200199928664": {
+            "serial": "stylesheet_57d81d304a200199928664",
             "qtiClass": "stylesheet",
             "attributes": {
                 "href": "textReaderInteraction\/runtime\/css\/jquery.qtip.css",
@@ -115,14 +115,14 @@
                 "title": ""
             },
             "debug": {
-                "relatedItem": "item_57d80e3d1dfc5735356969"
+                "relatedItem": "item_57d81d30482e2421246543"
             }
         }
     },
     "outcomes": {
-        "outcomedeclaration_57d80e3d21188763846523": {
+        "outcomedeclaration_57d81d304aec6512295141": {
             "identifier": "SCORE",
-            "serial": "outcomedeclaration_57d80e3d21188763846523",
+            "serial": "outcomedeclaration_57d81d304aec6512295141",
             "qtiClass": "outcomeDeclaration",
             "attributes": {
                 "identifier": "SCORE",
@@ -130,15 +130,15 @@
                 "baseType": "float"
             },
             "debug": {
-                "relatedItem": "item_57d80e3d1dfc5735356969"
+                "relatedItem": "item_57d81d30482e2421246543"
             },
             "defaultValue": null
         }
     },
     "responses": {
-        "responsedeclaration_57d80e3d2091b407968552": {
+        "responsedeclaration_57d81d304a772095910144": {
             "identifier": "RESPONSE",
-            "serial": "responsedeclaration_57d80e3d2091b407968552",
+            "serial": "responsedeclaration_57d81d304a772095910144",
             "qtiClass": "responseDeclaration",
             "attributes": {
                 "identifier": "RESPONSE",
@@ -146,7 +146,7 @@
                 "baseType": "boolean"
             },
             "debug": {
-                "relatedItem": "item_57d80e3d1dfc5735356969"
+                "relatedItem": "item_57d81d30482e2421246543"
             },
             "mapping": [],
             "areaMapping": [],
@@ -160,11 +160,11 @@
     },
     "feedbacks": {},
     "responseProcessing": {
-        "serial": "response_templatesdriven_57d80e3d23b97589377249",
+        "serial": "response_templatesdriven_57d81d304d539724092061",
         "qtiClass": "responseProcessing",
         "attributes": [],
         "debug": {
-            "relatedItem": "item_57d80e3d1dfc5735356969"
+            "relatedItem": "item_57d81d30482e2421246543"
         },
         "processingType": "templateDriven",
         "responseRules": [

@@ -75,9 +75,10 @@ define(
 
                     this.options.$container.find('.js-page-container').html(fixedMarkup || markup);
                     // console.dir($.fn.qtip);
-                    this.options.$container.find('.tooltip').qtip({
+                    var $tooltip = this.options.$container.find('.tooltip');
+                    $tooltip.qtip({
                         content: {
-                            text: 'My common piece of text here'
+                            text: $tooltip.find('dd').html()
                         },
                         position: {
                             target: 'event',
