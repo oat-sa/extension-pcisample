@@ -1,6 +1,6 @@
 {
     "identifier": "i14736962087153128",
-    "serial": "item_57d7f37f15d69153642729",
+    "serial": "item_57d80e3d1dfc5735356969",
     "qtiClass": "assessmentItem",
     "attributes": {
         "identifier": "i14736962087153128",
@@ -14,17 +14,17 @@
         "class": ""
     },
     "body": {
-        "serial": "container_containeritembody_57d7f37f15d4e058223953",
-        "body": "\n        <div class=\"grid-row\">\n            <div class=\"col-12\">\n                {{interaction_portablecustominteraction_57d7f37f17338228518100}}\n            <\/div>\n        <\/div>\n    ",
+        "serial": "container_containeritembody_57d80e3d1dfa0614487275",
+        "body": "\n        <div class=\"grid-row\">\n            <div class=\"col-12\">\n                {{interaction_portablecustominteraction_57d80e3d224fd305229456}}\n            <\/div>\n        <\/div>\n    ",
         "elements": {
-            "interaction_portablecustominteraction_57d7f37f17338228518100": {
-                "serial": "interaction_portablecustominteraction_57d7f37f17338228518100",
+            "interaction_portablecustominteraction_57d80e3d224fd305229456": {
+                "serial": "interaction_portablecustominteraction_57d80e3d224fd305229456",
                 "qtiClass": "customInteraction",
                 "attributes": {
                     "responseIdentifier": "RESPONSE"
                 },
                 "debug": {
-                    "relatedItem": "item_57d7f37f15d69153642729"
+                    "relatedItem": "item_57d80e3d1dfc5735356969"
                 },
                 "choices": {},
                 "typeIdentifier": "textReaderInteraction",
@@ -42,14 +42,14 @@
                         {
                             "label": "Page 1",
                             "content": [
-                                "<strong>Tao<\/strong> or <strong>Dao<\/strong> (\/ta\u028a\/, \/da\u028a\/; Chinese: \u9053; pinyin: [About this sound] &#160;D\u00e0o&#160;(help\u00b7info)) is a Chinese word signifying 'way', 'path', 'route', or sometimes more loosely, 'doctrine' or 'principle'. Within the context of traditional Chinese philosophy and religion, the Tao is the intuitive knowing of \"life\" that cannot be grasped full-heartedly as just a concept but is known nonetheless through actual living experience of one's everyday being. The Tao differs from conventional (Western) ontology in that it is an active and holistic practice of the natural order of Nature and its universal awakening, rather than a static, atomistic one.<br \/>\n                                            <br \/>\n                                            Laozi in the Tao Te Ching explains that the Tao is not a 'name' for a 'thing' but the underlying natural order of the Universe whose ultimate essence is difficult to circumscribe due to it being non conceptual yet evident' in one's being of aliveness.[citation needed] The Tao is \"eternally nameless\u201d (Tao Te Ching-32. Laozi) and to be distinguished from the countless 'named' things which are considered to be its manifestations, the reality of life before its descriptions of it.<br \/>\n                                            <br \/>\n                                            The Tao lends its name to the religious tradition (Wade\u2013Giles, Tao Chiao; Pinyin, Daojiao) and philosophical tradition (Wade\u2013Giles, Tao chia; Pinyin, Daojia) that are both referred to in English with the single term Taoism.<br \/>\n                                            <br \/>\n                                            <img alt=\"tao4\" src=\"tao4.png\" width=\"21%\" \/><br \/>\n                                            &#160;"
+                                "<strong>Tao<\/strong> or <strong>Dao<\/strong> (\/ta\u028a\/, \/da\u028a\/; Chinese: \u9053; pinyin: [About this sound] &#160;D\u00e0o&#160;(help\u00b7info)) is a Chinese word signifying 'way', 'path', 'route', or sometimes more loosely, 'doctrine' or 'principle'. Within the context of traditional Chinese philosophy and religion, the Tao is the intuitive knowing of \"life\" that cannot be grasped full-heartedly as just a concept but is known nonetheless through actual living experience of one's everyday being. The Tao differs from conventional (Western) ontology in that it is an active and holistic practice of the natural order of Nature and its universal awakening, rather than a static, atomistic one.<br \/>\n                                            <br \/>\n                                            Laozi in the <span class=\"tooltip\">Tao Te Ching<\/span> explains that the Tao is not a 'name' for a 'thing' but the underlying natural order of the Universe whose ultimate essence is difficult to circumscribe due to it being non conceptual yet evident' in one's being of aliveness.[citation needed] The Tao is \"eternally nameless\u201d (Tao Te Ching-32. Laozi) and to be distinguished from the countless 'named' things which are considered to be its manifestations, the reality of life before its descriptions of it.<br \/>\n                                            <br \/>\n                                            The Tao lends its name to the religious tradition (Wade\u2013Giles, Tao Chiao; Pinyin, Daojiao) and philosophical tradition (Wade\u2013Giles, Tao chia; Pinyin, Daojia) that are both referred to in English with the single term Taoism.<br \/>\n                                            <br \/>\n                                            <img alt=\"tao4\" src=\"tao4.png\" width=\"21%\" \/><br \/>\n                                            &#160;"
                             ],
                             "id": "0"
                         },
                         {
                             "label": "Page 2",
                             "content": [
-                                "<p>The word \"Tao\" (\u9053) has a variety of meanings in both ancient and modern Chinese language. Aside from its purely prosaic use to mean road, channel, path, principle, or similar,[1] the word has acquired a variety of differing and often confusing metaphorical, philosophical and religious uses. In most belief systems, the word is used symbolically in its sense of 'way' as the 'right' or 'proper' way of existence, or in the context of ongoing practices of attainment or of the full coming into being, or the state of enlightenment or spiritual perfection that is the outcome of such practices.[2]<\/p>\n\n                                            <p>Some scholars make sharp distinctions between moral or ethical usage of the word \"Tao\" that is prominent in Confucianism and religious Taoism and the more metaphysical usage of the term used in philosophical Taoism and most forms of Mahayana Buddhism;[3] others maintain that these are not separate usages or meanings, seeing them as mutually inclusive and compatible approaches to defining the principle.[4] The original use of the term was as a form of praxis rather than theory \u2013 a term used as a convention to refer to something that otherwise cannot be discussed in words \u2013 and early writings such as the Tao Te Ching and the I Ching make pains to distinguish between conceptions of the Tao (sometimes referred to as \"named Tao\") and the Tao itself (the \"unnamed Tao\"), which cannot be expressed or understood in language.[notes 1][notes 2][5] Liu Da asserts that the Tao is properly understood as an experiential and evolving concept, and that there are not only cultural and religious differences in the interpretation of the Tao, but personal differences that reflect the character of individual practitioners.[6]<\/p>\n\n                                            <p>The Tao can be roughly thought of as the flow of the Universe, or as some essence or pattern behind the natural world that keeps the Universe balanced and ordered.[7] It is related to the idea of qi, the essential energy of action and existence. The Tao is a non-dualistic principle \u2013 it is the greater whole from which all the individual elements of the Universe derive. Keller considers it similar to the negative theology of Western scholars,[8] but the Tao is rarely an object of direct worship, being treated more like the Hindu concepts of karma or dharma than as a divine object.[9] The Tao is more commonly expressed in the relationship between wu (void or emptiness, in the sense of wuji) and yinyang (the natural dynamic balance between opposites), leading to its central principle of wu wei (non-action, or action without force).<\/p>\n\n                                            <p>The Tao is usually described in terms of elements of nature, and in particular as similar to water. Like water it is undifferentiated, endlessly self-replenishing, soft and quiet but immensely powerful, and impassively generous.[10] Much of Taoist philosophy centers on the cyclical continuity of the natural world, and its contrast to the linear, goal-oriented actions of human beings.<\/p>\n                                        ",
+                                "<p>The word <span>Tao<\/span> (\u9053) has a variety of meanings in both ancient and modern Chinese language. Aside from its purely prosaic use to mean road, channel, path, principle, or similar,[1] the word has acquired a variety of differing and often confusing metaphorical, philosophical and religious uses. In most belief systems, the word is used symbolically in its sense of 'way' as the 'right' or 'proper' way of existence, or in the context of ongoing practices of attainment or of the full coming into being, or the state of enlightenment or spiritual perfection that is the outcome of such practices.[2]<\/p>\n\n                                            <p>Some scholars make sharp distinctions between moral or ethical usage of the word \"Tao\" that is prominent in Confucianism and religious Taoism and the more metaphysical usage of the term used in philosophical Taoism and most forms of Mahayana Buddhism;[3] others maintain that these are not separate usages or meanings, seeing them as mutually inclusive and compatible approaches to defining the principle.[4] The original use of the term was as a form of praxis rather than theory \u2013 a term used as a convention to refer to something that otherwise cannot be discussed in words \u2013 and early writings such as the Tao Te Ching and the I Ching make pains to distinguish between conceptions of the Tao (sometimes referred to as \"named Tao\") and the Tao itself (the \"unnamed Tao\"), which cannot be expressed or understood in language.[notes 1][notes 2][5] Liu Da asserts that the Tao is properly understood as an experiential and evolving concept, and that there are not only cultural and religious differences in the interpretation of the Tao, but personal differences that reflect the character of individual practitioners.[6]<\/p>\n\n                                            <p>The Tao can be roughly thought of as the flow of the Universe, or as some essence or pattern behind the natural world that keeps the Universe balanced and ordered.[7] It is related to the idea of qi, the essential energy of action and existence. The Tao is a non-dualistic principle \u2013 it is the greater whole from which all the individual elements of the Universe derive. Keller considers it similar to the negative theology of Western scholars,[8] but the Tao is rarely an object of direct worship, being treated more like the Hindu concepts of karma or dharma than as a divine object.[9] The Tao is more commonly expressed in the relationship between wu (void or emptiness, in the sense of wuji) and yinyang (the natural dynamic balance between opposites), leading to its central principle of wu wei (non-action, or action without force).<\/p>\n\n                                            <p>The Tao is usually described in terms of elements of nature, and in particular as similar to water. Like water it is undifferentiated, endlessly self-replenishing, soft and quiet but immensely powerful, and impassively generous.[10] Much of Taoist philosophy centers on the cyclical continuity of the natural world, and its contrast to the linear, goal-oriented actions of human beings.<\/p>\n                                        ",
                                 "<img src=\"tao1.jpg\" alt=\"tao1\" width=\"100%\" \/>"
                             ],
                             "id": "1"
@@ -74,11 +74,11 @@
             }
         },
         "debug": {
-            "relatedItem": "item_57d7f37f15d69153642729"
+            "relatedItem": "item_57d80e3d1dfc5735356969"
         }
     },
     "debug": {
-        "relatedItem": "item_57d7f37f15d69153642729"
+        "relatedItem": "item_57d80e3d1dfc5735356969"
     },
     "namespaces": {
         "": "http:\/\/www.imsglobal.org\/xsd\/imsqti_v2p1",
@@ -92,8 +92,8 @@
         "http:\/\/www.imsglobal.org\/xsd\/imsqti_v2p1": "http:\/\/www.imsglobal.org\/xsd\/qti\/qtiv2p1\/imsqti_v2p1.xsd"
     },
     "stylesheets": {
-        "stylesheet_57d7f37f163cc990538688": {
-            "serial": "stylesheet_57d7f37f163cc990538688",
+        "stylesheet_57d80e3d1fae4857179709": {
+            "serial": "stylesheet_57d80e3d1fae4857179709",
             "qtiClass": "stylesheet",
             "attributes": {
                 "href": "textReaderInteraction\/runtime\/css\/textReaderInteraction.css",
@@ -102,14 +102,27 @@
                 "title": ""
             },
             "debug": {
-                "relatedItem": "item_57d7f37f15d69153642729"
+                "relatedItem": "item_57d80e3d1dfc5735356969"
+            }
+        },
+        "stylesheet_57d80e3d2013b543985351": {
+            "serial": "stylesheet_57d80e3d2013b543985351",
+            "qtiClass": "stylesheet",
+            "attributes": {
+                "href": "textReaderInteraction\/runtime\/css\/jquery.qtip.css",
+                "type": "text\/css",
+                "media": "all",
+                "title": ""
+            },
+            "debug": {
+                "relatedItem": "item_57d80e3d1dfc5735356969"
             }
         }
     },
     "outcomes": {
-        "outcomedeclaration_57d7f37f16b3c799356398": {
+        "outcomedeclaration_57d80e3d21188763846523": {
             "identifier": "SCORE",
-            "serial": "outcomedeclaration_57d7f37f16b3c799356398",
+            "serial": "outcomedeclaration_57d80e3d21188763846523",
             "qtiClass": "outcomeDeclaration",
             "attributes": {
                 "identifier": "SCORE",
@@ -117,15 +130,15 @@
                 "baseType": "float"
             },
             "debug": {
-                "relatedItem": "item_57d7f37f15d69153642729"
+                "relatedItem": "item_57d80e3d1dfc5735356969"
             },
             "defaultValue": null
         }
     },
     "responses": {
-        "responsedeclaration_57d7f37f168d2720427113": {
+        "responsedeclaration_57d80e3d2091b407968552": {
             "identifier": "RESPONSE",
-            "serial": "responsedeclaration_57d7f37f168d2720427113",
+            "serial": "responsedeclaration_57d80e3d2091b407968552",
             "qtiClass": "responseDeclaration",
             "attributes": {
                 "identifier": "RESPONSE",
@@ -133,7 +146,7 @@
                 "baseType": "boolean"
             },
             "debug": {
-                "relatedItem": "item_57d7f37f15d69153642729"
+                "relatedItem": "item_57d80e3d1dfc5735356969"
             },
             "mapping": [],
             "areaMapping": [],
@@ -147,11 +160,11 @@
     },
     "feedbacks": {},
     "responseProcessing": {
-        "serial": "response_templatesdriven_57d7f37f17cf9527941994",
+        "serial": "response_templatesdriven_57d80e3d23b97589377249",
         "qtiClass": "responseProcessing",
         "attributes": [],
         "debug": {
-            "relatedItem": "item_57d7f37f15d69153642729"
+            "relatedItem": "item_57d80e3d1dfc5735356969"
         },
         "processingType": "templateDriven",
         "responseRules": [

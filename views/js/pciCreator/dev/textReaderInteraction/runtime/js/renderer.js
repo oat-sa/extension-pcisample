@@ -4,11 +4,11 @@ define(
         'IMSGlobal/jquery_2_1_1',
         'OAT/handlebars',
         'textReaderInteraction/runtime/js/tabs',
-        'taoQtiItem/qtiCommonRenderer/helpers/PortableElement'
+        'OAT/jquery.qtip'
     ],
-    function ($, Handlebars, Tabs, PortableElement) {
+    function ($, Handlebars, Tabs) {
         'use strict';
-
+        window.jQuery = $;
         return function (options) {
             var self = this,
                 defaultOptions = {
@@ -74,6 +74,23 @@ define(
                     // }
 
                     this.options.$container.find('.js-page-container').html(fixedMarkup || markup);
+                    // console.dir($.fn.qtip);
+                    this.options.$container.find('.tooltip').qtip({
+                        content: {
+                            text: 'My common piece of text here'
+                        },
+                        position: {
+                            target: 'event',
+                            my: 'top center',
+                            at: 'bottom center'
+                        },
+                        style: {
+                            tip: {
+                                corner: true
+                            },
+                            classes: 'qtip-rounded qtip-shadow'
+                        }
+                    });
                 }
 
                 //init tabs

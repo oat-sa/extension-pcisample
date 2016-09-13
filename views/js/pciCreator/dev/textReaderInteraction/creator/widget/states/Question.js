@@ -217,7 +217,7 @@ define([
                 containerEditor.create($(this), {
                     change : function (text) {
                         var pageData = _.find(interaction.properties.pages, function (page) {
-                            return page.id == pageId;
+                            return page.id === pageId;
                         });
                         if (pageData && typeof pageData.content[this.colIndex] !== 'undefined') {
                             pageData.content[this.colIndex] = text;

@@ -11,7 +11,8 @@
         "./runtime/js/tabs"
     ],
     "css": [
-        "./runtime/css/textReaderInteraction.css" 
+        "./runtime/css/textReaderInteraction.css",
+        "./runtime/css/jquery.qtip.css"
     ],
     "entryPoint": "./runtime/textReaderInteraction.js",
     "tags": [
@@ -22,6 +23,6 @@
     "short": "Text reader",
     "response": {
         "baseType": "boolean",
-        "cardinality": "single" 
+        "cardinality": "single"
     }
 }
