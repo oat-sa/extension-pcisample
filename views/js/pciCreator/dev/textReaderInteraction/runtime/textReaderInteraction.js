@@ -18,11 +18,12 @@
  */
 define(
     [
+        'IMSGlobal/jquery_2_1_1',
         'qtiCustomInteractionContext',
         'OAT/util/event',
         'textReaderInteraction/runtime/js/renderer'
     ],
-    function (qtiCustomInteractionContext, event, Renderer) {
+    function ($, qtiCustomInteractionContext, event, Renderer) {
         'use strict';
         qtiCustomInteractionContext.register({
             id : -1,
@@ -36,8 +37,7 @@ define(
              * @param {Object} config - json
              */
             initialize : function (id, dom, config) {
-                var that = this,
-                    pci = this._taoCustomInteraction;
+                var pci = this._taoCustomInteraction;
 
                 this.id = id;
                 this.dom = dom;
