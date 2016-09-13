@@ -36,7 +36,7 @@ define([
                                 pages : pagesTpl,
                                 navigation : navigationTpl
                             },
-                            interaction: pci
+                            interaction: pci // WTF ?!
                         });
                     }
                     pci.widgetRenderer.setState(state.name);
