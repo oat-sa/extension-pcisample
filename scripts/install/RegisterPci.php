@@ -22,6 +22,7 @@ namespace oat\pciSamples\scripts\install;
 
 use common_ext_action_InstallAction;
 use oat\oatbox\service\ServiceManager;
+use oat\taoQtiItem\model\portableElement\exception\PortableElementVersionIncompatibilityException;
 use oat\taoQtiItem\model\portableElement\PortableElementService;
 
 class RegisterPci extends common_ext_action_InstallAction
@@ -33,8 +34,14 @@ class RegisterPci extends common_ext_action_InstallAction
 
         $viewDir = \common_ext_ExtensionsManager::singleton()->getExtensionById('pciSamples')->getConstant('DIR_VIEWS');
 
-        $sourceTextReader = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'textReaderInteraction']).DIRECTORY_SEPARATOR;
-        $service->registerFromDirectorySource($sourceTextReader);
+        try {
+            $sourceTextReader = $viewDir.implode(DIRECTORY_SEPARATOR, ['js', 'pciCreator', 'dev', 'textReaderInteraction']);
+            $service->registerFromDirectorySource($sourceTextReader);
+        } catch (PortableElementVersionIncompatibilityException $e) {
+            \common_Logger::i($e->getMessage());
+        }
+
+
 
         return new \common_report_Report(\common_report_Report::TYPE_SUCCESS, 'Portable Element Plugins for Qti Creator added to Tao Qti Item extension');
     }
