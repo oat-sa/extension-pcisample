@@ -53,8 +53,7 @@ define(
              */
             this.renderPages = function (data) {
                 var templateData = {},
-                    markup,
-                    fixedMarkup;
+                    markup;
 
                 this.options.$container.trigger('beforerenderpages.' + self.eventNs);
 
@@ -64,34 +63,7 @@ define(
 
                     markup = self.options.templates.pages(templateData, self.getTemplateOptions());
 
-                    console.log(Date.now() + 'rendering pages');
-
-                    // if (typeof self.options.interaction !== 'undefined' && typeof self.options.interaction.renderer !== 'undefined') {
-                    //     fixedMarkup = PortableElement.fixMarkupMediaSources(
-                    //         markup,
-                    //         self.options.interaction.renderer
-                    //     );
-                    // }
-
-                    this.options.$container.find('.js-page-container').html(fixedMarkup || markup);
-                    // console.dir($.fn.qtip);
-                    var $tooltip = this.options.$container.find('.tooltip');
-                    $tooltip.qtip({
-                        content: {
-                            text: $tooltip.find('dd').html()
-                        },
-                        position: {
-                            target: 'event',
-                            my: 'top center',
-                            at: 'bottom center'
-                        },
-                        style: {
-                            tip: {
-                                corner: true
-                            },
-                            classes: 'qtip-rounded qtip-shadow'
-                        }
-                    });
+                    this.options.$container.find('.js-page-container').html(markup);
                 }
 
                 //init tabs
@@ -113,6 +85,36 @@ define(
                 });
 
                 this.options.$container.trigger('afterrenderpages.' + self.eventNs);
+
+                return this;
+            };
+
+            /**
+             * Function renders tooltips in pages
+             * @return {object} this
+             */
+            this.renderTooltips = function() {
+                var $tooltips = this.options.$container.find('.tooltip');
+
+                $tooltips.each(function() {
+                    var $currentTooltip = $(this);
+                    $currentTooltip.qtip({
+                        content: {
+                            text: $currentTooltip.find('dd').html() // use text or something else? What if html markup?
+                        },
+                        position: {
+                            target: 'event',
+                            my: 'top center',
+                            at: 'bottom center'
+                        },
+                        style: {
+                            tip: {
+                                corner: true
+                            },
+                            classes: 'qtip-rounded qtip-shadow'
+                        }
+                    });
+                });
 
                 return this;
             };
@@ -146,6 +148,7 @@ define(
              */
             this.renderAll = function (data) {
                 this.renderPages(data);
+                this.renderTooltips();
                 this.renderNavigation(data);
                 return this;
             };
