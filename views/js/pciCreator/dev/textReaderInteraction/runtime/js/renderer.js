@@ -99,8 +99,9 @@ define(
                 $tooltips.each(function() {
                     var $currentTooltip = $(this);
                     $currentTooltip.qtip({
+                        overwrite: true,
                         content: {
-                            text: $currentTooltip.find('dd').html() // use text or something else? What if html markup?
+                            text: $currentTooltip.find('dd').html()
                         },
                         position: {
                             target: 'event',
