@@ -17,6 +17,7 @@
  *
  */
 define([
+    //todo: clean this up
     'taoQtiItem/qtiCreator/widgets/states/factory',
     'taoQtiItem/qtiCreator/widgets/interactions/states/Question',
     'taoQtiItem/qtiCreator/widgets/helpers/formElement',
@@ -24,8 +25,25 @@ define([
     'tpl!textReaderInteraction/creator/tpl/propertiesForm',
     'lodash',
     'jquery',
+    'taoQtiItem/qtiCreator/widgets/helpers/content',
+    'taoQtiItem/qtiCreator/widgets/helpers/textWrapper',
+    'tpl!taoQtiItem/qtiCreator/tpl/toolbars/hottext-create', // todo: change this
+    'tpl!textReaderInteraction/creator/tpl/tooltip',
     'css!textReaderInteraction/creator/css/textReaderInteraction'
-], function (stateFactory, Question, formElement, containerEditor, formTpl, _, $) {
+    // 'taoQtiItem/qtiItem/helper/util' // for build identifier
+], function (
+    stateFactory,
+    Question,
+    formElement,
+    containerEditor,
+    formTpl,
+    _,
+    $,
+    htmlContentHelper,
+    textWrapper,
+    hottextTpl,
+    tooltipTpl
+) {
     'use strict';
     var stateQuestion = stateFactory.extend(Question, function () {
         var that = this,
@@ -119,6 +137,7 @@ define([
         });
 
         initEditors($container, interaction);
+        initTextWrapper($container);
 
     }, function () {
         var $container = this.widget.$container,
@@ -135,10 +154,28 @@ define([
             interaction = _widget.element,
             response = interaction.getResponseDeclaration();
 
+        var $container = _widget.$container,
+            $tooltips = $container.find('dl.tooltip'),
+            tooltips = [];
+
+        $tooltips.each(function () {
+            tooltips.push({
+                term: $(this).find('dt').text(),
+                desc: $(this).find('dd').text()
+            });
+        });
+
         //render the form using the form template
+        // $form.html(formTpl(_.merge(
+        //     interaction.properties,
+        //     {
+        //         tooltips: tooltips
+        //     }
+        // )));
         $form.html(formTpl(
             interaction.properties
         ));
+
 
         $('.js-page-height-select').val(interaction.properties.pageHeight);
         $('.js-tab-position').val(interaction.properties.tabsPosition);
@@ -197,7 +234,6 @@ define([
             }
         });
     };
-
     /**
      * Function initializes the editors on the each page.
      * @param {jQuery DOM element} $container - interaction container
@@ -216,6 +252,7 @@ define([
 
                 containerEditor.create($(this), {
                     change : function (text) {
+                        console.log('change cb triggered');
                         var pageData = _.find(interaction.properties.pages, function (page) {
                             return page.id === pageId;
                         });
@@ -230,6 +267,76 @@ define([
             });
         });
     }
+
+    function initTextWrapper($container) {
+        var $editable = $container.find('.js-page-column'),
+            // todo: inject this
+            gapModel = {
+                toolbarTpl : hottextTpl
+                /*
+                ,
+                afterCreate : function(interactionWidget, newHottextWidget, text){
+
+                    newHottextWidget.element.body(text);
+                    newHottextWidget.$container.find('.hottext-content').html(text);//add this manually the first time
+                    newHottextWidget.changeState('choice');
+                }
+                 */
+            },
+            $toolbar = $(gapModel.toolbarTpl());
+
+        $toolbar.show(); // todo: necessary?
+
+        $toolbar.on('mousedown', function(e){
+            var $selectionWrapper = $toolbar.parent(),
+                text = $selectionWrapper.text().trim(),
+                $tooltip = $(tooltipTpl({
+                    term: text
+                }));
+
+            e.stopPropagation(); // prevent rewrapping
+            $toolbar.detach();
+
+
+
+            // $selectionWrapper
+            //     .removeAttr('id')
+            //     .addClass('widget-box')
+            //     .attr('data-new', true);
+
+            $selectionWrapper.replaceWith($tooltip);
+            textWrapper.destroy($editable); // todo: this works ?
+
+
+            // textWrapper.unwrap($editable); // todo: this works ?
+
+            // htmlContentHelper.createElements(interaction.getBody(), $editable, htmlEditor.getData($editable), function(newGapWidget){
+            //
+            //     newGapWidget.changeState('question');
+            //     textWrapper.create($editable);
+            //     gapModel.afterCreate(widget, newGapWidget, _.escape(text));
+            // });
+
+        }).on('mouseup', function preventRewrapping(e){
+            e.stopPropagation();
+        });
+
+
+        $editable.on('editorready.wrapper', function addTextWrapperFunctionnality(e) {
+            var $target = $(e.target);
+            textWrapper.create($target);
+
+        }).on('wrapped.wrapper', function displayToolbar(e, $selectionWrapper){
+            $selectionWrapper.append($toolbar);
+
+        }).on('beforeunwrap.wrapper', function hideToolbar() {
+            $toolbar.detach();
+        });
+    }
+
+
+
+
 
     return stateQuestion;
 });
