@@ -17,25 +17,24 @@
  * Copyright (c) 2015 (original work) Open Assessment Technologies;
  *               
  * 
- */               
+ */
+use oat\pciSamples\scripts\install\RegisterPci;
 
 return array(
     'name' => 'pciSamples',
 	'label' => 'QTI PCI samples',
 	'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '0.2.1',
+    'version' => '1.0.0',
 	'author' => 'Open Assessment Technologies',
-	'requires' => array('qtiItemPci' => '>=0.1'),
-	// for compatibility
-	'dependencies' => array('qtiItemPci'),
+	'requires' => array('qtiItemPci' => '>=1.0.0'),
 	'managementRole' => 'http://www.tao.lu/Ontologies/generis.rdf#pciSamplesManager',
     'acl' => array(
         array('grant', 'http://www.tao.lu/Ontologies/generis.rdf#pciSamplesManager', array('ext'=>'pciSamples')),
     ),
     'install' => array(
         'php'	=> array(
-			dirname(__FILE__).'/scripts/install/addHook.php'
+			RegisterPci::class
 		)
     ),
     'update' => 'oat\\pciSamples\\scripts\\update\\Updater',
