@@ -52,3 +52,12 @@
     color: #a4bbc5;
     font-weight: bold;
 }
+
+
+/* tooltips */
+.item-editor-item .tooltip {
+    border: 1px solid #F1D031;
+    padding: 3px;
+    font-weight: bold;
+    background-color: #FFFFA3;
+}

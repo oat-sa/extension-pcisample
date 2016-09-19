@@ -17,37 +17,32 @@
  *
  */
 define([
-    //todo: clean this up
     'taoQtiItem/qtiCreator/widgets/states/factory',
     'taoQtiItem/qtiCreator/widgets/interactions/states/Question',
     'taoQtiItem/qtiCreator/widgets/helpers/formElement',
     'taoQtiItem/qtiCreator/editor/containerEditor',
+    'taoQtiItem/qtiCreator/editor/ckEditor/htmlEditor',
+    'textReaderInteraction/creator/js/tooltips',
     'tpl!textReaderInteraction/creator/tpl/propertiesForm',
     'lodash',
     'jquery',
-    'taoQtiItem/qtiCreator/widgets/helpers/content',
-    'taoQtiItem/qtiCreator/widgets/helpers/textWrapper',
-    'tpl!taoQtiItem/qtiCreator/tpl/toolbars/hottext-create', // todo: change this
-    'tpl!textReaderInteraction/creator/tpl/tooltip',
     'css!textReaderInteraction/creator/css/textReaderInteraction'
-    // 'taoQtiItem/qtiItem/helper/util' // for build identifier
 ], function (
     stateFactory,
     Question,
     formElement,
     containerEditor,
+    htmlEditor,
+    tooltipManager,
     formTpl,
     _,
-    $,
-    htmlContentHelper,
-    textWrapper,
-    hottextTpl,
-    tooltipTpl
+    $
 ) {
     'use strict';
     var stateQuestion = stateFactory.extend(Question, function () {
         var that = this,
             $container = that.widget.$container,
+            $form = that.widget.$form,
             interaction = that.widget.element,
             properties = interaction.properties,
             pageIds = _.pluck(properties.pages, 'id'),
@@ -135,13 +130,43 @@ define([
         $container.on('createpager.' + interaction.typeIdentifier, function () {
             initEditors($container, interaction);
         });
-
         initEditors($container, interaction);
-        initTextWrapper($container);
+
+        // add tooltip functionality
+        this.tooltips = tooltipManager({
+            $authoringContainer: $form.find('.tooltip_authoring'),
+            $interactionContainer: $container,
+            $editableFields: $container.find('.js-page-column'),
+            tooltipsData: interaction.properties.tooltips
+        });
+
+        this.tooltips.on('contentChange.tooltipsManager', function(tooltipsData) {
+            interaction.properties.tooltips = tooltipsData;
+        });
+
+        this.tooltips.on('tooltipCreated.tooltipsManager', function(tooltipsData, createdTooltip) {
+            var $tooltip = $container.find('[data-identifier=' + createdTooltip.id + ']'),
+                $tooltipColumn = $tooltip.closest('.js-page-column'),
+                tooltipColumnIndex = $tooltipColumn.data('page-col-index'),
+                tooltipPageId = $tooltip.closest('.js-tab-content').data('page-id');
+
+            saveColumn(
+                interaction,
+                tooltipPageId,
+                tooltipColumnIndex,
+                htmlEditor.getData($tooltipColumn.find('[data-html-editable=true]'))
+            );
+
+            interaction.properties.tooltips = tooltipsData;
+        });
+        this.tooltips.init();
+
 
     }, function () {
         var $container = this.widget.$container,
             interaction = this.widget.element;
+
+        this.tooltips.destroy();
 
         $container.off('.' + interaction.typeIdentifier);
 
@@ -151,31 +176,12 @@ define([
     stateQuestion.prototype.initForm = function () {
         var _widget = this.widget,
             $form = _widget.$form,
-            interaction = _widget.element,
-            response = interaction.getResponseDeclaration();
-
-        var $container = _widget.$container,
-            $tooltips = $container.find('dl.tooltip'),
-            tooltips = [];
-
-        $tooltips.each(function () {
-            tooltips.push({
-                term: $(this).find('dt').text(),
-                desc: $(this).find('dd').text()
-            });
-        });
+            interaction = _widget.element;
 
         //render the form using the form template
-        // $form.html(formTpl(_.merge(
-        //     interaction.properties,
-        //     {
-        //         tooltips: tooltips
-        //     }
-        // )));
         $form.html(formTpl(
             interaction.properties
         ));
-
 
         $('.js-page-height-select').val(interaction.properties.pageHeight);
         $('.js-tab-position').val(interaction.properties.tabsPosition);
@@ -248,17 +254,12 @@ define([
                 pageIndex = $(this).data('page-num');
 
             $(this).find('.js-page-column').each(function () {
-                var colIndex = $(this).data('page-col-index');
+                var $editor = $(this),
+                    colIndex = $editor.data('page-col-index');
 
-                containerEditor.create($(this), {
+                containerEditor.create($editor, {
                     change : function (text) {
-                        console.log('change cb triggered');
-                        var pageData = _.find(interaction.properties.pages, function (page) {
-                            return page.id === pageId;
-                        });
-                        if (pageData && typeof pageData.content[this.colIndex] !== 'undefined') {
-                            pageData.content[this.colIndex] = text;
-                        }
+                        saveColumn(interaction, pageId, this.colIndex, text);
                     },
                     markup : interaction.properties.pages[pageIndex].content[colIndex],
                     related : interaction,
@@ -268,75 +269,14 @@ define([
         });
     }
 
-    function initTextWrapper($container) {
-        var $editable = $container.find('.js-page-column'),
-            // todo: inject this
-            gapModel = {
-                toolbarTpl : hottextTpl
-                /*
-                ,
-                afterCreate : function(interactionWidget, newHottextWidget, text){
-
-                    newHottextWidget.element.body(text);
-                    newHottextWidget.$container.find('.hottext-content').html(text);//add this manually the first time
-                    newHottextWidget.changeState('choice');
-                }
-                 */
-            },
-            $toolbar = $(gapModel.toolbarTpl());
-
-        $toolbar.show(); // todo: necessary?
-
-        $toolbar.on('mousedown', function(e){
-            var $selectionWrapper = $toolbar.parent(),
-                text = $selectionWrapper.text().trim(),
-                $tooltip = $(tooltipTpl({
-                    term: text
-                }));
-
-            e.stopPropagation(); // prevent rewrapping
-            $toolbar.detach();
-
-
-
-            // $selectionWrapper
-            //     .removeAttr('id')
-            //     .addClass('widget-box')
-            //     .attr('data-new', true);
-
-            $selectionWrapper.replaceWith($tooltip);
-            textWrapper.destroy($editable); // todo: this works ?
-
-
-            // textWrapper.unwrap($editable); // todo: this works ?
-
-            // htmlContentHelper.createElements(interaction.getBody(), $editable, htmlEditor.getData($editable), function(newGapWidget){
-            //
-            //     newGapWidget.changeState('question');
-            //     textWrapper.create($editable);
-            //     gapModel.afterCreate(widget, newGapWidget, _.escape(text));
-            // });
-
-        }).on('mouseup', function preventRewrapping(e){
-            e.stopPropagation();
+    function saveColumn(interaction, pageId, colIndex, text) {
+        var pageData = _.find(interaction.properties.pages, function (page) {
+            return parseInt(page.id, 10) === parseInt(pageId, 10);
         });
-
-
-        $editable.on('editorready.wrapper', function addTextWrapperFunctionnality(e) {
-            var $target = $(e.target);
-            textWrapper.create($target);
-
-        }).on('wrapped.wrapper', function displayToolbar(e, $selectionWrapper){
-            $selectionWrapper.append($toolbar);
-
-        }).on('beforeunwrap.wrapper', function hideToolbar() {
-            $toolbar.detach();
-        });
+        if (pageData && typeof pageData.content[colIndex] !== 'undefined') {
+            pageData.content[colIndex] = text;
+        }
     }
-
-
-
-
 
     return stateQuestion;
 });

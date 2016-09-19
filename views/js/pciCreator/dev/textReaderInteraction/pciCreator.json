@@ -24,5 +24,6 @@
     "response": {
         "baseType": "boolean",
         "cardinality": "single"
-    }
+    },
+    "debug": true
 }

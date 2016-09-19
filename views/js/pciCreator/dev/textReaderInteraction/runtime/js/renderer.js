@@ -93,15 +93,21 @@ define(
              * Function renders tooltips in pages
              * @return {object} this
              */
-            this.renderTooltips = function() {
-                var $tooltips = this.options.$container.find('.tooltip');
+            this.renderTooltips = function(data) {
+
+                var $tooltips = this.options.$container.find('.tooltip'),
+                    tooltipsContent = {};
+
+                data.tooltips.forEach(function(tooltipDesc) {
+                    tooltipsContent[tooltipDesc.id] = tooltipDesc.desc;
+                });
 
                 $tooltips.each(function() {
                     var $currentTooltip = $(this);
                     $currentTooltip.qtip({
                         overwrite: true,
                         content: {
-                            text: $currentTooltip.find('dd').html()
+                            text: tooltipsContent[$currentTooltip.data('identifier')]
                         },
                         position: {
                             target: 'event',
@@ -149,7 +155,7 @@ define(
              */
             this.renderAll = function (data) {
                 this.renderPages(data);
-                this.renderTooltips();
+                this.renderTooltips(data);
                 this.renderNavigation(data);
                 return this;
             };

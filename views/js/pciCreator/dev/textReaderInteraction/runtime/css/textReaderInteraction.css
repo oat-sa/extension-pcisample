@@ -268,19 +268,12 @@
 }
 /* END navigation buttons */
 
-.textReaderInteraction dl.tooltip  {
-    display: inline;
-    margin: 0;
-}
 
-.textReaderInteraction dl.tooltip dt {
+/* tooltips */
+.textReaderInteraction .tooltip  {
     display: inline;
     font-weight: bold;
     text-decoration: underline;
     text-decoration-style: dotted;
     cursor: pointer;
-}
-
-.textReaderInteraction dl.tooltip dd {
-    display: none;
 }
