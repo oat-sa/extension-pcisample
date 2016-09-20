@@ -2,8 +2,8 @@
 <div class="panel">
     {{#each tooltips}}
     <div>
-        <label class="smaller-prompt">
-            <a href="#" title="{{__ 'Remove Tooltip'}}">
+        <label class="smaller-prompt tooltip-edit" data-identifier="{{id}}">
+            <a href="#" class="tooltip-delete" title="{{__ 'Remove Tooltip'}}">
                 <span class="icon-close"></span>
             </a>
             {{label}}

@@ -139,27 +139,55 @@ define([
             $editableFields: $container.find('.js-page-column'),
             tooltipsData: interaction.properties.tooltips
         });
-
-        this.tooltips.on('contentChange.tooltipsManager', function(tooltipsData) {
-            interaction.properties.tooltips = tooltipsData;
-        });
-
-        this.tooltips.on('tooltipCreated.tooltipsManager', function(tooltipsData, createdTooltip) {
-            var $tooltip = $container.find('[data-identifier=' + createdTooltip.id + ']'),
-                $tooltipColumn = $tooltip.closest('.js-page-column'),
-                tooltipColumnIndex = $tooltipColumn.data('page-col-index'),
-                tooltipPageId = $tooltip.closest('.js-tab-content').data('page-id');
-
-            saveColumn(
-                interaction,
-                tooltipPageId,
-                tooltipColumnIndex,
-                htmlEditor.getData($tooltipColumn.find('[data-html-editable=true]'))
-            );
-
-            interaction.properties.tooltips = tooltipsData;
-        });
         this.tooltips.init();
+
+        this.tooltips.on('tooltipChange', function(tooltipsData) {
+            interaction.properties.tooltips = tooltipsData;
+        });
+
+        this.tooltips.on('tooltipCreated', function(tooltipsData, createdTooltip) {
+            var tooltipInfos = getTooltipInfos(createdTooltip.id);
+            if (tooltipInfos) {
+                saveColumn(
+                    interaction,
+                    tooltipInfos.pageId,
+                    tooltipInfos.colIndex,
+                    tooltipInfos.colHtml
+                );
+                interaction.properties.tooltips = tooltipsData;
+            }
+        });
+
+        this.tooltips.before('tooltipDeleted', function(tooltipsData, deletedTooltip) {
+            deletedTooltip.infos = getTooltipInfos(deletedTooltip.id);
+        });
+
+        this.tooltips.on('tooltipDeleted', function(tooltipsData, deletedTooltip) {
+            if (deletedTooltip.infos) {
+                saveColumn(
+                    interaction,
+                    deletedTooltip.infos.pageId,
+                    deletedTooltip.infos.colIndex,
+                    deletedTooltip.infos.colHtml
+                );
+                interaction.properties.tooltips = tooltipsData;
+            }
+        });
+
+        function getTooltipInfos($tooltipId) {
+            var $tooltip = $container.find('[data-identifier=' + $tooltipId + ']'),
+                $tooltipColumn = $tooltip.closest('.js-page-column');
+
+            if ($tooltip.length && $tooltipColumn.length) {
+                return {
+                    pageId: $tooltip.closest('.js-tab-content').data('page-id'),
+                    colIndex: $tooltipColumn.data('page-col-index'),
+                    colHtml: htmlEditor.getData($tooltipColumn.find('[data-html-editable=true]'))
+                };
+            } else {
+                return false;
+            }
+        }
 
 
     }, function () {

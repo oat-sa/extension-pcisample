@@ -53,6 +53,7 @@ define([
             ns = '.tooltipsManager',
             tooltipsData = options.tooltipsData,
             $authoringContainer = options.$authoringContainer,
+            $interactionContainer = options.$interactionContainer,
             $editableFields = options.$editableFields;
 
         tooltipManager = _.merge(eventifier(), {
@@ -108,14 +109,15 @@ define([
                 // create in model
                 tooltipsData.push(createdTooltip);
 
-                this.trigger('tooltipCreated' + ns, tooltipsData, createdTooltip);
+                this.trigger('tooltipCreated', tooltipsData, createdTooltip);
 
                 // todo: protect markup / add 'widget-box' class ?
             },
 
             _renderForm: function() {
                 var self = this,
-                    $inputFields;
+                    $inputFields,
+                    $removeLinks;
 
                 $authoringContainer.empty();
                 $authoringContainer.append(
@@ -124,18 +126,20 @@ define([
                     })
                 );
 
-                $inputFields = $authoringContainer.find('textarea.tooltip-content-edit');
+                $inputFields = $authoringContainer.find('.tooltip-content-edit');
+                $inputFields.on('keyup' + ns, _.debounce(function(e) {
+                    var $tooltip = $(e.target),
+                        tooltipId = $tooltip.closest('.tooltip-edit').data('identifier'),
+                        tooltipContent = $tooltip.val();
 
-                if ($inputFields.length) {
-                    $inputFields.off(ns);
-                    $inputFields.on('keyup' + ns, _.debounce(function(e) {
-                        var $tooltip = $(e.target),
-                            tooltipId = $tooltip.attr('name'),
-                            tooltipContent = $tooltip.val();
+                    self._updateTooltipContent(tooltipId, tooltipContent);
+                }));
 
-                        self._updateTooltipContent(tooltipId, tooltipContent);
-                    }));
-                }
+                $removeLinks = $authoringContainer.find('.tooltip-delete');
+                $removeLinks.on('click' + ns, function(e) {
+                    var tooltipId = $(e.target).closest('.tooltip-edit').data('identifier');
+                    self._deleteTooltip(tooltipId);
+                });
             },
 
             _updateTooltipContent: function(tooltipId, tooltipContent) {
@@ -145,19 +149,43 @@ define([
                 if (updatedTooltip && typeof updatedTooltip.content) {
                     updatedTooltip.content = tooltipContent;
                 }
-                this.trigger('contentChange' + ns, tooltipsData, updatedTooltip);
+                this.trigger('tooltipChange', tooltipsData, updatedTooltip);
+            },
+
+            _deleteTooltip: function(tooltipId) {
+                var $tooltip = $interactionContainer.find('[data-identifier=' + tooltipId + ']'),
+                    deletedTooltip,
+                    deletedTooltipIndex;
+
+                // remove from markup
+                if ($tooltip.length) {
+                    $tooltip.replaceWith($tooltip.text());
+                }
+
+                // remove from model
+                deletedTooltipIndex = _.findIndex(tooltipsData, function(tooltip) {
+                    return tooltipId === tooltip.id;
+                });
+
+                deletedTooltip = tooltipsData.splice(deletedTooltipIndex, 1);
+
+                this.trigger('tooltipDeleted', tooltipsData, deletedTooltip[0]);
+
+                this._renderForm();
             },
 
             init: function() {
                 this._initToolbar();
                 this._renderForm();
+
+                // todo: ensure consistency with properties and markup
             },
 
             destroy: function() {
                 //todo: implement this properly
             }
         });
-
+        //todo: refactor to expose only public interface
         return tooltipManager;
     };
 });
