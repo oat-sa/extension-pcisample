@@ -84,7 +84,6 @@ define([
                     textWrapper.create($(this));
                 });
 
-                // todo: change namespaces
                 $editableFields.off(ns);
                 $editableFields.on('wrapped' + ns, function displayToolbar(e, $selectionWrapper){
                     $selectionWrapper.append($toolbar);
@@ -139,6 +138,8 @@ define([
                 // create in model
                 tooltipsData.push(createdTooltip);
 
+                this._renderForm();
+
                 this.trigger('tooltipCreated', createdTooltip, tooltipsData);
             },
 
@@ -186,11 +187,11 @@ define([
 
             _syncMarkupAndModel: function() {
                 var self = this,
-                    newModel = [],
                     idsInMarkup = [],
                     idsInModel = tooltipsData.map(function(data) {
                         return data.id;
                     }),
+                    removedFromModel,
                     $tooltips = $interactionContainer.find('.tooltip');
 
                 if ($tooltips.length) {
@@ -202,15 +203,13 @@ define([
                     });
                 }
                 // remove orphan entries from model
-                tooltipsData.forEach(function (tooltip) {
-                    if (idsInMarkup.indexOf(tooltip.id) !== -1) {
-                        newModel.push(tooltip);
-                    }
+                removedFromModel = _.remove(tooltipsData, function(tooltip) {
+                    return (idsInMarkup.indexOf(tooltip.id) === -1);
                 });
-                if (tooltipsData.length !== newModel.length) {
-                    tooltipsData = newModel;
+                if (removedFromModel.length > 0) {
                     this._renderForm();
                 }
+
                 // remove orphan markup
                 idsInMarkup.forEach(function(id) {
                     if (idsInModel.indexOf(id) === -1) {
@@ -233,7 +232,7 @@ define([
             },
 
             destroy: function() {
-                //todo: implement this properly (toolbar ?)
+                $editableFields.off(ns);
                 $interactionContainer.off(ns);
                 $authoringContainer.empty();
             }

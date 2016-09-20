@@ -142,18 +142,6 @@ define([
             tooltipsData: interaction.properties.tooltips
         });
 
-        this.tooltips.on('tooltipCreated', function(createdTooltip) {
-            var tooltipInfos = getTooltipInfos(createdTooltip.id);
-            if (tooltipInfos) {
-                saveColumn(
-                    interaction,
-                    tooltipInfos.pageId,
-                    tooltipInfos.colIndex,
-                    tooltipInfos.colHtml
-                );
-            }
-        });
-
         this.tooltips.on('beforeDeleteTooltipMarkup', function(tooltipId) {
             tooltipBuffer = getTooltipInfos(tooltipId);
         });
@@ -167,6 +155,18 @@ define([
                     tooltipBuffer.colHtml
                 );
                 tooltipBuffer = null;
+            }
+        });
+
+        this.tooltips.on('tooltipCreated', function(createdTooltip) {
+            var tooltipInfos = getTooltipInfos(createdTooltip.id);
+            if (tooltipInfos) {
+                saveColumn(
+                    interaction,
+                    tooltipInfos.pageId,
+                    tooltipInfos.colIndex,
+                    tooltipInfos.colHtml
+                );
             }
         });
 
