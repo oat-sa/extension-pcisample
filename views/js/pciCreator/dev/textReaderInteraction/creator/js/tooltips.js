@@ -80,15 +80,16 @@ define([
                 });
 
                 // add text wrapper functionnality to editable fields
-                // todo: change namespace
-                $editableFields.on('editorready.wrapper', function addTextWrapperFunctionality(e) {
-                    var $target = $(e.target);
-                    textWrapper.create($target);
+                $editableFields.each(function() {
+                    textWrapper.create($(this));
+                });
 
-                }).on('wrapped.wrapper', function displayToolbar(e, $selectionWrapper){
+                // todo: change namespaces
+                $editableFields.off(ns);
+                $editableFields.on('wrapped' + ns, function displayToolbar(e, $selectionWrapper){
                     $selectionWrapper.append($toolbar);
 
-                }).on('beforeunwrap.wrapper', function hideToolbar() {
+                }).on('beforeunwrap' + ns, function hideToolbar() {
                     $toolbar.detach();
                 });
             },
