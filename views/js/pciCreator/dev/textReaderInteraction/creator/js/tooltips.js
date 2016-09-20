@@ -51,32 +51,32 @@ define([
     return function tooltipManagerFactory(options) {
         var tooltipManager,
             ns = '.tooltipsManager',
+
             tooltipsData = options.tooltipsData,
             $authoringContainer = options.$authoringContainer,
             $interactionContainer = options.$interactionContainer,
-            $editableFields = options.$editableFields;
+            $editableFields = options.$editableFields,
+
+            $toolbar = $(createButtonTpl());
+
+        $toolbar.show();
 
         tooltipManager = _.merge(eventifier(), {
 
             _initToolbar: function initToolbar() {
-                var self = this,
-                    $toolbar = $(createButtonTpl());
+                var self = this;
 
-                $toolbar.show();
-
-                $toolbar.on('mousedown', function(e){
+                $toolbar.on('mousedown' + ns, function(e){
                     var $selectionWrapper = $toolbar.parent();
-                    e.stopPropagation(); // prevent rewrapping //todo: useful ?
+                    e.stopPropagation();
+
+                    $toolbar.detach();
 
                     self._createTooltip($selectionWrapper);
                     self._renderForm();
 
-                    $toolbar.detach();
-                    textWrapper.destroy($editableFields);
-                    textWrapper.unwrap($editableFields);
-
-                }).on('mouseup', function preventRewrapping(e){
-                    e.stopPropagation(); // useful ?
+                }).on('mouseup' + ns, function preventRewrapping(e){
+                    e.stopPropagation();
                 });
 
                 // add text wrapper functionnality to editable fields
@@ -112,13 +112,23 @@ define([
                         tooltipContent = $tooltip.val();
 
                     self._updateTooltipContent(tooltipId, tooltipContent);
-                }));
+                }, 500));
 
                 $removeLinks = $authoringContainer.find('.tooltip-delete');
                 $removeLinks.on('click' + ns, function(e) {
                     var tooltipId = $(e.target).closest('.tooltip-edit').data('identifier');
                     self._deleteTooltip(tooltipId);
                 });
+            },
+
+            _updateTooltipContent: function(tooltipId, tooltipContent) {
+                var updatedTooltip = _.find(tooltipsData, function (tooltip) {
+                    return tooltipId === tooltip.id;
+                });
+                if (updatedTooltip && typeof updatedTooltip.content) {
+                    updatedTooltip.content = tooltipContent;
+                }
+                this.trigger('tooltipChange', updatedTooltip, tooltipsData);
             },
 
             _createTooltip: function _createTooltip($selectionWrapper) {
@@ -141,16 +151,9 @@ define([
                 this._renderForm();
 
                 this.trigger('tooltipCreated', createdTooltip, tooltipsData);
-            },
 
-            _updateTooltipContent: function(tooltipId, tooltipContent) {
-                var updatedTooltip = _.find(tooltipsData, function (tooltip) {
-                    return tooltipId === tooltip.id;
-                });
-                if (updatedTooltip && typeof updatedTooltip.content) {
-                    updatedTooltip.content = tooltipContent;
-                }
-                this.trigger('tooltipChange', updatedTooltip, tooltipsData);
+                // this is usefull if a new tooltip destroys an old one
+                this._syncMarkupAndModel();
             },
 
             _deleteTooltip: function(tooltipId) {
@@ -232,6 +235,8 @@ define([
             },
 
             destroy: function() {
+                textWrapper.destroy($editableFields);
+                $toolbar.off(ns);
                 $editableFields.off(ns);
                 $interactionContainer.off(ns);
                 $authoringContainer.empty();
