@@ -17,6 +17,7 @@
  *
  */
 define([
+    'core/promise',
     'taoQtiItem/qtiCreator/widgets/states/factory',
     'taoQtiItem/qtiCreator/widgets/interactions/states/Question',
     'taoQtiItem/qtiCreator/widgets/helpers/formElement',
@@ -28,6 +29,7 @@ define([
     'jquery',
     'css!textReaderInteraction/creator/css/textReaderInteraction'
 ], function (
+    Promise,
     stateFactory,
     Question,
     formElement,
@@ -46,7 +48,8 @@ define([
             interaction = that.widget.element,
             properties = interaction.properties,
             pageIds = _.pluck(properties.pages, 'id'),
-            maxPageId = Math.max.apply(null, pageIds);
+            maxPageId = Math.max.apply(null, pageIds),
+            tooltipBuffer;
 
         //add page event
         $container.on('click.' + interaction.typeIdentifier, '[class*="js-add-page"]', function () {
@@ -130,22 +133,16 @@ define([
         $container.on('createpager.' + interaction.typeIdentifier, function () {
             initEditors($container, interaction);
         });
-        initEditors($container, interaction);
 
-        // add tooltip functionality
+        // Add tooltip functionality
         this.tooltips = tooltipManager({
             $authoringContainer: $form.find('.tooltip_authoring'),
             $interactionContainer: $container,
             $editableFields: $container.find('.js-page-column'),
             tooltipsData: interaction.properties.tooltips
         });
-        this.tooltips.init();
 
-        this.tooltips.on('tooltipChange', function(tooltipsData) {
-            interaction.properties.tooltips = tooltipsData;
-        });
-
-        this.tooltips.on('tooltipCreated', function(tooltipsData, createdTooltip) {
+        this.tooltips.on('tooltipCreated', function(createdTooltip) {
             var tooltipInfos = getTooltipInfos(createdTooltip.id);
             if (tooltipInfos) {
                 saveColumn(
@@ -154,30 +151,28 @@ define([
                     tooltipInfos.colIndex,
                     tooltipInfos.colHtml
                 );
-                interaction.properties.tooltips = tooltipsData;
             }
         });
 
-        this.tooltips.before('tooltipDeleted', function(tooltipsData, deletedTooltip) {
-            deletedTooltip.infos = getTooltipInfos(deletedTooltip.id);
+        this.tooltips.on('beforeDeleteTooltipMarkup', function(tooltipId) {
+            tooltipBuffer = getTooltipInfos(tooltipId);
         });
 
-        this.tooltips.on('tooltipDeleted', function(tooltipsData, deletedTooltip) {
-            if (deletedTooltip.infos) {
+        this.tooltips.on('afterDeleteTooltipMarkup', function() {
+            if (tooltipBuffer) {
                 saveColumn(
                     interaction,
-                    deletedTooltip.infos.pageId,
-                    deletedTooltip.infos.colIndex,
-                    deletedTooltip.infos.colHtml
+                    tooltipBuffer.pageId,
+                    tooltipBuffer.colIndex,
+                    tooltipBuffer.colHtml
                 );
-                interaction.properties.tooltips = tooltipsData;
+                tooltipBuffer = null;
             }
         });
 
         function getTooltipInfos($tooltipId) {
             var $tooltip = $container.find('[data-identifier=' + $tooltipId + ']'),
                 $tooltipColumn = $tooltip.closest('.js-page-column');
-
             if ($tooltip.length && $tooltipColumn.length) {
                 return {
                     pageId: $tooltip.closest('.js-tab-content').data('page-id'),
@@ -188,6 +183,11 @@ define([
                 return false;
             }
         }
+
+        initEditors($container, interaction)
+        .then(function() {
+            that.tooltips.init();
+        });
 
 
     }, function () {
@@ -275,7 +275,8 @@ define([
      * @returns {undefined}
      */
     function initEditors($container, interaction) {
-        var $pages = $container.find('.js-tab-content');
+        var $pages = $container.find('.js-tab-content'),
+            editorsReady = [];
 
         $pages.each(function () {
             var pageId = $(this).data('page-id'),
@@ -285,16 +286,24 @@ define([
                 var $editor = $(this),
                     colIndex = $editor.data('page-col-index');
 
-                containerEditor.create($editor, {
-                    change : function (text) {
-                        saveColumn(interaction, pageId, this.colIndex, text);
-                    },
-                    markup : interaction.properties.pages[pageIndex].content[colIndex],
-                    related : interaction,
-                    colIndex : colIndex
-                });
+                editorsReady.push(new Promise(function(resolve) {
+                    containerEditor.create($editor, {
+                        change : function (text) {
+                            saveColumn(interaction, pageId, this.colIndex, text);
+                        },
+                        markup : interaction.properties.pages[pageIndex].content[colIndex],
+                        related : interaction,
+                        colIndex : colIndex
+                    });
+
+                    $editor.on('editorready', function() {
+                        resolve();
+                    });
+                }));
             });
         });
+
+        return Promise.all(editorsReady);
     }
 
     function saveColumn(interaction, pageId, colIndex, text) {

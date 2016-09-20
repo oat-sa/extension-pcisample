@@ -1,12 +1,13 @@
+<hr />
 <h3>Tooltips</h3>
 <div class="panel">
     {{#each tooltips}}
     <div>
         <label class="smaller-prompt tooltip-edit" data-identifier="{{id}}">
+            <b>{{label}}</b>
             <a href="#" class="tooltip-delete" title="{{__ 'Remove Tooltip'}}">
-                <span class="icon-close"></span>
+                <span class="icon-bin"></span>
             </a>
-            {{label}}
             <textarea name="{{id}}" class="tooltip-content-edit">{{content}}</textarea>
         </label>
     </div>

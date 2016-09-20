@@ -80,6 +80,7 @@ define([
                 });
 
                 // add text wrapper functionnality to editable fields
+                // todo: change namespace
                 $editableFields.on('editorready.wrapper', function addTextWrapperFunctionality(e) {
                     var $target = $(e.target);
                     textWrapper.create($target);
@@ -90,28 +91,6 @@ define([
                 }).on('beforeunwrap.wrapper', function hideToolbar() {
                     $toolbar.detach();
                 });
-            },
-
-            _createTooltip: function _createTooltip($selectionWrapper) {
-                var tooltipId = buildId(tooltipsData),
-                    label = $selectionWrapper.text().trim(),
-                    createdTooltip = {
-                        id: tooltipId,
-                        label: label,
-                        content: ''
-                    };
-
-                // create in markup
-                $selectionWrapper.replaceWith(
-                    $(markupTpl(createdTooltip))
-                );
-
-                // create in model
-                tooltipsData.push(createdTooltip);
-
-                this.trigger('tooltipCreated', tooltipsData, createdTooltip);
-
-                // todo: protect markup / add 'widget-box' class ?
             },
 
             _renderForm: function() {
@@ -142,6 +121,26 @@ define([
                 });
             },
 
+            _createTooltip: function _createTooltip($selectionWrapper) {
+                var tooltipId = buildId(tooltipsData),
+                    label = $selectionWrapper.text().trim(),
+                    createdTooltip = {
+                        id: tooltipId,
+                        label: label,
+                        content: ''
+                    };
+
+                // create in markup
+                $selectionWrapper.replaceWith(
+                    $(markupTpl(createdTooltip))
+                );
+
+                // create in model
+                tooltipsData.push(createdTooltip);
+
+                this.trigger('tooltipCreated', createdTooltip, tooltipsData);
+            },
+
             _updateTooltipContent: function(tooltipId, tooltipContent) {
                 var updatedTooltip = _.find(tooltipsData, function (tooltip) {
                     return tooltipId === tooltip.id;
@@ -149,43 +148,95 @@ define([
                 if (updatedTooltip && typeof updatedTooltip.content) {
                     updatedTooltip.content = tooltipContent;
                 }
-                this.trigger('tooltipChange', tooltipsData, updatedTooltip);
+                this.trigger('tooltipChange', updatedTooltip, tooltipsData);
             },
 
             _deleteTooltip: function(tooltipId) {
-                var $tooltip = $interactionContainer.find('[data-identifier=' + tooltipId + ']'),
-                    deletedTooltip,
+                var deletedTooltip,
                     deletedTooltipIndex;
 
                 // remove from markup
-                if ($tooltip.length) {
-                    $tooltip.replaceWith($tooltip.text());
-                }
+                this._deleteTooltipMarkup(tooltipId);
 
                 // remove from model
                 deletedTooltipIndex = _.findIndex(tooltipsData, function(tooltip) {
                     return tooltipId === tooltip.id;
                 });
 
-                deletedTooltip = tooltipsData.splice(deletedTooltipIndex, 1);
+                if (deletedTooltipIndex !== -1) {
+                    deletedTooltip = tooltipsData.splice(deletedTooltipIndex, 1)[0];
 
-                this.trigger('tooltipDeleted', tooltipsData, deletedTooltip[0]);
+                    this.trigger('tooltipDeleted', deletedTooltip, tooltipsData);
+                    this._renderForm();
+                }
+            },
 
-                this._renderForm();
+            _deleteTooltipMarkup: function(tooltipId) {
+                var $tooltip = $interactionContainer.find('[data-identifier=' + tooltipId + ']');
+
+                if ($tooltip.length) {
+                    this.trigger('beforeDeleteTooltipMarkup', tooltipId);
+
+                    $tooltip.replaceWith($tooltip.text());
+
+                    this.trigger('afterDeleteTooltipMarkup', tooltipId);
+                }
+            },
+
+            _syncMarkupAndModel: function() {
+                var self = this,
+                    newModel = [],
+                    idsInMarkup = [],
+                    idsInModel = tooltipsData.map(function(data) {
+                        return data.id;
+                    }),
+                    $tooltips = $interactionContainer.find('.tooltip');
+
+                if ($tooltips.length) {
+                    $tooltips.each(function () {
+                        var tooltipId = $(this).attr('data-identifier');
+                        if (tooltipId) {
+                            idsInMarkup.push(tooltipId);
+                        }
+                    });
+                }
+                // remove orphan entries from model
+                tooltipsData.forEach(function (tooltip) {
+                    if (idsInMarkup.indexOf(tooltip.id) !== -1) {
+                        newModel.push(tooltip);
+                    }
+                });
+                if (tooltipsData.length !== newModel.length) {
+                    tooltipsData = newModel;
+                    this._renderForm();
+                }
+                // remove orphan markup
+                idsInMarkup.forEach(function(id) {
+                    if (idsInModel.indexOf(id) === -1) {
+                        self._deleteTooltipMarkup(id);
+                    }
+                });
             },
 
             init: function() {
+                var self = this;
+
+                this._syncMarkupAndModel();
                 this._initToolbar();
                 this._renderForm();
 
-                // todo: ensure consistency with properties and markup
+                // handle tooltip markup suppression by user
+                $interactionContainer.on('keyup' + ns, _.debounce(function() {
+                    self._syncMarkupAndModel();
+                }));
             },
 
             destroy: function() {
-                //todo: implement this properly
+                //todo: implement this properly (toolbar ?)
+                $interactionContainer.off(ns);
+                $authoringContainer.empty();
             }
         });
-        //todo: refactor to expose only public interface
         return tooltipManager;
     };
 });

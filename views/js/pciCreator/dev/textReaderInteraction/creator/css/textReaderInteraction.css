@@ -61,3 +61,7 @@
     font-weight: bold;
     background-color: #FFFFA3;
 }
+
+.item-editor-interaction-related .tooltip-delete {
+    float: right;
+}
