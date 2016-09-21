@@ -277,3 +277,8 @@
     text-decoration-style: dotted;
     cursor: pointer;
 }
+
+.qtip-default {
+    font-size: 12px!important;
+    line-height: 1.2em!important;
+}
