@@ -189,8 +189,7 @@ define([
             },
 
             _syncMarkupAndModel: function() {
-                var self = this,
-                    idsInMarkup = [],
+                var idsInMarkup = [],
                     idsInModel = tooltipsData.map(function(data) {
                         return data.id;
                     }),
@@ -213,10 +212,18 @@ define([
                     this._renderForm();
                 }
 
-                // remove orphan markup
+                // create missing model entry
                 idsInMarkup.forEach(function(id) {
+                    var $tooltip;
                     if (idsInModel.indexOf(id) === -1) {
-                        self._deleteTooltipMarkup(id);
+                        $tooltip = $interactionContainer.find('.tooltip[data-identifier=' + id + ']');
+                        if ($tooltip.length) {
+                            tooltipsData.push({
+                                id: id,
+                                label: $tooltip.text(),
+                                content: ''
+                            });
+                        }
                     }
                 });
             },
