@@ -40,28 +40,33 @@
                                 <pci:properties key="3">
                                     <pci:entry key="id">tltp_9703</pci:entry>
                                     <pci:entry key="label">human</pci:entry>
-                                    <pci:entry key="content">me, you, everybody!</pci:entry>
+                                    <pci:entry key="content">Modern humans (Homo sapiens, primarily ssp. Homo sapiens sapiens) are the only extant members of Hominina clade (or human clade), a branch of the taxonomical tribe Hominini belonging to the family of great apes. They are characterized by erect posture and bipedal locomotion; manual dexterity and increased tool use, compared to other animals; and a general trend toward larger, more complex brains and societies</pci:entry>
                                 </pci:properties>
                                 <pci:properties key="4">
                                     <pci:entry key="id">tltp_7703</pci:entry>
-                                    <pci:entry key="label">other</pci:entry>
-                                    <pci:entry key="content">me, you, everybody!</pci:entry>
+                                    <pci:entry key="label">Phantom</pci:entry>
+                                    <pci:entry key="content">wooooo oooooooh...</pci:entry>
                                 </pci:properties>
                             </pci:properties>
                             <pci:properties key="pages">
                                 <pci:properties key="0">
                                     <pci:entry key="label">Page 1</pci:entry>
                                     <pci:properties key="content">
-                                        <pci:entry key="0">&lt;strong&gt;Tao&lt;/strong&gt; or &lt;strong&gt;Dao&lt;/strong&gt; (/taʊ/, /daʊ/; &lt;span class="tooltip" data-identifier="tltp_9060"&gt; Chinese &lt;/span&gt;: 道; pinyin: [About this sound] &amp;nbsp;Dào&amp;nbsp;(help·info)) is a Chinese word signifying 'way', 'path', 'route', or sometimes more loosely, 'doctrine' or 'principle'. Within the context of traditional Chinese philosophy and religion, the Tao is the intuitive knowing of "life" that cannot be grasped full-heartedly as just a concept but is known nonetheless through actual living experience of one's everyday being. The Tao differs from conventional (&lt;span class="tooltip" data-identifier="tltp_3958"&gt; Western &lt;/span&gt;) ontology in that it is an active and holistic practice of the natural order of Nature and its universal awakening, rather than a static, atomistic one.&lt;br /&gt;
+                                        <pci:entry key="0">This item can be used to perform some testing in authoring:
+                                            &lt;br /&gt;&lt;br /&gt;
+                                            &lt;ul&gt;
+                                            &lt;li&gt;&lt;strong&gt;Chinese&lt;/strong&gt;: is an empty tooltip &lt;/li&gt;
+                                            &lt;li&gt;&lt;strong&gt;Western&lt;/strong&gt;: doesn't have any associated model. It should be created automatically when opened in TAO editor&lt;/li&gt;
+                                            &lt;li&gt;&lt;strong&gt;Phantom&lt;/strong&gt;: this tooltip exists in model but doesn't have any associated markup. It shouldn't appear in the tooltip authoring and should be deleted from properties by editor&lt;/li&gt;
+                                            &lt;li&gt;other tooltips are normal&lt;/li&gt;
+                                            &lt;/ul&gt;
+                                            &lt;strong&gt;Tao&lt;/strong&gt; or &lt;strong&gt;Dao&lt;/strong&gt; (/taʊ/, /daʊ/; &lt;span class="tooltip" data-identifier="tltp_9060"&gt; Chinese &lt;/span&gt;: 道; pinyin: [About this sound] &amp;nbsp;Dào&amp;nbsp;(help·info)) is a Chinese word signifying 'way', 'path', 'route', or sometimes more loosely, 'doctrine' or 'principle'. Within the context of traditional Chinese philosophy and religion, the Tao is the intuitive knowing of "life" that cannot be grasped full-heartedly as just a concept but is known nonetheless through actual living experience of one's everyday being. The Tao differs from conventional (&lt;span class="tooltip" data-identifier="tltp_3958"&gt; Western &lt;/span&gt;) ontology in that it is an active and holistic practice of the natural order of Nature and its universal awakening, rather than a static, atomistic one.&lt;br /&gt;
                                             &lt;br /&gt;
                                             Laozi in the &lt;span class="tooltip" data-identifier="ttip_1111"&gt;Tao Te Ching&lt;/span&gt; explains that the Tao is not a 'name' for a 'thing' but the underlying natural order of the Universe whose ultimate essence is difficult to circumscribe due to it being non conceptual yet evident' in one's being of aliveness.[citation needed] The Tao is "eternally nameless” (Tao Te Ching-32. Laozi) and to be distinguished from the countless 'named' things which are considered to be its manifestations, the reality of life before its descriptions of it.&lt;br /&gt;
                                             &lt;br /&gt;
-                                            héhéhé&lt;br /&gt;
-                                            &lt;br /&gt;
                                             The Tao lends its name to the religious tradition (Wade–Giles, Tao Chiao; Pinyin, Daojiao) and philosophical tradition (Wade–Giles, Tao chia; Pinyin, Daojia) that are both referred to in English with the single term &lt;span class="tooltip" data-identifier="ttip_2222"&gt;Taoism&lt;/span&gt;.&lt;br /&gt;
                                             &lt;br /&gt;
-                                            &lt;br /&gt;
-                                            &amp;nbsp;</pci:entry>
+                                            </pci:entry>
                                     </pci:properties>
                                     <pci:entry key="id">0</pci:entry>
                                 </pci:properties>
@@ -76,7 +81,7 @@
 
                                             &lt;p&gt;The Tao is usually described in terms of elements of nature, and in particular as similar to water. Like water it is undifferentiated, endlessly self-replenishing, soft and quiet but immensely powerful, and impassively generous.[10] Much of Taoist philosophy centers on the cyclical continuity of the natural world, and its contrast to the linear, goal-oriented actions of human beings.&lt;/p&gt;
                                         </pci:entry>
-                                        <pci:entry key="1">&lt;img src="tao1.jpg" alt="tao1" width="100%" /&gt;</pci:entry>
+                                        <pci:entry key="1">empty...</pci:entry>
                                     </pci:properties>
                                     <pci:entry key="id">1</pci:entry>
                                 </pci:properties>
