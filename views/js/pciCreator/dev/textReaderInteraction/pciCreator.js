@@ -1,12 +1,11 @@
 /*global define*/
 define([
-    './creator/widget/Widget',
-    'taoQtiItem/qtiCreator/editor/customInteractionRegistry',
+    'textReaderInteraction/creator/widget/Widget',
     'textReaderInteraction/runtime/js/renderer',
-    'tpl!./runtime/tpl/markup',
+    'tpl!textReaderInteraction/creator/tpl/markup',
     'tpl!textReaderInteraction/creator/tpl/pages',
     'tpl!textReaderInteraction/creator/tpl/navigation'
-], function (Widget, registry, Renderer, markupTpl, pagesTpl, navigationTpl) {
+], function (Widget, Renderer, markupTpl, pagesTpl, navigationTpl) {
     'use strict';
     var _typeIdentifier = 'textReaderInteraction';
 

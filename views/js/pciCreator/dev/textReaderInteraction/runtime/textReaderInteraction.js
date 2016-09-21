@@ -50,7 +50,8 @@ define(
                 if (!pci.widgetRenderer) {
                     pci.widgetRenderer = new Renderer({
                         serial : pci.serial,
-                        $container : this.$container
+                        $container : this.$container,
+                        interaction : pci
                     });
                     pci.widgetRenderer.renderAll(pci.properties);
                 }

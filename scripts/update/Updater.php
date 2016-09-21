@@ -21,8 +21,10 @@
 
 namespace oat\pciSamples\scripts\update;
 
+use oat\pciSamples\scripts\install\RegisterPci;
+use oat\taoQtiItem\model\HookRegistry;
 
-class Updater extends \common_ext_ExtensionUpdater 
+class Updater extends \common_ext_ExtensionUpdater
 {
 
 	/**
@@ -37,7 +39,21 @@ class Updater extends \common_ext_ExtensionUpdater
 			$this->setVersion('0.2.1');
 		}
 
+		if($this->isVersion('0.2.1')){
+			$registerPci = new RegisterPci();
+			$registerPci([]);
 
-		return null;
+			HookRegistry::getRegistry()->remove('pciSamplesCreator');
+
+			$this->setVersion('1.0.0');
+		}
+
+		$this->skip('1.0.0', '1.0.1');
+
+		if($this->isVersion('1.0.1')){
+			call_user_func(new RegisterPci(), []);
+			$this->setVersion('1.0.2');
+		}
+
 	}
 }
