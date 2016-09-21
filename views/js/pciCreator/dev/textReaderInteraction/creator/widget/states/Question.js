@@ -42,10 +42,10 @@ define([
 ) {
     'use strict';
     var stateQuestion = stateFactory.extend(Question, function () {
-        var that = this,
-            $container = that.widget.$container,
-            $form = that.widget.$form,
-            interaction = that.widget.element,
+        var self = this,
+            $container = self.widget.$container,
+            $form = self.widget.$form,
+            interaction = self.widget.element,
             properties = interaction.properties,
             pageIds = _.pluck(properties.pages, 'id'),
             maxPageId = Math.max.apply(null, pageIds),
@@ -90,9 +90,10 @@ define([
                 currentPageIndex = interaction.widgetRenderer.tabsManager.index(),
                 currentCols = interaction.properties.pages[currentPageIndex].content,
                 newCols = [],
-                $page = $('[data-page-num="' + currentPageIndex + '"]');
+                $page = $('[data-page-num="' + currentPageIndex + '"]'),
+                colNum;
 
-            for (var colNum = 0; colNum < numberOfColumns; colNum++) {
+            for (colNum = 0; colNum < numberOfColumns; colNum++) {
                 newCols.push(currentCols[colNum] || "");
             }
             newCols[numberOfColumns - 1] += '<br>' + currentCols.slice(numberOfColumns).join('<br>');
@@ -186,7 +187,7 @@ define([
 
         initEditors($container, interaction)
         .then(function() {
-            that.tooltips.init();
+            self.tooltips.init();
         })
         .catch(function(err) {
             throw new Error('Error in editors initialisation ' + err.message);
@@ -207,7 +208,8 @@ define([
     stateQuestion.prototype.initForm = function () {
         var _widget = this.widget,
             $form = _widget.$form,
-            interaction = _widget.element;
+            interaction = _widget.element,
+            $positionSelect;
 
         //render the form using the form template
         $form.html(formTpl(
@@ -222,7 +224,7 @@ define([
         $('.js-button-labels-panel').toggle(interaction.properties.navigation !== 'tabs');
 
         if (interaction.properties.navigation === 'both') {
-            var $positionSelect = $('.js-tab-position');
+            $positionSelect = $('.js-tab-position');
             $('select.js-tab-position option[value="bottom"]').attr('disabled', 'disabled');
             $positionSelect.trigger('change');
         }
@@ -232,42 +234,42 @@ define([
 
         //init data change callbacks
         formElement.setChangeCallbacks($form, interaction, {
-            tabsPosition : function (interaction, value) {
-                interaction.properties.tabsPosition = value;
-                interaction.widgetRenderer.renderAll(interaction.properties);
+            tabsPosition : function (i, value) {
+                i.properties.tabsPosition = value;
+                i.widgetRenderer.renderAll(i.properties);
             },
-            pageHeight : function (interaction, value) {
-                interaction.properties.pageHeight = value;
-                interaction.widgetRenderer.renderPages(interaction.properties);
+            pageHeight : function (i, value) {
+                i.properties.pageHeight = value;
+                i.widgetRenderer.renderPages(i.properties);
             },
-            navigation : function (interaction, value) {
+            navigation : function (i, value) {
                 $('.js-tab-position-panel').toggle(value !== 'buttons');
                 $('.js-button-labels-panel').toggle(value !== 'tabs');
 
                 if (value === 'buttons') {
-                    interaction.properties.tabsPosition = 'top';
+                    i.properties.tabsPosition = 'top';
                 }
 
                 $('select.js-tab-position option[value="bottom"]').removeAttr('disabled');
                 if (value === 'both') {
-                    var $positionSelect = $('select.js-tab-position');
-                    if ($positionSelect.val() == 'bottom') {
+                    $positionSelect = $('select.js-tab-position');
+                    if ($positionSelect.val() === 'bottom') {
                         $positionSelect.val('top');
                     }
                     $('select.js-tab-position option[value="bottom"]').attr('disabled', 'disabled');
                     $positionSelect.trigger('change');
                 }
 
-                interaction.properties.navigation = value;
-                interaction.widgetRenderer.renderAll(interaction.properties);
+                i.properties.navigation = value;
+                i.widgetRenderer.renderAll(i.properties);
             },
-            buttonLabelsNext : function (interaction, value) {
-                interaction.properties.buttonLabels.next = value;
-                interaction.widgetRenderer.renderNavigation(interaction.properties);
+            buttonLabelsNext : function (i, value) {
+                i.properties.buttonLabels.next = value;
+                i.widgetRenderer.renderNavigation(i.properties);
             },
-            buttonLabelsPrev : function (interaction, value) {
-                interaction.properties.buttonLabels.prev = value;
-                interaction.widgetRenderer.renderNavigation(interaction.properties);
+            buttonLabelsPrev : function (i, value) {
+                i.properties.buttonLabels.prev = value;
+                i.widgetRenderer.renderNavigation(i.properties);
             }
         });
     };
