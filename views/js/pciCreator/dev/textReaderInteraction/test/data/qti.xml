@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1" xmlns:html5="html5" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:pci="http://www.imsglobal.org/xsd/portableCustomInteraction" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" identifier="i14736962087153128" title="textReader 1" label="" xml:lang="en-US" adaptive="false" timeDependent="false" toolName="TAO" toolVersion="3.1.0-sprint34">
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1" xmlns:html5="html5" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:pci="http://www.imsglobal.org/xsd/portableCustomInteraction" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" identifier="i1474463752610181" title="textReader 1" label="" xml:lang="en-US" adaptive="false" timeDependent="false" toolName="TAO" toolVersion="3.1.0-sprint34">
     <responseDeclaration identifier="RESPONSE" cardinality="single" baseType="boolean"/>
     <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
-    <stylesheet href="textReaderInteraction/runtime/css/textReaderInteraction.css" type="text/css" media="all" title=""/>
-    <stylesheet href="textReaderInteraction/runtime/css/jquery.qtip.css" type="text/css" media="all" title=""/>
     <stylesheet href="style/custom/tao-user-styles.css" type="text/css" media="all" title=""/>
     <itemBody>
         <div class="grid-row">
             <div class="col-12">
                 <customInteraction responseIdentifier="RESPONSE">
-                    <pci:portableCustomInteraction customInteractionTypeIdentifier="textReaderInteraction" hook="textReaderInteraction/runtime/textReaderInteraction.js">
+                    <pci:portableCustomInteraction customInteractionTypeIdentifier="textReaderInteraction" hook="untrucbidon" version="">
                         <pci:responseSchema href="http://imsglobal.org/schema/json/v1.0/response.json"/>
                         <pci:resources location="http://imsglobal.org/pci/1.0.15/sharedLibraries.xml">
                             <pci:libraries>
-                                <pci:lib id="IMSGlobal/jquery_2_1_1"/>
-                                <pci:lib id="textReaderInteraction/runtime/js/renderer"/>
-                                <pci:lib id="textReaderInteraction/runtime/js/tabs"/>
                             </pci:libraries>
+                            <pci:stylesheets>
+                            </pci:stylesheets>
+                            <pci:mediaFiles>
+                            </pci:mediaFiles>
                         </pci:resources>
                         <pci:properties xmlns:pci="http://www.imsglobal.org/xsd/portableCustomInteraction">
                             <pci:entry key="pageHeight">400</pci:entry>
@@ -118,35 +117,54 @@
                         <pci:markup>
                             <html5:div class="textReaderInteraction qti-interaction">
                                 <html5:div class="tr-wrap">
-                                    <html5:div class="tr-content js-page-container"/>
-                                    <html5:div class="js-nav-container"/>
+                                    <html5:div class="tr-content js-page-container">
+                                    </html5:div>
+                                    <html5:div class="js-nav-container">
+                                    </html5:div>
                                 </html5:div>
                                 <html5:script class="text-reader-pages-tpl" type="text/x-handlebars-template"><![CDATA[
         <html5:div class="tr-tabs js-page-tabs tr-tabs-{{tabsPosition}} clearfix">
             {{#if showTabs}}
             <html5:ul class="tr-tab-buttons js-tab-buttons">
                 {{#each pages}}
-                <html5:li data-page-num="{{@index}}" data-page-id="{{id}}" class="tr-tab-buttons__item"><html5:span class="tr-tab-label">{{inc @index}}</html5:span></html5:li>
+                <html5:li data-page-num="{{@index}}" data-page-id="{{id}}" class="tr-tab-buttons__item">
+                    <html5:span class="tr-tab-label">{{inc @index}}</html5:span>
+                </html5:li>
                 {{/each}}
             </html5:ul>
             {{/if}}
-            <html5:div class="tr-pages-wrap clearfix"><html5:div class="tr-pages" style="height: {{pageWrapperHeight}}px">
+            <html5:div class="tr-pages-wrap clearfix">
+                <html5:div class="tr-pages" style="height: {{pageWrapperHeight}}px">
                     {{#each pages}}
-                    <html5:div data-page-num="{{@index}}" data-page-id="{{id}}" class="tr-page js-tab-content tr-tabs-{{@index}}"><html5:div class="tr-passage" style="height: {{../pageHeight}}px">
+                    <html5:div data-page-num="{{@index}}" data-page-id="{{id}}" class="tr-page js-tab-content tr-tabs-{{@index}}">
+                        <html5:div class="tr-passage" style="height: {{../pageHeight}}px" >
                             {{#each content}}
                             <html5:div class="tr-passage-column widget-blockInteraction js-page-column" data-page-col-index="{{@index}}">
                                 {{{this}}}
                             </html5:div>
                             {{/each}}
-                        </html5:div></html5:div>
+                        </html5:div>
+                    </html5:div>
                     {{/each}}
-                </html5:div></html5:div></html5:div>
+                </html5:div>
+            </html5:div>
+        </html5:div>
         ]]></html5:script>
                                 <html5:script class="text-reader-nav-tpl" type="text/x-handlebars-template"><![CDATA[
         {{#if showNavigation}}
-        <html5:div class="tr-nav-wrap tr-nav-{{tabsPosition}}"><html5:div class="tr-nav"><html5:div class="tr-nav__col js-prev-page"><html5:button class="btn-info small">{{../buttonLabels.prev}}</html5:button></html5:div><html5:div class="tr-nav__col">
+        <html5:div class="tr-nav-wrap tr-nav-{{tabsPosition}}">
+            <html5:div class="tr-nav">
+                <html5:div class="tr-nav__col js-prev-page">
+                    <html5:button class="btn-info small">{{../buttonLabels.prev}}</html5:button>
+                </html5:div>
+                <html5:div class="tr-nav__col">
                     Page <html5:span class="js-current-page">{{../currentPage}}</html5:span> / {{../pagesNum}}
-                </html5:div><html5:div class="tr-nav__col js-next-page"><html5:button class="btn-info small">{{../buttonLabels.next}}</html5:button></html5:div></html5:div></html5:div>
+                </html5:div>
+                <html5:div class="tr-nav__col js-next-page">
+                    <html5:button class="btn-info small">{{../buttonLabels.next}}</html5:button>
+                </html5:div>
+            </html5:div>
+        </html5:div>
         {{/if}}
         ]]></html5:script>
                             </html5:div>

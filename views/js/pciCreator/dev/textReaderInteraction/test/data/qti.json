@@ -1,9 +1,9 @@
 {
-    "identifier": "i14736962087153128",
-    "serial": "item_57e274990dcee564121817",
+    "identifier": "i1474463752610181",
+    "serial": "item_57e2ad5ca9d0b049930522",
     "qtiClass": "assessmentItem",
     "attributes": {
-        "identifier": "i14736962087153128",
+        "identifier": "i1474463752610181",
         "title": "textReader 1",
         "label": "",
         "xml:lang": "en-US",
@@ -14,26 +14,22 @@
         "class": ""
     },
     "body": {
-        "serial": "container_containeritembody_57e274990dcca709450689",
-        "body": "\n        <div class=\"grid-row\">\n            <div class=\"col-12\">\n                {{interaction_portablecustominteraction_57e274990f6a9968954599}}\n            <\/div>\n        <\/div>\n    ",
+        "serial": "container_containeritembody_57e2ad5ca9cee150670257",
+        "body": "\n        <div class=\"grid-row\">\n            <div class=\"col-12\">\n                {{interaction_portablecustominteraction_57e2ad5cab5e7389104418}}\n            <\/div>\n        <\/div>\n    ",
         "elements": {
-            "interaction_portablecustominteraction_57e274990f6a9968954599": {
-                "serial": "interaction_portablecustominteraction_57e274990f6a9968954599",
+            "interaction_portablecustominteraction_57e2ad5cab5e7389104418": {
+                "serial": "interaction_portablecustominteraction_57e2ad5cab5e7389104418",
                 "qtiClass": "customInteraction",
                 "attributes": {
                     "responseIdentifier": "RESPONSE"
                 },
                 "debug": {
-                    "relatedItem": "item_57e274990dcee564121817"
+                    "relatedItem": "item_57e2ad5ca9d0b049930522"
                 },
                 "choices": {},
                 "typeIdentifier": "textReaderInteraction",
-                "markup": "\n                            <div class=\"textReaderInteraction qti-interaction\">\n                                <div class=\"tr-wrap\">\n                                    <div class=\"tr-content js-page-container\"><\/div>\n                                    <div class=\"js-nav-container\"><\/div>\n                                <\/div>\n                                <script class=\"text-reader-pages-tpl\" type=\"text\/x-handlebars-template\"><![CDATA[\n        <div class=\"tr-tabs js-page-tabs tr-tabs-{{tabsPosition}} clearfix\">\n            {{#if showTabs}}\n            <ul class=\"tr-tab-buttons js-tab-buttons\">\n                {{#each pages}}\n                <li data-page-num=\"{{@index}}\" data-page-id=\"{{id}}\" class=\"tr-tab-buttons__item\"><span class=\"tr-tab-label\">{{inc @index}}<\/span><\/li>\n                {{\/each}}\n            <\/ul>\n            {{\/if}}\n            <div class=\"tr-pages-wrap clearfix\"><div class=\"tr-pages\" style=\"height: {{pageWrapperHeight}}px\">\n                    {{#each pages}}\n                    <div data-page-num=\"{{@index}}\" data-page-id=\"{{id}}\" class=\"tr-page js-tab-content tr-tabs-{{@index}}\"><div class=\"tr-passage\" style=\"height: {{..\/pageHeight}}px\">\n                            {{#each content}}\n                            <div class=\"tr-passage-column widget-blockInteraction js-page-column\" data-page-col-index=\"{{@index}}\">\n                                {{{this}}}\n                            <\/div>\n                            {{\/each}}\n                        <\/div><\/div>\n                    {{\/each}}\n                <\/div><\/div><\/div>\n        ]]><\/script>\n                                <script class=\"text-reader-nav-tpl\" type=\"text\/x-handlebars-template\"><![CDATA[\n        {{#if showNavigation}}\n        <div class=\"tr-nav-wrap tr-nav-{{tabsPosition}}\"><div class=\"tr-nav\"><div class=\"tr-nav__col js-prev-page\"><button class=\"btn-info small\">{{..\/buttonLabels.prev}}<\/button><\/div><div class=\"tr-nav__col\">\n                    Page <span class=\"js-current-page\">{{..\/currentPage}}<\/span> \/ {{..\/pagesNum}}\n                <\/div><div class=\"tr-nav__col js-next-page\"><button class=\"btn-info small\">{{..\/buttonLabels.next}}<\/button><\/div><\/div><\/div>\n        {{\/if}}\n        ]]><\/script>\n                            <\/div>\n                        ",
-                "libraries": [
-                    "IMSGlobal\/jquery_2_1_1",
-                    "textReaderInteraction\/runtime\/js\/renderer",
-                    "textReaderInteraction\/runtime\/js\/tabs"
-                ],
+                "markup": "\n                            <div class=\"textReaderInteraction qti-interaction\">\n                                <div class=\"tr-wrap\">\n                                    <div class=\"tr-content js-page-container\">\n                                    <\/div>\n                                    <div class=\"js-nav-container\">\n                                    <\/div>\n                                <\/div>\n                                <script class=\"text-reader-pages-tpl\" type=\"text\/x-handlebars-template\"><![CDATA[\n        <div class=\"tr-tabs js-page-tabs tr-tabs-{{tabsPosition}} clearfix\">\n            {{#if showTabs}}\n            <ul class=\"tr-tab-buttons js-tab-buttons\">\n                {{#each pages}}\n                <li data-page-num=\"{{@index}}\" data-page-id=\"{{id}}\" class=\"tr-tab-buttons__item\">\n                    <span class=\"tr-tab-label\">{{inc @index}}<\/span>\n                <\/li>\n                {{\/each}}\n            <\/ul>\n            {{\/if}}\n            <div class=\"tr-pages-wrap clearfix\">\n                <div class=\"tr-pages\" style=\"height: {{pageWrapperHeight}}px\">\n                    {{#each pages}}\n                    <div data-page-num=\"{{@index}}\" data-page-id=\"{{id}}\" class=\"tr-page js-tab-content tr-tabs-{{@index}}\">\n                        <div class=\"tr-passage\" style=\"height: {{..\/pageHeight}}px\" >\n                            {{#each content}}\n                            <div class=\"tr-passage-column widget-blockInteraction js-page-column\" data-page-col-index=\"{{@index}}\">\n                                {{{this}}}\n                            <\/div>\n                            {{\/each}}\n                        <\/div>\n                    <\/div>\n                    {{\/each}}\n                <\/div>\n            <\/div>\n        <\/div>\n        ]]><\/script>\n                                <script class=\"text-reader-nav-tpl\" type=\"text\/x-handlebars-template\"><![CDATA[\n        {{#if showNavigation}}\n        <div class=\"tr-nav-wrap tr-nav-{{tabsPosition}}\">\n            <div class=\"tr-nav\">\n                <div class=\"tr-nav__col js-prev-page\">\n                    <button class=\"btn-info small\">{{..\/buttonLabels.prev}}<\/button>\n                <\/div>\n                <div class=\"tr-nav__col\">\n                    Page <span class=\"js-current-page\">{{..\/currentPage}}<\/span> \/ {{..\/pagesNum}}\n                <\/div>\n                <div class=\"tr-nav__col js-next-page\">\n                    <button class=\"btn-info small\">{{..\/buttonLabels.next}}<\/button>\n                <\/div>\n            <\/div>\n        <\/div>\n        {{\/if}}\n        ]]><\/script>\n                            <\/div>\n                        ",
+                "libraries": [],
                 "properties": {
                     "pageHeight": "400",
                     "tabsPosition": "top",
@@ -97,15 +93,15 @@
                     },
                     "onePageNavigation": "true"
                 },
-                "entryPoint": "textReaderInteraction\/runtime\/textReaderInteraction.js"
+                "entryPoint": "untrucbidon"
             }
         },
         "debug": {
-            "relatedItem": "item_57e274990dcee564121817"
+            "relatedItem": "item_57e2ad5ca9d0b049930522"
         }
     },
     "debug": {
-        "relatedItem": "item_57e274990dcee564121817"
+        "relatedItem": "item_57e2ad5ca9d0b049930522"
     },
     "namespaces": {
         "": "http:\/\/www.imsglobal.org\/xsd\/imsqti_v2p1",
@@ -119,34 +115,8 @@
         "http:\/\/www.imsglobal.org\/xsd\/imsqti_v2p1": "http:\/\/www.imsglobal.org\/xsd\/qti\/qtiv2p1\/imsqti_v2p1.xsd"
     },
     "stylesheets": {
-        "stylesheet_57e274990e4d8658763376": {
-            "serial": "stylesheet_57e274990e4d8658763376",
-            "qtiClass": "stylesheet",
-            "attributes": {
-                "href": "textReaderInteraction\/runtime\/css\/textReaderInteraction.css",
-                "type": "text\/css",
-                "media": "all",
-                "title": ""
-            },
-            "debug": {
-                "relatedItem": "item_57e274990dcee564121817"
-            }
-        },
-        "stylesheet_57e274990e80f308539868": {
-            "serial": "stylesheet_57e274990e80f308539868",
-            "qtiClass": "stylesheet",
-            "attributes": {
-                "href": "textReaderInteraction\/runtime\/css\/jquery.qtip.css",
-                "type": "text\/css",
-                "media": "all",
-                "title": ""
-            },
-            "debug": {
-                "relatedItem": "item_57e274990dcee564121817"
-            }
-        },
-        "stylesheet_57e274990e851227945012": {
-            "serial": "stylesheet_57e274990e851227945012",
+        "stylesheet_57e2ad5caa380539752837": {
+            "serial": "stylesheet_57e2ad5caa380539752837",
             "qtiClass": "stylesheet",
             "attributes": {
                 "href": "style\/custom\/tao-user-styles.css",
@@ -155,14 +125,14 @@
                 "title": ""
             },
             "debug": {
-                "relatedItem": "item_57e274990dcee564121817"
+                "relatedItem": "item_57e2ad5ca9d0b049930522"
             }
         }
     },
     "outcomes": {
-        "outcomedeclaration_57e274990edeb661015736": {
+        "outcomedeclaration_57e2ad5caabd6688701215": {
             "identifier": "SCORE",
-            "serial": "outcomedeclaration_57e274990edeb661015736",
+            "serial": "outcomedeclaration_57e2ad5caabd6688701215",
             "qtiClass": "outcomeDeclaration",
             "attributes": {
                 "identifier": "SCORE",
@@ -170,15 +140,15 @@
                 "baseType": "float"
             },
             "debug": {
-                "relatedItem": "item_57e274990dcee564121817"
+                "relatedItem": "item_57e2ad5ca9d0b049930522"
             },
             "defaultValue": null
         }
     },
     "responses": {
-        "responsedeclaration_57e274990eb5a137056455": {
+        "responsedeclaration_57e2ad5caa7fb791809455": {
             "identifier": "RESPONSE",
-            "serial": "responsedeclaration_57e274990eb5a137056455",
+            "serial": "responsedeclaration_57e2ad5caa7fb791809455",
             "qtiClass": "responseDeclaration",
             "attributes": {
                 "identifier": "RESPONSE",
@@ -186,7 +156,7 @@
                 "baseType": "boolean"
             },
             "debug": {
-                "relatedItem": "item_57e274990dcee564121817"
+                "relatedItem": "item_57e2ad5ca9d0b049930522"
             },
             "mapping": [],
             "areaMapping": [],
@@ -200,11 +170,11 @@
     },
     "feedbacks": {},
     "responseProcessing": {
-        "serial": "response_templatesdriven_57e27499100db912841797",
+        "serial": "response_templatesdriven_57e2ad5cabfd9633821647",
         "qtiClass": "responseProcessing",
         "attributes": [],
         "debug": {
-            "relatedItem": "item_57e274990dcee564121817"
+            "relatedItem": "item_57e2ad5ca9d0b049930522"
         },
         "processingType": "templateDriven",
         "responseRules": [
