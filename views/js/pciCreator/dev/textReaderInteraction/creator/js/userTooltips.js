@@ -21,9 +21,9 @@ define([
     'jquery',
     'core/eventifier',
     'taoQtiItem/qtiCreator/widgets/helpers/textWrapper',
-    'tpl!textReaderInteraction/creator/tpl/tooltip',
-    'tpl!textReaderInteraction/creator/tpl/tooltip-create',
-    'tpl!textReaderInteraction/creator/tpl/tooltip-authoring'
+    'tpl!textReaderInteraction/creator/tpl/userTooltips/markup',
+    'tpl!textReaderInteraction/creator/tpl/userTooltips/create',
+    'tpl!textReaderInteraction/creator/tpl/userTooltips/authoring'
 ], function (
     _,
     $,

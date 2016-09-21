@@ -23,7 +23,7 @@ define([
     'taoQtiItem/qtiCreator/widgets/helpers/formElement',
     'taoQtiItem/qtiCreator/editor/containerEditor',
     'taoQtiItem/qtiCreator/editor/ckEditor/htmlEditor',
-    'textReaderInteraction/creator/js/tooltips',
+    'textReaderInteraction/creator/js/userTooltips',
     'tpl!textReaderInteraction/creator/tpl/propertiesForm',
     'lodash',
     'jquery',
