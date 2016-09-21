@@ -24,28 +24,45 @@
                             <pci:entry key="navigation">both</pci:entry>
                             <pci:properties key="tooltips">
                                 <pci:properties key="0">
-                                    <pci:entry key="id">1111</pci:entry>
-                                    <pci:entry key="term">Tao Te Ching</pci:entry>
-                                    <pci:entry key="desc">The Tao Te Ching, along with the Zhuangzi, is a fundamental text for both philosophical and religious Taoism, and strongly influenced other schools, such as Legalism, Confucianism, and Chinese Buddhism, which when first introduced into China was largely interpreted through the use of Daoist words and concepts.</pci:entry>
+                                    <pci:entry key="id">ttip_1111</pci:entry>
+                                    <pci:entry key="label">Tao Te Ching</pci:entry>
+                                    <pci:entry key="content">The Tao Te Ching!!!, along with thef Zhuangzi, is a fundamental text for both philosophical and religious Taoism, and strongly influenced other schools, such as Legalism, Confucianism, and Chinese Buddhism, which when first introduced into China was largely interpreted through the use of Daoist words and concepts.</pci:entry>
                                 </pci:properties>
                                 <pci:properties key="1">
-                                    <pci:entry key="id">2222</pci:entry>
-                                    <pci:entry key="term">Taoism</pci:entry>
-                                    <pci:entry key="desc">Taoism, also known as Daoism, is a religious, philosophical and ritual tradition of Chinese origin which emphasizes living in harmony and accordance with the Tao (道, literally "Way", also romanized as Dao). Taoist schools function as theoretical and liturgical frameworks for both popular and high cults of broader Chinese religion, and some of them (the Quanzhen traditions) have a distinct monastic institution. The Tao is a fundamental idea in Chinese philosophies and religions other than Taoism; in the latter, however, it denotes the principle that is both the source and the pattern of development of everything that exists.</pci:entry>
+                                    <pci:entry key="id">ttip_2222</pci:entry>
+                                    <pci:entry key="label">Taoism</pci:entry>
+                                    <pci:entry key="content">Taoism, also known as Daoism, is a religious, philosophical and ritual tradition of Chinese origin which emphasizes living in harmony and accordance with the Tao (道, literally "Way", also romanized as Dao). Taoist schools function as theoretical and liturgical frameworks for both popular and high cults of broader Chinese religion, and some of them (the Quanzhen traditions) have a distinct monastic institution. The Tao is a fundamental idea in Chinese philosophies and religions other than Taoism; in the latter, however, it denotes the principle that is both the source and the pattern of development of everything that exists.</pci:entry>
+                                </pci:properties>
+                                <pci:properties key="2">
+                                    <pci:entry key="id">tltp_9060</pci:entry>
+                                    <pci:entry key="label">Chinese</pci:entry>
+                                    <pci:entry key="content"/>
+                                </pci:properties>
+                                <pci:properties key="3">
+                                    <pci:entry key="id">tltp_9703</pci:entry>
+                                    <pci:entry key="label">human</pci:entry>
+                                    <pci:entry key="content">me, you, everybody!</pci:entry>
+                                </pci:properties>
+                                <pci:properties key="4">
+                                    <pci:entry key="id">tltp_7703</pci:entry>
+                                    <pci:entry key="label">other</pci:entry>
+                                    <pci:entry key="content">me, you, everybody!</pci:entry>
                                 </pci:properties>
                             </pci:properties>
                             <pci:properties key="pages">
                                 <pci:properties key="0">
                                     <pci:entry key="label">Page 1</pci:entry>
                                     <pci:properties key="content">
-                                        <pci:entry key="0">&lt;strong&gt;Tao&lt;/strong&gt; or &lt;strong&gt;Dao&lt;/strong&gt; (/taʊ/, /daʊ/; Chinese: 道; pinyin: [About this sound] &amp;#160;Dào&amp;#160;(help·info)) is a Chinese word signifying 'way', 'path', 'route', or sometimes more loosely, 'doctrine' or 'principle'. Within the context of traditional Chinese philosophy and religion, the Tao is the intuitive knowing of "life" that cannot be grasped full-heartedly as just a concept but is known nonetheless through actual living experience of one's everyday being. The Tao differs from conventional (Western) ontology in that it is an active and holistic practice of the natural order of Nature and its universal awakening, rather than a static, atomistic one.&lt;br /&gt;
+                                        <pci:entry key="0">&lt;strong&gt;Tao&lt;/strong&gt; or &lt;strong&gt;Dao&lt;/strong&gt; (/taʊ/, /daʊ/; &lt;span class="tooltip" data-identifier="tltp_9060"&gt; Chinese &lt;/span&gt;: 道; pinyin: [About this sound] &amp;nbsp;Dào&amp;nbsp;(help·info)) is a Chinese word signifying 'way', 'path', 'route', or sometimes more loosely, 'doctrine' or 'principle'. Within the context of traditional Chinese philosophy and religion, the Tao is the intuitive knowing of "life" that cannot be grasped full-heartedly as just a concept but is known nonetheless through actual living experience of one's everyday being. The Tao differs from conventional (&lt;span class="tooltip" data-identifier="tltp_3958"&gt; Western &lt;/span&gt;) ontology in that it is an active and holistic practice of the natural order of Nature and its universal awakening, rather than a static, atomistic one.&lt;br /&gt;
                                             &lt;br /&gt;
-                                            Laozi in the &lt;span class="tooltip" data-identifier="1111"&gt;Tao Te Ching&lt;/span&gt; explains that the Tao is not a 'name' for a 'thing' but the underlying natural order of the Universe whose ultimate essence is difficult to circumscribe due to it being non conceptual yet evident' in one's being of aliveness.[citation needed] The Tao is "eternally nameless” (Tao Te Ching-32. Laozi) and to be distinguished from the countless 'named' things which are considered to be its manifestations, the reality of life before its descriptions of it.&lt;br /&gt;
+                                            Laozi in the &lt;span class="tooltip" data-identifier="ttip_1111"&gt;Tao Te Ching&lt;/span&gt; explains that the Tao is not a 'name' for a 'thing' but the underlying natural order of the Universe whose ultimate essence is difficult to circumscribe due to it being non conceptual yet evident' in one's being of aliveness.[citation needed] The Tao is "eternally nameless” (Tao Te Ching-32. Laozi) and to be distinguished from the countless 'named' things which are considered to be its manifestations, the reality of life before its descriptions of it.&lt;br /&gt;
                                             &lt;br /&gt;
-                                            The Tao lends its name to the religious tradition (Wade–Giles, Tao Chiao; Pinyin, Daojiao) and philosophical tradition (Wade–Giles, Tao chia; Pinyin, Daojia) that are both referred to in English with the single term &lt;span class="tooltip" data-identifier="2222"&gt;Taoism&lt;/span&gt;.&lt;br /&gt;
+                                            héhéhé&lt;br /&gt;
                                             &lt;br /&gt;
-                                            &lt;img alt="tao4" src="tao4.png" width="21%" /&gt;&lt;br /&gt;
-                                            &amp;#160;</pci:entry>
+                                            The Tao lends its name to the religious tradition (Wade–Giles, Tao Chiao; Pinyin, Daojiao) and philosophical tradition (Wade–Giles, Tao chia; Pinyin, Daojia) that are both referred to in English with the single term &lt;span class="tooltip" data-identifier="ttip_2222"&gt;Taoism&lt;/span&gt;.&lt;br /&gt;
+                                            &lt;br /&gt;
+                                            &lt;br /&gt;
+                                            &amp;nbsp;</pci:entry>
                                     </pci:properties>
                                     <pci:entry key="id">0</pci:entry>
                                 </pci:properties>
@@ -78,7 +95,7 @@
                                         </pci:entry>
                                         <pci:entry key="1">&lt;h2&gt;&lt;strong&gt;Confucian interpretations&lt;/strong&gt;&lt;/h2&gt;
 
-                                            &lt;p&gt;The Dao, or Way, of Confucius can be said to be 'Truth'. Confucianism regards the Way, or Truth, as concordant with a particular approach to life, politics, and tradition. It is held as equally necessary and well regarded as De (virtue) and ren (humanity). Confucius presents a humanistic 'Dao'. He only rarely speaks of the t'ien Dao (Way of Heaven). An influential early Confucian, Hsiin Tzu, explicitly noted this contrast. Though he acknowledged the existence and celestial importance of the Way of Heaven, he insisted that the Dao principally concerns human affairs.[23]&lt;/p&gt;
+                                            &lt;p&gt;The Dao, or Way, of Confucius can be said to be 'Truth'. Confucianism regards the Way, or Truth, as concordant with a particular approach to life, politics, and tradition. It is held as equally necessary and well regarded as De (virtue) and ren (humanity). Confucius presents a humanistic 'Dao'. He only rarely speaks of the t'ien Dao (Way of Heaven). An influential early Confucian, Hsiin Tzu, explicitly noted this contrast. Though he acknowledged the existence and celestial importance of the Way of Heaven, he insisted that the Dao principally concerns &lt;span class="tooltip" data-identifier="tltp_9703"&gt; human &lt;/span&gt; affairs.[23]&lt;/p&gt;
 
                                             &lt;p&gt;As a formal religious concept in Confucianism, Dao is the Absolute towards which the faithful move. In Zhongyong (The Doctrine of the Mean), harmony with the Absolute is equivalent to integrity and sincerity. The Great Learning expands on this concept explaining that the Way illuminates virtue, improves the people, and resides within the purest morality. During the Tang dynasty, Han Yu further formalized and defined Confucian beliefs as an apologetic response to Buddhism. He emphasized the ethics of the Way. He explicitly paired 'Dao' and 'De', focusing on humane nature and righteousness. He also framed and elaborated on a "dàotǒng" (tradition of the Way) in order to reject the traditions of Buddhism.[23]&lt;/p&gt;
                                         </pci:entry>

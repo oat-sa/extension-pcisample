@@ -145,10 +145,12 @@ define([
         });
 
         this.tooltips.on('beforeDeleteTooltipMarkup', function(tooltipId) {
+            // the buffer is needed to retain the column on which the tooltip markup was...
             tooltipBuffer = getTooltipInfos(tooltipId);
         });
 
         this.tooltips.on('afterDeleteTooltipMarkup', function() {
+            // ... as we need to manually trigger the column saving
             if (tooltipBuffer) {
                 saveColumn(
                     interaction,
@@ -173,7 +175,7 @@ define([
         });
 
         function getTooltipInfos($tooltipId) {
-            var $tooltip = $container.find('[data-identifier=' + $tooltipId + ']'),
+            var $tooltip = $container.find('.tooltip[data-identifier=' + $tooltipId + ']'),
                 $tooltipColumn = $tooltip.closest('.js-page-column');
             if ($tooltip.length && $tooltipColumn.length) {
                 return {
