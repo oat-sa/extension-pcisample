@@ -98,8 +98,8 @@ define(
                 var $tooltips = this.options.$container.find('.tooltip'),
                     tooltipsContent = {};
 
-                data.tooltips.forEach(function(tooltipDesc) {
-                    tooltipsContent[tooltipDesc.id] = tooltipDesc.desc;
+                data.tooltips.forEach(function(tooltipData) {
+                    tooltipsContent[tooltipData.id] = tooltipData.desc;
                 });
 
                 $tooltips.each(function() {
