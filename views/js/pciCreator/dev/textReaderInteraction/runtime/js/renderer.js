@@ -4,9 +4,15 @@ define(
         'IMSGlobal/jquery_2_1_1',
         'OAT/handlebars',
         'textReaderInteraction/runtime/js/tabs',
+
+        // fixme: obviously, this dependency to TAO shouldn't be there
+        // it is used to resolve the url of images when the interaction is 'sleep' state.
+        // this could be avoided if the interaction content was stored in the markup instead of properties
+        'taoQtiItem/qtiCommonRenderer/helpers/PortableElement',
+
         'OAT/jquery.qtip'
     ],
-    function ($, Handlebars, Tabs) {
+    function ($, Handlebars, Tabs, PortableElement) {
         'use strict';
         window.jQuery = $;
         return function (options) {
@@ -53,7 +59,8 @@ define(
              */
             this.renderPages = function (data) {
                 var templateData = {},
-                    markup;
+                    markup,
+                    fixedMarkup;
 
                 this.options.$container.trigger('beforerenderpages.' + self.eventNs);
 
@@ -63,7 +70,14 @@ define(
 
                     markup = self.options.templates.pages(templateData, self.getTemplateOptions());
 
-                    this.options.$container.find('.js-page-container').html(markup);
+                    if (self.options.interaction !== 'undefined' && typeof self.options.interaction.renderer !== 'undefined') {
+                        fixedMarkup = PortableElement.fixMarkupMediaSources(
+                            markup,
+                            self.options.interaction.renderer
+                        );
+                    }
+
+                    this.options.$container.find('.js-page-container').html(fixedMarkup || markup);
                 }
 
                 //init tabs
