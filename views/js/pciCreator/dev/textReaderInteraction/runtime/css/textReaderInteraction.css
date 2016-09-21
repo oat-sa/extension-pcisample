@@ -276,6 +276,7 @@
     text-decoration: underline;
     text-decoration-style: dotted;
     cursor: pointer;
+    color: #0E5D91;
 }
 
 .qtip-default {
