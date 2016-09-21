@@ -52,20 +52,3 @@
     color: #a4bbc5;
     font-weight: bold;
 }
-
-
-/* tooltips */
-.item-editor-item .tooltip {
-    border: 1px solid #F1D031;
-    padding: 3px;
-    font-weight: bold;
-    background-color: #FFFFA3;
-}
-
-.item-editor-item .inline-text-wrapper {
-    display: inline;
-}
-
-.item-editor-interaction-related .tooltip-delete {
-    float: right;
-}
