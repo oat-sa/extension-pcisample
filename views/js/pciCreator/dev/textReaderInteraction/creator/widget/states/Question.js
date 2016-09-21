@@ -187,6 +187,9 @@ define([
         initEditors($container, interaction)
         .then(function() {
             that.tooltips.init();
+        })
+        .catch(function(err) {
+            throw new Error('Error in editors initialisation ' + err.message);
         });
 
 
