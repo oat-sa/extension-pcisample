@@ -6,7 +6,7 @@
 }
 
 .item-editor-item .inline-text-wrapper {
-    display: inline;
+    display: inline!important;
 }
 
 .item-editor-interaction-related .tooltip-delete {

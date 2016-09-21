@@ -50,23 +50,23 @@ define([
 
     /**
      * @param {Object} options
-     * @param {Array} [options.tooltipsData] - the model of the tooltips, with the following structure:
-     * @param {String} [options.tooltipsData[x].id]
-     * @param {String} [options.tooltipsData[x].label] - only used to identify the tooltip in the authoring form
-     * @param {String} [options.tooltipsData[x].content]
-     * @param {jQuery} [options.$authoringContainer] - where to insert the authoring form. Will be emptied.
-     * @param {jQuery} [options.$interactionContainer] - element containing the tooltip markup
-     * @param {jQuery} [options.$editableFields] - editor element that will enabled tooltip creation
+     * @param {Array} options.tooltipsData - the model of the tooltips, with the following structure:
+     * @param {String} options.tooltipsData[x].id
+     * @param {String} options.tooltipsData[x].label - only used to identify the tooltip in the authoring form
+     * @param {String} options.tooltipsData[x].content
+     * @param {jQuery} options.$authoringContainer - where to insert the authoring form. Will be emptied.
+     * @param {jQuery} options.$interactionContainer - element containing the tooltip markup
+     * @param {jQuery} options.$editableFields - editor element that will enabled tooltip creation
      *
      */
     return function tooltipManagerFactory(options) {
         var tooltipManager,
             ns = '.tooltipsManager',
 
-            tooltipsData = options.tooltipsData,
-            $authoringContainer = options.$authoringContainer,
-            $interactionContainer = options.$interactionContainer,
-            $editableFields = options.$editableFields,
+            tooltipsData            = (_.isArray(options.tooltipsData)) ? options.tooltipsData : [],
+            $authoringContainer     = options.$authoringContainer,
+            $interactionContainer   = options.$interactionContainer,
+            $editableFields         = options.$editableFields,
 
             $toolbar = $(createButtonTpl());
 

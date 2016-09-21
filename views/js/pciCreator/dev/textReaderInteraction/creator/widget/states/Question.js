@@ -137,6 +137,9 @@ define([
         });
 
         // Add tooltip functionality
+        if (!_.isArray(interaction.properties.tooltips)) {
+            interaction.properties.tooltips = [];
+        }
         this.tooltips = tooltipManager({
             $authoringContainer: $form.find('.tooltip_authoring'),
             $interactionContainer: $container,

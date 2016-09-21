@@ -94,12 +94,12 @@ define(
              * @return {object} this
              */
             this.renderTooltips = function(data) {
-
-                var $tooltips = this.options.$container.find('.tooltip'),
+                var tooltipsData = (_.isArray(data.tooltips)) ? data.tooltips : [],
+                    $tooltips = this.options.$container.find('.tooltip'),
                     tooltipsContent = {};
 
-                data.tooltips.forEach(function(tooltipData) {
-                    tooltipsContent[tooltipData.id] = tooltipData.desc;
+                tooltipsData.forEach(function(tooltipData) {
+                    tooltipsContent[tooltipData.id] = tooltipData.content;
                 });
 
                 $tooltips.each(function() {
@@ -111,8 +111,8 @@ define(
                         },
                         position: {
                             target: 'event',
-                            my: 'top center',
-                            at: 'bottom center'
+                            my: 'bottom center',
+                            at: 'top center'
                         },
                         style: {
                             tip: {
