@@ -150,7 +150,7 @@ define([
                 $inputFields.on('keyup' + ns, _.debounce(function(e) {
                     var $tooltip = $(e.target),
                         tooltipId = $tooltip.closest('.tooltip-edit').data('identifier'),
-                        tooltipContent = $tooltip.val();
+                        tooltipContent = _.escape($tooltip.val());
 
                     self._updateTooltipContent(tooltipId, tooltipContent);
                 }, 500));
