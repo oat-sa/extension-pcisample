@@ -177,8 +177,11 @@ define([
             }
         });
 
-        function getTooltipInfos($tooltipId) {
-            var $tooltip = $container.find('.tooltip[data-identifier=' + $tooltipId + ']'),
+        /**
+         * Identify the position in the reader (page id and column index) of the given tooltip
+         */
+        function getTooltipInfos(tooltipId) {
+            var $tooltip = $container.find('.tooltip[data-identifier=' + tooltipId + ']'),
                 $tooltipColumn = $tooltip.closest('.js-page-column');
             if ($tooltip.length && $tooltipColumn.length) {
                 return {
