@@ -27,7 +27,9 @@ return array(
     'license' => 'GPL-2.0',
     'version' => '1.1.0',
 	'author' => 'Open Assessment Technologies',
-	'requires' => array('qtiItemPci' => '>=1.0.0'),
+	'requires' => array(
+	    'qtiItemPci' => '>=5.2.0'
+    ),
 	'managementRole' => 'http://www.tao.lu/Ontologies/generis.rdf#pciSamplesManager',
     'acl' => array(
         array('grant', 'http://www.tao.lu/Ontologies/generis.rdf#pciSamplesManager', array('ext'=>'pciSamples')),
