@@ -117,24 +117,30 @@ define(
                 });
 
                 $tooltips.each(function() {
-                    var $currentTooltip = $(this);
-                    $currentTooltip.qtip({
-                        overwrite: true,
-                        content: {
-                            text: tooltipsContent[$currentTooltip.data('identifier')]
-                        },
-                        position: {
-                            target: 'event',
-                            my: 'bottom center',
-                            at: 'top center'
-                        },
-                        style: {
-                            tip: {
-                                corner: true
+                    var $currentTooltip = $(this),
+                        currentId = $currentTooltip.data('identifier'),
+                        content = String(tooltipsContent[currentId]).trim();
+
+                    if (content) {
+                        $currentTooltip.addClass('tooltip-active');
+                        $currentTooltip.qtip({
+                            overwrite: true,
+                            content: {
+                                text: content
                             },
-                            classes: 'qtip-rounded qtip-shadow'
-                        }
-                    });
+                            position: {
+                                target: 'event',
+                                my: 'bottom center',
+                                at: 'top center'
+                            },
+                            style: {
+                                tip: {
+                                    corner: true
+                                },
+                                classes: 'qtip-rounded qtip-shadow'
+                            }
+                        });
+                    }
                 });
 
                 return this;

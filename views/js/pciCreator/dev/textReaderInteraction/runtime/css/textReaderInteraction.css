@@ -270,7 +270,7 @@
 
 
 /* tooltips */
-.textReaderInteraction .tooltip  {
+.qti-item .tooltip-active  {
     display: inline;
     font-weight: bold;
     text-decoration: underline;
