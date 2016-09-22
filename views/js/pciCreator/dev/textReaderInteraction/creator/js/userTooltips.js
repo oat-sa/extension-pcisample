@@ -85,7 +85,11 @@ define([
                 var $tooltips = $interactionContainer.find('.tooltip');
 
                 $tooltips.each(function() {
-                    $(this).attr('contenteditable', !isProtectionWanted);
+                    if (isProtectionWanted) {
+                        $(this).attr('contenteditable', false);
+                    } else {
+                        $(this).removeAttr('contenteditable');
+                    }
                 });
             },
             _protectTooltips: function _protectTooltips() {
