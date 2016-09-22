@@ -19,6 +19,7 @@
 define([
     'lodash',
     'jquery',
+    'lib/uuid',
     'core/eventifier',
     'taoQtiItem/qtiCreator/widgets/helpers/textWrapper',
     'tpl!textReaderInteraction/creator/tpl/userTooltips/markup',
@@ -27,6 +28,7 @@ define([
 ], function (
     _,
     $,
+    uuid,
     eventifier,
     textWrapper,
     markupTpl,
@@ -42,7 +44,7 @@ define([
             });
 
         do {
-            id = 'tltp_' + _.random(10000);
+            id = 'tltp_' + uuid();
         } while (existingIds.indexOf(id) !== -1);
 
         return id;
