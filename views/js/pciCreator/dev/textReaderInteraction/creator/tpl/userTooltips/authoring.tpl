@@ -1,5 +1,5 @@
 <hr />
-<h3>Tooltips</h3>
+<h3>{{__ "Tooltips"}}</h3>
 <div class="panel">
     {{#each tooltips}}
     <div>
