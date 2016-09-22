@@ -77,6 +77,25 @@ define([
         tooltipManager = eventifier({
 
             /**
+             * Prevent tooltip partial selection and edition in editor
+             * @param {Boolean} isProtectionWanted - shall tooltips be protected or not ?
+             * @private
+             */
+            _toggleTooltipProtection: function _toggleTooltipProtection(isProtectionWanted) {
+                var $tooltips = $interactionContainer.find('.tooltip');
+
+                $tooltips.each(function() {
+                    $(this).attr('contenteditable', !isProtectionWanted);
+                });
+            },
+            _protectTooltips: function _protectTooltips() {
+                this._toggleTooltipProtection(true);
+            },
+            _unprotectTooltips: function _unprotectTooltips() {
+                this._toggleTooltipProtection(false);
+            },
+
+            /**
              * Add the toolip creator button to editor fields
              * @private
              */
@@ -152,7 +171,7 @@ define([
                 var updatedTooltip = _.find(tooltipsData, function (tooltip) {
                     return tooltipId === tooltip.id;
                 });
-                if (updatedTooltip && updatedTooltip.content) {
+                if (updatedTooltip) {
                     updatedTooltip.content = tooltipContent;
                 }
                 this.trigger('tooltipChange', updatedTooltip, tooltipsData);
@@ -176,6 +195,7 @@ define([
                 $selectionWrapper.replaceWith(
                     $(markupTpl(createdTooltip))
                 );
+                this._protectTooltips();
 
                 // create in model
                 tooltipsData.push(createdTooltip);
@@ -283,6 +303,7 @@ define([
                 var self = this;
 
                 this._syncMarkupAndModel();
+                this._protectTooltips();
                 this._initToolbar();
                 this._renderForm();
 
@@ -296,6 +317,7 @@ define([
              * Among other cases, this should be called in the destroy function of an interaction widget using the tooltips
              */
             destroy: function destroy() {
+                this._unprotectTooltips();
                 textWrapper.destroy($editableFields);
                 $toolbar.off(ns);
                 $editableFields.off(ns);
