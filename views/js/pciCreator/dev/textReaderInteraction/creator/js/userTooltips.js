@@ -76,6 +76,10 @@ define([
 
         tooltipManager = eventifier({
 
+            /**
+             * Add the toolip creator button to editor fields
+             * @private
+             */
             _initToolbar: function _initToolbar() {
                 var self = this;
 
@@ -106,6 +110,10 @@ define([
                 });
             },
 
+            /**
+             * Render the authoring form based on the model
+             * @private
+             */
             _renderForm: function _renderForm() {
                 var self = this,
                     $inputFields,
@@ -118,6 +126,7 @@ define([
                     })
                 );
 
+                // attach behaviour to the tooltip content authoring field
                 $inputFields = $authoringContainer.find('.tooltip-content-edit');
                 $inputFields.on('keyup' + ns, _.debounce(function(e) {
                     var $tooltip = $(e.target),
@@ -127,6 +136,7 @@ define([
                     self._updateTooltipContent(tooltipId, tooltipContent);
                 }, 500));
 
+                // attach behaviour to the delete tooltip button
                 $removeLinks = $authoringContainer.find('.tooltip-delete');
                 $removeLinks.on('click' + ns, function(e) {
                     var tooltipId = $(e.target).closest('.tooltip-edit').data('identifier');
@@ -134,16 +144,25 @@ define([
                 });
             },
 
+            /**
+             * Update the model when a tooltip content has been modified (usually by the user in the authoring form)
+             * @private
+             */
             _updateTooltipContent: function _updateTooltipContent(tooltipId, tooltipContent) {
                 var updatedTooltip = _.find(tooltipsData, function (tooltip) {
                     return tooltipId === tooltip.id;
                 });
-                if (updatedTooltip && typeof updatedTooltip.content) {
+                if (updatedTooltip && updatedTooltip.content) {
                     updatedTooltip.content = tooltipContent;
                 }
                 this.trigger('tooltipChange', updatedTooltip, tooltipsData);
             },
 
+            /**
+             * Create a new tooltip from a text selection: add relevant markup around the text selection
+             * update the model and refresh the authoring form
+             * @private
+             */
             _createTooltip: function _createTooltip($selectionWrapper) {
                 var tooltipId = buildId(tooltipsData),
                     label = $selectionWrapper.text().trim(),
@@ -165,10 +184,16 @@ define([
 
                 this.trigger('tooltipCreated', createdTooltip, tooltipsData);
 
-                // this is usefull if a new tooltip destroys an old one
+                // this is useful if a new tooltip destroys an old one
+                // for example, if the new tooltip wraps an existing one, then the later is destroyed in the markup
+                // and we need to reflect that in the model
                 this._syncMarkupAndModel();
             },
 
+            /**
+             * Destroy the tooltip markup and the associated model entry
+             * @private
+             */
             _deleteTooltip: function _deleteTooltip(tooltipId) {
                 var deletedTooltip,
                     deletedTooltipIndex;
@@ -189,6 +214,11 @@ define([
                 }
             },
 
+            /**
+             * Notify listeners before and after the actual markup deletion. This is useful if the listeners needs
+             * to do something with the markup before its removal (like identifying the position of the deleted tooltip)
+             * @private
+             */
             _deleteTooltipMarkup: function _deleteTooltipMarkup(tooltipId) {
                 var $tooltip = $interactionContainer.find('.tooltip[data-identifier=' + tooltipId + ']');
 
@@ -201,6 +231,11 @@ define([
                 }
             },
 
+            /**
+             * Ensure consistency between existing tooltip markup and the model, who can easily get out of sync:
+             * a user deleting some markup is the most common case
+             * @private
+             */
             _syncMarkupAndModel: function _syncMarkupAndModel() {
                 var idsInMarkup = [],
                     idsInModel = tooltipsData.map(function(data) {
@@ -241,6 +276,9 @@ define([
                 });
             },
 
+            /**
+             * Activate the tooltip functionality
+             */
             init: function init() {
                 var self = this;
 
@@ -251,9 +289,12 @@ define([
                 // handle tooltip markup suppression by user
                 $interactionContainer.on('keyup' + ns, _.debounce(function() {
                     self._syncMarkupAndModel();
-                }));
+                }, 500));
             },
 
+            /**
+             * Among other cases, this should be called in the destroy function of an interaction widget using the tooltips
+             */
             destroy: function destroy() {
                 textWrapper.destroy($editableFields);
                 $toolbar.off(ns);
