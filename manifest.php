@@ -28,7 +28,8 @@ return array(
     'version' => '1.1.0',
 	'author' => 'Open Assessment Technologies',
 	'requires' => array(
-	    'qtiItemPci' => '>=5.2.0'
+	    'qtiItemPci' => '>=1.0.0',
+	    'taoQtiItem' => '>=5.2.0'
     ),
 	'managementRole' => 'http://www.tao.lu/Ontologies/generis.rdf#pciSamplesManager',
     'acl' => array(
