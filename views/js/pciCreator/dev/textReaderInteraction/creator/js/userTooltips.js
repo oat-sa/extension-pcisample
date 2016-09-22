@@ -100,8 +100,7 @@ define([
              * @private
              */
             _initToolbar: function _initToolbar() {
-                var self = this,
-                    $button = $toolbar.find('span[class^="icon-"]');
+                var self = this;
 
                 $toolbar.on('mousedown' + ns, function(e){
                     var $selectionWrapper = $toolbar.parent();
