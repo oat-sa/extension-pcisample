@@ -74,9 +74,9 @@ define([
 
         $toolbar.show();
 
-        tooltipManager = _.merge(eventifier(), {
+        tooltipManager = eventifier({
 
-            _initToolbar: function initToolbar() {
+            _initToolbar: function _initToolbar() {
                 var self = this;
 
                 $toolbar.on('mousedown' + ns, function(e){
@@ -106,7 +106,7 @@ define([
                 });
             },
 
-            _renderForm: function() {
+            _renderForm: function _renderForm() {
                 var self = this,
                     $inputFields,
                     $removeLinks;
@@ -134,7 +134,7 @@ define([
                 });
             },
 
-            _updateTooltipContent: function(tooltipId, tooltipContent) {
+            _updateTooltipContent: function _updateTooltipContent(tooltipId, tooltipContent) {
                 var updatedTooltip = _.find(tooltipsData, function (tooltip) {
                     return tooltipId === tooltip.id;
                 });
@@ -169,7 +169,7 @@ define([
                 this._syncMarkupAndModel();
             },
 
-            _deleteTooltip: function(tooltipId) {
+            _deleteTooltip: function _deleteTooltip(tooltipId) {
                 var deletedTooltip,
                     deletedTooltipIndex;
 
@@ -189,7 +189,7 @@ define([
                 }
             },
 
-            _deleteTooltipMarkup: function(tooltipId) {
+            _deleteTooltipMarkup: function _deleteTooltipMarkup(tooltipId) {
                 var $tooltip = $interactionContainer.find('.tooltip[data-identifier=' + tooltipId + ']');
 
                 if ($tooltip.length) {
@@ -201,7 +201,7 @@ define([
                 }
             },
 
-            _syncMarkupAndModel: function() {
+            _syncMarkupAndModel: function _syncMarkupAndModel() {
                 var idsInMarkup = [],
                     idsInModel = tooltipsData.map(function(data) {
                         return data.id;
@@ -241,7 +241,7 @@ define([
                 });
             },
 
-            init: function() {
+            init: function init() {
                 var self = this;
 
                 this._syncMarkupAndModel();
@@ -254,7 +254,7 @@ define([
                 }));
             },
 
-            destroy: function() {
+            destroy: function destroy() {
                 textWrapper.destroy($editableFields);
                 $toolbar.off(ns);
                 $editableFields.off(ns);
