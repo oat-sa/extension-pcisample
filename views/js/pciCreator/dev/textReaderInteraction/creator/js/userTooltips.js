@@ -100,7 +100,8 @@ define([
              * @private
              */
             _initToolbar: function _initToolbar() {
-                var self = this;
+                var self = this,
+                    $button = $toolbar.find('span[class^="icon-"]');
 
                 $toolbar.on('mousedown' + ns, function(e){
                     var $selectionWrapper = $toolbar.parent();
@@ -108,8 +109,13 @@ define([
 
                     $toolbar.detach();
 
-                    self._createTooltip($selectionWrapper);
-                    self._renderForm();
+                    // create tooltip only if selection doesn't wrap an existing tooltip
+                    if ($selectionWrapper.find('.tooltip').length === 0) {
+                        self._createTooltip($selectionWrapper);
+                        self._renderForm();
+                    } else {
+                        textWrapper.unwrap($editableFields);
+                    }
 
                 }).on('mouseup' + ns, function preventRewrapping(e){
                     e.stopPropagation();
