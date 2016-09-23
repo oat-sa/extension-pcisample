@@ -43,3 +43,4 @@
         <input name="buttonLabelsNext" type="text" value="{{buttonLabels.next}}">
     </label>
 </div>
+<div class="tooltip_authoring"></div>

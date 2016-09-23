@@ -28,13 +28,13 @@ class Updater extends \common_ext_ExtensionUpdater
 {
 
 	/**
-     * 
+     *
      * @param string $currentVersion
      * @return string $versionUpdatedTo
      */
     public function update($initialVersion) {
-        
-        
+
+
 		if ($this->isBetween('0', '0.2.1')) {
 			$this->setVersion('0.2.1');
 		}
@@ -55,5 +55,9 @@ class Updater extends \common_ext_ExtensionUpdater
 			$this->setVersion('1.0.2');
 		}
 
+        if($this->isVersion('1.0.2')){
+            call_user_func(new RegisterPci(), []);
+            $this->setVersion('1.1.0');
+        }
 	}
 }

@@ -2,7 +2,7 @@
     "typeIdentifier": "textReaderInteraction",
     "label": "Text reader",
     "description": "The Paging widget combines a scrolling widget with additional paging controls.",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "author": "Aleh Hutnikau",
     "email": "contact@taotesting.com",
     "tags": [
@@ -13,23 +13,30 @@
     "short": "Text reader",
     "response": {
         "baseType": "boolean",
-        "cardinality": "single" 
+        "cardinality": "single"
     },
     "runtime" : {
         "hook" : "./runtime/textReaderInteraction.js",
         "libraries" : [
             "IMSGlobal/jquery_2_1_1",
+            "OAT/handlebars",
+            "OAT/jquery.qtip",
             "./runtime/js/renderer.js",
             "./runtime/js/tabs.js"
         ],
         "stylesheets" : [
-            "./runtime/css/textReaderInteraction.css"
+            "./runtime/css/textReaderInteraction.css",
+            "./runtime/css/jquery.qtip.css"
         ]
     },
     "creator" : {
         "icon": "./creator/media/icon.svg",
         "hook": "./pciCreator.js",
         "libraries" : [
+            "./creator/js/userTooltips.js",
+            "./creator/tpl/userTooltips/authoring.tpl",
+            "./creator/tpl/userTooltips/create.tpl",
+            "./creator/tpl/userTooltips/markup.tpl",
             "./creator/tpl/markup.tpl",
             "./creator/tpl/propertiesForm.tpl",
             "./creator/tpl/navigation.tpl",
@@ -39,7 +46,8 @@
             "./creator/widget/states/states.js"
         ],
         "stylesheets" : [
-            "./creator/css/textReaderInteraction.css"
+            "./creator/css/textReaderInteraction.css",
+            "./creator/css/userTooltips.css"
         ]
     }
 }
