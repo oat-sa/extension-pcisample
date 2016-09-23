@@ -59,5 +59,7 @@ class Updater extends \common_ext_ExtensionUpdater
             call_user_func(new RegisterPci(), []);
             $this->setVersion('1.1.0');
         }
+
+        $this->skip('1.1.0', '1.1.1');
 	}
 }
