@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1" xmlns:html5="html5" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:pci="http://www.imsglobal.org/xsd/portableCustomInteraction" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1.xsd" identifier="i1474463752610181" title="textReader 1" label="" xml:lang="en-US" adaptive="false" timeDependent="false" toolName="TAO" toolVersion="3.1.0-sprint34">
+    <responseDeclaration identifier="RESPONSE" cardinality="single" baseType="boolean"/>
+    <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+    <stylesheet href="style/custom/tao-user-styles.css" type="text/css" media="all" title=""/>
+    <itemBody>
+        <div class="grid-row">
+            <div class="col-12">
+                <customInteraction responseIdentifier="RESPONSE">
+                    <pci:portableCustomInteraction customInteractionTypeIdentifier="textReaderInteraction" hook="untrucbidon" version="">
+                        <pci:responseSchema href="http://imsglobal.org/schema/json/v1.0/response.json"/>
+                        <pci:resources location="http://imsglobal.org/pci/1.0.15/sharedLibraries.xml">
+                            <pci:libraries>
+                            </pci:libraries>
+                            <pci:stylesheets>
+                            </pci:stylesheets>
+                            <pci:mediaFiles>
+                            </pci:mediaFiles>
+                        </pci:resources>
+                        <pci:properties xmlns:pci="http://www.imsglobal.org/xsd/portableCustomInteraction">
+                            <pci:entry key="pageHeight">400</pci:entry>
+                            <pci:entry key="tabsPosition">top</pci:entry>
+                            <pci:entry key="navigation">both</pci:entry>
+                            <pci:properties key="tooltips">
+                                <pci:properties key="0">
+                                    <pci:entry key="id">ttip_1111</pci:entry>
+                                    <pci:entry key="label">Tao Te Ching</pci:entry>
+                                    <pci:entry key="content">The Tao Te Ching!!!, along with thef Zhuangzi, is a fundamental text for both philosophical and religious Taoism, and strongly influenced other schools, such as Legalism, Confucianism, and Chinese Buddhism, which when first introduced into China was largely interpreted through the use of Daoist words and concepts.</pci:entry>
+                                </pci:properties>
+                                <pci:properties key="1">
+                                    <pci:entry key="id">ttip_2222</pci:entry>
+                                    <pci:entry key="label">Taoism</pci:entry>
+                                    <pci:entry key="content">Taoism, also known as Daoism, is a religious, philosophical and ritual tradition of Chinese origin which emphasizes living in harmony and accordance with the Tao (道, literally "Way", also romanized as Dao). Taoist schools function as theoretical and liturgical frameworks for both popular and high cults of broader Chinese religion, and some of them (the Quanzhen traditions) have a distinct monastic institution. The Tao is a fundamental idea in Chinese philosophies and religions other than Taoism; in the latter, however, it denotes the principle that is both the source and the pattern of development of everything that exists.</pci:entry>
+                                </pci:properties>
+                                <pci:properties key="2">
+                                    <pci:entry key="id">tltp_9060</pci:entry>
+                                    <pci:entry key="label">Chinese</pci:entry>
+                                    <pci:entry key="content"/>
+                                </pci:properties>
+                                <pci:properties key="3">
+                                    <pci:entry key="id">tltp_9703</pci:entry>
+                                    <pci:entry key="label">human</pci:entry>
+                                    <pci:entry key="content">Modern humans (Homo sapiens, primarily ssp. Homo sapiens sapiens) are the only extant members of Hominina clade (or human clade), a branch of the taxonomical tribe Hominini belonging to the family of great apes. They are characterized by erect posture and bipedal locomotion; manual dexterity and increased tool use, compared to other animals; and a general trend toward larger, more complex brains and societies</pci:entry>
+                                </pci:properties>
+                                <pci:properties key="4">
+                                    <pci:entry key="id">tltp_7703</pci:entry>
+                                    <pci:entry key="label">Phantom</pci:entry>
+                                    <pci:entry key="content">wooooo oooooooh...</pci:entry>
+                                </pci:properties>
+                            </pci:properties>
+                            <pci:properties key="pages">
+                                <pci:properties key="0">
+                                    <pci:entry key="label">Page 1</pci:entry>
+                                    <pci:properties key="content">
+                                        <pci:entry key="0">This item can be used to perform some testing in authoring:
+                                            &lt;br /&gt;&lt;br /&gt;
+                                            &lt;ul&gt;
+                                            &lt;li&gt;&lt;strong&gt;Chinese&lt;/strong&gt;: is an empty tooltip: it shouldn't be rendered. &lt;/li&gt;
+                                            &lt;li&gt;&lt;strong&gt;Western&lt;/strong&gt;: doesn't have any associated model. It should be created automatically when opened in TAO editor and, in the meantime, shouldn't be rendered&lt;/li&gt;
+                                            &lt;li&gt;&lt;strong&gt;Phantom&lt;/strong&gt;: this tooltip exists in model but doesn't have any associated markup. It shouldn't appear in the tooltip authoring and should be deleted from properties by editor&lt;/li&gt;
+                                            &lt;li&gt;other tooltips (2 in first tab and 1 in third tab) are normal&lt;/li&gt;
+                                            &lt;/ul&gt;
+                                            &lt;strong&gt;Tao&lt;/strong&gt; or &lt;strong&gt;Dao&lt;/strong&gt; (/taʊ/, /daʊ/; &lt;span class="tooltip" data-identifier="tltp_9060"&gt; Chinese &lt;/span&gt;: 道; pinyin: [About this sound] &amp;nbsp;Dào&amp;nbsp;(help·info)) is a Chinese word signifying 'way', 'path', 'route', or sometimes more loosely, 'doctrine' or 'principle'. Within the context of traditional Chinese philosophy and religion, the Tao is the intuitive knowing of "life" that cannot be grasped full-heartedly as just a concept but is known nonetheless through actual living experience of one's everyday being. The Tao differs from conventional (&lt;span class="tooltip" data-identifier="tltp_3958"&gt; Western &lt;/span&gt;) ontology in that it is an active and holistic practice of the natural order of Nature and its universal awakening, rather than a static, atomistic one.&lt;br /&gt;
+                                            &lt;br /&gt;
+                                            Laozi in the &lt;span class="tooltip" data-identifier="ttip_1111"&gt;Tao Te Ching&lt;/span&gt; explains that the Tao is not a 'name' for a 'thing' but the underlying natural order of the Universe whose ultimate essence is difficult to circumscribe due to it being non conceptual yet evident' in one's being of aliveness.[citation needed] The Tao is "eternally nameless” (Tao Te Ching-32. Laozi) and to be distinguished from the countless 'named' things which are considered to be its manifestations, the reality of life before its descriptions of it.&lt;br /&gt;
+                                            &lt;br /&gt;
+                                            The Tao lends its name to the religious tradition (Wade–Giles, Tao Chiao; Pinyin, Daojiao) and philosophical tradition (Wade–Giles, Tao chia; Pinyin, Daojia) that are both referred to in English with the single term &lt;span class="tooltip" data-identifier="ttip_2222"&gt;Taoism&lt;/span&gt;.&lt;br /&gt;
+                                            &lt;br /&gt;
+                                            </pci:entry>
+                                    </pci:properties>
+                                    <pci:entry key="id">0</pci:entry>
+                                </pci:properties>
+                                <pci:properties key="1">
+                                    <pci:entry key="label">Page 2</pci:entry>
+                                    <pci:properties key="content">
+                                        <pci:entry key="0">&lt;p&gt;The word &lt;span&gt;Tao&lt;/span&gt; (道) has a variety of meanings in both ancient and modern Chinese language. Aside from its purely prosaic use to mean road, channel, path, principle, or similar,[1] the word has acquired a variety of differing and often confusing metaphorical, philosophical and religious uses. In most belief systems, the word is used symbolically in its sense of 'way' as the 'right' or 'proper' way of existence, or in the context of ongoing practices of attainment or of the full coming into being, or the state of enlightenment or spiritual perfection that is the outcome of such practices.[2]&lt;/p&gt;
+
+                                            &lt;p&gt;Some scholars make sharp distinctions between moral or ethical usage of the word "Tao" that is prominent in Confucianism and religious Taoism and the more metaphysical usage of the term used in philosophical Taoism and most forms of Mahayana Buddhism;[3] others maintain that these are not separate usages or meanings, seeing them as mutually inclusive and compatible approaches to defining the principle.[4] The original use of the term was as a form of praxis rather than theory – a term used as a convention to refer to something that otherwise cannot be discussed in words – and early writings such as the Tao Te Ching and the I Ching make pains to distinguish between conceptions of the Tao (sometimes referred to as "named Tao") and the Tao itself (the "unnamed Tao"), which cannot be expressed or understood in language.[notes 1][notes 2][5] Liu Da asserts that the Tao is properly understood as an experiential and evolving concept, and that there are not only cultural and religious differences in the interpretation of the Tao, but personal differences that reflect the character of individual practitioners.[6]&lt;/p&gt;
+
+                                        </pci:entry>
+                                        <pci:entry key="1">&lt;p&gt;The Tao can be roughly thought of as the flow of the Universe, or as some essence or pattern behind the natural world that keeps the Universe balanced and ordered.[7] It is related to the idea of qi, the essential energy of action and existence. The Tao is a non-dualistic principle – it is the greater whole from which all the individual elements of the Universe derive. Keller considers it similar to the negative theology of Western scholars,[8] but the Tao is rarely an object of direct worship, being treated more like the Hindu concepts of karma or dharma than as a divine object.[9] The Tao is more commonly expressed in the relationship between wu (void or emptiness, in the sense of wuji) and yinyang (the natural dynamic balance between opposites), leading to its central principle of wu wei (non-action, or action without force).&lt;/p&gt;
+
+                                            &lt;p&gt;The Tao is usually described in terms of elements of nature, and in particular as similar to water. Like water it is undifferentiated, endlessly self-replenishing, soft and quiet but immensely powerful, and impassively generous.[10] Much of Taoist philosophy centers on the cyclical continuity of the natural world, and its contrast to the linear, goal-oriented actions of human beings.&lt;/p&gt;</pci:entry>
+                                    </pci:properties>
+                                    <pci:entry key="id">1</pci:entry>
+                                </pci:properties>
+                                <pci:properties key="2">
+                                    <pci:entry key="label">Page 3</pci:entry>
+                                    <pci:properties key="content">
+                                        <pci:entry key="0">&lt;h2&gt;&lt;strong&gt;Taoist interpretations&lt;/strong&gt;&lt;/h2&gt;
+
+                                            &lt;p&gt;There is no single orthodox Taoist view of the Tao. All forms of Taoism center around Tao and De, but there is a broad variety of distinct interpretations among sects and even individuals within the same sect. Despite this diversity, there are some clear, common patterns and trends within Taoism and its branches.[15]&lt;/p&gt;
+
+                                            &lt;p&gt;The diversity of Taoist interpretations of the Tao can be seen across four texts representative of major streams of thought within Taoism. All four texts are used in modern Taoism with varying acceptance and emphasis among sects. The Tao Te Ching is the oldest text and representative of a speculative and philosophical approach to the Tao. The Tao T'i Lun is an eighth century exegesis of the Tao Te Ching, written from a well-educated and religious viewpoint, that represents the traditional scholarly perspective. The devotional perspective of the Tao is expressed in the Ch'ing Ching Ching, a liturgical text that was originally composed during the Han dynasty and is used as a hymnal in religious Taoism, especially among eremites. The Zhuangzi (also spelled Chuang Tzu) uses literary devices such as tales, allegories, and narratives to relate the Tao to the reader, illustrating a metaphorical method of viewing and expressing the Tao.[16]&lt;/p&gt;
+                                            A Taoist monk practicing Chinese calligraphy with water on stone. Water calligraphy, like sand mandalas, evokes the ephemeral nature of physical reality.
+
+                                            &lt;p&gt;The forms and variations of religious Taoism are incredibly diverse. They integrate a broad spectrum of academic, ritualistic, supernatural, devotional, literary, and folk practices with a multitude of results. Buddhism and Confucianism particularly affected the way many sects of Taoism framed, approached, and perceived the Tao. The multitudinous branches of religious Taoism accordingly regard the Tao, and interpret writings about it, in innumerable ways. Thus, outside of a few broad similarities, it is difficult to provide an accurate yet clear summary of their interpretation of the Tao.[17]&lt;/p&gt;
+                                        </pci:entry>
+                                        <pci:entry key="1">&lt;h2&gt;&lt;strong&gt;Confucian interpretations&lt;/strong&gt;&lt;/h2&gt;
+
+                                            &lt;p&gt;The Dao, or Way, of Confucius can be said to be 'Truth'. Confucianism regards the Way, or Truth, as concordant with a particular approach to life, politics, and tradition. It is held as equally necessary and well regarded as De (virtue) and ren (humanity). Confucius presents a humanistic 'Dao'. He only rarely speaks of the t'ien Dao (Way of Heaven). An influential early Confucian, Hsiin Tzu, explicitly noted this contrast. Though he acknowledged the existence and celestial importance of the Way of Heaven, he insisted that the Dao principally concerns &lt;span class="tooltip" data-identifier="tltp_9703"&gt; human &lt;/span&gt; affairs.[23]&lt;/p&gt;
+
+                                            &lt;p&gt;As a formal religious concept in Confucianism, Dao is the Absolute towards which the faithful move. In Zhongyong (The Doctrine of the Mean), harmony with the Absolute is equivalent to integrity and sincerity. The Great Learning expands on this concept explaining that the Way illuminates virtue, improves the people, and resides within the purest morality. During the Tang dynasty, Han Yu further formalized and defined Confucian beliefs as an apologetic response to Buddhism. He emphasized the ethics of the Way. He explicitly paired 'Dao' and 'De', focusing on humane nature and righteousness. He also framed and elaborated on a "dàotǒng" (tradition of the Way) in order to reject the traditions of Buddhism.[23]&lt;/p&gt;
+                                        </pci:entry>
+                                        <pci:entry key="2">&lt;h2&gt;&lt;strong&gt;Buddhist interpretations&lt;/strong&gt;&lt;/h2&gt;
+
+                                            &lt;p&gt;Buddhism first started to spread in China during the first century AD and was experiencing a golden age of growth and maturation by the fourth century AD. Hundreds of collections of Pali and Sanskrit texts were translated into Chinese by Buddhist monks within a short period of time. Dhyana was translated as ch'an (and later as zen), giving Zen Buddhism its name. The use of Chinese concepts, such as Dao, that were close to Buddhist ideas and terms helped spread the religion and make it more amenable to the Chinese people. However, the differences between the Sanskrit and Chinese terminology lead to some initial misunderstandings and the eventual development of East Asian Buddhism as a distinct entity. As part of this process, many Chinese words introduced their rich semantic and philosophical associations into Buddhism, including the use of 'Dao' for central concepts and tenets of Buddhism.[24]&lt;/p&gt;
+
+                                            &lt;p&gt;Pai-chang Huai-hai told a student who was grappling with difficult portions of suttas, "Take up words in order to manifest meaning and you'll obtain 'meaning'. Cut off words and meaning is emptiness. Emptiness is the Dao. The Dao is cutting off words and speech." Ch'an (Zen) Buddhists regard the Dao as synonymous with both the Buddhist Path (marga) and the results of it; the Eightfold Path and Buddhist enlightenment (satori). Pai-chang's statement plays upon this usage in the context of the fluid and varied Chinese usage of 'Dao'. Words and meaning are used to refer to rituals and practice. The 'emptiness' refers to the Buddhist concept of sunyata. Finding the Dao and Buddha-nature is not simply a matter of formulations, but an active response to the Four Noble Truths that cannot be fully expressed or conveyed in words and concrete associations. The use of 'Dao' in this context refers to the literal 'way' of Buddhism, the return to the universal source, dharma, proper meditation, and nirvana, among other associations. 'Dao' is commonly used in this fashion by Chinese Buddhists, heavy with associations and nuanced meanings.[25&lt;/p&gt;
+                                        </pci:entry>
+                                    </pci:properties>
+                                    <pci:entry key="id">2</pci:entry>
+                                </pci:properties>
+                            </pci:properties>
+                            <pci:properties key="buttonLabels">
+                                <pci:entry key="prev">Previous</pci:entry>
+                                <pci:entry key="next">Next</pci:entry>
+                            </pci:properties>
+                            <pci:entry key="onePageNavigation">true</pci:entry>
+                        </pci:properties>
+                        <pci:markup>
+                            <html5:div class="textReaderInteraction qti-interaction">
+                                <html5:div class="tr-wrap">
+                                    <html5:div class="tr-content js-page-container">
+                                    </html5:div>
+                                    <html5:div class="js-nav-container">
+                                    </html5:div>
+                                </html5:div>
+                                <html5:script class="text-reader-pages-tpl" type="text/x-handlebars-template"><![CDATA[
+        <html5:div class="tr-tabs js-page-tabs tr-tabs-{{tabsPosition}} clearfix">
+            {{#if showTabs}}
+            <html5:ul class="tr-tab-buttons js-tab-buttons">
+                {{#each pages}}
+                <html5:li data-page-num="{{@index}}" data-page-id="{{id}}" class="tr-tab-buttons__item">
+                    <html5:span class="tr-tab-label">{{inc @index}}</html5:span>
+                </html5:li>
+                {{/each}}
+            </html5:ul>
+            {{/if}}
+            <html5:div class="tr-pages-wrap clearfix">
+                <html5:div class="tr-pages" style="height: {{pageWrapperHeight}}px">
+                    {{#each pages}}
+                    <html5:div data-page-num="{{@index}}" data-page-id="{{id}}" class="tr-page js-tab-content tr-tabs-{{@index}}">
+                        <html5:div class="tr-passage" style="height: {{../pageHeight}}px" >
+                            {{#each content}}
+                            <html5:div class="tr-passage-column widget-blockInteraction js-page-column" data-page-col-index="{{@index}}">
+                                {{{this}}}
+                            </html5:div>
+                            {{/each}}
+                        </html5:div>
+                    </html5:div>
+                    {{/each}}
+                </html5:div>
+            </html5:div>
+        </html5:div>
+        ]]></html5:script>
+                                <html5:script class="text-reader-nav-tpl" type="text/x-handlebars-template"><![CDATA[
+        {{#if showNavigation}}
+        <html5:div class="tr-nav-wrap tr-nav-{{tabsPosition}}">
+            <html5:div class="tr-nav">
+                <html5:div class="tr-nav__col js-prev-page">
+                    <html5:button class="btn-info small">{{../buttonLabels.prev}}</html5:button>
+                </html5:div>
+                <html5:div class="tr-nav__col">
+                    Page <html5:span class="js-current-page">{{../currentPage}}</html5:span> / {{../pagesNum}}
+                </html5:div>
+                <html5:div class="tr-nav__col js-next-page">
+                    <html5:button class="btn-info small">{{../buttonLabels.next}}</html5:button>
+                </html5:div>
+            </html5:div>
+        </html5:div>
+        {{/if}}
+        ]]></html5:script>
+                            </html5:div>
+                        </pci:markup>
+                    </pci:portableCustomInteraction>
+                </customInteraction>
+            </div>
+        </div>
+    </itemBody>
+    <responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct"/>
+</assessmentItem>

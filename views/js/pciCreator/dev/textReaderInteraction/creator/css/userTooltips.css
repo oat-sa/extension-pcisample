@@ -1,0 +1,18 @@
+.item-editor-item .tooltip {
+    border: 1px solid #F1D031;
+    padding: 3px;
+    font-weight: bold;
+    background-color: #FFFFA3;
+}
+
+.item-editor-item .inline-text-wrapper {
+    display: inline!important;
+}
+
+.item-editor-interaction-related .tooltip-delete {
+    float: right;
+}
+
+.item-editor-interaction-related .tooltip-content-edit {
+    font-size: 12px;
+}

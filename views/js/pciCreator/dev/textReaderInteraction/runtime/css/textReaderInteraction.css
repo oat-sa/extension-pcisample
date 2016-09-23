@@ -12,7 +12,7 @@
     display: table;
     table-layout: fixed;
     width: 100%;
-    border-collapse:separate; 
+    border-collapse:separate;
     border-spacing: 10px;
 }
 .textReaderInteraction .tr-passage-column {
@@ -180,7 +180,7 @@
     width: 55px;
     float: right;
     position: relative;
-    left: 0px; 
+    left: 0px;
 }
 .textReaderInteraction .tr-tabs-left .tr-tab-buttons .tr-tab-buttons__item.tr-active-tab {
     border-right-color: #ffffff;
@@ -267,3 +267,19 @@
     border-left: 1px solid #dddddd;
 }
 /* END navigation buttons */
+
+
+/* tooltips */
+.qti-item .tooltip-active  {
+    display: inline;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: pointer;
+    color: #0E5D91;
+}
+
+.qtip-default {
+    font-size: 12px!important;
+    line-height: 1.2em!important;
+}
