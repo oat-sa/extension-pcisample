@@ -119,9 +119,9 @@ define(
                 $tooltips.each(function() {
                     var $currentTooltip = $(this),
                         currentId = $currentTooltip.data('identifier'),
-                        content = String(tooltipsContent[currentId]).trim();
+                        content = tooltipsContent[currentId];
 
-                    if (content) {
+                    if (content && content.trim()) {
                         $currentTooltip.addClass('tooltip-active');
                         $currentTooltip.qtip({
                             overwrite: true,

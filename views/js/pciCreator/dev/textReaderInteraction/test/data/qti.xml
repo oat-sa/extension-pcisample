@@ -55,8 +55,8 @@
                                         <pci:entry key="0">This item can be used to perform some testing in authoring:
                                             &lt;br /&gt;&lt;br /&gt;
                                             &lt;ul&gt;
-                                            &lt;li&gt;&lt;strong&gt;Chinese&lt;/strong&gt;: is an empty tooltip &lt;/li&gt;
-                                            &lt;li&gt;&lt;strong&gt;Western&lt;/strong&gt;: doesn't have any associated model. It should be created automatically when opened in TAO editor&lt;/li&gt;
+                                            &lt;li&gt;&lt;strong&gt;Chinese&lt;/strong&gt;: is an empty tooltip: it shouldn't be rendered. &lt;/li&gt;
+                                            &lt;li&gt;&lt;strong&gt;Western&lt;/strong&gt;: doesn't have any associated model. It should be created automatically when opened in TAO editor and, in the meantime, shouldn't be rendered&lt;/li&gt;
                                             &lt;li&gt;&lt;strong&gt;Phantom&lt;/strong&gt;: this tooltip exists in model but doesn't have any associated markup. It shouldn't appear in the tooltip authoring and should be deleted from properties by editor&lt;/li&gt;
                                             &lt;li&gt;other tooltips (2 in first tab and 1 in third tab) are normal&lt;/li&gt;
                                             &lt;/ul&gt;

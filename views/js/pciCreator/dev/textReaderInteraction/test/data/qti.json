@@ -1,6 +1,6 @@
 {
     "identifier": "i1474463752610181",
-    "serial": "item_57e2b53f10121516434850",
+    "serial": "item_57e510e0ae2c5150372260",
     "qtiClass": "assessmentItem",
     "attributes": {
         "identifier": "i1474463752610181",
@@ -14,17 +14,17 @@
         "class": ""
     },
     "body": {
-        "serial": "container_containeritembody_57e2b53f10102216906550",
-        "body": "\n        <div class=\"grid-row\">\n            <div class=\"col-12\">\n                {{interaction_portablecustominteraction_57e2b53f1193d582002173}}\n            <\/div>\n        <\/div>\n    ",
+        "serial": "container_containeritembody_57e510e0ae293914736265",
+        "body": "\n        <div class=\"grid-row\">\n            <div class=\"col-12\">\n                {{interaction_portablecustominteraction_57e510e0b5234073126446}}\n            <\/div>\n        <\/div>\n    ",
         "elements": {
-            "interaction_portablecustominteraction_57e2b53f1193d582002173": {
-                "serial": "interaction_portablecustominteraction_57e2b53f1193d582002173",
+            "interaction_portablecustominteraction_57e510e0b5234073126446": {
+                "serial": "interaction_portablecustominteraction_57e510e0b5234073126446",
                 "qtiClass": "customInteraction",
                 "attributes": {
                     "responseIdentifier": "RESPONSE"
                 },
                 "debug": {
-                    "relatedItem": "item_57e2b53f10121516434850"
+                    "relatedItem": "item_57e510e0ae2c5150372260"
                 },
                 "choices": {},
                 "typeIdentifier": "textReaderInteraction",
@@ -65,7 +65,7 @@
                         {
                             "label": "Page 1",
                             "content": [
-                                "This item can be used to perform some testing in authoring:\n                                            <br \/><br \/>\n                                            <ul>\n                                            <li><strong>Chinese<\/strong>: is an empty tooltip <\/li>\n                                            <li><strong>Western<\/strong>: doesn't have any associated model. It should be created automatically when opened in TAO editor<\/li>\n                                            <li><strong>Phantom<\/strong>: this tooltip exists in model but doesn't have any associated markup. It shouldn't appear in the tooltip authoring and should be deleted from properties by editor<\/li>\n                                            <li>other tooltips (2 in first tab and 1 in third tab) are normal<\/li>\n                                            <\/ul>\n                                            <strong>Tao<\/strong> or <strong>Dao<\/strong> (\/ta\u028a\/, \/da\u028a\/; <span class=\"tooltip\" data-identifier=\"tltp_9060\"> Chinese <\/span>: \u9053; pinyin: [About this sound] &nbsp;D\u00e0o&nbsp;(help\u00b7info)) is a Chinese word signifying 'way', 'path', 'route', or sometimes more loosely, 'doctrine' or 'principle'. Within the context of traditional Chinese philosophy and religion, the Tao is the intuitive knowing of \"life\" that cannot be grasped full-heartedly as just a concept but is known nonetheless through actual living experience of one's everyday being. The Tao differs from conventional (<span class=\"tooltip\" data-identifier=\"tltp_3958\"> Western <\/span>) ontology in that it is an active and holistic practice of the natural order of Nature and its universal awakening, rather than a static, atomistic one.<br \/>\n                                            <br \/>\n                                            Laozi in the <span class=\"tooltip\" data-identifier=\"ttip_1111\">Tao Te Ching<\/span> explains that the Tao is not a 'name' for a 'thing' but the underlying natural order of the Universe whose ultimate essence is difficult to circumscribe due to it being non conceptual yet evident' in one's being of aliveness.[citation needed] The Tao is \"eternally nameless\u201d (Tao Te Ching-32. Laozi) and to be distinguished from the countless 'named' things which are considered to be its manifestations, the reality of life before its descriptions of it.<br \/>\n                                            <br \/>\n                                            The Tao lends its name to the religious tradition (Wade\u2013Giles, Tao Chiao; Pinyin, Daojiao) and philosophical tradition (Wade\u2013Giles, Tao chia; Pinyin, Daojia) that are both referred to in English with the single term <span class=\"tooltip\" data-identifier=\"ttip_2222\">Taoism<\/span>.<br \/>\n                                            <br \/>\n                                            "
+                                "This item can be used to perform some testing in authoring:\n                                            <br \/><br \/>\n                                            <ul>\n                                            <li><strong>Chinese<\/strong>: is an empty tooltip: it shouldn't be rendered. <\/li>\n                                            <li><strong>Western<\/strong>: doesn't have any associated model. It should be created automatically when opened in TAO editor and, in the meantime, shouldn't be rendered<\/li>\n                                            <li><strong>Phantom<\/strong>: this tooltip exists in model but doesn't have any associated markup. It shouldn't appear in the tooltip authoring and should be deleted from properties by editor<\/li>\n                                            <li>other tooltips (2 in first tab and 1 in third tab) are normal<\/li>\n                                            <\/ul>\n                                            <strong>Tao<\/strong> or <strong>Dao<\/strong> (\/ta\u028a\/, \/da\u028a\/; <span class=\"tooltip\" data-identifier=\"tltp_9060\"> Chinese <\/span>: \u9053; pinyin: [About this sound] &nbsp;D\u00e0o&nbsp;(help\u00b7info)) is a Chinese word signifying 'way', 'path', 'route', or sometimes more loosely, 'doctrine' or 'principle'. Within the context of traditional Chinese philosophy and religion, the Tao is the intuitive knowing of \"life\" that cannot be grasped full-heartedly as just a concept but is known nonetheless through actual living experience of one's everyday being. The Tao differs from conventional (<span class=\"tooltip\" data-identifier=\"tltp_3958\"> Western <\/span>) ontology in that it is an active and holistic practice of the natural order of Nature and its universal awakening, rather than a static, atomistic one.<br \/>\n                                            <br \/>\n                                            Laozi in the <span class=\"tooltip\" data-identifier=\"ttip_1111\">Tao Te Ching<\/span> explains that the Tao is not a 'name' for a 'thing' but the underlying natural order of the Universe whose ultimate essence is difficult to circumscribe due to it being non conceptual yet evident' in one's being of aliveness.[citation needed] The Tao is \"eternally nameless\u201d (Tao Te Ching-32. Laozi) and to be distinguished from the countless 'named' things which are considered to be its manifestations, the reality of life before its descriptions of it.<br \/>\n                                            <br \/>\n                                            The Tao lends its name to the religious tradition (Wade\u2013Giles, Tao Chiao; Pinyin, Daojiao) and philosophical tradition (Wade\u2013Giles, Tao chia; Pinyin, Daojia) that are both referred to in English with the single term <span class=\"tooltip\" data-identifier=\"ttip_2222\">Taoism<\/span>.<br \/>\n                                            <br \/>\n                                            "
                             ],
                             "id": "0"
                         },
@@ -97,11 +97,11 @@
             }
         },
         "debug": {
-            "relatedItem": "item_57e2b53f10121516434850"
+            "relatedItem": "item_57e510e0ae2c5150372260"
         }
     },
     "debug": {
-        "relatedItem": "item_57e2b53f10121516434850"
+        "relatedItem": "item_57e510e0ae2c5150372260"
     },
     "namespaces": {
         "": "http:\/\/www.imsglobal.org\/xsd\/imsqti_v2p1",
@@ -115,8 +115,8 @@
         "http:\/\/www.imsglobal.org\/xsd\/imsqti_v2p1": "http:\/\/www.imsglobal.org\/xsd\/qti\/qtiv2p1\/imsqti_v2p1.xsd"
     },
     "stylesheets": {
-        "stylesheet_57e2b53f10833169541023": {
-            "serial": "stylesheet_57e2b53f10833169541023",
+        "stylesheet_57e510e0b0938101619337": {
+            "serial": "stylesheet_57e510e0b0938101619337",
             "qtiClass": "stylesheet",
             "attributes": {
                 "href": "style\/custom\/tao-user-styles.css",
@@ -125,14 +125,14 @@
                 "title": ""
             },
             "debug": {
-                "relatedItem": "item_57e2b53f10121516434850"
+                "relatedItem": "item_57e510e0ae2c5150372260"
             }
         }
     },
     "outcomes": {
-        "outcomedeclaration_57e2b53f10fe2762129929": {
+        "outcomedeclaration_57e510e0b34cd809016939": {
             "identifier": "SCORE",
-            "serial": "outcomedeclaration_57e2b53f10fe2762129929",
+            "serial": "outcomedeclaration_57e510e0b34cd809016939",
             "qtiClass": "outcomeDeclaration",
             "attributes": {
                 "identifier": "SCORE",
@@ -140,15 +140,15 @@
                 "baseType": "float"
             },
             "debug": {
-                "relatedItem": "item_57e2b53f10121516434850"
+                "relatedItem": "item_57e510e0ae2c5150372260"
             },
             "defaultValue": null
         }
     },
     "responses": {
-        "responsedeclaration_57e2b53f10d42006674792": {
+        "responsedeclaration_57e510e0b1fb5910187393": {
             "identifier": "RESPONSE",
-            "serial": "responsedeclaration_57e2b53f10d42006674792",
+            "serial": "responsedeclaration_57e510e0b1fb5910187393",
             "qtiClass": "responseDeclaration",
             "attributes": {
                 "identifier": "RESPONSE",
@@ -156,7 +156,7 @@
                 "baseType": "boolean"
             },
             "debug": {
-                "relatedItem": "item_57e2b53f10121516434850"
+                "relatedItem": "item_57e510e0ae2c5150372260"
             },
             "mapping": [],
             "areaMapping": [],
@@ -170,11 +170,11 @@
     },
     "feedbacks": {},
     "responseProcessing": {
-        "serial": "response_templatesdriven_57e2b53f124ed792190352",
+        "serial": "response_templatesdriven_57e510e0b7f69296016123",
         "qtiClass": "responseProcessing",
         "attributes": [],
         "debug": {
-            "relatedItem": "item_57e2b53f10121516434850"
+            "relatedItem": "item_57e510e0ae2c5150372260"
         },
         "processingType": "templateDriven",
         "responseRules": [
