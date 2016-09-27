@@ -307,7 +307,8 @@ define([
                         },
                         markup : interaction.properties.pages[pageIndex].content[colIndex],
                         related : interaction,
-                        colIndex : colIndex
+                        colIndex : colIndex,
+                        highlight: true
                     });
 
                     $editor.on('editorready', function() {
