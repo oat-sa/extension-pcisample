@@ -25,7 +25,7 @@ return array(
 	'label' => 'QTI PCI samples',
 	'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '1.1.1',
+    'version' => '1.2.0',
 	'author' => 'Open Assessment Technologies',
 	'requires' => array(
 	    'qtiItemPci' => '>=1.0.0',
