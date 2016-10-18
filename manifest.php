@@ -18,18 +18,18 @@
  *
  *
  */
-use oat\pciSamples\scripts\install\RegisterPci;
+use oat\pciSamples\scripts\install\RegisterPciTextReader;
 
 return array(
     'name' => 'pciSamples',
 	'label' => 'QTI PCI samples',
 	'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '1.2.0',
+    'version' => '1.3.0',
 	'author' => 'Open Assessment Technologies',
 	'requires' => array(
-	    'qtiItemPci' => '>=1.0.0',
-	    'taoQtiItem' => '>=5.2.0'
+	    'qtiItemPci' => '>=1.1.0',
+	    'taoQtiItem' => '>=5.13.0'
     ),
 	'managementRole' => 'http://www.tao.lu/Ontologies/generis.rdf#pciSamplesManager',
     'acl' => array(
@@ -37,7 +37,7 @@ return array(
     ),
     'install' => array(
         'php'	=> array(
-			RegisterPci::class
+			RegisterPciTextReader::class
 		)
     ),
     'update' => 'oat\\pciSamples\\scripts\\update\\Updater',
