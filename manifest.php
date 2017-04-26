@@ -25,7 +25,7 @@ return array(
 	'label' => 'QTI PCI samples',
 	'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '1.3.0',
+    'version' => '2.0.0',
 	'author' => 'Open Assessment Technologies',
 	'requires' => array(
 	    'qtiItemPci' => '>=1.1.0',
@@ -57,8 +57,5 @@ return array(
 
 		#BASE URL (usually the domain root)
 		'BASE_URL' => ROOT_URL.'pciSamples/',
-
-	    #BASE WWW required by JS
-	    'BASE_WWW' => ROOT_URL.'pciSamples/views/'
 	)
 );
