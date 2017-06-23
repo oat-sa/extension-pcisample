@@ -2,6 +2,7 @@
 
 namespace oat\pciSamples\scripts\tool;
 
+use League\Flysystem\Adapter\Local;
 use oat\oatbox\action\Action;
 use oat\pciSamples\model\update\ItemFixTextReaderDefaultValue;
 
@@ -22,8 +23,15 @@ class FixTextReaderDefaultValue implements Action
 
         \common_ext_ExtensionsManager::singleton()->getExtensionById('taoQtiItem');
 
-        $fs = \taoItems_models_classes_ItemsService::singleton()->getDefaultFileSource();
-        $itemUpdater = new ItemFixTextReaderDefaultValue($fs->getPath());
+        $dir = \taoItems_models_classes_ItemsService::singleton()->getDefaultItemDirectory();
+
+        // maybe it's a dirty way but it's quicker. too much modification would have been required in ItemUpdater
+        $adapter = $dir->getFileSystem()->getAdapter();
+        if (!$adapter instanceof Local) {
+            throw new \Exception(__CLASS__.' can only handle local files');
+        }
+
+        $itemUpdater = new ItemFixTextReaderDefaultValue($adapter->getPathPrefix());
         $res = $itemUpdater->update($run);
         if ($run) {
             return \common_report_Report::createSuccess('Item fixed ' . count($res));

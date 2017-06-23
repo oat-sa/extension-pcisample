@@ -25,11 +25,11 @@ return array(
 	'label' => 'QTI PCI samples',
 	'description' => '',
     'license' => 'GPL-2.0',
-    'version' => '2.0.0',
+    'version' => '2.0.1',
 	'author' => 'Open Assessment Technologies',
 	'requires' => array(
 	    'qtiItemPci' => '>=1.1.0',
-	    'taoQtiItem' => '>=5.13.0'
+	    'taoQtiItem' => '>=8.5.0'
     ),
 	'managementRole' => 'http://www.tao.lu/Ontologies/generis.rdf#pciSamplesManager',
     'acl' => array(
