@@ -18,9 +18,9 @@
  */
 define(
     [
-        'taoQtiItem/portableElementLib/jquery_2_1_1',
+        'taoQtiItem/portableLib/jquery_2_1_1',
         'qtiCustomInteractionContext',
-        'taoQtiItem/portableElementLib/OAT/util/event',
+        'taoQtiItem/portableLib/OAT/util/event',
         'textReaderInteraction/runtime/js/renderer'
     ],
     function ($, qtiCustomInteractionContext, event, Renderer) {

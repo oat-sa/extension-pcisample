@@ -1,10 +1,10 @@
 define(
     [
-        'taoQtiItem/portableElementLib/jquery_2_1_1',
-        'taoQtiItem/portableElementLib/lodash',
-        'taoQtiItem/portableElementLib/handlebars',
+        'taoQtiItem/portableLib/jquery_2_1_1',
+        'taoQtiItem/portableLib/lodash',
+        'taoQtiItem/portableLib/handlebars',
         'textReaderInteraction/runtime/js/tabs',
-        'taoQtiItem/portableElementLib/jquery.qtip'
+        'taoQtiItem/portableLib/jquery.qtip'
     ],
     function ($, _, Handlebars, Tabs) {
         'use strict';
