@@ -16,14 +16,14 @@
         "cardinality": "single"
     },
     "runtime" : {
-        "hook" : "./runtime/textReaderInteraction.js",
+        "hook" : "./runtime/textReaderInteraction.min.js",
         "libraries" : [],
         "stylesheets" : [
             "./runtime/css/textReaderInteraction.css",
             "./runtime/css/jquery.qtip.css"
         ],
         "src" : [
-            "./runtime/js/hook.js",
+            "./runtime/js/textReaderInteraction.js",
             "./runtime/js/renderer.js",
             "./runtime/js/tabs.js"
         ]
