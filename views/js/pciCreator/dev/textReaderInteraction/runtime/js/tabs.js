@@ -16,7 +16,7 @@
  * Copyright (c) 2015 (original work) Open Assessment Technologies;
  *
  */
-define(['IMSGlobal/jquery_2_1_1', 'OAT/lodash'], function ($, _) {
+define(['taoQtiItem/portableLib/jquery_2_1_1', 'taoQtiItem/portableLib/lodash'], function ($, _) {
     'use strict';
     return function ($container, options) {
         var that = this,

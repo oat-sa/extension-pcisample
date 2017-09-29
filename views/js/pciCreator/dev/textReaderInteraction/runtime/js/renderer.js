@@ -1,19 +1,31 @@
-/*global define, _*/
 define(
     [
-        'IMSGlobal/jquery_2_1_1',
-        'OAT/handlebars',
+        'taoQtiItem/portableLib/jquery_2_1_1',
+        'taoQtiItem/portableLib/lodash',
+        'taoQtiItem/portableLib/handlebars',
         'textReaderInteraction/runtime/js/tabs',
-
-        // fixme: obviously, this dependency to TAO shouldn't be there
-        // it is used to resolve the url of images when the interaction is 'sleep' state.
-        // this could be avoided if the interaction content was stored in the markup instead of properties
-        'taoQtiItem/qtiCommonRenderer/helpers/PortableElement',
-
-        'OAT/jquery.qtip'
+        'taoQtiItem/portableLib/jquery.qtip'
     ],
-    function ($, Handlebars, Tabs, PortableElement) {
+    function ($, _, Handlebars, Tabs) {
         'use strict';
+
+        /**
+         * Replace all identified relative media urls by the absolute one.
+         * For now only images are supported.
+         *
+         * @param {String} html - the html to parse
+         * @param {Object} the renderer
+         * @returns {String} the html without updated URLs
+         */
+        var fixMarkupMediaSources = function fixMarkupMediaSources(html, renderer){
+            html = html || '';
+
+            return html.replace(/(<img[^>]*src=["'])([^"']+)(["'])/ig, function(substr, $1, $2, $3){
+                var resolved = renderer.resolveUrl($2) || $2;
+                return $1 + resolved + $3;
+            });
+        };
+
         window.jQuery = $;
         return function (options) {
             var self = this,
@@ -71,7 +83,7 @@ define(
                     markup = self.options.templates.pages(templateData, self.getTemplateOptions());
 
                     if (self.options.interaction !== 'undefined' && typeof self.options.interaction.renderer !== 'undefined') {
-                        fixedMarkup = PortableElement.fixMarkupMediaSources(
+                        fixedMarkup = fixMarkupMediaSources(
                             markup,
                             self.options.interaction.renderer
                         );
