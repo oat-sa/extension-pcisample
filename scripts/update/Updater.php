@@ -22,6 +22,7 @@
 namespace oat\pciSamples\scripts\update;
 
 use oat\pciSamples\scripts\install\RegisterPciTextReader;
+use oat\qtiItemPci\model\IMSPciModel;
 use oat\taoQtiItem\model\HookRegistry;
 
 class Updater extends \common_ext_ExtensionUpdater
@@ -61,6 +62,10 @@ class Updater extends \common_ext_ExtensionUpdater
         }
 
         if ($this->isVersion('2.1.0')) {
+            $registry = (new IMSPciModel())->getRegistry();
+            if($registry->has('textReaderInteraction')){
+                $registry->removeAllVersions('textReaderInteraction');
+            }
             call_user_func(new RegisterPciTextReader(), ['0.5.0']);
             $this->setVersion('2.1.1');
         }
