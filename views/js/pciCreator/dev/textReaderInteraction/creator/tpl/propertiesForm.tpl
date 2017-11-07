@@ -13,12 +13,14 @@
     <span class="icon-help tooltipstered" data-tooltip="~ .tooltip-content:first" data-tooltip-theme="info"></span>
     <div class="tooltip-content">{{__ 'Navigation.'}}</div>
     <select name="navigation" class="select2 js-navigation-select" data-has-search="false">
+        <option value="none">{{__ 'None'}}</option>
         <option value="tabs">{{__ 'Tab based'}}</option>
         <option value="buttons">{{__ 'Button based'}}</option>
         <option value="both">{{__ 'Tabs + buttons'}}</option>
     </select>
 </div>
 <div class="panel js-tab-position-panel">
+    <hr>
     <label for="" class="has-icon">{{__ "Tabs position"}}</label>
     <span class="icon-help tooltipstered" data-tooltip="~ .tooltip-content:first" data-tooltip-theme="info"></span>
     <div class="tooltip-content">{{__ 'Tabs position.'}}</div>
@@ -29,8 +31,8 @@
         <option value="bottom">{{__ "Bottom"}}</option>
     </select>
 </div>
-<hr>
 <div class="panel js-button-labels-panel">
+    <hr>
     <label for="" class="has-icon">{{__ "Button labels"}}</label>
     <span class="icon-help tooltipstered" data-tooltip="~ .tooltip-content:first" data-tooltip-theme="info"></span>
     <div class="tooltip-content">{{__ 'Button labels.'}}</div>

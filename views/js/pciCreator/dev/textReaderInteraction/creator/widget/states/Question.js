@@ -195,12 +195,12 @@ define([
         }
 
         initEditors($container, interaction)
-        .then(function() {
-            self.tooltips.init();
-        })
-        .catch(function(err) {
-            throw new Error('Error in editors initialisation ' + err.message);
-        });
+            .then(function() {
+                self.tooltips.init();
+            })
+            .catch(function(err) {
+                throw new Error('Error in editors initialisation ' + err.message);
+            });
 
 
     }, function () {
@@ -252,8 +252,9 @@ define([
                 i.widgetRenderer.renderPages(i.properties);
             },
             navigation : function (i, value) {
-                $('.js-tab-position-panel').toggle(value !== 'buttons');
-                $('.js-button-labels-panel').toggle(value !== 'tabs');
+                var lightMode = value === 'none';
+                $('.js-tab-position-panel').toggle(!lightMode && value !== 'buttons');
+                $('.js-button-labels-panel').toggle(!lightMode && value !== 'tabs');
 
                 if (value === 'buttons') {
                     i.properties.tabsPosition = 'top';

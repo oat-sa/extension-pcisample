@@ -222,6 +222,7 @@ define(
              * @return {object} - template data
              */
             this.getTemplateData = function (data) {
+                var lightMode = data.navigation === 'none';
                 var pageWrapperHeight;
                 if (self.options.state === 'question') {
                     pageWrapperHeight = parseInt(data.pageHeight, 10) + 130;
@@ -234,8 +235,9 @@ define(
                     serial : self.options.serial,
                     currentPage : currentPage + 1,
                     pagesNum : data.pages.length,
-                    showTabs : (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'buttons',
-                    showNavigation : (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'tabs',
+                    lightMode : lightMode,
+                    showTabs : !lightMode && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'buttons',
+                    showNavigation : !lightMode && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'tabs',
                     authoring : self.options.state === 'question',
                     pageWrapperHeight : pageWrapperHeight,
                     showRemovePageButton : data.pages.length > 1 && self.options.state === 'question'
