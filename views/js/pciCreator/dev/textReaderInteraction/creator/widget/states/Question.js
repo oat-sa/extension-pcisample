@@ -27,8 +27,7 @@ define([
     'tpl!textReaderInteraction/creator/tpl/propertiesForm',
     'lodash',
     'jquery',
-    'css!textReaderInteraction/creator/css/textReaderInteraction',
-    'css!textReaderInteraction/creator/css/userTooltips'
+    'css!textReaderInteraction/creator/css/textReaderInteraction'
 ], function (
     Promise,
     stateFactory,
