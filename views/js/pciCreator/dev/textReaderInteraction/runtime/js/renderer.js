@@ -89,7 +89,7 @@ define(
                         );
                     }
 
-                    this.options.$container.find('.js-page-container').html(fixedMarkup || markup);
+                    this.options.$container.find('.js-page-container').html(fixedMarkup || markup).toggleClass('light-mode', templateData.lightMode);
                 }
 
                 //init tabs
