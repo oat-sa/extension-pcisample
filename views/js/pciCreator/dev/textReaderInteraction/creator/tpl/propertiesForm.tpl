@@ -3,6 +3,7 @@
     <span class="icon-help tooltipstered" data-tooltip="~ .tooltip-content:first" data-tooltip-theme="info"></span>
     <div class="tooltip-content">{{__ 'Page height (px).'}}</div>
     <select name="pageHeight" class="select2 js-page-height-select" data-has-search="false">
+        <option value="auto">auto</option>
         <option value="200">200</option>
         <option value="400">400</option>
         <option value="600">600</option>

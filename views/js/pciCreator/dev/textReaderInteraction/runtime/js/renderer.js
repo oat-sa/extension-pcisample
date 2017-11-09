@@ -71,6 +71,7 @@ define(
              */
             this.renderPages = function (data) {
                 var templateData = {},
+                    $container,
                     markup,
                     fixedMarkup;
 
@@ -89,7 +90,16 @@ define(
                         );
                     }
 
-                    this.options.$container.find('.js-page-container').html(fixedMarkup || markup).toggleClass('light-mode', templateData.lightMode);
+                    $container = this.options.$container.find('.js-page-container');
+                    $container
+                        .html(fixedMarkup || markup)
+                        .toggleClass('light-mode', templateData.lightMode);
+
+                    // when a non numeric value is set for the height, we need to rewrite it (the PCI markup is forcing the unit)
+                    if (typeof templateData.pageHeight !== 'number') {
+                        $container.find('.tr-pages').css('height', templateData.pageWrapperHeight);
+                        $container.find('.tr-passage').css('height', templateData.pageHeight);
+                    }
                 }
 
                 //init tabs
@@ -216,6 +226,15 @@ define(
             };
 
             /**
+             * Computes the height of the decoration elements that wrap the item viewport.
+             * @returns {Number}
+             */
+            this.getDecorationHeight = function() {
+                // @todo: compute the actual value
+                return 310;
+            };
+
+            /**
              * Function returns template data (current page number, interaction serial, current state etc.)
              * to pass it in handlebars template together with interaction parameters.
              * @param {object} data - interaction properties
@@ -223,11 +242,17 @@ define(
              */
             this.getTemplateData = function (data) {
                 var lightMode = data.navigation === 'none';
-                var pageWrapperHeight;
-                if (self.options.state === 'question') {
-                    pageWrapperHeight = parseInt(data.pageHeight, 10) + 130;
+                var pageHeight = data.pageHeight;
+                var wrapperHeight = self.options.state === 'question' ? 130 : 25;
+                var pageWrapperHeight, decorationHeight;
+
+                if (pageHeight === 'auto') {
+                    decorationHeight = this.getDecorationHeight();
+                    pageHeight = 'calc(100vh - ' + (decorationHeight + wrapperHeight) + 'px)';
+                    pageWrapperHeight = 'calc(100vh - ' + decorationHeight + 'px)';
                 } else {
-                    pageWrapperHeight = parseInt(data.pageHeight, 10) + 25;
+                    pageHeight = parseInt(pageHeight, 10);
+                    pageWrapperHeight = pageHeight + wrapperHeight;
                 }
 
                 return {
@@ -239,6 +264,7 @@ define(
                     showTabs : !lightMode && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'buttons',
                     showNavigation : !lightMode && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'tabs',
                     authoring : self.options.state === 'question',
+                    pageHeight: pageHeight,
                     pageWrapperHeight : pageWrapperHeight,
                     showRemovePageButton : data.pages.length > 1 && self.options.state === 'question'
                 };
