@@ -289,7 +289,8 @@ define([
      * @returns {undefined}
      */
     function initEditors($container, interaction) {
-        var $pages = $container.find('.js-tab-content'),
+        var widget = interaction.data('widget'),
+            $pages = $container.find('.js-tab-content'),
             editorsReady = [];
 
         $pages.each(function () {
@@ -308,7 +309,8 @@ define([
                         markup : interaction.properties.pages[pageIndex].content[colIndex],
                         related : interaction,
                         colIndex : colIndex,
-                        highlight: true
+                        highlight: true,
+                        areaBroker: widget.getAreaBroker()
                     });
 
                     $editor.on('editorready', function() {
