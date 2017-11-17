@@ -34,7 +34,6 @@
         "libraries" : [
             "./creator/js/userTooltips.js",
             "./creator/tpl/userTooltips/authoring.tpl",
-            "./creator/tpl/userTooltips/create.tpl",
             "./creator/tpl/userTooltips/markup.tpl",
             "./creator/tpl/markup.tpl",
             "./creator/tpl/propertiesForm.tpl",
