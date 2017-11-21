@@ -4,9 +4,10 @@ define(
         'taoQtiItem/portableLib/lodash',
         'taoQtiItem/portableLib/handlebars',
         'textReaderInteraction/runtime/js/tabs',
+        'taoQtiItem/portableLib/OAT/util/html',
         'taoQtiItem/portableLib/jquery.qtip'
     ],
-    function ($, _, Handlebars, Tabs) {
+    function ($, _, Handlebars, Tabs, htmlRenderer) {
         'use strict';
 
         /**
@@ -14,7 +15,7 @@ define(
          * For now only images are supported.
          *
          * @param {String} html - the html to parse
-         * @param {Object} the renderer
+         * @param {Object} renderer
          * @returns {String} the html without updated URLs
          */
         var fixMarkupMediaSources = function fixMarkupMediaSources(html, renderer){
@@ -110,6 +111,8 @@ define(
                     $('[data-page-id="' + val.id + '"] .js-page-columns-select').val(val.content.length);
                 });
 
+                htmlRenderer.render(this.options.$container);
+
                 this.options.$container.trigger('afterrenderpages.' + self.eventNs);
 
                 return this;
@@ -137,6 +140,7 @@ define(
                         $currentTooltip.addClass('tooltip-active');
                         $currentTooltip.qtip({
                             overwrite: true,
+                            theme: 'default',
                             content: {
                                 text: content
                             },
@@ -144,12 +148,6 @@ define(
                                 target: 'event',
                                 my: 'bottom center',
                                 at: 'top center'
-                            },
-                            style: {
-                                tip: {
-                                    corner: true
-                                },
-                                classes: 'qtip-rounded qtip-shadow'
                             }
                         });
                     }
