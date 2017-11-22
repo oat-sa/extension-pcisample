@@ -23,7 +23,6 @@ define([
     'core/eventifier',
     'taoQtiItem/qtiCreator/widgets/helpers/textWrapper',
     'tpl!textReaderInteraction/creator/tpl/userTooltips/markup',
-    'tpl!textReaderInteraction/creator/tpl/userTooltips/create',
     'tpl!textReaderInteraction/creator/tpl/userTooltips/authoring'
 ], function (
     _,
@@ -32,7 +31,6 @@ define([
     eventifier,
     textWrapper,
     markupTpl,
-    createButtonTpl,
     authoringTpl
 ) {
     'use strict';
@@ -68,11 +66,7 @@ define([
             tooltipsData            = (_.isArray(options.tooltipsData)) ? options.tooltipsData : [],
             $authoringContainer     = options.$authoringContainer,
             $interactionContainer   = options.$interactionContainer,
-            $editableFields         = options.$editableFields,
-
-            $toolbar = $(createButtonTpl());
-
-        $toolbar.show();
+            $editableFields         = options.$editableFields;
 
         tooltipManager = eventifier({
 
@@ -97,45 +91,6 @@ define([
             },
             _unprotectTooltips: function _unprotectTooltips() {
                 this._toggleTooltipProtection(false);
-            },
-
-            /**
-             * Add the toolip creator button to editor fields
-             * @private
-             */
-            _initToolbar: function _initToolbar() {
-                var self = this;
-
-                $toolbar.on('mousedown' + ns, function(e){
-                    var $selectionWrapper = $toolbar.parent();
-                    e.stopPropagation();
-
-                    $toolbar.detach();
-
-                    // create tooltip only if selection doesn't wrap an existing tooltip
-                    if ($selectionWrapper.find('.tooltip').length === 0) {
-                        self._createTooltip($selectionWrapper);
-                        self._renderForm();
-                    } else {
-                        textWrapper.unwrap($editableFields);
-                    }
-
-                }).on('mouseup' + ns, function preventRewrapping(e){
-                    e.stopPropagation();
-                });
-
-                // add text wrapper functionnality to editable fields
-                $editableFields.each(function() {
-                    textWrapper.create($(this));
-                });
-
-                $editableFields.off(ns);
-                $editableFields.on('wrapped' + ns, function displayToolbar(e, $selectionWrapper){
-                    $selectionWrapper.append($toolbar);
-
-                }).on('beforeunwrap' + ns, function hideToolbar() {
-                    $toolbar.detach();
-                });
             },
 
             /**
@@ -184,39 +139,6 @@ define([
                     updatedTooltip.content = tooltipContent;
                 }
                 this.trigger('tooltipChange', updatedTooltip, tooltipsData);
-            },
-
-            /**
-             * Create a new tooltip from a text selection: add relevant markup around the text selection
-             * update the model and refresh the authoring form
-             * @private
-             */
-            _createTooltip: function _createTooltip($selectionWrapper) {
-                var tooltipId = buildId(tooltipsData),
-                    label = $selectionWrapper.text().trim(),
-                    createdTooltip = {
-                        id: tooltipId,
-                        label: label,
-                        content: ''
-                    };
-
-                // create in markup
-                $selectionWrapper.replaceWith(
-                    $(markupTpl(createdTooltip))
-                );
-                this._protectTooltips();
-
-                // create in model
-                tooltipsData.push(createdTooltip);
-
-                this._renderForm();
-
-                this.trigger('tooltipCreated', createdTooltip, tooltipsData);
-
-                // this is useful if a new tooltip destroys an old one
-                // for example, if the new tooltip wraps an existing one, then the later is destroyed in the markup
-                // and we need to reflect that in the model
-                this._syncMarkupAndModel();
             },
 
             /**
@@ -313,7 +235,6 @@ define([
 
                 this._syncMarkupAndModel();
                 this._protectTooltips();
-                this._initToolbar();
                 this._renderForm();
 
                 // handle tooltip markup suppression by user
@@ -328,7 +249,6 @@ define([
             destroy: function destroy() {
                 this._unprotectTooltips();
                 textWrapper.destroy($editableFields);
-                $toolbar.off(ns);
                 $editableFields.off(ns);
                 $interactionContainer.off(ns);
                 $authoringContainer.empty();
