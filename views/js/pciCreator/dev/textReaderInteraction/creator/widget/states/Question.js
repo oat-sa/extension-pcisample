@@ -164,18 +164,6 @@ define([
             }
         });
 
-        this.tooltips.on('tooltipCreated', function(createdTooltip) {
-            var tooltipInfos = getTooltipInfos(createdTooltip.id);
-            if (tooltipInfos) {
-                saveColumn(
-                    interaction,
-                    tooltipInfos.pageId,
-                    tooltipInfos.colIndex,
-                    tooltipInfos.colHtml
-                );
-            }
-        });
-
         /**
          * Identify the position in the reader (page id and column index) of the given tooltip
          */

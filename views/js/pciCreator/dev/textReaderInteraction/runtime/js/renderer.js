@@ -90,7 +90,8 @@ define(
                         );
                     }
 
-                    this.options.$container.find('.js-page-container').html(fixedMarkup || markup).toggleClass('light-mode', templateData.lightMode);
+                    this.options.$container.find('.js-page-container').html(fixedMarkup || markup);
+                    htmlRenderer.render(this.options.$container.find('.js-page-container'));
                 }
 
                 //init tabs
@@ -110,8 +111,6 @@ define(
                 $.each(data.pages, function (key, val) {
                     $('[data-page-id="' + val.id + '"] .js-page-columns-select').val(val.content.length);
                 });
-
-                htmlRenderer.render(this.options.$container);
 
                 this.options.$container.trigger('afterrenderpages.' + self.eventNs);
 
