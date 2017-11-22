@@ -29,7 +29,7 @@ return array(
 	'author' => 'Open Assessment Technologies',
 	'requires' => array(
 	    'qtiItemPci' => '>=1.1.0',
-	    'taoQtiItem' => '>=10.0.0'
+	    'taoQtiItem' => '>=11.2.0'
     ),
 	'managementRole' => 'http://www.tao.lu/Ontologies/generis.rdf#pciSamplesManager',
     'acl' => array(
