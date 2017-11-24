@@ -1,0 +1,98 @@
+@import "inc/bootstrap";
+
+.edit-question {
+    .textReaderInteraction {
+        .tr-passage-column {
+            border: 1px dashed #3E7DA7;
+        }
+    }
+}
+
+.textReaderInteraction {
+    .tr-wrap {
+        .add-option {
+            text-align: center;
+            margin: 10px;
+
+            &:first-child {
+                margin-top: 10px;
+            }
+
+            &:last-child {
+                margin-bottom: 10px;
+            }
+        }
+        .tr-column-select {
+            select {
+                color: #0e5d91;
+                width: 35px;
+                min-width: 35px;
+                padding: 0;
+            }
+        }
+    }
+
+    .tr-page {
+        .icon-bin {
+            cursor: pointer;
+            float: right;
+            margin: 10px;
+            color: #266d9c;
+
+            &:hover {
+                color: #a4bbc5;
+            }
+        }
+    }
+
+    .tr-column-select {
+        margin: 10px;
+        color: #0e5d91;
+    }
+
+    .tr-tab-buttons__item {
+        .tr-close-tab {
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 1px;
+            right: -1px;
+            left: auto;
+            cursor: pointer;
+            width: 14px;
+            height: 14px;
+            color: #266d9c;
+            font-size: 1.2rem;
+
+            &:hover {
+                color: #a4bbc5;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+// those styles are only used for the existing items using the old tooltip system
+.item-editor-item {
+    .tooltip {
+        border: 1px solid #F1D031;
+        padding: 3px;
+        font-weight: bold;
+        background-color: #FFFFA3;
+    }
+
+    .inline-text-wrapper {
+        display: inline !important;
+    }
+}
+
+.item-editor-interaction-related {
+    .tooltip-delete {
+        float: right;
+    }
+
+    .tooltip-content-edit {
+        font-size: 12px;
+    }
+}
