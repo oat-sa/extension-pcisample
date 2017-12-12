@@ -29,13 +29,75 @@ define(
 
         window.jQuery = $;
         return function (options) {
-            var self = this,
-                defaultOptions = {
-                    state : 'sleep',
-                    templates : {},
-                    serial : ''
-                },
-                currentPage = 0;
+            var self = this;
+            var defaultOptions = {
+                state : 'sleep',
+                templates : {},
+                serial : ''
+            };
+            var currentPage = 0;
+
+            /**
+             * Computes the full height of an element, plus its margin.
+             * This approach is more reliable than jQuery, as the decimals part is taken into account.
+             * @param element
+             * @returns {Number}
+             */
+            function getHeight(element) {
+                var style = element.currentStyle || window.getComputedStyle(element);
+                var rect = element.getBoundingClientRect();
+                var borderBox = style.boxSizing === 'border-box';
+                return rect.height + parseFloat(style.marginTop) + parseFloat(style.marginBottom) +
+                    (borderBox ? 0 : parseFloat(style.paddingTop) + parseFloat(style.paddingBottom)) +
+                    (borderBox ? 0 : parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth));
+            }
+
+            /**
+             * Computes the extra height of an element: padding, border, margin.
+             * This is useful when computing the additional height brought by containers and wrappers.
+             * @param element
+             * @returns {number}
+             */
+            function getExtraHeight(element) {
+                var style = element.currentStyle || window.getComputedStyle(element);
+                return Math.abs(
+                    parseFloat(style.marginTop) + parseFloat(style.marginBottom) +
+                    parseFloat(style.paddingTop) + parseFloat(style.paddingBottom) +
+                    parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth)
+                );
+            }
+
+            /**
+             * Computes the height of the decoration elements that wraps the item viewport.
+             * This is useful as we are delegating the final computation of the height to the
+             * CSS engine by using the calc() helper.
+             * @param {jQuery} $element
+             * @returns {Number}
+             */
+            function getDecorationHeight($element) {
+                var decorationHeight = 20; // arbitrary additional height to get rid of vertical scroll bar
+                var $container = $element.closest('.content-wrapper,#item-editor-scoll-container');
+
+                if ($container.length) {
+                    decorationHeight += $(window).height() - getHeight($container.get(0));
+                }
+
+                $element.parentsUntil($container).each(function() {
+                    decorationHeight += getExtraHeight(this);
+                });
+
+                return decorationHeight;
+            }
+
+            /**
+             * Gets the additional height brought by the wrapper.
+             * @returns {Number}
+             */
+            function getWrapperHeight() {
+                // arbitrary additional height that comes from the existing implementation
+                // don't known why those values, but that works
+                return self.options.state === 'question' ? 130 : 25;
+            }
 
             this.eventNs = 'textReaderInteraction';
             this.options = {};
@@ -74,7 +136,8 @@ define(
                 var templateData = {},
                     $container,
                     markup,
-                    fixedMarkup;
+                    fixedMarkup,
+                    decorationHeight;
 
                 this.options.$container.trigger('beforerenderpages.' + self.eventNs);
 
@@ -95,10 +158,13 @@ define(
                         .html(fixedMarkup || markup)
                         .toggleClass('light-mode', templateData.lightMode);
 
-                    // when a non numeric value is set for the height, we need to rewrite it (the PCI markup is forcing the unit)
-                    if (typeof templateData.pageHeight !== 'number') {
-                        $container.find('.tr-pages').css('height', templateData.pageWrapperHeight);
-                        $container.find('.tr-passage').css('height', templateData.pageHeight);
+                    // When the height is set to auto, we need to rewrite it with a computed value.
+                    // Also please note that the PCI markup is forcing the unit,
+                    // so we cannot inject safely the value through the template
+                    if (data.pageHeight === 'auto') {
+                        decorationHeight = getDecorationHeight($container);
+                        $container.find('.tr-pages').css('height', 'calc(100vh - ' + decorationHeight + 'px)');
+                        $container.find('.tr-passage').css('height', 'calc(100vh - ' + (decorationHeight + getWrapperHeight()) + 'px)');
                     }
 
                     htmlRenderer.render($container);
@@ -223,15 +289,6 @@ define(
             };
 
             /**
-             * Computes the height of the decoration elements that wrap the item viewport.
-             * @returns {Number}
-             */
-            this.getDecorationHeight = function() {
-                // @todo: compute the actual value
-                return 310;
-            };
-
-            /**
              * Function returns template data (current page number, interaction serial, current state etc.)
              * to pass it in handlebars template together with interaction parameters.
              * @param {object} data - interaction properties
@@ -240,16 +297,11 @@ define(
             this.getTemplateData = function (data) {
                 var lightMode = data.navigation === 'none';
                 var pageHeight = data.pageHeight;
-                var wrapperHeight = self.options.state === 'question' ? 130 : 25;
-                var pageWrapperHeight, decorationHeight;
+                var pageWrapperHeight = pageHeight;
 
-                if (pageHeight === 'auto') {
-                    decorationHeight = this.getDecorationHeight();
-                    pageHeight = 'calc(100vh - ' + (decorationHeight + wrapperHeight) + 'px)';
-                    pageWrapperHeight = 'calc(100vh - ' + decorationHeight + 'px)';
-                } else {
+                if (pageHeight !== 'auto') {
                     pageHeight = parseInt(pageHeight, 10);
-                    pageWrapperHeight = pageHeight + wrapperHeight;
+                    pageWrapperHeight = pageHeight + getWrapperHeight();
                 }
 
                 return {
