@@ -4,9 +4,10 @@ define(
         'taoQtiItem/portableLib/lodash',
         'taoQtiItem/portableLib/handlebars',
         'textReaderInteraction/runtime/js/tabs',
+        'taoQtiItem/portableLib/OAT/util/html',
         'taoQtiItem/portableLib/jquery.qtip'
     ],
-    function ($, _, Handlebars, Tabs) {
+    function ($, _, Handlebars, Tabs, htmlRenderer) {
         'use strict';
 
         /**
@@ -14,7 +15,7 @@ define(
          * For now only images are supported.
          *
          * @param {String} html - the html to parse
-         * @param {Object} the renderer
+         * @param {Object} renderer
          * @returns {String} the html without updated URLs
          */
         var fixMarkupMediaSources = function fixMarkupMediaSources(html, renderer){
@@ -90,8 +91,7 @@ define(
                         );
                     }
 
-                    $container = this.options.$container.find('.js-page-container');
-                    $container
+                    $container = this.options.$container.find('.js-page-container')
                         .html(fixedMarkup || markup)
                         .toggleClass('light-mode', templateData.lightMode);
 
@@ -100,6 +100,8 @@ define(
                         $container.find('.tr-pages').css('height', templateData.pageWrapperHeight);
                         $container.find('.tr-passage').css('height', templateData.pageHeight);
                     }
+
+                    htmlRenderer.render($container);
                 }
 
                 //init tabs
@@ -147,6 +149,7 @@ define(
                         $currentTooltip.addClass('tooltip-active');
                         $currentTooltip.qtip({
                             overwrite: true,
+                            theme: 'default',
                             content: {
                                 text: content
                             },
@@ -154,12 +157,6 @@ define(
                                 target: 'event',
                                 my: 'bottom center',
                                 at: 'top center'
-                            },
-                            style: {
-                                tip: {
-                                    corner: true
-                                },
-                                classes: 'qtip-rounded qtip-shadow'
                             }
                         });
                     }

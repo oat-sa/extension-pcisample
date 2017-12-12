@@ -292,16 +292,19 @@
 /* tooltips */
 .qti-item {
     .tooltip-active {
-        display: inline;
-        font-weight: bold;
-        text-decoration: underline;
-        text-decoration-style: dotted;
+        color: $info;
+        text-decoration: dashed underline $info;
         cursor: pointer;
-        color: #0E5D91;
-    }
-}
 
-.qtip-default {
-    font-size: 12px !important;
-    line-height: 1.2em !important;
+        &:after {
+            @include tao-icon-setup;
+            @include icon-info;
+
+            font-size: 0.9rem;
+            vertical-align: super;
+            margin-left: 2px;
+            display: inline-block;
+            text-decoration: none;
+        }
+    }
 }

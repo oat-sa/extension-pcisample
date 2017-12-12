@@ -71,12 +71,13 @@ class Updater extends \common_ext_ExtensionUpdater
         }
 
         if ($this->isVersion('2.1.1')) {
-            $registry = (new IMSPciModel())->getRegistry();
-            if($registry->has('textReaderInteraction')){
-                $registry->removeAllVersions('textReaderInteraction');
-            }
-            call_user_func(new RegisterPciTextReader(), ['0.6.0']);
+            call_user_func(new RegisterPciTextReader(), ['0.7.0']);
             $this->setVersion('2.2.0');
+        }
+
+        if ($this->isVersion('2.2.0')) {
+            call_user_func(new RegisterPciTextReader(), ['0.8.0']);
+            $this->setVersion('2.3.0');
         }
     }
 }

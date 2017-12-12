@@ -164,18 +164,6 @@ define([
             }
         });
 
-        this.tooltips.on('tooltipCreated', function(createdTooltip) {
-            var tooltipInfos = getTooltipInfos(createdTooltip.id);
-            if (tooltipInfos) {
-                saveColumn(
-                    interaction,
-                    tooltipInfos.pageId,
-                    tooltipInfos.colIndex,
-                    tooltipInfos.colHtml
-                );
-            }
-        });
-
         /**
          * Identify the position in the reader (page id and column index) of the given tooltip
          */
@@ -289,7 +277,8 @@ define([
      * @returns {undefined}
      */
     function initEditors($container, interaction) {
-        var $pages = $container.find('.js-tab-content'),
+        var widget = interaction.data('widget'),
+            $pages = $container.find('.js-tab-content'),
             editorsReady = [];
 
         $pages.each(function () {
@@ -308,7 +297,8 @@ define([
                         markup : interaction.properties.pages[pageIndex].content[colIndex],
                         related : interaction,
                         colIndex : colIndex,
-                        highlight: true
+                        highlight: true,
+                        areaBroker: widget.getAreaBroker()
                     });
 
                     $editor.on('editorready', function() {
