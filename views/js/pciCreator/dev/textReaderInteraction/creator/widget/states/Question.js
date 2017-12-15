@@ -207,6 +207,14 @@ define([
             interaction = _widget.element,
             $positionSelect;
 
+        // display/hide the panels according to selected config
+        function toggleNavigation(multiPages, navigation) {
+            multiPages = multiPages === 'true' || multiPages === true;
+            $('.js-navigation-select-panel').toggle(multiPages);
+            $('.js-tab-position-panel').toggle(multiPages && navigation !== 'buttons');
+            $('.js-button-labels-panel').toggle(multiPages && navigation !== 'tabs');
+        }
+
         //render the form using the form template
         $form.html(formTpl(
             interaction.properties
@@ -216,8 +224,7 @@ define([
         $('.js-tab-position').val(interaction.properties.tabsPosition);
         $('.js-navigation-select').val(interaction.properties.navigation);
 
-        $('.js-tab-position-panel').toggle(interaction.properties.navigation !== 'buttons');
-        $('.js-button-labels-panel').toggle(interaction.properties.navigation !== 'tabs');
+        toggleNavigation(interaction.properties.multiPages, interaction.properties.navigation);
 
         if (interaction.properties.navigation === 'both') {
             $positionSelect = $('.js-tab-position');
@@ -238,10 +245,13 @@ define([
                 i.properties.pageHeight = value;
                 i.widgetRenderer.renderPages(i.properties);
             },
+            multiPages: function (i, value) {
+                toggleNavigation(value, i.properties.navigation);
+                i.properties.multiPages = value;
+                i.widgetRenderer.renderAll(i.properties);
+            },
             navigation : function (i, value) {
-                var lightMode = value === 'none';
-                $('.js-tab-position-panel').toggle(!lightMode && value !== 'buttons');
-                $('.js-button-labels-panel').toggle(!lightMode && value !== 'tabs');
+                toggleNavigation(i.properties.multiPages, value);
 
                 if (value === 'buttons') {
                     i.properties.tabsPosition = 'top';

@@ -15,12 +15,12 @@
     <div class="tr-pages-wrap clearfix">
         <div class="tr-pages" style="height: {{pageWrapperHeight}}px">
 
-            {{#if authoring}}{{#unless lightMode}}
+            {{#if authoring}}{{#if multiPages}}
             <div class="add-option js-add-page-before">
                 <span class="icon-add"></span>
                 {{__ "Add page"}}
             </div>
-            {{/unless}}{{/if}}
+            {{/if}}{{/if}}
 
             {{#each pages}}
             <div data-page-num="{{@index}}" data-page-id="{{id}}" class="tr-page js-tab-content tr-tabs-{{@index}}">
@@ -47,12 +47,12 @@
             </div>
             {{/each}}
 
-            {{#if authoring}}{{#unless lightMode}}
+            {{#if authoring}}{{#if multiPages}}
             <div class="add-option js-add-page-after">
                 <span class="icon-add"></span>
                 {{__ "Add page"}}
             </div>
-            {{/unless}}{{/if}}
+            {{/if}}{{/if}}
 
         </div>
     </div>

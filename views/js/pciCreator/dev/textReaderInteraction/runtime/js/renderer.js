@@ -156,7 +156,7 @@ define(
 
                     $container = this.options.$container.find('.js-page-container')
                         .html(fixedMarkup || markup)
-                        .toggleClass('light-mode', templateData.lightMode);
+                        .toggleClass('light-mode', !templateData.multiPages);
 
                     // When the height is set to auto, we need to rewrite it with a computed value.
                     // Also please note that the PCI markup is forcing the unit,
@@ -295,7 +295,7 @@ define(
              * @return {object} - template data
              */
             this.getTemplateData = function (data) {
-                var lightMode = data.navigation === 'none';
+                var multiPages = data.multiPages === 'true' || data.multiPages === true;
                 var pageHeight = data.pageHeight;
                 var pageWrapperHeight = pageHeight;
 
@@ -309,9 +309,9 @@ define(
                     serial : self.options.serial,
                     currentPage : currentPage + 1,
                     pagesNum : data.pages.length,
-                    lightMode : lightMode,
-                    showTabs : !lightMode && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'buttons',
-                    showNavigation : !lightMode && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'tabs',
+                    multiPages : multiPages,
+                    showTabs : multiPages && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'buttons',
+                    showNavigation : multiPages && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'tabs',
                     authoring : self.options.state === 'question',
                     pageHeight: pageHeight,
                     pageWrapperHeight : pageWrapperHeight,
