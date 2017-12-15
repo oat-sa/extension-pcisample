@@ -75,14 +75,19 @@ define(
              * @returns {Number}
              */
             function getDecorationHeight($element) {
-                var decorationHeight = 20; // arbitrary additional height to get rid of vertical scroll bar
                 var $container = $element.closest('.content-wrapper,#item-editor-scoll-container');
+                var $box = $element.closest('.grid-row');
+                var decorationHeight = 0;
+
+                if ($box.length) {
+                    decorationHeight += getHeight($box.get(0)) - getHeight($element.get(0));
+                }
 
                 if ($container.length) {
                     decorationHeight += $(window).height() - getHeight($container.get(0));
                 }
 
-                $element.parentsUntil($container).each(function() {
+                $box.parentsUntil($container).each(function() {
                     decorationHeight += getExtraHeight(this);
                 });
 
@@ -91,12 +96,32 @@ define(
 
             /**
              * Gets the additional height brought by the wrapper.
+             * @param {Boolean} multiPages
              * @returns {Number}
              */
-            function getWrapperHeight() {
-                // arbitrary additional height that comes from the existing implementation
-                // don't known why those values, but that works
-                return self.options.state === 'question' ? 130 : 25;
+            function getWrapperHeight(multiPages) {
+                var wrapperHeight = 0;
+                if (multiPages) {
+                    // arbitrary additional height that comes from the existing implementation
+                    // don't known why those values, but that works
+                    wrapperHeight += self.options.state === 'question' ? 130 : 25;
+                }
+                return wrapperHeight;
+            }
+
+            /**
+             * When the height is set to auto, we need to rewrite it with a computed value.
+             * Also please note that the PCI markup is forcing the unit,
+             * so we cannot inject safely the value through the template
+             * @param {Boolean} multiPages
+             */
+            function autoHeight(multiPages) {
+                var $container = self.options.$container;
+                var $pages = $container.find('.tr-pages');
+                var $passage = $container.find('.tr-passage');
+                var decorationHeight = getDecorationHeight($pages);
+                $pages.css('height', 'calc(100vh - ' + decorationHeight + 'px)');
+                $passage.css('height', 'calc(100vh - ' + (decorationHeight + getWrapperHeight(multiPages)) + 'px)');
             }
 
             this.eventNs = 'textReaderInteraction';
@@ -135,6 +160,7 @@ define(
             this.renderPages = function (data) {
                 var templateData = {},
                     $container,
+                    $pages,
                     markup,
                     fixedMarkup,
                     decorationHeight;
@@ -158,15 +184,6 @@ define(
                         .html(fixedMarkup || markup)
                         .toggleClass('light-mode', !templateData.multiPages);
 
-                    // When the height is set to auto, we need to rewrite it with a computed value.
-                    // Also please note that the PCI markup is forcing the unit,
-                    // so we cannot inject safely the value through the template
-                    if (data.pageHeight === 'auto') {
-                        decorationHeight = getDecorationHeight($container);
-                        $container.find('.tr-pages').css('height', 'calc(100vh - ' + decorationHeight + 'px)');
-                        $container.find('.tr-passage').css('height', 'calc(100vh - ' + (decorationHeight + getWrapperHeight()) + 'px)');
-                    }
-
                     htmlRenderer.render($container);
                 }
 
@@ -187,6 +204,18 @@ define(
                 $.each(data.pages, function (key, val) {
                     $('[data-page-id="' + val.id + '"] .js-page-columns-select').val(val.content.length);
                 });
+
+                // When the height is set to auto, we need to rewrite it with a computed value.
+                // Also please note that the PCI markup is forcing the unit,
+                // so we cannot inject safely the value through the template
+                if (data.pageHeight === 'auto') {
+                    autoHeight(templateData.multiPages);
+
+                    // apply the auto height twice to counter both a sizing issue and a flickering issue
+                    _.defer(function() {
+                        autoHeight(templateData.multiPages);
+                    });
+                }
 
                 this.options.$container.trigger('afterrenderpages.' + self.eventNs);
 
@@ -301,7 +330,7 @@ define(
 
                 if (pageHeight !== 'auto') {
                     pageHeight = parseInt(pageHeight, 10);
-                    pageWrapperHeight = pageHeight + getWrapperHeight();
+                    pageWrapperHeight = pageHeight + getWrapperHeight(multiPages);
                 }
 
                 return {
