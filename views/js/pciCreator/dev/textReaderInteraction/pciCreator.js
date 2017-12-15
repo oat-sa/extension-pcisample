@@ -38,6 +38,9 @@ define([
                             interaction: pci
                         });
                     }
+                    if (typeof pci.properties.multiPages === 'undefined') {
+                        pci.properties.multiPages = true;
+                    }
                     pci.widgetRenderer.setState(state.name);
                     pci.widgetRenderer.renderAll(pci.properties);
                 }
@@ -55,6 +58,7 @@ define([
                 pageHeight: 200,
                 tabsPosition: 'top',
                 navigation: 'both',
+                multiPages: true,
                 pages: [
                     {label : 'Page 1', content : ['page 1 column 1'], id : 0},
                     {label : 'Page 2', content : ['page 2 column 1', 'page 2 column 2'], id : 1},

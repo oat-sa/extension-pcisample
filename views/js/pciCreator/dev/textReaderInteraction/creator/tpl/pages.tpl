@@ -10,17 +10,17 @@
         </li>
         {{/each}}
     </ul>
-    {{/if}}     
+    {{/if}}
 
     <div class="tr-pages-wrap clearfix">
         <div class="tr-pages" style="height: {{pageWrapperHeight}}px">
-            
-            {{#if authoring}}
+
+            {{#if authoring}}{{#if multiPages}}
             <div class="add-option js-add-page-before">
                 <span class="icon-add"></span>
                 {{__ "Add page"}}
             </div>
-            {{/if}}
+            {{/if}}{{/if}}
 
             {{#each pages}}
             <div data-page-num="{{@index}}" data-page-id="{{id}}" class="tr-page js-tab-content tr-tabs-{{@index}}">
@@ -47,13 +47,13 @@
             </div>
             {{/each}}
 
-            {{#if authoring}}
+            {{#if authoring}}{{#if multiPages}}
             <div class="add-option js-add-page-after">
                 <span class="icon-add"></span>
                 {{__ "Add page"}}
             </div>
-            {{/if}}
-            
+            {{/if}}{{/if}}
+
         </div>
     </div>
 </div>

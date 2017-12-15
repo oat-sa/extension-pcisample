@@ -29,13 +29,100 @@ define(
 
         window.jQuery = $;
         return function (options) {
-            var self = this,
-                defaultOptions = {
-                    state : 'sleep',
-                    templates : {},
-                    serial : ''
-                },
-                currentPage = 0;
+            var self = this;
+            var defaultOptions = {
+                state : 'sleep',
+                templates : {},
+                serial : ''
+            };
+            var currentPage = 0;
+
+            /**
+             * Computes the full height of an element, plus its margin.
+             * This approach is more reliable than jQuery, as the decimals part is taken into account.
+             * @param element
+             * @returns {Number}
+             */
+            function getHeight(element) {
+                var style = element.currentStyle || window.getComputedStyle(element);
+                var rect = element.getBoundingClientRect();
+                var borderBox = style.boxSizing === 'border-box';
+                return rect.height + parseFloat(style.marginTop) + parseFloat(style.marginBottom) +
+                    (borderBox ? 0 : parseFloat(style.paddingTop) + parseFloat(style.paddingBottom)) +
+                    (borderBox ? 0 : parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth));
+            }
+
+            /**
+             * Computes the extra height of an element: padding, border, margin.
+             * This is useful when computing the additional height brought by containers and wrappers.
+             * @param element
+             * @returns {number}
+             */
+            function getExtraHeight(element) {
+                var style = element.currentStyle || window.getComputedStyle(element);
+                return Math.abs(
+                    parseFloat(style.marginTop) + parseFloat(style.marginBottom) +
+                    parseFloat(style.paddingTop) + parseFloat(style.paddingBottom) +
+                    parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth)
+                );
+            }
+
+            /**
+             * Computes the height of the decoration elements that wraps the item viewport.
+             * This is useful as we are delegating the final computation of the height to the
+             * CSS engine by using the calc() helper.
+             * @param {jQuery} $element
+             * @returns {Number}
+             */
+            function getDecorationHeight($element) {
+                var $container = $element.closest('.content-wrapper,#item-editor-scoll-container');
+                var $box = $element.closest('.grid-row');
+                var decorationHeight = 0;
+
+                if ($box.length) {
+                    decorationHeight += getHeight($box.get(0)) - getHeight($element.get(0));
+                }
+
+                if ($container.length) {
+                    decorationHeight += $(window).height() - getHeight($container.get(0));
+                }
+
+                $box.parentsUntil($container).each(function() {
+                    decorationHeight += getExtraHeight(this);
+                });
+
+                return decorationHeight;
+            }
+
+            /**
+             * Gets the additional height brought by the wrapper.
+             * @param {Boolean} multiPages
+             * @returns {Number}
+             */
+            function getWrapperHeight(multiPages) {
+                var wrapperHeight = 0;
+                if (multiPages) {
+                    // arbitrary additional height that comes from the existing implementation
+                    // don't known why those values, but that works
+                    wrapperHeight += self.options.state === 'question' ? 130 : 25;
+                }
+                return wrapperHeight;
+            }
+
+            /**
+             * When the height is set to auto, we need to rewrite it with a computed value.
+             * Also please note that the PCI markup is forcing the unit,
+             * so we cannot inject safely the value through the template
+             * @param {Boolean} multiPages
+             */
+            function autoHeight(multiPages) {
+                var $container = self.options.$container;
+                var $pages = $container.find('.tr-pages');
+                var $passage = $container.find('.tr-passage');
+                var decorationHeight = getDecorationHeight($pages);
+                $pages.css('height', 'calc(100vh - ' + decorationHeight + 'px)');
+                $passage.css('height', 'calc(100vh - ' + (decorationHeight + getWrapperHeight(multiPages)) + 'px)');
+            }
 
             this.eventNs = 'textReaderInteraction';
             this.options = {};
@@ -72,8 +159,11 @@ define(
              */
             this.renderPages = function (data) {
                 var templateData = {},
+                    $container,
+                    $pages,
                     markup,
-                    fixedMarkup;
+                    fixedMarkup,
+                    decorationHeight;
 
                 this.options.$container.trigger('beforerenderpages.' + self.eventNs);
 
@@ -90,8 +180,11 @@ define(
                         );
                     }
 
-                    this.options.$container.find('.js-page-container').html(fixedMarkup || markup);
-                    htmlRenderer.render(this.options.$container.find('.js-page-container'));
+                    $container = this.options.$container.find('.js-page-container')
+                        .html(fixedMarkup || markup)
+                        .toggleClass('light-mode', !templateData.multiPages);
+
+                    htmlRenderer.render($container);
                 }
 
                 //init tabs
@@ -111,6 +204,18 @@ define(
                 $.each(data.pages, function (key, val) {
                     $('[data-page-id="' + val.id + '"] .js-page-columns-select').val(val.content.length);
                 });
+
+                // When the height is set to auto, we need to rewrite it with a computed value.
+                // Also please note that the PCI markup is forcing the unit,
+                // so we cannot inject safely the value through the template
+                if (data.pageHeight === 'auto') {
+                    autoHeight(templateData.multiPages);
+
+                    // apply the auto height twice to counter both a sizing issue and a flickering issue
+                    _.defer(function() {
+                        autoHeight(templateData.multiPages);
+                    });
+                }
 
                 this.options.$container.trigger('afterrenderpages.' + self.eventNs);
 
@@ -219,11 +324,13 @@ define(
              * @return {object} - template data
              */
             this.getTemplateData = function (data) {
-                var pageWrapperHeight;
-                if (self.options.state === 'question') {
-                    pageWrapperHeight = parseInt(data.pageHeight, 10) + 130;
-                } else {
-                    pageWrapperHeight = parseInt(data.pageHeight, 10) + 25;
+                var multiPages = data.multiPages === 'true' || data.multiPages === true;
+                var pageHeight = data.pageHeight;
+                var pageWrapperHeight = pageHeight;
+
+                if (pageHeight !== 'auto') {
+                    pageHeight = parseInt(pageHeight, 10);
+                    pageWrapperHeight = pageHeight + getWrapperHeight(multiPages);
                 }
 
                 return {
@@ -231,9 +338,11 @@ define(
                     serial : self.options.serial,
                     currentPage : currentPage + 1,
                     pagesNum : data.pages.length,
-                    showTabs : (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'buttons',
-                    showNavigation : (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'tabs',
+                    multiPages : multiPages,
+                    showTabs : multiPages && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'buttons',
+                    showNavigation : multiPages && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'tabs',
                     authoring : self.options.state === 'question',
+                    pageHeight: pageHeight,
                     pageWrapperHeight : pageWrapperHeight,
                     showRemovePageButton : data.pages.length > 1 && self.options.state === 'question'
                 };
