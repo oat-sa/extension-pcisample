@@ -81,5 +81,10 @@ class Updater extends \common_ext_ExtensionUpdater
         }
 
         $this->skip('2.3.0', '2.3.1');
+
+        if ($this->isVersion('2.3.1')) {
+            call_user_func(new RegisterPciTextReader(), ['0.8.1']);
+            $this->setVersion('2.3.2');
+        }
     }
 }

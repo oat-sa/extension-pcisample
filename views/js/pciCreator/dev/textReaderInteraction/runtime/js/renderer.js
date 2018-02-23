@@ -324,7 +324,7 @@ define(
              * @return {object} - template data
              */
             this.getTemplateData = function (data) {
-                var multiPages = data.multiPages === 'true' || data.multiPages === true;
+                var multiPages = data.multiPages === 'true' || data.multiPages === true || typeof data.multiPages === 'undefined';
                 var pageHeight = data.pageHeight;
                 var pageWrapperHeight = pageHeight;
 
