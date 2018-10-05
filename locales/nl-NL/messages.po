@@ -1,0 +1,90 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO 3.3.0-sprint86\n"
+"PO-Revision-Date: 2018-09-26T12:04:43\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: nl-NL\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: nl-NL\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "Add page"
+msgstr "Pagina toevoegen"
+
+msgid "Allow multi pages"
+msgstr ""
+
+msgid "Bottom"
+msgstr "Onder"
+
+msgid "Button based"
+msgstr "Knop gebaseerd"
+
+msgid "Button labels"
+msgstr "Knoplabel"
+
+msgid "Button labels."
+msgstr "Knoppenlabels."
+
+msgid "Columns:"
+msgstr "Kolommen:"
+
+msgid "Delete"
+msgstr "Verwijderen"
+
+msgid "Display"
+msgstr ""
+
+msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
+msgstr ""
+
+msgid "Left"
+msgstr "Links"
+
+msgid "Navigation"
+msgstr "Navigatie"
+
+msgid "Navigation."
+msgstr "Navigatie."
+
+msgid "Page"
+msgstr "Pagina"
+
+msgid "Page height (px)"
+msgstr "Pagina hoogte (px)"
+
+msgid "Page height (px)."
+msgstr "Pagina hoogte (px)."
+
+msgid "Previous."
+msgstr "Vorige"
+
+msgid "Remove Tooltip"
+msgstr "Verwijder tooltip"
+
+msgid "Right"
+msgstr "Rechts"
+
+msgid "Tab based"
+msgstr "Gebaseerd op tabs"
+
+msgid "Tabs + buttons"
+msgstr "Tabs + knoppen"
+
+msgid "Tabs position"
+msgstr "Positie tabbladen"
+
+msgid "Tabs position."
+msgstr "Positie tabbladen."
+
+msgid "Tooltips"
+msgstr "Tooltips"
+
+msgid "Top"
+msgstr "Boven"
+
