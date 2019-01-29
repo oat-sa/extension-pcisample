@@ -169,7 +169,6 @@ define(
 
                 data.pages.forEach(function(page, i) {
                     data.pages[i].content.forEach(function(content, y){
-                        console.log("foreach here 123")
                         data.pages[i].content[y] = data.pages[i].content[y].split("<table >").join('<table class="qti-table" >');
                     });
                 });
