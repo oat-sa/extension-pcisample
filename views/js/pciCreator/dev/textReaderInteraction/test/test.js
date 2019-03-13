@@ -44,7 +44,7 @@ define([
 
         runner = qtiItemRunner('qti', itemData)
             .on('render', function (){
-                ready
+                ready;
             })
             .on('error', function (error){
                 $('#error-display').html(error);
