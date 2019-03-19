@@ -37,14 +37,14 @@ define([
 
     QUnit.module('Text Reader Interaction');
 
-    QUnit.asyncTest('display and play', function (assert){
-
+    QUnit.test('display and play', function (assert){
+        var ready = assert.async();
         var $container = $('#outside-container');
         assert.equal($container.length, 1, 'the item container exists');
 
         runner = qtiItemRunner('qti', itemData)
             .on('render', function (){
-                QUnit.start();
+                ready;
             })
             .on('error', function (error){
                 $('#error-display').html(error);
