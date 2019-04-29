@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.3.0-sprint96\n"
-"PO-Revision-Date: 2019-04-25T01:04:44\n"
+"PO-Revision-Date: 2019-04-25T01:04:23\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: nl-NL\n"
+"Language: it-IT\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: nl-NL\n"
+"targetLanguage: it-IT\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
@@ -14,28 +14,28 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Add page"
-msgstr "Pagina toevoegen"
+msgstr "Aggiungi pagina"
 
 msgid "Allow multi pages"
 msgstr ""
 
 msgid "Bottom"
-msgstr "Onder"
+msgstr "Fondo"
 
 msgid "Button based"
-msgstr "Knop gebaseerd"
+msgstr "Basato sul pulsante"
 
 msgid "Button labels"
-msgstr "Knoplabel"
+msgstr "Etichette dei pulsanti"
 
 msgid "Button labels."
-msgstr "Knoppenlabels."
+msgstr "Etichette dei pulsanti."
 
 msgid "Columns:"
-msgstr "Kolommen:"
+msgstr "Colonne:"
 
 msgid "Delete"
-msgstr "Verwijderen"
+msgstr "Cancella"
 
 msgid "Display"
 msgstr ""
@@ -44,47 +44,47 @@ msgid "If this box is checked the text reader will allow to display more than on
 msgstr ""
 
 msgid "Left"
-msgstr "Links"
+msgstr "Sinistra"
 
 msgid "Navigation"
-msgstr "Navigatie"
+msgstr "Navigazione"
 
 msgid "Navigation."
-msgstr "Navigatie."
+msgstr "Navigazione."
 
 msgid "Page"
 msgstr "Pagina"
 
 msgid "Page height (px)"
-msgstr "Pagina hoogte (px)"
+msgstr "Altezza pagina (px)"
 
 msgid "Page height (px)."
-msgstr "Pagina hoogte (px)."
+msgstr "Altezza pagina (px)."
 
 msgid "Previous."
-msgstr "Vorige"
+msgstr "Precedente."
 
 msgid "Remove Tooltip"
-msgstr "Verwijder tooltip"
+msgstr "Rimuovi ToolTip"
 
 msgid "Right"
-msgstr "Rechts"
+msgstr "Destra"
 
 msgid "Tab based"
-msgstr "Gebaseerd op tabs"
+msgstr "Basato su Tab"
 
 msgid "Tabs + buttons"
-msgstr "Tabs + knoppen"
+msgstr "Tabulazioni + pulsanti"
 
 msgid "Tabs position"
-msgstr "Positie tabbladen"
+msgstr "Posizione tabulazione"
 
 msgid "Tabs position."
-msgstr "Positie tabbladen."
+msgstr "Posizione tabulazione."
 
 msgid "Tooltips"
-msgstr "Tooltips"
+msgstr "Descrizioni comandi"
 
 msgid "Top"
-msgstr "Boven"
+msgstr "In alto"
 

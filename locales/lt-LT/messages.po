@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.3.0-sprint96\n"
-"PO-Revision-Date: 2019-04-25T01:04:44\n"
+"PO-Revision-Date: 2019-04-25T01:14:02\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: nl-NL\n"
+"Language: lt-LT\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: nl-NL\n"
+"targetLanguage: lt-LT\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
@@ -14,28 +14,28 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Add page"
-msgstr "Pagina toevoegen"
+msgstr "Pridėti puslapį"
 
 msgid "Allow multi pages"
 msgstr ""
 
 msgid "Bottom"
-msgstr "Onder"
+msgstr "Apačia"
 
 msgid "Button based"
-msgstr "Knop gebaseerd"
+msgstr "Mugtuku paremtas"
 
 msgid "Button labels"
-msgstr "Knoplabel"
+msgstr "Mygtuko pavadinimai"
 
 msgid "Button labels."
-msgstr "Knoppenlabels."
+msgstr "Mygtuko pavadinimai."
 
 msgid "Columns:"
-msgstr "Kolommen:"
+msgstr "Stulpeliai:"
 
 msgid "Delete"
-msgstr "Verwijderen"
+msgstr "Ištrinti"
 
 msgid "Display"
 msgstr ""
@@ -44,47 +44,47 @@ msgid "If this box is checked the text reader will allow to display more than on
 msgstr ""
 
 msgid "Left"
-msgstr "Links"
+msgstr "Kairė"
 
 msgid "Navigation"
-msgstr "Navigatie"
+msgstr "Navigacija"
 
 msgid "Navigation."
-msgstr "Navigatie."
+msgstr "Navigacija."
 
 msgid "Page"
-msgstr "Pagina"
+msgstr "Puslapis"
 
 msgid "Page height (px)"
-msgstr "Pagina hoogte (px)"
+msgstr "Puslapio aukštis (px)"
 
 msgid "Page height (px)."
-msgstr "Pagina hoogte (px)."
+msgstr "Puslapio aukštis (px)."
 
 msgid "Previous."
-msgstr "Vorige"
+msgstr "Grįžti."
 
 msgid "Remove Tooltip"
-msgstr "Verwijder tooltip"
+msgstr "Ištrinti Patarimą"
 
 msgid "Right"
-msgstr "Rechts"
+msgstr "Dešinė"
 
 msgid "Tab based"
-msgstr "Gebaseerd op tabs"
+msgstr "Kortele paremtas"
 
 msgid "Tabs + buttons"
-msgstr "Tabs + knoppen"
+msgstr "Kortelės + mygtukai"
 
 msgid "Tabs position"
-msgstr "Positie tabbladen"
+msgstr "Kortelės vieta"
 
 msgid "Tabs position."
-msgstr "Positie tabbladen."
+msgstr "Kortelės vieta."
 
 msgid "Tooltips"
-msgstr "Tooltips"
+msgstr "Patarimai"
 
 msgid "Top"
-msgstr "Boven"
+msgstr "Viršus"
 

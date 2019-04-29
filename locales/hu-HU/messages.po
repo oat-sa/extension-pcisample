@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.3.0-sprint96\n"
-"PO-Revision-Date: 2019-04-25T01:04:44\n"
+"PO-Revision-Date: 2019-04-25T01:06:09\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: nl-NL\n"
+"Language: hu-HU\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: nl-NL\n"
+"targetLanguage: hu-HU\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
@@ -14,28 +14,28 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Add page"
-msgstr "Pagina toevoegen"
+msgstr "Oldal hozzáadása"
 
 msgid "Allow multi pages"
 msgstr ""
 
 msgid "Bottom"
-msgstr "Onder"
+msgstr "Alulra"
 
 msgid "Button based"
-msgstr "Knop gebaseerd"
+msgstr "Gomb alapú"
 
 msgid "Button labels"
-msgstr "Knoplabel"
+msgstr "Gombok címkéi: "
 
 msgid "Button labels."
-msgstr "Knoppenlabels."
+msgstr "Gombok címkéi: "
 
 msgid "Columns:"
-msgstr "Kolommen:"
+msgstr "Oszlopok:"
 
 msgid "Delete"
-msgstr "Verwijderen"
+msgstr "Törlés"
 
 msgid "Display"
 msgstr ""
@@ -44,47 +44,47 @@ msgid "If this box is checked the text reader will allow to display more than on
 msgstr ""
 
 msgid "Left"
-msgstr "Links"
+msgstr "Bal"
 
 msgid "Navigation"
-msgstr "Navigatie"
+msgstr "Navigáció"
 
 msgid "Navigation."
-msgstr "Navigatie."
+msgstr "Navigáció."
 
 msgid "Page"
-msgstr "Pagina"
+msgstr "Lap"
 
 msgid "Page height (px)"
-msgstr "Pagina hoogte (px)"
+msgstr "Lap magasság (px)"
 
 msgid "Page height (px)."
-msgstr "Pagina hoogte (px)."
+msgstr "Az oldal magassága (px)"
 
 msgid "Previous."
-msgstr "Vorige"
+msgstr "Előző"
 
 msgid "Remove Tooltip"
-msgstr "Verwijder tooltip"
+msgstr "Segédinfó törlése"
 
 msgid "Right"
-msgstr "Rechts"
+msgstr "Jobb"
 
 msgid "Tab based"
-msgstr "Gebaseerd op tabs"
+msgstr "Tabulátor alapú"
 
 msgid "Tabs + buttons"
-msgstr "Tabs + knoppen"
+msgstr "tabulátorok és gombok"
 
 msgid "Tabs position"
-msgstr "Positie tabbladen"
+msgstr "Tabulátorok pozíciója"
 
 msgid "Tabs position."
-msgstr "Positie tabbladen."
+msgstr "Tabulátorok pozíciója"
 
 msgid "Tooltips"
-msgstr "Tooltips"
+msgstr "Tippek"
 
 msgid "Top"
-msgstr "Boven"
+msgstr "Fent"
 

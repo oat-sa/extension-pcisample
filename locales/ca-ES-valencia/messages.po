@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.3.0-sprint96\n"
-"PO-Revision-Date: 2019-04-25T01:04:44\n"
+"PO-Revision-Date: 2019-04-25T01:10:56\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: nl-NL\n"
+"Language: ca-ES-valencia\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: nl-NL\n"
+"targetLanguage: ca-ES-valencia\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
@@ -14,28 +14,28 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Add page"
-msgstr "Pagina toevoegen"
+msgstr "Afig una pàgina"
 
 msgid "Allow multi pages"
 msgstr ""
 
 msgid "Bottom"
-msgstr "Onder"
+msgstr "Part inferior"
 
 msgid "Button based"
-msgstr "Knop gebaseerd"
+msgstr "Basat en el botó"
 
 msgid "Button labels"
-msgstr "Knoplabel"
+msgstr "Etiquetes del botó"
 
 msgid "Button labels."
-msgstr "Knoppenlabels."
+msgstr "Etiquetes del botó"
 
 msgid "Columns:"
-msgstr "Kolommen:"
+msgstr "Columnes:"
 
 msgid "Delete"
-msgstr "Verwijderen"
+msgstr "Suprimeix"
 
 msgid "Display"
 msgstr ""
@@ -44,47 +44,47 @@ msgid "If this box is checked the text reader will allow to display more than on
 msgstr ""
 
 msgid "Left"
-msgstr "Links"
+msgstr "Esquerra"
 
 msgid "Navigation"
-msgstr "Navigatie"
+msgstr "Navegació"
 
 msgid "Navigation."
-msgstr "Navigatie."
+msgstr "Navegació"
 
 msgid "Page"
-msgstr "Pagina"
+msgstr "Pàgina"
 
 msgid "Page height (px)"
-msgstr "Pagina hoogte (px)"
+msgstr "Alçària de la pàgina (px)"
 
 msgid "Page height (px)."
-msgstr "Pagina hoogte (px)."
+msgstr "Alçària de la pàgina (px)"
 
 msgid "Previous."
-msgstr "Vorige"
+msgstr "Anterior"
 
 msgid "Remove Tooltip"
-msgstr "Verwijder tooltip"
+msgstr "Suprimeix l'indicador de funció"
 
 msgid "Right"
-msgstr "Rechts"
+msgstr "Dreta"
 
 msgid "Tab based"
-msgstr "Gebaseerd op tabs"
+msgstr "Basat en la pestanya"
 
 msgid "Tabs + buttons"
-msgstr "Tabs + knoppen"
+msgstr "Pestanyes + botons"
 
 msgid "Tabs position"
-msgstr "Positie tabbladen"
+msgstr "Posició de les pestanyes"
 
 msgid "Tabs position."
-msgstr "Positie tabbladen."
+msgstr "Posició de les pestanyes"
 
 msgid "Tooltips"
-msgstr "Tooltips"
+msgstr "Indicadors de funció"
 
 msgid "Top"
-msgstr "Boven"
+msgstr "Part superior"
 

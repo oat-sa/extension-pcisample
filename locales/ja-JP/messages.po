@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.3.0-sprint96\n"
-"PO-Revision-Date: 2019-04-25T01:04:44\n"
+"PO-Revision-Date: 2019-04-25T01:06:31\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: nl-NL\n"
+"Language: ja-JP\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: nl-NL\n"
+"targetLanguage: ja-JP\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
@@ -14,28 +14,28 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Add page"
-msgstr "Pagina toevoegen"
+msgstr "ページ追加"
 
 msgid "Allow multi pages"
 msgstr ""
 
 msgid "Bottom"
-msgstr "Onder"
+msgstr "下"
 
 msgid "Button based"
-msgstr "Knop gebaseerd"
+msgstr "ボタンベース"
 
 msgid "Button labels"
-msgstr "Knoplabel"
+msgstr "ボタンラベル"
 
 msgid "Button labels."
-msgstr "Knoppenlabels."
+msgstr "ボタンラベル"
 
 msgid "Columns:"
-msgstr "Kolommen:"
+msgstr "列:"
 
 msgid "Delete"
-msgstr "Verwijderen"
+msgstr "削除"
 
 msgid "Display"
 msgstr ""
@@ -44,47 +44,47 @@ msgid "If this box is checked the text reader will allow to display more than on
 msgstr ""
 
 msgid "Left"
-msgstr "Links"
+msgstr "左"
 
 msgid "Navigation"
-msgstr "Navigatie"
+msgstr "ナビゲーション"
 
 msgid "Navigation."
-msgstr "Navigatie."
+msgstr "ナビゲーション"
 
 msgid "Page"
-msgstr "Pagina"
+msgstr "ページ"
 
 msgid "Page height (px)"
-msgstr "Pagina hoogte (px)"
+msgstr "ページ高 (px)"
 
 msgid "Page height (px)."
-msgstr "Pagina hoogte (px)."
+msgstr "ページ高 (px)"
 
 msgid "Previous."
-msgstr "Vorige"
+msgstr "前"
 
 msgid "Remove Tooltip"
-msgstr "Verwijder tooltip"
+msgstr "ツールチップ削除"
 
 msgid "Right"
-msgstr "Rechts"
+msgstr "右"
 
 msgid "Tab based"
-msgstr "Gebaseerd op tabs"
+msgstr "タブベース"
 
 msgid "Tabs + buttons"
-msgstr "Tabs + knoppen"
+msgstr "タブ＋ボタン"
 
 msgid "Tabs position"
-msgstr "Positie tabbladen"
+msgstr "タブ位置"
 
 msgid "Tabs position."
-msgstr "Positie tabbladen."
+msgstr "タブ位置"
 
 msgid "Tooltips"
-msgstr "Tooltips"
+msgstr "ツールチップ"
 
 msgid "Top"
-msgstr "Boven"
+msgstr "上"
 

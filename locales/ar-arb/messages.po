@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.3.0-sprint96\n"
-"PO-Revision-Date: 2019-04-25T01:04:44\n"
+"PO-Revision-Date: 2019-04-25T01:03:21\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: nl-NL\n"
+"Language: ar-arb\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: nl-NL\n"
+"targetLanguage: ar-arb\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
@@ -14,28 +14,28 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Add page"
-msgstr "Pagina toevoegen"
+msgstr "أضف صفحة"
 
 msgid "Allow multi pages"
 msgstr ""
 
 msgid "Bottom"
-msgstr "Onder"
+msgstr "الأسفل"
 
 msgid "Button based"
-msgstr "Knop gebaseerd"
+msgstr "استخدام الزر"
 
 msgid "Button labels"
-msgstr "Knoplabel"
+msgstr "تسميات زر"
 
 msgid "Button labels."
-msgstr "Knoppenlabels."
+msgstr "تسميات زر."
 
 msgid "Columns:"
-msgstr "Kolommen:"
+msgstr "الأعمدة:"
 
 msgid "Delete"
-msgstr "Verwijderen"
+msgstr "حدف"
 
 msgid "Display"
 msgstr ""
@@ -44,47 +44,47 @@ msgid "If this box is checked the text reader will allow to display more than on
 msgstr ""
 
 msgid "Left"
-msgstr "Links"
+msgstr "يسار"
 
 msgid "Navigation"
-msgstr "Navigatie"
+msgstr "التصفح"
 
 msgid "Navigation."
-msgstr "Navigatie."
+msgstr "التصفح."
 
 msgid "Page"
-msgstr "Pagina"
+msgstr "صفحة"
 
 msgid "Page height (px)"
-msgstr "Pagina hoogte (px)"
+msgstr "ارتفاع الصفحة (px)"
 
 msgid "Page height (px)."
-msgstr "Pagina hoogte (px)."
+msgstr "ارتفاع الصفحة (px)."
 
 msgid "Previous."
-msgstr "Vorige"
+msgstr "السابق."
 
 msgid "Remove Tooltip"
-msgstr "Verwijder tooltip"
+msgstr "إزالة Tooltip"
 
 msgid "Right"
-msgstr "Rechts"
+msgstr "يمين"
 
 msgid "Tab based"
-msgstr "Gebaseerd op tabs"
+msgstr "تبويب القائمة"
 
 msgid "Tabs + buttons"
-msgstr "Tabs + knoppen"
+msgstr "علامات التبويب + الأزرار"
 
 msgid "Tabs position"
-msgstr "Positie tabbladen"
+msgstr "موقع التبويب"
 
 msgid "Tabs position."
-msgstr "Positie tabbladen."
+msgstr "موقع التبويبات."
 
 msgid "Tooltips"
-msgstr "Tooltips"
+msgstr "التلميحات"
 
 msgid "Top"
-msgstr "Boven"
+msgstr "الأعلى"
 

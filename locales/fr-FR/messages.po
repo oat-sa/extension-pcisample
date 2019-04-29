@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.3.0-sprint96\n"
-"PO-Revision-Date: 2019-04-25T01:04:44\n"
+"PO-Revision-Date: 2019-04-25T01:08:51\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: nl-NL\n"
+"Language: fr-FR\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: nl-NL\n"
+"targetLanguage: fr-FR\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
@@ -14,28 +14,28 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Add page"
-msgstr "Pagina toevoegen"
+msgstr "Ajouter une page"
 
 msgid "Allow multi pages"
 msgstr ""
 
 msgid "Bottom"
-msgstr "Onder"
+msgstr "Bas"
 
 msgid "Button based"
-msgstr "Knop gebaseerd"
+msgstr "basé sur le bouton"
 
 msgid "Button labels"
-msgstr "Knoplabel"
+msgstr "Étiquette du bouton"
 
 msgid "Button labels."
-msgstr "Knoppenlabels."
+msgstr "Étiquettes du bouton."
 
 msgid "Columns:"
-msgstr "Kolommen:"
+msgstr "Colonnes :"
 
 msgid "Delete"
-msgstr "Verwijderen"
+msgstr "Supprimer"
 
 msgid "Display"
 msgstr ""
@@ -44,47 +44,47 @@ msgid "If this box is checked the text reader will allow to display more than on
 msgstr ""
 
 msgid "Left"
-msgstr "Links"
+msgstr "Gauche"
 
 msgid "Navigation"
-msgstr "Navigatie"
+msgstr "Navigation"
 
 msgid "Navigation."
-msgstr "Navigatie."
+msgstr "Navigation."
 
 msgid "Page"
-msgstr "Pagina"
+msgstr "Page"
 
 msgid "Page height (px)"
-msgstr "Pagina hoogte (px)"
+msgstr "Hauteur de page (px)"
 
 msgid "Page height (px)."
-msgstr "Pagina hoogte (px)."
+msgstr "Hauteur de page (px)."
 
 msgid "Previous."
-msgstr "Vorige"
+msgstr "Précédent."
 
 msgid "Remove Tooltip"
-msgstr "Verwijder tooltip"
+msgstr "Supprimer infobulle"
 
 msgid "Right"
-msgstr "Rechts"
+msgstr "Droite"
 
 msgid "Tab based"
-msgstr "Gebaseerd op tabs"
+msgstr "basé sur l'onglet"
 
 msgid "Tabs + buttons"
-msgstr "Tabs + knoppen"
+msgstr "Onglets + boutons"
 
 msgid "Tabs position"
-msgstr "Positie tabbladen"
+msgstr "Position des onglets"
 
 msgid "Tabs position."
-msgstr "Positie tabbladen."
+msgstr "Position des onglets."
 
 msgid "Tooltips"
-msgstr "Tooltips"
+msgstr "Infobulles"
 
 msgid "Top"
-msgstr "Boven"
+msgstr "Haut"
 

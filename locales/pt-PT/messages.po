@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.3.0-sprint96\n"
-"PO-Revision-Date: 2019-04-25T01:04:44\n"
+"PO-Revision-Date: 2019-04-25T01:09:39\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: nl-NL\n"
+"Language: pt-PT\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: nl-NL\n"
+"targetLanguage: pt-PT\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
@@ -14,28 +14,28 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Add page"
-msgstr "Pagina toevoegen"
+msgstr ""
 
 msgid "Allow multi pages"
 msgstr ""
 
 msgid "Bottom"
-msgstr "Onder"
+msgstr ""
 
 msgid "Button based"
-msgstr "Knop gebaseerd"
+msgstr ""
 
 msgid "Button labels"
-msgstr "Knoplabel"
+msgstr ""
 
 msgid "Button labels."
-msgstr "Knoppenlabels."
+msgstr ""
 
 msgid "Columns:"
-msgstr "Kolommen:"
+msgstr ""
 
 msgid "Delete"
-msgstr "Verwijderen"
+msgstr ""
 
 msgid "Display"
 msgstr ""
@@ -44,47 +44,47 @@ msgid "If this box is checked the text reader will allow to display more than on
 msgstr ""
 
 msgid "Left"
-msgstr "Links"
+msgstr ""
 
 msgid "Navigation"
-msgstr "Navigatie"
+msgstr ""
 
 msgid "Navigation."
-msgstr "Navigatie."
+msgstr ""
 
 msgid "Page"
-msgstr "Pagina"
+msgstr ""
 
 msgid "Page height (px)"
-msgstr "Pagina hoogte (px)"
+msgstr ""
 
 msgid "Page height (px)."
-msgstr "Pagina hoogte (px)."
+msgstr ""
 
 msgid "Previous."
-msgstr "Vorige"
+msgstr ""
 
 msgid "Remove Tooltip"
-msgstr "Verwijder tooltip"
+msgstr ""
 
 msgid "Right"
-msgstr "Rechts"
+msgstr ""
 
 msgid "Tab based"
-msgstr "Gebaseerd op tabs"
+msgstr ""
 
 msgid "Tabs + buttons"
-msgstr "Tabs + knoppen"
+msgstr ""
 
 msgid "Tabs position"
-msgstr "Positie tabbladen"
+msgstr ""
 
 msgid "Tabs position."
-msgstr "Positie tabbladen."
+msgstr ""
 
 msgid "Tooltips"
-msgstr "Tooltips"
+msgstr ""
 
 msgid "Top"
-msgstr "Boven"
+msgstr ""
 
