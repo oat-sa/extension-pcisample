@@ -1,0 +1,90 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO 3.4.0-sprint112\n"
+"PO-Revision-Date: 2019-10-09T09:03:06\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: lt-LT\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: lt-LT\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "Add page"
+msgstr "Pridėti puslapį"
+
+msgid "Allow multi pages"
+msgstr "Leisti daugiapuslapiavimą"
+
+msgid "Bottom"
+msgstr "Apačia"
+
+msgid "Button based"
+msgstr "Mugtuku paremtas"
+
+msgid "Button labels"
+msgstr "Mygtuko pavadinimai"
+
+msgid "Button labels."
+msgstr "Mygtuko pavadinimai."
+
+msgid "Columns:"
+msgstr "Stulpeliai:"
+
+msgid "Delete"
+msgstr "Ištrinti"
+
+msgid "Display"
+msgstr "Vaizdavimas"
+
+msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
+msgstr "Jeigu pažymėtas šis langelis, teksto skaityklė leis atvaizduoti daugiau negu viena puslapį ir naviguoti tarp jų."
+
+msgid "Left"
+msgstr "Kairė"
+
+msgid "Navigation"
+msgstr "Navigacija"
+
+msgid "Navigation."
+msgstr "Navigacija."
+
+msgid "Page"
+msgstr "Puslapis"
+
+msgid "Page height (px)"
+msgstr "Puslapio aukštis (px)"
+
+msgid "Page height (px)."
+msgstr "Puslapio aukštis (px)."
+
+msgid "Previous."
+msgstr "Grįžti."
+
+msgid "Remove Tooltip"
+msgstr "Ištrinti Patarimą"
+
+msgid "Right"
+msgstr "Dešinė"
+
+msgid "Tab based"
+msgstr "Kortele paremtas"
+
+msgid "Tabs + buttons"
+msgstr "Kortelės + mygtukai"
+
+msgid "Tabs position"
+msgstr "Kortelės vieta"
+
+msgid "Tabs position."
+msgstr "Kortelės vieta."
+
+msgid "Tooltips"
+msgstr "Patarimai"
+
+msgid "Top"
+msgstr "Viršus"
+
