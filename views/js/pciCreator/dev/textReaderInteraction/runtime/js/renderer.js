@@ -238,9 +238,25 @@ define(
                 $tooltips.each(function() {
                     var $currentTooltip = $(this),
                         currentId = $currentTooltip.data('identifier'),
-                        content = tooltipsContent[currentId];
+                        content = tooltipsContent[currentId],
+                        qtipPositionTarget = 'event',
+                        targetHeight,
+                        targetFontSize;
 
                     if (content && content.trim()) {
+                        targetHeight = parseInt($currentTooltip.css('height'), 10);
+                        targetFontSize = parseInt($currentTooltip.css('fontSize'), 10);
+
+                        /**
+                         * Tooltip may be attached to a phrase which is spread into 2 or more lines. For this case we apply
+                         * position target as a `mouse`. It gives the behavior of following tooltip by the cursor pointer.
+                         * It prevents appearing the tooltip somewhere in the middle of the text between 2 parts of a phrase to
+                         * which it was attached.
+                         */
+                        if ((targetHeight / targetFontSize) >= 2) {
+                            qtipPositionTarget = 'mouse';
+                        }
+
                         $currentTooltip.addClass('tooltip-active');
                         $currentTooltip.qtip({
                             overwrite: true,
@@ -249,7 +265,7 @@ define(
                                 text: content
                             },
                             position: {
-                                target: 'event',
+                                target: qtipPositionTarget,
                                 my: 'bottom center',
                                 at: 'top center'
                             }
