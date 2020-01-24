@@ -249,7 +249,7 @@ define(
                                 text: content
                             },
                             position: {
-                                target: 'event',
+                                target: 'mouse',
                                 my: 'bottom center',
                                 at: 'top center'
                             }
