@@ -52,6 +52,9 @@ msgstr "Navigatie"
 msgid "Navigation."
 msgstr "Navigatie."
 
+msgid "Next"
+msgstr "Volgende"
+
 msgid "Page"
 msgstr "Pagina"
 
@@ -61,7 +64,7 @@ msgstr "Pagina hoogte (px)"
 msgid "Page height (px)."
 msgstr "Pagina hoogte (px)."
 
-msgid "Previous."
+msgid "Previous"
 msgstr "Vorige"
 
 msgid "Remove Tooltip"
