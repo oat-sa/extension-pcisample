@@ -104,6 +104,9 @@ class Updater extends \common_ext_ExtensionUpdater
             $this->setVersion('2.5.3');
         }
 
-        $this->skip('2.5.3', '2.5.4');
+        if ($this->isVersion('2.5.3')) {
+            call_user_func(new RegisterPciTextReader(), ['0.8.5']);
+            $this->setVersion('2.5.4');
+        }
     }
 }
