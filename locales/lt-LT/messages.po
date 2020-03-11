@@ -52,6 +52,9 @@ msgstr "Navigacija"
 msgid "Navigation."
 msgstr "Navigacija."
 
+msgid "Next"
+msgstr "Tęsti"
+
 msgid "Page"
 msgstr "Puslapis"
 
@@ -61,8 +64,8 @@ msgstr "Puslapio aukštis (px)"
 msgid "Page height (px)."
 msgstr "Puslapio aukštis (px)."
 
-msgid "Previous."
-msgstr "Grįžti."
+msgid "Previous"
+msgstr "Grįžti"
 
 msgid "Remove Tooltip"
 msgstr "Ištrinti Patarimą"

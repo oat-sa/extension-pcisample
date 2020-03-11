@@ -43,6 +43,9 @@ msgstr ""
 msgid "Navigation."
 msgstr ""
 
+msgid "Next"
+msgstr ""
+
 msgid "Page"
 msgstr ""
 
@@ -52,7 +55,7 @@ msgstr ""
 msgid "Page height (px)."
 msgstr ""
 
-msgid "Previous."
+msgid "Previous"
 msgstr ""
 
 msgid "Right"
