@@ -48,11 +48,11 @@
     <span class="icon-help tooltipstered" data-tooltip="~ .tooltip-content:first" data-tooltip-theme="info"></span>
     <div class="tooltip-content">{{__ 'Button labels.'}}</div>
     <label class="smaller-prompt">
-        {{__ 'Previous.'}}
+        {{__ 'Previous'}}
         <input name="buttonLabelsPrev" type="text" value="{{buttonLabels.prev}}">
     </label>
     <label class="smaller-prompt">
-        {{__ 'Previous.'}}
+        {{__ 'Next'}}
         <input name="buttonLabelsNext" type="text" value="{{buttonLabels.next}}">
     </label>
 </div>
