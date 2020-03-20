@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 3.3.0-sprint86\n"
-"PO-Revision-Date: 2018-09-26T12:04:43\n"
+"Project-Id-Version: TAO 3.4.0-sprint124\n"
+"PO-Revision-Date: 2020-03-20T11:17:04\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: nl-NL\n"
@@ -17,7 +17,7 @@ msgid "Add page"
 msgstr "Pagina toevoegen"
 
 msgid "Allow multi pages"
-msgstr ""
+msgstr "Meerdere pagina's toestaan"
 
 msgid "Bottom"
 msgstr "Onder"
@@ -38,10 +38,10 @@ msgid "Delete"
 msgstr "Verwijderen"
 
 msgid "Display"
-msgstr ""
+msgstr "Toon"
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr ""
+msgstr "Indien dit vakje is aangevinkt, kan de tekstlezer meer dan één pagina weergeven en tussen de pagina's navigeren."
 
 msgid "Left"
 msgstr "Links"
@@ -53,7 +53,7 @@ msgid "Navigation."
 msgstr "Navigatie."
 
 msgid "Next"
-msgstr "Volgende"
+msgstr ""
 
 msgid "Page"
 msgstr "Pagina"
@@ -65,7 +65,7 @@ msgid "Page height (px)."
 msgstr "Pagina hoogte (px)."
 
 msgid "Previous"
-msgstr "Vorige"
+msgstr ""
 
 msgid "Remove Tooltip"
 msgstr "Verwijder tooltip"
