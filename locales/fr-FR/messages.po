@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO 3.4.0-sprint124\n"
+"PO-Revision-Date: 2020-03-23T16:05:30\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: fr-FR\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: fr-FR\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "Add page"
+msgstr "Ajouter une page"
+
+msgid "Allow multi pages"
+msgstr "Permettre les pages multiples"
+
+msgid "Bottom"
+msgstr "Bas"
+
+msgid "Button based"
+msgstr "basé sur le bouton"
+
+msgid "Button labels"
+msgstr "Étiquette du bouton"
+
+msgid "Button labels."
+msgstr "Étiquettes du bouton."
+
+msgid "Columns:"
+msgstr "Colonnes :"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Display"
+msgstr "Affichage"
+
+msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
+msgstr "Si cette case est cochée le lecteur de texte permettra l'affichage de plus d'une page et de naviguer entre ces pages."
+
+msgid "Left"
+msgstr "Gauche"
+
+msgid "Navigation"
+msgstr "Navigation"
+
+msgid "Navigation."
+msgstr "Navigation."
+
+msgid "Next"
+msgstr ""
+
+msgid "Page"
+msgstr "Page"
+
+msgid "Page height (px)"
+msgstr "Hauteur de page (px)"
+
+msgid "Page height (px)."
+msgstr "Hauteur de page (px)."
+
+msgid "Previous"
+msgstr ""
+
+msgid "Remove Tooltip"
+msgstr "Supprimer infobulle"
+
+msgid "Right"
+msgstr "Droite"
+
+msgid "Tab based"
+msgstr "basé sur l'onglet"
+
+msgid "Tabs + buttons"
+msgstr "Onglets + boutons"
+
+msgid "Tabs position"
+msgstr "Position des onglets"
+
+msgid "Tabs position."
+msgstr "Position des onglets."
+
+msgid "Tooltips"
+msgstr "Infobulles"
+
+msgid "Top"
+msgstr "Haut"
+
