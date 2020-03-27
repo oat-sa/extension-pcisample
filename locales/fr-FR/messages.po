@@ -4,9 +4,9 @@ msgstr ""
 "PO-Revision-Date: 2020-03-27T10:53:19\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: lt-LT\n"
+"Language: fr-FR\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: lt-LT\n"
+"targetLanguage: fr-FR\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
@@ -14,80 +14,80 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Add page"
-msgstr "Pridėti puslapį"
+msgstr "Ajouter une page"
 
 msgid "Allow multi pages"
-msgstr "Leisti daugiapuslapiavimą"
+msgstr "Permettre les pages multiples"
 
 msgid "Bottom"
-msgstr "Apačia"
+msgstr "Bas"
 
 msgid "Button based"
-msgstr "Mugtuku paremtas"
+msgstr "basé sur le bouton"
 
 msgid "Button labels"
-msgstr "Mygtuko pavadinimai"
+msgstr "Étiquette du bouton"
 
 msgid "Button labels."
-msgstr "Mygtuko pavadinimai."
+msgstr "Étiquettes du bouton."
 
 msgid "Columns:"
-msgstr "Stulpeliai:"
+msgstr "Colonnes :"
 
 msgid "Delete"
-msgstr "Ištrinti"
+msgstr "Supprimer"
 
 msgid "Display"
-msgstr "Vaizdavimas"
+msgstr "Affichage"
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr "Jeigu pažymėtas šis langelis, teksto skaityklė leis atvaizduoti daugiau negu viena puslapį ir naviguoti tarp jų."
+msgstr "Si cette case est cochée le lecteur de texte permettra l'affichage de plus d'une page et de naviguer entre ces pages."
 
 msgid "Left"
-msgstr "Kairė"
+msgstr "Gauche"
 
 msgid "Navigation"
-msgstr "Navigacija"
+msgstr "Navigation"
 
 msgid "Navigation."
-msgstr "Navigacija."
+msgstr "Navigation."
 
 msgid "Next"
-msgstr "Tęsti"
+msgstr ""
 
 msgid "Page"
-msgstr "Puslapis"
+msgstr "Page"
 
 msgid "Page height (px)"
-msgstr "Puslapio aukštis (px)"
+msgstr "Hauteur de page (px)"
 
 msgid "Page height (px)."
-msgstr "Puslapio aukštis (px)."
+msgstr "Hauteur de page (px)."
 
 msgid "Previous"
-msgstr "Grįžti"
+msgstr ""
 
 msgid "Remove Tooltip"
-msgstr "Ištrinti Patarimą"
+msgstr "Supprimer infobulle"
 
 msgid "Right"
-msgstr "Dešinė"
+msgstr "Droite"
 
 msgid "Tab based"
-msgstr "Kortele paremtas"
+msgstr "basé sur l'onglet"
 
 msgid "Tabs + buttons"
-msgstr "Kortelės + mygtukai"
+msgstr "Onglets + boutons"
 
 msgid "Tabs position"
-msgstr "Kortelės vieta"
+msgstr "Position des onglets"
 
 msgid "Tabs position."
-msgstr "Kortelės vieta."
+msgstr "Position des onglets."
 
 msgid "Tooltips"
-msgstr "Patarimai"
+msgstr "Infobulles"
 
 msgid "Top"
-msgstr "Viršus"
+msgstr "Haut"
 

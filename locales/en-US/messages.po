@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO v3.1.0-rc02\n"
-"PO-Revision-Date: 2015-07-08T16:20:34\n"
+"Project-Id-Version: TAO 3.4.0-sprint125\n"
+"PO-Revision-Date: 2020-03-27T10:53:19\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: en-US\n"
@@ -14,6 +14,9 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Add page"
+msgstr ""
+
+msgid "Allow multi pages"
 msgstr ""
 
 msgid "Bottom"
@@ -32,6 +35,12 @@ msgid "Columns:"
 msgstr ""
 
 msgid "Delete"
+msgstr ""
+
+msgid "Display"
+msgstr ""
+
+msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
 msgstr ""
 
 msgid "Left"
@@ -58,6 +67,9 @@ msgstr ""
 msgid "Previous"
 msgstr ""
 
+msgid "Remove Tooltip"
+msgstr ""
+
 msgid "Right"
 msgstr ""
 
@@ -71,6 +83,9 @@ msgid "Tabs position"
 msgstr ""
 
 msgid "Tabs position."
+msgstr ""
+
+msgid "Tooltips"
 msgstr ""
 
 msgid "Top"
