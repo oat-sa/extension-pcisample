@@ -26,8 +26,7 @@ define(
                 return $1 + resolved + $3;
             });
         };
-
-        window.jQuery = $;
+        
         return function (options) {
             var self = this;
             var defaultOptions = {
