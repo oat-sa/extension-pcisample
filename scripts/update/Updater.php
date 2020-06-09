@@ -115,6 +115,6 @@ class Updater extends \common_ext_ExtensionUpdater
             call_user_func(new RegisterPciTextReader(), ['0.9.0']);
             $this->setVersion('2.8.0');
         }
-        $this->skip('2.8.0', '2.8.1');
+        $this->skip('2.8.0', '2.9.0');
     }
 }
