@@ -25,6 +25,9 @@ use oat\pciSamples\scripts\install\RegisterPciTextReader;
 use oat\qtiItemPci\model\IMSPciModel;
 use oat\taoQtiItem\model\HookRegistry;
 
+/**
+ * @deprecated use migrations instead. See https://github.com/oat-sa/generis/wiki/Tao-Update-Process
+ */
 class Updater extends \common_ext_ExtensionUpdater
 {
 
@@ -116,5 +119,10 @@ class Updater extends \common_ext_ExtensionUpdater
             $this->setVersion('2.8.0');
         }
         $this->skip('2.8.0', '2.9.1');
+        
+        //Updater files are deprecated. Please use migrations.
+        //See: https://github.com/oat-sa/generis/wiki/Tao-Update-Process
+
+        $this->setVersion($this->getExtension()->getManifest()->getVersion());
     }
 }
