@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.4.0-sprint121\n"
-"PO-Revision-Date: 2020-08-03T10:46:17\n"
+"PO-Revision-Date: 2020-08-03T10:46:18\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: lt-LT\n"
+"Language: th-TH\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: lt-LT\n"
+"targetLanguage: th-TH\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
@@ -14,77 +14,77 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Add page"
-msgstr "Pridėti puslapį"
+msgstr ""
 
 msgid "Allow multi pages"
-msgstr "Leisti daugiapuslapiavimą"
+msgstr ""
 
 msgid "Bottom"
-msgstr "Apačia"
+msgstr ""
 
 msgid "Button based"
-msgstr "Mugtuku paremtas"
+msgstr ""
 
 msgid "Button labels"
-msgstr "Mygtuko pavadinimai"
+msgstr ""
 
 msgid "Button labels."
-msgstr "Mygtuko pavadinimai."
+msgstr ""
 
 msgid "Columns:"
-msgstr "Stulpeliai:"
+msgstr ""
 
 msgid "Delete"
-msgstr "Ištrinti"
+msgstr ""
 
 msgid "Display"
-msgstr "Vaizdavimas"
+msgstr ""
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr "Jeigu pažymėtas šis langelis, teksto skaityklė leis atvaizduoti daugiau negu viena puslapį ir naviguoti tarp jų."
+msgstr ""
 
 msgid "Left"
-msgstr "Kairė"
+msgstr ""
 
 msgid "Navigation"
-msgstr "Navigacija"
+msgstr ""
 
 msgid "Navigation."
-msgstr "Navigacija."
+msgstr ""
 
 msgid "Page"
-msgstr "Puslapis"
+msgstr ""
 
 msgid "Page height (px)"
-msgstr "Puslapio aukštis (px)"
+msgstr ""
 
 msgid "Page height (px)."
-msgstr "Puslapio aukštis (px)."
+msgstr ""
 
 msgid "Previous."
-msgstr "Grįžti."
+msgstr ""
 
 msgid "Remove Tooltip"
-msgstr "Ištrinti Patarimą"
+msgstr ""
 
 msgid "Right"
-msgstr "Dešinė"
+msgstr ""
 
 msgid "Tab based"
-msgstr "Kortele paremtas"
+msgstr ""
 
 msgid "Tabs + buttons"
-msgstr "Kortelės + mygtukai"
+msgstr ""
 
 msgid "Tabs position"
-msgstr "Kortelės vieta"
+msgstr ""
 
 msgid "Tabs position."
-msgstr "Kortelės vieta."
+msgstr ""
 
 msgid "Tooltips"
-msgstr "Patarimai"
+msgstr ""
 
 msgid "Top"
-msgstr "Viršus"
+msgstr ""
 
