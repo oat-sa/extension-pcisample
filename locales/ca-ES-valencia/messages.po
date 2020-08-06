@@ -1,12 +1,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: TAO 3.4.0-sprint121\n"
-"PO-Revision-Date: 2020-08-03T10:46:17\n"
+"PO-Revision-Date: 2020-08-03T10:46:16\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: lt-LT\n"
+"Language: ca-ES-valencia\n"
 "sourceLanguage: en-US\n"
-"targetLanguage: lt-LT\n"
+"targetLanguage: ca-ES-valencia\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Basepath: ../../\n"
@@ -14,77 +14,77 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Add page"
-msgstr "Pridėti puslapį"
+msgstr "Afig una pàgina"
 
 msgid "Allow multi pages"
-msgstr "Leisti daugiapuslapiavimą"
+msgstr ""
 
 msgid "Bottom"
-msgstr "Apačia"
+msgstr "Part inferior"
 
 msgid "Button based"
-msgstr "Mugtuku paremtas"
+msgstr "Basat en el botó"
 
 msgid "Button labels"
-msgstr "Mygtuko pavadinimai"
+msgstr "Etiquetes del botó"
 
 msgid "Button labels."
-msgstr "Mygtuko pavadinimai."
+msgstr "Etiquetes del botó"
 
 msgid "Columns:"
-msgstr "Stulpeliai:"
+msgstr "Columnes:"
 
 msgid "Delete"
-msgstr "Ištrinti"
+msgstr "Suprimeix"
 
 msgid "Display"
-msgstr "Vaizdavimas"
+msgstr ""
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr "Jeigu pažymėtas šis langelis, teksto skaityklė leis atvaizduoti daugiau negu viena puslapį ir naviguoti tarp jų."
+msgstr ""
 
 msgid "Left"
-msgstr "Kairė"
+msgstr "Esquerra"
 
 msgid "Navigation"
-msgstr "Navigacija"
+msgstr "Navegació"
 
 msgid "Navigation."
-msgstr "Navigacija."
+msgstr "Navegació"
 
 msgid "Page"
-msgstr "Puslapis"
+msgstr "Pàgina"
 
 msgid "Page height (px)"
-msgstr "Puslapio aukštis (px)"
+msgstr "Alçària de la pàgina (px)"
 
 msgid "Page height (px)."
-msgstr "Puslapio aukštis (px)."
+msgstr "Alçària de la pàgina (px)"
 
 msgid "Previous."
-msgstr "Grįžti."
+msgstr "Anterior"
 
 msgid "Remove Tooltip"
-msgstr "Ištrinti Patarimą"
+msgstr "Suprimeix l'indicador de funció"
 
 msgid "Right"
-msgstr "Dešinė"
+msgstr "Dreta"
 
 msgid "Tab based"
-msgstr "Kortele paremtas"
+msgstr "Basat en la pestanya"
 
 msgid "Tabs + buttons"
-msgstr "Kortelės + mygtukai"
+msgstr "Pestanyes + botons"
 
 msgid "Tabs position"
-msgstr "Kortelės vieta"
+msgstr "Posició de les pestanyes"
 
 msgid "Tabs position."
-msgstr "Kortelės vieta."
+msgstr "Posició de les pestanyes"
 
 msgid "Tooltips"
-msgstr "Patarimai"
+msgstr "Indicadors de funció"
 
 msgid "Top"
-msgstr "Viršus"
+msgstr "Part superior"
 
