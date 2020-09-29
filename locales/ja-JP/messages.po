@@ -1,0 +1,90 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO 3.4.0-sprint117\n"
+"PO-Revision-Date: 2020-09-22T16:02:17\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: ja-JP\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: ja-JP\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "Add page"
+msgstr "ページ追加"
+
+msgid "Allow multi pages"
+msgstr "複数ページを許可する"
+
+msgid "Bottom"
+msgstr "下"
+
+msgid "Button based"
+msgstr "ボタンベース"
+
+msgid "Button labels"
+msgstr "ボタンラベル"
+
+msgid "Button labels."
+msgstr "ボタンラベル"
+
+msgid "Columns:"
+msgstr "列:"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Display"
+msgstr "画面表示"
+
+msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
+msgstr "このボックスにチェックを入れると、テキストリーダーは複数のページを表示し、その間を移動することができます。"
+
+msgid "Left"
+msgstr "左"
+
+msgid "Navigation"
+msgstr "ナビゲーション"
+
+msgid "Navigation."
+msgstr "ナビゲーション"
+
+msgid "Page"
+msgstr "ページ"
+
+msgid "Page height (px)"
+msgstr "ページ高 (px)"
+
+msgid "Page height (px)."
+msgstr "ページ高 (px)"
+
+msgid "Previous."
+msgstr "前"
+
+msgid "Remove Tooltip"
+msgstr "ツールチップ削除"
+
+msgid "Right"
+msgstr "右"
+
+msgid "Tab based"
+msgstr "タブベース"
+
+msgid "Tabs + buttons"
+msgstr "タブ＋ボタン"
+
+msgid "Tabs position"
+msgstr "タブ位置"
+
+msgid "Tabs position."
+msgstr "タブ位置"
+
+msgid "Tooltips"
+msgstr "ツールチップ"
+
+msgid "Top"
+msgstr "上"
+
