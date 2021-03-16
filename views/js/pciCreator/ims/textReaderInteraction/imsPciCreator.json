@@ -31,8 +31,9 @@
     },
     "creator" : {
         "icon": "./creator/media/icon.svg",
-        "hook": "./imsPciCreator.js",
-        "libraries" : [
+        "hook": "./imsPciCreator.min.js",
+        "src" : [
+            "./imsPciCreator.js",
             "./creator/js/userTooltips.js",
             "./creator/tpl/userTooltips/authoring.tpl",
             "./creator/tpl/userTooltips/markup.tpl",
