@@ -10,13 +10,13 @@ module.exports = function (grunt) {
         options : {},
         files : {}
     };
-    sass.pcisamples.files[root + 'js/pciCreator/dev/textReaderInteraction/creator/css/textReaderInteraction.css'] = root + 'js/pciCreator/dev/textReaderInteraction/creator/scss/textReaderInteraction.scss';
-    sass.pcisamples.files[root + 'js/pciCreator/dev/textReaderInteraction/runtime/css/textReaderInteraction.css'] = root + 'js/pciCreator/dev/textReaderInteraction/runtime/scss/textReaderInteraction.scss';
+    sass.pcisamples.files[root + 'js/pciCreator/ims/textReaderInteraction/creator/css/textReaderInteraction.css'] = root + 'js/pciCreator/ims/textReaderInteraction/creator/scss/textReaderInteraction.scss';
+    sass.pcisamples.files[root + 'js/pciCreator/ims/textReaderInteraction/runtime/css/textReaderInteraction.css'] = root + 'js/pciCreator/ims/textReaderInteraction/runtime/scss/textReaderInteraction.scss';
 
     watch.pcisamplessass = {
         files : [
             root + 'scss/**/*.scss',
-            root + 'js/pciCreator/dev/**/*.scss'
+            root + 'js/pciCreator/ims/**/*.scss'
         ],
         tasks : ['sass:pcisamples', 'notify:pcisamplessass'],
         options : {
