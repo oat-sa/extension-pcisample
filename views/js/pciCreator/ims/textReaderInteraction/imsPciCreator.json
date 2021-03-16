@@ -1,8 +1,9 @@
 {
+    "model": "IMSPCI",
     "typeIdentifier": "textReaderInteraction",
     "label": "Text reader",
     "description": "The Paging widget combines a scrolling widget with additional paging controls.",
-    "version": "0.9.0",
+    "version": "1.0.0",
     "author": "Aleh Hutnikau",
     "email": "contact@taotesting.com",
     "tags": [
@@ -30,7 +31,7 @@
     },
     "creator" : {
         "icon": "./creator/media/icon.svg",
-        "hook": "./pciCreator.js",
+        "hook": "./imsPciCreator.js",
         "libraries" : [
             "./creator/js/userTooltips.js",
             "./creator/tpl/userTooltips/authoring.tpl",
