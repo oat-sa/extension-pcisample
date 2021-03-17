@@ -3,6 +3,31 @@
 .textReaderInteraction {
     margin-top: 10px;
 
+    .btn-info {
+        color: #fff;
+        background-color: #266d9c;
+        border: 1px solid #266d9c;
+        border-radius: 3px;
+        text-shadow: 1px 1px 0 #0b4a74;
+        height: 25px;
+        font-size: 14px;
+        outline: none;
+        cursor: pointer;
+
+        &:hover {
+            opacity: .85;
+        }
+
+        &[disabled] {
+            background-color: #afb4bb;
+            border-color: #afb4bb;
+            text-shadow: 1px 1px 0 #ffffff;
+            cursor: not-allowed;
+            opacity: 0.55;
+            color: #000;
+        }
+    }
+
     .tr-wrap {
         width: 100%;
         border-radius: 3px;
