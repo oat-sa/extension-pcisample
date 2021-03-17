@@ -4,35 +4,16 @@ define(
         'taoQtiItem/portableLib/lodash',
         'taoQtiItem/portableLib/handlebars',
         'textReaderInteraction/runtime/js/tabs',
-        'taoQtiItem/portableLib/OAT/util/html',
         'taoQtiItem/portableLib/jquery.qtip'
     ],
-    function ($, _, Handlebars, Tabs, htmlRenderer) {
+    function ($, _, Handlebars, Tabs) {
         'use strict';
-
-        /**
-         * Replace all identified relative media urls by the absolute one.
-         * For now only images are supported.
-         *
-         * @param {String} html - the html to parse
-         * @param {Object} renderer
-         * @returns {String} the html without updated URLs
-         */
-        var fixMarkupMediaSources = function fixMarkupMediaSources(html, renderer){
-            html = html || '';
-
-            return html.replace(/(<img[^>]*src=["'])([^"']+)(["'])/ig, function(substr, $1, $2, $3){
-                var resolved = renderer.resolveUrl($2) || $2;
-                return $1 + resolved + $3;
-            });
-        };
         
         return function (options) {
             var self = this;
             var defaultOptions = {
                 state : 'sleep',
-                templates : {},
-                serial : ''
+                templates : {}
             };
             var currentPage = 0;
 
@@ -172,18 +153,9 @@ define(
 
                     markup = self.options.templates.pages(templateData, self.getTemplateOptions());
 
-                    if (self.options.interaction !== 'undefined' && typeof self.options.interaction.renderer !== 'undefined') {
-                        fixedMarkup = fixMarkupMediaSources(
-                            markup,
-                            self.options.interaction.renderer
-                        );
-                    }
-
                     $container = this.options.$container.find('.js-page-container')
                         .html(fixedMarkup || markup)
                         .toggleClass('light-mode', !templateData.multiPages);
-
-                    htmlRenderer.render($container);
                 }
 
                 //init tabs
@@ -334,7 +306,6 @@ define(
 
                 return {
                     state : self.options.state,
-                    serial : self.options.serial,
                     currentPage : currentPage + 1,
                     pagesNum : data.pages.length,
                     multiPages : multiPages,
