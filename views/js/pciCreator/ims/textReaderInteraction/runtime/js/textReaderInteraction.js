@@ -13,121 +13,105 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2015 (original work) Open Assessment Technologies;
+ * Copyright (c) 2015-2021 (original work) Open Assessment Technologies;
  *
  */
-define(
-    [
-        'taoQtiItem/portableLib/jquery_2_1_1',
-        'qtiCustomInteractionContext',
-        'taoQtiItem/portableLib/OAT/util/event',
-        'textReaderInteraction/runtime/js/renderer'
-    ],
-    function ($, qtiCustomInteractionContext, event, Renderer) {
-        'use strict';
-        qtiCustomInteractionContext.register({
-            id : -1,
-            getTypeIdentifier : function () {
-                return 'textReaderInteraction';
-            },
-            /**
-             * Render the PCI :
-             * @param {String} id
-             * @param {Node} dom
-             * @param {Object} config - json
-             */
-            initialize : function (id, dom, config) {
-                var pci = this._taoCustomInteraction;
+define([
+    'qtiCustomInteractionContext',
+    'taoQtiItem/portableLib/jquery_2_1_1',
+    'textReaderInteraction/runtime/js/renderer',
+    'css!textReaderInteraction/runtime/css/jquery.qtip',
+    'css!textReaderInteraction/runtime/css/textReaderInteraction'
+], function (qtiCustomInteractionContext, $, Renderer) {
+    'use strict';
+    /**
+     * Factory for textReaderInteraction
+     * @param {JQueryElement} $container
+     * @param {Object} properties
+     * @param {Object|undefined} state
+     */
+    var textReaderInteractionFactory = function textReaderInteractionFactory($container, properties, state) {
+        // instanciate renderer and render it to the container
+        var widgetRenderer = new Renderer({
+            $container: $container
+        });
+        widgetRenderer.renderAll(properties);
 
-                this.id = id;
-                this.dom = dom;
-                this.config = config || {};
-                this.$container = $(dom);
+        // add navigation event listener
+        $container.on('click', '.js-prev-page, .js-next-page', function () {
+            var $button = $(this),
+                direction = $button.hasClass('js-next-page') ? 1 : -1,
+                currentPage = widgetRenderer.tabsManager.index(),
+                index = currentPage + direction;
 
-                //add method on(), off() and trigger() to the current object
-                event.addEventMgr(this);
-
-                if (!pci.widgetRenderer) {
-                    pci.widgetRenderer = new Renderer({
-                        serial : pci.serial,
-                        $container : this.$container,
-                        interaction : pci
-                    });
-                    pci.widgetRenderer.renderAll(pci.properties);
-                }
-
-                //page navigation events
-                this.$container.on('click', '.js-prev-page, .js-next-page', function () {
-                    var $button = $(this),
-                        direction = $button.hasClass('js-next-page') ? 1 : -1,
-                        currentPage = pci.widgetRenderer.tabsManager.index(),
-                        index = currentPage + direction;
-
-                    if (index >= 0 && pci.properties.pages.length > index) {
-                        pci.widgetRenderer.tabsManager.index(index);
-                    }
-                });
-                //tell the rendering engine that I am ready
-                qtiCustomInteractionContext.notifyReady(this);
-            },
-            /**
-             * Programmatically set the response following the json schema described in
-             * http://www.imsglobal.org/assessment/pciv1p0cf/imsPCIv1p0cf.html#_Toc353965343
-             *
-             * @param {Object} interaction
-             * @param {Object} response
-             */
-            setResponse : function (response) {
-                //interaction has no response
-            },
-            /**
-             * Get the response in the json format described in
-             * http://www.imsglobal.org/assessment/pciv1p0cf/imsPCIv1p0cf.html#_Toc353965343
-             *
-             * @param {Object} interaction
-             * @returns {Object}
-             */
-            getResponse : function () {
-                return {base : {boolean : true}};
-            },
-            /**
-             * Remove the current response set in the interaction
-             * The state may not be restored at this point.
-             *
-             * @param {Object} interaction
-             */
-            resetResponse : function () {
-                //interaction has no response
-            },
-            /**
-             * Reverse operation performed by render()
-             * After this function is executed, only the inital naked markup remains
-             * Event listeners are removed and the state and the response are reset
-             *
-             * @param {Object} interaction
-             */
-            destroy : function () {
-                this.$container.off().empty();
-            },
-            /**
-             * Restore the state of the interaction from the serializedState.
-             *
-             * @param {Object} interaction
-             * @param {Object} serializedState - json format
-             */
-            setSerializedState : function (state) {
-
-            },
-            /**
-             * Get the current state of the interaction as a string.
-             * It enables saving the state for later usage.
-             *
-             * @param {Object} interaction
-             * @returns {Object} json format
-             */
-            getSerializedState : function () {
-                return {};
+            if (index >= 0 && config.properties.pages.length > index) {
+                widgetRenderer.tabsManager.index(index);
             }
         });
-    }
-);
+
+        // restore previous state
+        if (state && typeof state.index === 'number') {
+            widgetRenderer.tabsManager.index(state.index);
+        }
+
+        return {
+            /**
+             * Returns with interaction response
+             * @returns {Object}
+             */
+            getResponse: function getResponse() {
+                return { base: { boolean: true } };
+            },
+
+            /**
+             * Returns with interaction state
+             * @returns {Object}
+             */
+            getState: function getState() {
+                return { index: widgetRenderer.tabsManager.index() };
+            },
+
+            /**
+             * Interaction destroy function
+             */
+            oncompleted: function () {
+                $container.off().empty();
+            }
+        };
+    };
+
+    /**
+     * Register interaction
+     */
+    qtiCustomInteractionContext.register({
+        typeIdentifier: 'textReaderInteraction',
+        /**
+         * Get PCI instance
+         * @param {HTMLElement} dom
+         * @param {Object} config
+         * @param {Object} config.properties
+         * @param {() => void} config.onready
+         * @param {Object|undefined} state
+         */
+        getInstance: function (dom, config, state) {
+            var properties = config.properties || {};
+
+            // cast properties if necessary
+            ['pages', 'buttonLabels', 'tooltips'].forEach(propertyName => {
+                if (typeof properties[propertyName] === 'string') {
+                    try {
+                        properties[propertyName] = JSON.parse(properties[propertyName]);
+                    } catch (e) {}
+                }
+            });
+            properties.multiPages = Boolean(properties.multiPages);
+            properties.pageHeight = parseInt(properties.pageHeight, 10);
+
+            // instanciate PCI
+            var pciInstance = textReaderInteractionFactory($(dom), properties, state);
+
+            // call onready
+            config.onready(pciInstance);
+        }
+    });
+});
