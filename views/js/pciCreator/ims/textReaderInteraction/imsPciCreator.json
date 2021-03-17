@@ -18,11 +18,12 @@
     },
     "runtime" : {
         "hook" : "./runtime/textReaderInteraction.min.js",
+        "modules" : {
+            "textReaderInteraction/runtime/textReaderInteraction.min" : [
+                "runtime/textReaderInteraction.min.js"
+            ]
+        },
         "libraries" : [],
-        "stylesheets" : [
-            "./runtime/css/textReaderInteraction.css",
-            "./runtime/css/jquery.qtip.css"
-        ],
         "src" : [
             "./runtime/js/textReaderInteraction.js",
             "./runtime/js/renderer.js",
