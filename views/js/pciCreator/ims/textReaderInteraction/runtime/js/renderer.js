@@ -156,6 +156,13 @@ define(
                     $container = this.options.$container.find('.js-page-container')
                         .html(fixedMarkup || markup)
                         .toggleClass('light-mode', !templateData.multiPages);
+
+                    $container.find('img').each(function() {
+                        var content = $(this).data('content');
+                        if (content) {
+                            $(this).attr('src', content);
+                        }
+                    });
                 }
 
                 //init tabs
