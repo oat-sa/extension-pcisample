@@ -13,7 +13,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2015 (original work) Open Assessment Technologies;
+ * Copyright (c) 2015-2021 (original work) Open Assessment Technologies;
  *
  */
 define([
@@ -191,14 +191,36 @@ define([
 
 
     }, function () {
-        var $container = this.widget.$container,
-            interaction = this.widget.element;
+        var widget = this.widget;
+        var $container = widget.$container;
+        var interaction = widget.element;
+        var creatorContext = widget.getCreatorContext();
 
         this.tooltips.destroy();
 
         $container.off('.' + interaction.typeIdentifier);
 
         containerEditor.destroy($container.find('.js-page-column'));
+        
+        creatorContext.trigger('registerBeforeSaveProcess', Promise.all(
+            interaction.properties.pages.map(function(page) {
+                return Promise.all(page.content.map(function(col, i) {
+                    var elements = $.parseHTML(col, document.implementation.createHTMLDocument('virtual')) || [];
+                    var assetManager = interaction.renderer.getAssetManager();
+
+                    var convertPromises = elements.reduce(function(promises, element) {
+                        return promises.concat(inlineResources(element, assetManager));
+                    }, []);
+
+                    // modify item content when all assets were inlined
+                    return Promise.all(convertPromises).then(function() {
+                        page.content[i] = elements.map(function(element) {
+                            return element.outerHTML || element.textContent;
+                        }).join('');
+                    });
+                }));
+            })
+        ));
     });
 
     stateQuestion.prototype.initForm = function () {
@@ -321,6 +343,74 @@ define([
         return Promise.all(editorsReady);
     }
 
+    /**
+     * Converts url to data url
+     * @param {String} url 
+     * @param {Function} callback 
+     */
+    function toDataUrl(url, callback) {
+        return new Promise(function(resolve) {
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                var reader = new FileReader();
+                reader.onloadend = function() {
+                    callback(reader.result);
+                    resolve();
+                }
+                reader.readAsDataURL(xhr.response);
+            };
+            xhr.open('GET', url);
+            xhr.responseType = 'blob';
+            xhr.send();
+        });
+    }
+
+    /**
+     * Walks on DOM elements and its children and run action on them
+     * @param {HTMLElement} node 
+     * @param {Function} action 
+     */
+    function walk(node, action) {
+        var children = node.childNodes;
+        action(node);
+        for (var i = 0; i < children.length; i++)  {
+            walk(children[i], action);
+        }
+    }
+
+    /**
+     * Finds assets and inline them into data attributes
+     * @param {HTMLElement} element 
+     * @param {Object} assetManager 
+     */
+    function inlineResources(element, assetManager) {
+        var convertPromises = [];
+        walk(element, function(node) {
+            if (node.tagName && node.tagName === 'IMG')  {
+                var src = node.getAttribute('src');
+
+                if (src) {
+                    var resolved = assetManager.resolve(src);
+                    var convertPromise = toDataUrl(resolved, function(content) {
+                        node.setAttribute('data-content', content);
+
+                    });
+                    convertPromises.push(convertPromise);
+                }
+            }
+        });
+
+        return convertPromises;
+    }
+
+    /**
+     * Save column content
+     * @param {Object} interaction 
+     * @param {String} pageId 
+     * @param {String} colIndex 
+     * @param {String} text 
+     * @returns {Promise<void>}
+     */
     function saveColumn(interaction, pageId, colIndex, text) {
         var pageData = _.find(interaction.properties.pages, function (page) {
             return parseInt(page.id, 10) === parseInt(pageId, 10);
