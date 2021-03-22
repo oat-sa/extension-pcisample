@@ -25,9 +25,7 @@
         },
         "libraries" : [],
         "src" : [
-            "./runtime/js/textReaderInteraction.js",
-            "./runtime/js/renderer.js",
-            "./runtime/js/tabs.js"
+            "./runtime/js/textReaderInteraction.js"
         ]
     },
     "creator" : {
