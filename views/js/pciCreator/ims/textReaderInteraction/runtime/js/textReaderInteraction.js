@@ -28,14 +28,17 @@ define([
      * Factory for textReaderInteraction
      * @param {JQueryElement} $container
      * @param {Object} properties
-     * @param {Object|undefined} state
+     * @param {Object} [state]
+     * @param {Object} [widgetRenderer] - it could be precreated by authoring
      */
-    var textReaderInteractionFactory = function textReaderInteractionFactory($container, properties, state) {
-        // instanciate renderer and render it to the container
-        var widgetRenderer = new Renderer({
-            $container: $container
-        });
-        widgetRenderer.renderAll(properties);
+    var textReaderInteractionFactory = function textReaderInteractionFactory($container, properties, state, widgetRenderer) {
+        if (!widgetRenderer) {
+            // instanciate renderer and render it to the container
+            widgetRenderer = new Renderer({
+                $container: $container
+            });
+            widgetRenderer.renderAll(properties);
+        }
 
         // add navigation event listener
         $container.on('click', '.js-prev-page, .js-next-page', function () {
@@ -95,6 +98,8 @@ define([
          */
         getInstance: function (dom, config, state) {
             var properties = config.properties || {};
+            // defined in TAO in authoring mode
+            var widgetRenderer = (this._taoCustomInteraction || {}).widgetRenderer;
 
             // cast properties if necessary
             ['pages', 'buttonLabels', 'tooltips'].forEach(propertyName => {
@@ -108,7 +113,7 @@ define([
             properties.pageHeight = parseInt(properties.pageHeight, 10);
 
             // instanciate PCI
-            var pciInstance = textReaderInteractionFactory($(dom), properties, state);
+            var pciInstance = textReaderInteractionFactory($(dom), properties, state, widgetRenderer);
 
             // call onready
             config.onready(pciInstance);
