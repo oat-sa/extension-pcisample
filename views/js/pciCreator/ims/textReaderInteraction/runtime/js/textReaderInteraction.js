@@ -44,7 +44,7 @@ define([
                 currentPage = widgetRenderer.tabsManager.index(),
                 index = currentPage + direction;
 
-            if (index >= 0 && config.properties.pages.length > index) {
+            if (index >= 0 && properties.pages.length > index) {
                 widgetRenderer.tabsManager.index(index);
             }
         });
