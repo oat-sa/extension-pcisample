@@ -212,7 +212,6 @@ define([
                         return promises.concat(inlineResources(element, assetManager));
                     }, []);
 
-                    // modify item content when all assets were inlined
                     return Promise.all(convertPromises).then(function() {
                         page.content[i] = elements.map(function(element) {
                             return element.outerHTML || element.textContent;
@@ -366,39 +365,30 @@ define([
     }
 
     /**
-     * Walks on DOM elements and its children and run action on them
-     * @param {HTMLElement} node 
-     * @param {Function} action 
-     */
-    function walk(node, action) {
-        var children = node.childNodes;
-        action(node);
-        for (var i = 0; i < children.length; i++)  {
-            walk(children[i], action);
-        }
-    }
-
-    /**
      * Finds assets and inline them into data attributes
      * @param {HTMLElement} element 
      * @param {Object} assetManager 
      */
     function inlineResources(element, assetManager) {
         var convertPromises = [];
-        walk(element, function(node) {
-            if (node.tagName && node.tagName === 'IMG')  {
-                var src = node.getAttribute('src');
 
-                if (src) {
+        if (element.querySelectorAll) {
+            element.querySelectorAll('img').forEach(function(image) {
+                var src = image.getAttribute('src');
+                var source = image.getAttribute('data-source');
+
+                // convert only if source was changed
+                if (src && (!source || source !== src)) {
                     var resolved = assetManager.resolve(src);
                     var convertPromise = toDataUrl(resolved, function(content) {
-                        node.setAttribute('data-content', content);
+                        image.setAttribute('data-source', src);
+                        image.setAttribute('data-content', content);
 
                     });
                     convertPromises.push(convertPromise);
                 }
-            }
-        });
+            });
+        }
 
         return convertPromises;
     }
