@@ -25,7 +25,7 @@
         },
         "libraries" : [],
         "src" : [
-            "./runtime/js/textReaderInteraction.js"
+            "./runtime/textReaderInteraction.js"
         ]
     },
     "creator" : {
