@@ -160,10 +160,11 @@ define(
                     markup = elements.map(function(element) {
                         if (element.querySelectorAll) {
                             element.querySelectorAll('img').forEach(function(image) {
+                                var src = image.getAttribute('src');
                                 if (renderer) {
-                                    image.setAttribute('src', renderer.resolveUrl(image.getAttribute('src')));
-                                } else if (image.getAttribute('data-content')) {
-                                    image.setAttribute('src', image.getAttribute('data-content'));
+                                    image.setAttribute('src', renderer.resolveUrl(src));
+                                } else {
+                                    image.setAttribute('src', data.contents[src]);
                                 }
                             });
                         }

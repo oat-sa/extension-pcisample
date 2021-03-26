@@ -103,7 +103,7 @@ define([
             var pciInstance;
 
             // cast properties if necessary
-            ['pages', 'buttonLabels', 'tooltips'].forEach(propertyName => {
+            ['pages', 'buttonLabels', 'tooltips', 'contents'].forEach(propertyName => {
                 if (typeof properties[propertyName] === 'string') {
                     try {
                         properties[propertyName] = JSON.parse(properties[propertyName]);

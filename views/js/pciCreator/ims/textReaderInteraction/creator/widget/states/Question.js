@@ -202,24 +202,49 @@ define([
 
         containerEditor.destroy($container.find('.js-page-column'));
         
-        creatorContext.trigger('registerBeforeSaveProcess', Promise.all(
-            interaction.properties.pages.map(function(page) {
-                return Promise.all(page.content.map(function(col, i) {
+        creatorContext.trigger('registerBeforeSaveProcess', new Promise(function(resolve) {
+            var assetManager = interaction.renderer.getAssetManager();
+            var sources = [];
+            var contents = {};
+            var promises = [];
+
+            interaction.properties.pages.forEach(function(page) {
+                page.content.forEach(function(col) {
                     var elements = $.parseHTML(col, document.implementation.createHTMLDocument('virtual')) || [];
-                    var assetManager = interaction.renderer.getAssetManager();
-
-                    var convertPromises = elements.reduce(function(promises, element) {
-                        return promises.concat(inlineResources(element, assetManager));
-                    }, []);
-
-                    return Promise.all(convertPromises).then(function() {
-                        page.content[i] = elements.map(function(element) {
-                            return element.outerHTML || element.textContent;
-                        }).join('');
+                    elements.forEach(function(element) {
+                        // text element doesnt have querySelector
+                        if (element.querySelectorAll) {
+                            element.querySelectorAll('img').forEach(function(image) {
+                                var src = image.getAttribute('src');
+                                // image source is empty exactly after creation
+                                if (src) {
+                                    sources.push(src);
+                                }
+                            });
+                        }
                     });
-                }));
-            })
-        ));
+                });
+            });
+
+            // make the source list unique
+            sources = Array.from(new Set(sources));
+            promises = sources.map(function(source) {
+                var previousContent = (interaction.properties.contents || {})[source];
+                // if it was already converted, just get the content
+                if (previousContent) {
+                    contents[source] = previousContent;
+                    return Promise.resolve();
+                }
+                return toDataUrl(assetManager.resolve(source)).then(function(content) {
+                    contents[source] = content;
+                });
+            });
+
+            return Promise.all(promises).then(function() {
+                interaction.properties.contents = contents;
+                resolve();
+            });
+        }));
     });
 
     stateQuestion.prototype.initForm = function () {
@@ -345,16 +370,14 @@ define([
     /**
      * Converts url to data url
      * @param {String} url 
-     * @param {Function} callback 
      */
-    function toDataUrl(url, callback) {
+    function toDataUrl(url) {
         return new Promise(function(resolve) {
             var xhr = new XMLHttpRequest();
             xhr.onload = function() {
                 var reader = new FileReader();
                 reader.onloadend = function() {
-                    callback(reader.result);
-                    resolve();
+                    resolve(reader.result);
                 }
                 reader.readAsDataURL(xhr.response);
             };
@@ -362,35 +385,6 @@ define([
             xhr.responseType = 'blob';
             xhr.send();
         });
-    }
-
-    /**
-     * Finds assets and inline them into data attributes
-     * @param {HTMLElement} element 
-     * @param {Object} assetManager 
-     */
-    function inlineResources(element, assetManager) {
-        var convertPromises = [];
-
-        if (element.querySelectorAll) {
-            element.querySelectorAll('img').forEach(function(image) {
-                var src = image.getAttribute('src');
-                var source = image.getAttribute('data-source');
-
-                // convert only if source was changed
-                if (src && (!source || source !== src)) {
-                    var resolved = assetManager.resolve(src);
-                    var convertPromise = toDataUrl(resolved, function(content) {
-                        image.setAttribute('data-source', src);
-                        image.setAttribute('data-content', content);
-
-                    });
-                    convertPromises.push(convertPromise);
-                }
-            });
-        }
-
-        return convertPromises;
     }
 
     /**
