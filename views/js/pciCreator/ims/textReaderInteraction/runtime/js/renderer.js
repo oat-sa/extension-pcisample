@@ -138,9 +138,11 @@ define(
              * @return {object} this
              */
             this.renderPages = function (data) {
-                var templateData = {},
-                    $container,
-                    markup;
+                var templateData = {};
+                var markup;
+                var elements;
+                var interaction;
+                var renderer;
 
                 this.options.$container.trigger('beforerenderpages.' + self.eventNs);
 
@@ -151,9 +153,9 @@ define(
                     markup = self.options.templates.pages(templateData, self.getTemplateOptions());
 
                     // resolve image source
-                    var elements = $.parseHTML(markup, document.implementation.createHTMLDocument('virtual')) || [];
-                    var interaction = self.options.interaction;
-                    var renderer = interaction && interaction.renderer;
+                    elements = $.parseHTML(markup, document.implementation.createHTMLDocument('virtual')) || [];
+                    interaction = self.options.interaction;
+                    renderer = interaction && interaction.renderer;
                     markup = elements.map(function(element) {
                         if (element.querySelectorAll) {
                             element.querySelectorAll('img').forEach(function(image) {
