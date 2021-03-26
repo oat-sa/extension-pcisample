@@ -100,6 +100,7 @@ define([
             var properties = config.properties || {};
             // defined in TAO in authoring mode
             var widgetRenderer = (this._taoCustomInteraction || {}).widgetRenderer;
+            var pciInstance;
 
             // cast properties if necessary
             ['pages', 'buttonLabels', 'tooltips'].forEach(propertyName => {
@@ -113,7 +114,7 @@ define([
             properties.pageHeight = parseInt(properties.pageHeight, 10);
 
             // instanciate PCI
-            var pciInstance = textReaderInteractionFactory($(dom), properties, state, widgetRenderer);
+            pciInstance = textReaderInteractionFactory($(dom), properties, state, widgetRenderer);
 
             // call onready
             config.onready(pciInstance);
