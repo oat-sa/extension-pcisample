@@ -139,6 +139,7 @@ define(
              */
             this.renderPages = function (data) {
                 var templateData = {};
+                var $container;
                 var markup;
                 var elements;
                 var interaction;
