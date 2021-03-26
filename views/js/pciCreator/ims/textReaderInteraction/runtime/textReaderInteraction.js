@@ -96,7 +96,7 @@ define([
          * @param {() => void} config.onready
          * @param {Object|undefined} state
          */
-        getInstance: function (dom, config, state) {
+        getInstance: function getInstance(dom, config, state) {
             var properties = config.properties || {};
             // defined in TAO in authoring mode
             var widgetRenderer = (this._taoCustomInteraction || {}).widgetRenderer;
