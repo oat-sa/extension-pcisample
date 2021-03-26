@@ -77,7 +77,7 @@ define([
             /**
              * Interaction destroy function
              */
-            oncompleted: function () {
+            oncompleted: function oncompleted() {
                 $container.off().empty();
             }
         };
