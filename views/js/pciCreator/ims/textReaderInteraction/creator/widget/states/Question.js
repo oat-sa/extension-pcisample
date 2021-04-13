@@ -227,7 +227,9 @@ define([
             });
 
             // make the source list unique
-            sources = Array.from(new Set(sources));
+            sources = sources.filter(function (source, i) {
+                return sources.indexOf(source) === i;
+            });
             promises = sources.map(function(source) {
                 var previousContent = (interaction.properties.contents || {})[source];
                 // if it was already converted, just get the content
