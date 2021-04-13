@@ -163,7 +163,7 @@ define(
                                 var src = image.getAttribute('src');
                                 if (renderer) {
                                     image.setAttribute('src', renderer.resolveUrl(src));
-                                } else {
+                                } else if (data.contents[src]) {
                                     image.setAttribute('src', data.contents[src]);
                                 }
                             });
