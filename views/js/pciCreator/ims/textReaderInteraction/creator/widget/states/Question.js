@@ -202,7 +202,7 @@ define([
 
         containerEditor.destroy($container.find('.js-page-column'));
         
-        creatorContext.trigger('registerBeforeSaveProcess', new Promise(function(resolve) {
+        creatorContext.trigger('registerBeforeSaveProcess', new Promise(function(resolve, reject) {
             var assetManager = interaction.renderer.getAssetManager();
             var sources = [];
             var contents = {};
@@ -245,7 +245,7 @@ define([
             return Promise.all(promises).then(function() {
                 interaction.properties.contents = contents;
                 resolve();
-            });
+            }).catch(reject);
         }));
     });
 
