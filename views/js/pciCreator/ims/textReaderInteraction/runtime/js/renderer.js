@@ -161,10 +161,11 @@ define(
                         if (element.querySelectorAll) {
                             element.querySelectorAll('img').forEach(function(image) {
                                 var src = image.getAttribute('src');
+                                var content = data['content-' + src];
                                 if (renderer) {
                                     image.setAttribute('src', renderer.resolveUrl(src));
-                                } else if (data.contents[src]) {
-                                    image.setAttribute('src', data.contents[src]);
+                                } else if (content) {
+                                    image.setAttribute('src', content);
                                 }
                             });
                         }

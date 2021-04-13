@@ -207,21 +207,26 @@ define([
             var sources = [];
             var contents = {};
             var promises = [];
+            var contentPrefix = 'content-';
 
             interaction.properties.pages.forEach(function(page) {
                 page.content.forEach(function(col) {
                     var elements = $.parseHTML(col, document.implementation.createHTMLDocument('virtual')) || [];
                     elements.forEach(function(element) {
-                        // text element doesnt have querySelector
-                        if (element.querySelectorAll) {
-                            element.querySelectorAll('img').forEach(function(image) {
-                                var src = image.getAttribute('src');
-                                // image source is empty exactly after creation
-                                if (src) {
-                                    sources.push(src);
-                                }
-                            });
-                        }
+                        /**
+                         * better to put it to a container because of
+                         * 1. element can be a text node, that doesn't have querySelector
+                         * 2. element itself can be an img
+                         */
+                        var container = document.createElement('div');
+                        container.appendChild(element);
+                        container.querySelectorAll('img').forEach(function(image) {
+                            var src = image.getAttribute('src');
+                            // image source is empty exactly after creation
+                            if (src) {
+                                sources.push(src);
+                            }
+                        });
                     });
                 });
             });
@@ -231,7 +236,7 @@ define([
                 return sources.indexOf(source) === i;
             });
             promises = sources.map(function(source) {
-                var previousContent = (interaction.properties.contents || {})[source];
+                var previousContent = interaction.properties[contentPrefix + source]
                 // if it was already converted, just get the content
                 if (previousContent) {
                     contents[source] = previousContent;
@@ -243,7 +248,17 @@ define([
             });
 
             return Promise.all(promises).then(function() {
-                interaction.properties.contents = contents;
+                var content;
+                var property;
+                // remove all content property
+                for (property in interaction.properties) {
+                    if (property.startsWith(contentPrefix)) {
+                        delete interaction.properties[property];
+                    }
+                }
+                for (content in contents) {
+                    interaction.properties[contentPrefix + content] = contents[content];
+                }
                 resolve();
             }).catch(reject);
         }));
