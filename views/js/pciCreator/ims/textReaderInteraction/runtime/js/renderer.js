@@ -144,6 +144,7 @@ define(
                 var elements;
                 var interaction;
                 var renderer;
+                var images;
 
                 this.options.$container.trigger('beforerenderpages.' + self.eventNs);
 
@@ -158,17 +159,19 @@ define(
                     interaction = self.options.interaction;
                     renderer = interaction && interaction.renderer;
                     markup = elements.map(function(element) {
-                        if (element.querySelectorAll) {
-                            element.querySelectorAll('img').forEach(function(image) {
-                                var src = image.getAttribute('src');
-                                var content = data['content-' + src];
-                                if (renderer) {
-                                    image.setAttribute('src', renderer.resolveUrl(src));
-                                } else if (content) {
-                                    image.setAttribute('src', content);
-                                }
-                            });
-                        }
+                        var selectorContainer = document.createElement('div');
+                        selectorContainer.appendChild(element);
+                        images = selectorContainer.querySelectorAll('img');
+                        images = [].slice.call(images);
+                        images.forEach(function(image) {
+                            var src = image.getAttribute('src');
+                            var content = data['content-' + src];
+                            if (renderer) {
+                                image.setAttribute('src', renderer.resolveUrl(src));
+                            } else if (content) {
+                                image.setAttribute('src', content);
+                            }
+                        });
                         return element.outerHTML || element.textContent;
                     }).join('');
 

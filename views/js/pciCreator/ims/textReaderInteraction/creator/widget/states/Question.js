@@ -218,9 +218,12 @@ define([
                          * 1. element can be a text node, that doesn't have querySelector
                          * 2. element itself can be an img
                          */
+                        var images;
                         var container = document.createElement('div');
                         container.appendChild(element);
-                        container.querySelectorAll('img').forEach(function(image) {
+                        images = container.querySelectorAll('img');
+                        images = [].slice.call(images);
+                        images.forEach(function(image) {
                             var src = image.getAttribute('src');
                             // image source is empty exactly after creation
                             if (src) {
