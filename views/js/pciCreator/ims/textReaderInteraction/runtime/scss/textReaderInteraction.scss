@@ -1,7 +1,38 @@
 @import "inc/bootstrap";
 
+$buttonColor: #fff;
+$buttonBgColor: #266d9c;
+$buttonDisabledColor: #000;
+$buttonDisabledBgDolor: #afb4bb;
+
 .textReaderInteraction {
     margin-top: 10px;
+
+    // button style had to been copied to do not depend on platform
+    .btn-info {
+        color: $buttonColor;
+        background-color: $buttonBgColor;
+        border: 1px solid $buttonBgColor;
+        border-radius: 3px;
+        text-shadow: 1px 1px 0 blacken($buttonBgColor, .2);
+        height: 25px;
+        font-size: 14px;
+        outline: none;
+        cursor: pointer;
+
+        &:hover {
+            opacity: .85;
+        }
+
+        &[disabled] {
+            background-color: $buttonDisabledBgDolor;
+            border-color: $buttonDisabledBgDolor;
+            text-shadow: 1px 1px 0 blacken($buttonBgColor, .2);
+            cursor: not-allowed;
+            opacity: 0.55;
+            color: $buttonDisabledColor;
+        }
+    }
 
     .tr-wrap {
         width: 100%;
