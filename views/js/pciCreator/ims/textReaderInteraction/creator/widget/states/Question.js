@@ -239,7 +239,7 @@ define([
                 return sources.indexOf(source) === i;
             });
             promises = sources.map(function(source) {
-                var previousContent = interaction.properties[contentPrefix + source]
+                var previousContent = interaction.properties[contentPrefix + source];
                 // if it was already converted, just get the content
                 if (previousContent) {
                     contents[source] = previousContent;
