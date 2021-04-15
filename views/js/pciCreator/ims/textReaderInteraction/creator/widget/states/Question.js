@@ -13,7 +13,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2015 (original work) Open Assessment Technologies;
+ * Copyright (c) 2015-2021 (original work) Open Assessment Technologies;
  *
  */
 define([
@@ -191,14 +191,80 @@ define([
 
 
     }, function () {
-        var $container = this.widget.$container,
-            interaction = this.widget.element;
+        var widget = this.widget;
+        var $container = widget.$container;
+        var interaction = widget.element;
+        var creatorContext = widget.getCreatorContext();
 
         this.tooltips.destroy();
 
         $container.off('.' + interaction.typeIdentifier);
 
         containerEditor.destroy($container.find('.js-page-column'));
+        
+        creatorContext.trigger('registerBeforeSaveProcess', new Promise(function(resolve, reject) {
+            var assetManager = interaction.renderer.getAssetManager();
+            var sources = [];
+            var contents = {};
+            var promises = [];
+            var contentPrefix = 'content-';
+
+            interaction.properties.pages.forEach(function(page) {
+                page.content.forEach(function(col) {
+                    var elements = $.parseHTML(col, document.implementation.createHTMLDocument('virtual')) || [];
+                    elements.forEach(function(element) {
+                        /**
+                         * better to put it to a container because of
+                         * 1. element can be a text node, that doesn't have querySelector
+                         * 2. element itself can be an img
+                         */
+                        var images;
+                        var container = document.createElement('div');
+                        container.appendChild(element);
+                        images = container.querySelectorAll('img');
+                        images = [].slice.call(images);
+                        images.forEach(function(image) {
+                            var src = image.getAttribute('src');
+                            // image source is empty exactly after creation
+                            if (src) {
+                                sources.push(src);
+                            }
+                        });
+                    });
+                });
+            });
+
+            // make the source list unique
+            sources = sources.filter(function (source, i) {
+                return sources.indexOf(source) === i;
+            });
+            promises = sources.map(function(source) {
+                var previousContent = interaction.properties[contentPrefix + source];
+                // if it was already converted, just get the content
+                if (previousContent) {
+                    contents[source] = previousContent;
+                    return Promise.resolve();
+                }
+                return toDataUrl(assetManager.resolve(source)).then(function(content) {
+                    contents[source] = content;
+                });
+            });
+
+            return Promise.all(promises).then(function() {
+                var content;
+                var property;
+                // remove all content property
+                for (property in interaction.properties) {
+                    if (property.startsWith(contentPrefix)) {
+                        delete interaction.properties[property];
+                    }
+                }
+                for (content in contents) {
+                    interaction.properties[contentPrefix + content] = contents[content];
+                }
+                resolve();
+            }).catch(reject);
+        }));
     });
 
     stateQuestion.prototype.initForm = function () {
@@ -321,6 +387,34 @@ define([
         return Promise.all(editorsReady);
     }
 
+    /**
+     * Converts url to data url
+     * @param {String} url 
+     */
+    function toDataUrl(url) {
+        return new Promise(function(resolve) {
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                var reader = new FileReader();
+                reader.onloadend = function() {
+                    resolve(reader.result);
+                }
+                reader.readAsDataURL(xhr.response);
+            };
+            xhr.open('GET', url);
+            xhr.responseType = 'blob';
+            xhr.send();
+        });
+    }
+
+    /**
+     * Save column content
+     * @param {Object} interaction 
+     * @param {String} pageId 
+     * @param {String} colIndex 
+     * @param {String} text 
+     * @returns {Promise<void>}
+     */
     function saveColumn(interaction, pageId, colIndex, text) {
         var pageData = _.find(interaction.properties.pages, function (page) {
             return parseInt(page.id, 10) === parseInt(pageId, 10);

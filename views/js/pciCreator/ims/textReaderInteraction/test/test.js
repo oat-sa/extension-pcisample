@@ -22,7 +22,7 @@ define([
     'taoQtiItem/runner/qtiItemRunner',
     'taoQtiItem/portableElementRegistry/ciRegistry',
     'taoQtiItem/portableElementRegistry/provider/localManifestProvider',
-    'json!pciSamples/pciCreator/dev/textReaderInteraction/test/data/qti.json'
+    'json!pciSamples/pciCreator/ims/textReaderInteraction/test/data/qti.json'
 ], function ($, _, qtiItemRunner, ciRegistry, pciTestProvider, itemData){
     'use strict';
 
@@ -31,7 +31,7 @@ define([
     //manually register the pci from its manifest
     pciTestProvider.addManifestPath(
         'textReaderInteraction',
-        'pciSamples/pciCreator/dev/textReaderInteraction/pciCreator.json');
+        'pciSamples/pciCreator/ims/textReaderInteraction/imsPciCreator.json');
     ciRegistry.resetProviders();
     ciRegistry.registerProvider(pciTestProvider.getModuleName());
 
@@ -44,7 +44,7 @@ define([
 
         runner = qtiItemRunner('qti', itemData)
             .on('render', function (){
-                ready;
+                ready();
             })
             .on('error', function (error){
                 $('#error-display').html(error);
