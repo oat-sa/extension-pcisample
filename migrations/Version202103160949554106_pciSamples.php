@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 use oat\tao\scripts\tools\migrations\AbstractMigration;
 use Doctrine\Migrations\Exception\IrreversibleMigration;
 use oat\qtiItemPci\model\PciModel;
-use oat\pciSamples\scripts\install\RegisterPciTextReader;
+use oat\pciSamples\scripts\install\RegisterPciTextReaderIMS;
 
 /**
  * Auto-generated Migration: Please modify to your needs!
@@ -31,7 +31,7 @@ final class Version202103160949554106_pciSamples extends AbstractMigration
 
         $this->addReport(
             $this->propagate(
-                new RegisterPciTextReader()
+                new RegisterPciTextReaderIMS()
             )(
                 ['1.0.0']
             )
@@ -41,7 +41,7 @@ final class Version202103160949554106_pciSamples extends AbstractMigration
     public function down(Schema $schema): void
     {
         throw new IrreversibleMigration(
-            'In order to undo this migration, please revert the client-side changes and run ' . RegisterPciTextReader::class
+            'In order to undo this migration, please revert the client-side changes and run ' . RegisterPciTextReaderIMS::class
         );
     }
 }

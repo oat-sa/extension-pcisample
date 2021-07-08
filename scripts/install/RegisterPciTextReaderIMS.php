@@ -22,7 +22,7 @@ namespace oat\pciSamples\scripts\install;
 
 use oat\taoQtiItem\model\portableElement\action\RegisterPortableElement;
 
-class RegisterPciTextReader extends RegisterPortableElement
+class RegisterPciTextReaderIMS extends RegisterPortableElement
 {
     protected function getSourceDirectory(){
         $viewDir = \common_ext_ExtensionsManager::singleton()->getExtensionById('pciSamples')->getConstant('DIR_VIEWS');

@@ -18,7 +18,7 @@
  *
  *
  */
-use oat\pciSamples\scripts\install\RegisterPciTextReader;
+use oat\pciSamples\scripts\install\RegisterPciTextReaderIMS;
 use oat\pciSamples\scripts\install\RegisterPciTextReaderOAT;
 
 return array(
@@ -34,7 +34,7 @@ return array(
     'install' => array(
         'php'	=> array(
 			RegisterPciTextReaderOAT::class,
-			RegisterPciTextReader::class
+			RegisterPciTextReaderIMS::class
 		)
     ),
     'update' => 'oat\\pciSamples\\scripts\\update\\Updater',
