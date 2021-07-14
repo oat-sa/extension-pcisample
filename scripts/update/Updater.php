@@ -21,7 +21,7 @@
 
 namespace oat\pciSamples\scripts\update;
 
-use oat\pciSamples\scripts\install\RegisterPciTextReader;
+use oat\pciSamples\scripts\install\RegisterPciTextReaderOAT;
 use oat\qtiItemPci\model\IMSPciModel;
 use oat\taoQtiItem\model\HookRegistry;
 
@@ -53,14 +53,14 @@ class Updater extends \common_ext_ExtensionUpdater
         $this->skip('1.0.0', '1.2.0');
 
         if ($this->isVersion('1.2.0')) {
-            call_user_func(new RegisterPciTextReader(), ['0.4.0']);
+            call_user_func(new RegisterPciTextReaderOAT(), ['0.4.0']);
             $this->setVersion('1.3.0');
         }
 
         $this->skip('1.3.0', '2.0.1');
 
         if ($this->isVersion('2.0.1')) {
-            call_user_func(new RegisterPciTextReader(), ['0.5.0']);
+            call_user_func(new RegisterPciTextReaderOAT(), ['0.5.0']);
             $this->setVersion('2.1.0');
         }
 
@@ -69,57 +69,57 @@ class Updater extends \common_ext_ExtensionUpdater
             if($registry->has('textReaderInteraction')){
                 $registry->removeAllVersions('textReaderInteraction');
             }
-            call_user_func(new RegisterPciTextReader(), ['0.5.0']);
+            call_user_func(new RegisterPciTextReaderOAT(), ['0.5.0']);
             $this->setVersion('2.1.1');
         }
 
         if ($this->isVersion('2.1.1')) {
-            call_user_func(new RegisterPciTextReader(), ['0.7.0']);
+            call_user_func(new RegisterPciTextReaderOAT(), ['0.7.0']);
             $this->setVersion('2.2.0');
         }
 
         if ($this->isVersion('2.2.0')) {
-            call_user_func(new RegisterPciTextReader(), ['0.8.0']);
+            call_user_func(new RegisterPciTextReaderOAT(), ['0.8.0']);
             $this->setVersion('2.3.0');
         }
 
         $this->skip('2.3.0', '2.3.1');
 
         if ($this->isVersion('2.3.1')) {
-            call_user_func(new RegisterPciTextReader(), ['0.8.1']);
+            call_user_func(new RegisterPciTextReaderOAT(), ['0.8.1']);
             $this->setVersion('2.3.2');
         }
 
         $this->skip('2.3.2', '2.5.0');
 
         if ($this->isVersion('2.5.0')) {
-            call_user_func(new RegisterPciTextReader(), ['0.8.2']);
+            call_user_func(new RegisterPciTextReaderOAT(), ['0.8.2']);
             $this->setVersion('2.5.1');
         }
 
         if ($this->isVersion('2.5.1')) {
-            call_user_func(new RegisterPciTextReader(), ['0.8.3']);
+            call_user_func(new RegisterPciTextReaderOAT(), ['0.8.3']);
             $this->setVersion('2.5.2');
         }
 
         if ($this->isVersion('2.5.2')) {
-            call_user_func(new RegisterPciTextReader(), ['0.8.4']);
+            call_user_func(new RegisterPciTextReaderOAT(), ['0.8.4']);
             $this->setVersion('2.5.3');
         }
 
         if ($this->isVersion('2.5.3')) {
-            call_user_func(new RegisterPciTextReader(), ['0.8.5']);
+            call_user_func(new RegisterPciTextReaderOAT(), ['0.8.5']);
             $this->setVersion('2.5.4');
         }
 
         $this->skip('2.5.4', '2.7.0');
 
         if ($this->isVersion('2.7.0')) {
-            call_user_func(new RegisterPciTextReader(), ['0.9.0']);
+            call_user_func(new RegisterPciTextReaderOAT(), ['0.9.0']);
             $this->setVersion('2.8.0');
         }
         $this->skip('2.8.0', '2.9.1');
-        
+
         //Updater files are deprecated. Please use migrations.
         //See: https://github.com/oat-sa/generis/wiki/Tao-Update-Process
 

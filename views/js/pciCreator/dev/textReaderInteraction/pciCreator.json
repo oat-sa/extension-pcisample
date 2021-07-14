@@ -1,0 +1,50 @@
+{
+    "typeIdentifier": "textReaderInteraction",
+    "label": "Text reader",
+    "description": "The Paging widget combines a scrolling widget with additional paging controls.",
+    "version": "0.9.0",
+    "author": "Aleh Hutnikau",
+    "email": "contact@taotesting.com",
+    "tags": [
+        "reader",
+        "paging"
+    ],
+    "icon": "./creator/media/icon.svg",
+    "short": "Text reader",
+    "response": {
+        "baseType": "boolean",
+        "cardinality": "single"
+    },
+    "runtime" : {
+        "hook" : "./runtime/textReaderInteraction.min.js",
+        "libraries" : [],
+        "stylesheets" : [
+            "./runtime/css/textReaderInteraction.css",
+            "./runtime/css/jquery.qtip.css"
+        ],
+        "src" : [
+            "./runtime/js/textReaderInteraction.js",
+            "./runtime/js/renderer.js",
+            "./runtime/js/tabs.js"
+        ]
+    },
+    "creator" : {
+        "icon": "./creator/media/icon.svg",
+        "hook": "./pciCreator.js",
+        "libraries" : [
+            "./creator/js/userTooltips.js",
+            "./creator/tpl/userTooltips/authoring.tpl",
+            "./creator/tpl/userTooltips/markup.tpl",
+            "./creator/tpl/markup.tpl",
+            "./creator/tpl/propertiesForm.tpl",
+            "./creator/tpl/navigation.tpl",
+            "./creator/tpl/pages.tpl",
+            "./creator/widget/Widget.js",
+            "./creator/widget/states/Question.js",
+            "./creator/widget/states/states.js"
+        ],
+        "stylesheets" : [
+            "./creator/css/textReaderInteraction.css"
+        ]
+    }
+}
