@@ -1,0 +1,240 @@
+{
+    "identifier": "i1474463752610181",
+    "serial": "item_57e510e0ae2c5150372260",
+    "qtiClass": "assessmentItem",
+    "attributes": {
+        "identifier": "i1474463752610181",
+        "title": "textReader 1",
+        "label": "",
+        "xml:lang": "en-US",
+        "adaptive": false,
+        "timeDependent": false,
+        "toolName": "TAO",
+        "toolVersion": "3.1.0-sprint15",
+        "class": ""
+    },
+    "body": {
+        "serial": "container_containeritembody_57e510e0ae293914736265",
+        "body": "\n        <div class=\"grid-row\">\n            <div class=\"col-12\">\n                {{interaction_portablecustominteraction_57e510e0b5234073126446}}\n            <\/div>\n        <\/div>\n    ",
+        "elements": {
+            "interaction_portablecustominteraction_57e510e0b5234073126446": {
+                "serial": "interaction_portablecustominteraction_57e510e0b5234073126446",
+                "qtiClass": "customInteraction",
+                "attributes": {
+                    "responseIdentifier": "RESPONSE"
+                },
+                "debug": {
+                    "relatedItem": "item_57e510e0ae2c5150372260"
+                },
+                "choices": {},
+                "typeIdentifier": "textReaderInteraction",
+                "markup": "\n                            <div class=\"textReaderInteraction qti-interaction\">\n                                <div class=\"tr-wrap\">\n                                    <div class=\"tr-content js-page-container\">\n                                    <\/div>\n                                    <div class=\"js-nav-container\">\n                                    <\/div>\n                                <\/div>\n                                <script class=\"text-reader-pages-tpl\" type=\"text\/x-handlebars-template\"><![CDATA[\n        <div class=\"tr-tabs js-page-tabs tr-tabs-{{tabsPosition}} clearfix\">\n            {{#if showTabs}}\n            <ul class=\"tr-tab-buttons js-tab-buttons\">\n                {{#each pages}}\n                <li data-page-num=\"{{@index}}\" data-page-id=\"{{id}}\" class=\"tr-tab-buttons__item\">\n                    <span class=\"tr-tab-label\">{{inc @index}}<\/span>\n                <\/li>\n                {{\/each}}\n            <\/ul>\n            {{\/if}}\n            <div class=\"tr-pages-wrap clearfix\">\n                <div class=\"tr-pages\" style=\"height: {{pageWrapperHeight}}px\">\n                    {{#each pages}}\n                    <div data-page-num=\"{{@index}}\" data-page-id=\"{{id}}\" class=\"tr-page js-tab-content tr-tabs-{{@index}}\">\n                        <div class=\"tr-passage\" style=\"height: {{..\/pageHeight}}px\" >\n                            {{#each content}}\n                            <div class=\"tr-passage-column widget-blockInteraction js-page-column\" data-page-col-index=\"{{@index}}\">\n                                {{{this}}}\n                            <\/div>\n                            {{\/each}}\n                        <\/div>\n                    <\/div>\n                    {{\/each}}\n                <\/div>\n            <\/div>\n        <\/div>\n        ]]><\/script>\n                                <script class=\"text-reader-nav-tpl\" type=\"text\/x-handlebars-template\"><![CDATA[\n        {{#if showNavigation}}\n        <div class=\"tr-nav-wrap tr-nav-{{tabsPosition}}\">\n            <div class=\"tr-nav\">\n                <div class=\"tr-nav__col js-prev-page\">\n                    <button class=\"btn-info small\">{{..\/buttonLabels.prev}}<\/button>\n                <\/div>\n                <div class=\"tr-nav__col\">\n                    Page <span class=\"js-current-page\">{{..\/currentPage}}<\/span> \/ {{..\/pagesNum}}\n                <\/div>\n                <div class=\"tr-nav__col js-next-page\">\n                    <button class=\"btn-info small\">{{..\/buttonLabels.next}}<\/button>\n                <\/div>\n            <\/div>\n        <\/div>\n        {{\/if}}\n        ]]><\/script>\n                            <\/div>\n                        ",
+                "libraries": [],
+                "properties": {
+                    "pageHeight": "400",
+                    "tabsPosition": "top",
+                    "navigation": "both",
+                    "tooltips": [
+                        {
+                            "id": "ttip_1111",
+                            "label": "Tao Te Ching",
+                            "content": "The Tao Te Ching!!!, along with thef Zhuangzi, is a fundamental text for both philosophical and religious Taoism, and strongly influenced other schools, such as Legalism, Confucianism, and Chinese Buddhism, which when first introduced into China was largely interpreted through the use of Daoist words and concepts."
+                        },
+                        {
+                            "id": "ttip_2222",
+                            "label": "Taoism",
+                            "content": "Taoism, also known as Daoism, is a religious, philosophical and ritual tradition of Chinese origin which emphasizes living in harmony and accordance with the Tao (\u9053, literally \"Way\", also romanized as Dao). Taoist schools function as theoretical and liturgical frameworks for both popular and high cults of broader Chinese religion, and some of them (the Quanzhen traditions) have a distinct monastic institution. The Tao is a fundamental idea in Chinese philosophies and religions other than Taoism; in the latter, however, it denotes the principle that is both the source and the pattern of development of everything that exists."
+                        },
+                        {
+                            "id": "tltp_9060",
+                            "label": "Chinese",
+                            "content": ""
+                        },
+                        {
+                            "id": "tltp_9703",
+                            "label": "human",
+                            "content": "Modern humans (Homo sapiens, primarily ssp. Homo sapiens sapiens) are the only extant members of Hominina clade (or human clade), a branch of the taxonomical tribe Hominini belonging to the family of great apes. They are characterized by erect posture and bipedal locomotion; manual dexterity and increased tool use, compared to other animals; and a general trend toward larger, more complex brains and societies"
+                        },
+                        {
+                            "id": "tltp_7703",
+                            "label": "Phantom",
+                            "content": "wooooo oooooooh..."
+                        }
+                    ],
+                    "pages": [
+                        {
+                            "label": "Page 1",
+                            "content": [
+                                "This item can be used to perform some testing in authoring:\n                                            <br \/><br \/>\n                                            <ul>\n                                            <li><strong>Chinese<\/strong>: is an empty tooltip: it shouldn't be rendered. <\/li>\n                                            <li><strong>Western<\/strong>: doesn't have any associated model. It should be created automatically when opened in TAO editor and, in the meantime, shouldn't be rendered<\/li>\n                                            <li><strong>Phantom<\/strong>: this tooltip exists in model but doesn't have any associated markup. It shouldn't appear in the tooltip authoring and should be deleted from properties by editor<\/li>\n                                            <li>other tooltips (2 in first tab and 1 in third tab) are normal<\/li>\n                                            <\/ul>\n                                            <strong>Tao<\/strong> or <strong>Dao<\/strong> (\/ta\u028a\/, \/da\u028a\/; <span class=\"tooltip\" data-identifier=\"tltp_9060\"> Chinese <\/span>: \u9053; pinyin: [About this sound] &nbsp;D\u00e0o&nbsp;(help\u00b7info)) is a Chinese word signifying 'way', 'path', 'route', or sometimes more loosely, 'doctrine' or 'principle'. Within the context of traditional Chinese philosophy and religion, the Tao is the intuitive knowing of \"life\" that cannot be grasped full-heartedly as just a concept but is known nonetheless through actual living experience of one's everyday being. The Tao differs from conventional (<span class=\"tooltip\" data-identifier=\"tltp_3958\"> Western <\/span>) ontology in that it is an active and holistic practice of the natural order of Nature and its universal awakening, rather than a static, atomistic one.<br \/>\n                                            <br \/>\n                                            Laozi in the <span class=\"tooltip\" data-identifier=\"ttip_1111\">Tao Te Ching<\/span> explains that the Tao is not a 'name' for a 'thing' but the underlying natural order of the Universe whose ultimate essence is difficult to circumscribe due to it being non conceptual yet evident' in one's being of aliveness.[citation needed] The Tao is \"eternally nameless\u201d (Tao Te Ching-32. Laozi) and to be distinguished from the countless 'named' things which are considered to be its manifestations, the reality of life before its descriptions of it.<br \/>\n                                            <br \/>\n                                            The Tao lends its name to the religious tradition (Wade\u2013Giles, Tao Chiao; Pinyin, Daojiao) and philosophical tradition (Wade\u2013Giles, Tao chia; Pinyin, Daojia) that are both referred to in English with the single term <span class=\"tooltip\" data-identifier=\"ttip_2222\">Taoism<\/span>.<br \/>\n                                            <br \/>\n                                            "
+                            ],
+                            "id": "0"
+                        },
+                        {
+                            "label": "Page 2",
+                            "content": [
+                                "<p>The word <span>Tao<\/span> (\u9053) has a variety of meanings in both ancient and modern Chinese language. Aside from its purely prosaic use to mean road, channel, path, principle, or similar,[1] the word has acquired a variety of differing and often confusing metaphorical, philosophical and religious uses. In most belief systems, the word is used symbolically in its sense of 'way' as the 'right' or 'proper' way of existence, or in the context of ongoing practices of attainment or of the full coming into being, or the state of enlightenment or spiritual perfection that is the outcome of such practices.[2]<\/p>\n\n                                            <p>Some scholars make sharp distinctions between moral or ethical usage of the word \"Tao\" that is prominent in Confucianism and religious Taoism and the more metaphysical usage of the term used in philosophical Taoism and most forms of Mahayana Buddhism;[3] others maintain that these are not separate usages or meanings, seeing them as mutually inclusive and compatible approaches to defining the principle.[4] The original use of the term was as a form of praxis rather than theory \u2013 a term used as a convention to refer to something that otherwise cannot be discussed in words \u2013 and early writings such as the Tao Te Ching and the I Ching make pains to distinguish between conceptions of the Tao (sometimes referred to as \"named Tao\") and the Tao itself (the \"unnamed Tao\"), which cannot be expressed or understood in language.[notes 1][notes 2][5] Liu Da asserts that the Tao is properly understood as an experiential and evolving concept, and that there are not only cultural and religious differences in the interpretation of the Tao, but personal differences that reflect the character of individual practitioners.[6]<\/p>\n\n                                        ",
+                                "<p>The Tao can be roughly thought of as the flow of the Universe, or as some essence or pattern behind the natural world that keeps the Universe balanced and ordered.[7] It is related to the idea of qi, the essential energy of action and existence. The Tao is a non-dualistic principle \u2013 it is the greater whole from which all the individual elements of the Universe derive. Keller considers it similar to the negative theology of Western scholars,[8] but the Tao is rarely an object of direct worship, being treated more like the Hindu concepts of karma or dharma than as a divine object.[9] The Tao is more commonly expressed in the relationship between wu (void or emptiness, in the sense of wuji) and yinyang (the natural dynamic balance between opposites), leading to its central principle of wu wei (non-action, or action without force).<\/p>\n\n                                            <p>The Tao is usually described in terms of elements of nature, and in particular as similar to water. Like water it is undifferentiated, endlessly self-replenishing, soft and quiet but immensely powerful, and impassively generous.[10] Much of Taoist philosophy centers on the cyclical continuity of the natural world, and its contrast to the linear, goal-oriented actions of human beings.<\/p>"
+                            ],
+                            "id": "1"
+                        },
+                        {
+                            "label": "Page 3",
+                            "content": [
+                                "<h2><strong>Taoist interpretations<\/strong><\/h2>\n\n                                            <p>There is no single orthodox Taoist view of the Tao. All forms of Taoism center around Tao and De, but there is a broad variety of distinct interpretations among sects and even individuals within the same sect. Despite this diversity, there are some clear, common patterns and trends within Taoism and its branches.[15]<\/p>\n\n                                            <p>The diversity of Taoist interpretations of the Tao can be seen across four texts representative of major streams of thought within Taoism. All four texts are used in modern Taoism with varying acceptance and emphasis among sects. The Tao Te Ching is the oldest text and representative of a speculative and philosophical approach to the Tao. The Tao T'i Lun is an eighth century exegesis of the Tao Te Ching, written from a well-educated and religious viewpoint, that represents the traditional scholarly perspective. The devotional perspective of the Tao is expressed in the Ch'ing Ching Ching, a liturgical text that was originally composed during the Han dynasty and is used as a hymnal in religious Taoism, especially among eremites. The Zhuangzi (also spelled Chuang Tzu) uses literary devices such as tales, allegories, and narratives to relate the Tao to the reader, illustrating a metaphorical method of viewing and expressing the Tao.[16]<\/p>\n                                            A Taoist monk practicing Chinese calligraphy with water on stone. Water calligraphy, like sand mandalas, evokes the ephemeral nature of physical reality.\n\n                                            <p>The forms and variations of religious Taoism are incredibly diverse. They integrate a broad spectrum of academic, ritualistic, supernatural, devotional, literary, and folk practices with a multitude of results. Buddhism and Confucianism particularly affected the way many sects of Taoism framed, approached, and perceived the Tao. The multitudinous branches of religious Taoism accordingly regard the Tao, and interpret writings about it, in innumerable ways. Thus, outside of a few broad similarities, it is difficult to provide an accurate yet clear summary of their interpretation of the Tao.[17]<\/p>\n                                        ",
+                                "<h2><strong>Confucian interpretations<\/strong><\/h2>\n\n                                            <p>The Dao, or Way, of Confucius can be said to be 'Truth'. Confucianism regards the Way, or Truth, as concordant with a particular approach to life, politics, and tradition. It is held as equally necessary and well regarded as De (virtue) and ren (humanity). Confucius presents a humanistic 'Dao'. He only rarely speaks of the t'ien Dao (Way of Heaven). An influential early Confucian, Hsiin Tzu, explicitly noted this contrast. Though he acknowledged the existence and celestial importance of the Way of Heaven, he insisted that the Dao principally concerns <span class=\"tooltip\" data-identifier=\"tltp_9703\"> human <\/span> affairs.[23]<\/p>\n\n                                            <p>As a formal religious concept in Confucianism, Dao is the Absolute towards which the faithful move. In Zhongyong (The Doctrine of the Mean), harmony with the Absolute is equivalent to integrity and sincerity. The Great Learning expands on this concept explaining that the Way illuminates virtue, improves the people, and resides within the purest morality. During the Tang dynasty, Han Yu further formalized and defined Confucian beliefs as an apologetic response to Buddhism. He emphasized the ethics of the Way. He explicitly paired 'Dao' and 'De', focusing on humane nature and righteousness. He also framed and elaborated on a \"d\u00e0ot\u01d2ng\" (tradition of the Way) in order to reject the traditions of Buddhism.[23]<\/p>\n                                        ",
+                                "<h2><strong>Buddhist interpretations<\/strong><\/h2>\n\n                                            <p>Buddhism first started to spread in China during the first century AD and was experiencing a golden age of growth and maturation by the fourth century AD. Hundreds of collections of Pali and Sanskrit texts were translated into Chinese by Buddhist monks within a short period of time. Dhyana was translated as ch'an (and later as zen), giving Zen Buddhism its name. The use of Chinese concepts, such as Dao, that were close to Buddhist ideas and terms helped spread the religion and make it more amenable to the Chinese people. However, the differences between the Sanskrit and Chinese terminology lead to some initial misunderstandings and the eventual development of East Asian Buddhism as a distinct entity. As part of this process, many Chinese words introduced their rich semantic and philosophical associations into Buddhism, including the use of 'Dao' for central concepts and tenets of Buddhism.[24]<\/p>\n\n                                            <p>Pai-chang Huai-hai told a student who was grappling with difficult portions of suttas, \"Take up words in order to manifest meaning and you'll obtain 'meaning'. Cut off words and meaning is emptiness. Emptiness is the Dao. The Dao is cutting off words and speech.\" Ch'an (Zen) Buddhists regard the Dao as synonymous with both the Buddhist Path (marga) and the results of it; the Eightfold Path and Buddhist enlightenment (satori). Pai-chang's statement plays upon this usage in the context of the fluid and varied Chinese usage of 'Dao'. Words and meaning are used to refer to rituals and practice. The 'emptiness' refers to the Buddhist concept of sunyata. Finding the Dao and Buddha-nature is not simply a matter of formulations, but an active response to the Four Noble Truths that cannot be fully expressed or conveyed in words and concrete associations. The use of 'Dao' in this context refers to the literal 'way' of Buddhism, the return to the universal source, dharma, proper meditation, and nirvana, among other associations. 'Dao' is commonly used in this fashion by Chinese Buddhists, heavy with associations and nuanced meanings.[25<\/p>\n                                        "
+                            ],
+                            "id": "2"
+                        }
+                    ],
+                    "buttonLabels": {
+                        "prev": "Previous",
+                        "next": "Next"
+                    },
+                    "onePageNavigation": "true"
+                },
+                "entryPoint": "untrucbidon"
+            }
+        },
+        "debug": {
+            "relatedItem": "item_57e510e0ae2c5150372260"
+        }
+    },
+    "debug": {
+        "relatedItem": "item_57e510e0ae2c5150372260"
+    },
+    "namespaces": {
+        "": "http:\/\/www.imsglobal.org\/xsd\/imsqti_v2p1",
+        "html5": "html5",
+        "m": "http:\/\/www.w3.org\/1998\/Math\/MathML",
+        "pci": "http:\/\/www.imsglobal.org\/xsd\/portableCustomInteraction",
+        "xml": "http:\/\/www.w3.org\/XML\/1998\/namespace",
+        "xsi": "http:\/\/www.w3.org\/2001\/XMLSchema-instance"
+    },
+    "schemaLocations": {
+        "http:\/\/www.imsglobal.org\/xsd\/imsqti_v2p1": "http:\/\/www.imsglobal.org\/xsd\/qti\/qtiv2p1\/imsqti_v2p1.xsd"
+    },
+    "stylesheets": {
+        "stylesheet_57e510e0b0938101619337": {
+            "serial": "stylesheet_57e510e0b0938101619337",
+            "qtiClass": "stylesheet",
+            "attributes": {
+                "href": "style\/custom\/tao-user-styles.css",
+                "type": "text\/css",
+                "media": "all",
+                "title": ""
+            },
+            "debug": {
+                "relatedItem": "item_57e510e0ae2c5150372260"
+            }
+        }
+    },
+    "outcomes": {
+        "outcomedeclaration_57e510e0b34cd809016939": {
+            "identifier": "SCORE",
+            "serial": "outcomedeclaration_57e510e0b34cd809016939",
+            "qtiClass": "outcomeDeclaration",
+            "attributes": {
+                "identifier": "SCORE",
+                "cardinality": "single",
+                "baseType": "float"
+            },
+            "debug": {
+                "relatedItem": "item_57e510e0ae2c5150372260"
+            },
+            "defaultValue": null
+        }
+    },
+    "responses": {
+        "responsedeclaration_57e510e0b1fb5910187393": {
+            "identifier": "RESPONSE",
+            "serial": "responsedeclaration_57e510e0b1fb5910187393",
+            "qtiClass": "responseDeclaration",
+            "attributes": {
+                "identifier": "RESPONSE",
+                "cardinality": "single",
+                "baseType": "boolean"
+            },
+            "debug": {
+                "relatedItem": "item_57e510e0ae2c5150372260"
+            },
+            "mapping": [],
+            "areaMapping": [],
+            "howMatch": "http:\/\/www.imsglobal.org\/question\/qti_v2p1\/rptemplates\/match_correct",
+            "correctResponses": [],
+            "mappingAttributes": {
+                "defaultValue": 0
+            },
+            "feedbackRules": {}
+        }
+    },
+    "feedbacks": {},
+    "responseProcessing": {
+        "serial": "response_templatesdriven_57e510e0b7f69296016123",
+        "qtiClass": "responseProcessing",
+        "attributes": [],
+        "debug": {
+            "relatedItem": "item_57e510e0ae2c5150372260"
+        },
+        "processingType": "templateDriven",
+        "responseRules": [
+            {
+                "qtiClass": "responseCondition",
+                "responseIf": {
+                    "qtiClass": "responseIf",
+                    "expression": {
+                        "qtiClass": "match",
+                        "expressions": [
+                            {
+                                "qtiClass": "variable",
+                                "attributes": {
+                                    "identifier": "RESPONSE"
+                                }
+                            },
+                            {
+                                "qtiClass": "correct",
+                                "attributes": {
+                                    "identifier": "RESPONSE"
+                                }
+                            }
+                        ]
+                    },
+                    "responseRules": [
+                        {
+                            "qtiClass": "setOutcomeValue",
+                            "attributes": {
+                                "identifier": "SCORE"
+                            },
+                            "expression": {
+                                "qtiClass": "baseValue",
+                                "attributes": {
+                                    "baseType": "float"
+                                },
+                                "value": "1"
+                            }
+                        }
+                    ]
+                },
+                "responseElse": {
+                    "qtiClass": "responseElse",
+                    "responseRules": [
+                        {
+                            "qtiClass": "setOutcomeValue",
+                            "attributes": {
+                                "identifier": "SCORE"
+                            },
+                            "expression": {
+                                "qtiClass": "baseValue",
+                                "attributes": {
+                                    "baseType": "float"
+                                },
+                                "value": "0"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "apipAccessibility": ""
+}
