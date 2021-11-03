@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO 2021.10\n"
+"PO-Revision-Date: 2021-10-22T13:01:09\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: nb-NO\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: nb-NO\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "Add page"
+msgstr "Legg til side"
+
+msgid "Allow multi pages"
+msgstr "Tillat flere sider"
+
+msgid "Bottom"
+msgstr "Bunn"
+
+msgid "Button based"
+msgstr "Knappbasert"
+
+msgid "Button labels"
+msgstr "Knapp tekster"
+
+msgid "Button labels."
+msgstr "Knapp tekster."
+
+msgid "Columns:"
+msgstr "Kolonner:"
+
+msgid "Delete"
+msgstr "Slett"
+
+msgid "Display"
+msgstr "Vis"
+
+msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
+msgstr "Hvis denne boksen er huket av, vil tekstleseren vise mer enn én side og kunne navigere mellom dem."
+
+msgid "Left"
+msgstr "Venstre"
+
+msgid "Navigation"
+msgstr "Navigasjon"
+
+msgid "Navigation."
+msgstr "Navigasjon."
+
+msgid "Next"
+msgstr "Neste"
+
+msgid "Page"
+msgstr "Side"
+
+msgid "Page height (px)"
+msgstr "Side høyde (px)"
+
+msgid "Page height (px)."
+msgstr "Side høyde (px)."
+
+msgid "Previous"
+msgstr "Forrige"
+
+msgid "Remove Tooltip"
+msgstr "Fjern verktøytips"
+
+msgid "Right"
+msgstr "Høyre"
+
+msgid "Tab based"
+msgstr "Tabbasert"
+
+msgid "Tabs + buttons"
+msgstr "Tabulator + knapper"
+
+msgid "Tabs position"
+msgstr "Tab posisjon"
+
+msgid "Tabs position."
+msgstr "Tab posisjon."
+
+msgid "Tooltips"
+msgstr "Verktøytips"
+
+msgid "Top"
+msgstr "Topp"
+
