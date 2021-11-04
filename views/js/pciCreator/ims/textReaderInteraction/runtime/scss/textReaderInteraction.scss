@@ -20,13 +20,8 @@ $buttonDisabledBgDolor: #afb4bb;
         outline: none;
         cursor: pointer;
 
-        &:hover {
+        &:hover, &:focus {
             opacity: .85;
-        }
-
-        &:focus {
-            outline: solid $buttonBgColor 1px;
-            outline-offset: 2px;
         }
 
         &[disabled] {
