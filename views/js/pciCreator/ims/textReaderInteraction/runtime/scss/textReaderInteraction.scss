@@ -24,7 +24,13 @@ $buttonDisabledBgDolor: #afb4bb;
             opacity: .85;
         }
 
+        &:focus {
+            outline: solid $buttonBgColor 1px;
+            outline-offset: 2px;
+        }
+
         &[disabled] {
+            outline: none;
             background-color: $buttonDisabledBgDolor;
             border-color: $buttonDisabledBgDolor;
             text-shadow: 1px 1px 0 blacken($buttonBgColor, .2);
@@ -134,6 +140,10 @@ $buttonDisabledBgDolor: #afb4bb;
             height: 25px;
             line-height: 25px;
             padding: 0px 20px;
+        }
+
+        &:focus {
+            outline: solid $buttonBgColor 1px;
         }
     }
 
