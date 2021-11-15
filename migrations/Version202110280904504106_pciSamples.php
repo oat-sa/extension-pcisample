@@ -18,7 +18,7 @@ final class Version202110280904504106_pciSamples extends AbstractMigration
 
     public function getDescription(): string
     {
-        return 'Add basic keayboard navigation to the TextReaderInteraction';
+        return 'Add basic keyboard navigation to the TextReaderInteraction';
     }
 
     public function up(Schema $schema): void
