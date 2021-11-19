@@ -94,7 +94,7 @@
         cursor: pointer;
         background-color: #f2f2f2;
 
-        &:hover {
+        &:hover, &:focus {
             color: #0e5d91;
             font-weight: bold;
         }
