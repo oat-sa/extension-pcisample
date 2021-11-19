@@ -56,9 +56,18 @@ define(['taoQtiItem/portableLib/jquery_2_1_1', 'taoQtiItem/portableLib/lodash'],
 
             this.index(currentTabIndex);
 
-            $tabs.on('click', options.tabButtonSelectior, function () {
-                var index = $tabs.index($(this).closest(options.tabsSelector));
+            function handleTabSelect($tab) {
+                const index = $tabs.index($tab);
                 that.index(index);
+            }
+
+            $tabs.on('click', options.tabButtonSelectior, function(){
+                handleTabSelect($(this).closest(options.tabsSelector));
+            });
+            $tabs.on('keypress', function(e){
+                if(e.which === 13 || e.which === 32) {
+                    handleTabSelect(this);
+                }
             });
 
             if (_.isFunction(options.afterCreate)) {

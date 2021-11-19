@@ -11,12 +11,12 @@
             \{{#if showTabs}}
             <ul class="tr-tab-buttons js-tab-buttons">
                 \{{#each pages}}
-                <li data-page-num="\{{@index}}" data-page-id="\{{id}}" class="tr-tab-buttons__item">
+                <li data-page-num="\{{@index}}" data-page-id="\{{id}}" class="tr-tab-buttons__item" role="button" tabindex="0">
                     <span class="tr-tab-label">\{{inc @index}}</span>
                 </li>
                 \{{/each}}
             </ul>
-            \{{/if}}     
+            \{{/if}}
             <div class="tr-pages-wrap clearfix">
                 <div class="tr-pages" style="height: \{{pageWrapperHeight}}px">
                     \{{#each pages}}
@@ -34,8 +34,8 @@
             </div>
         </div>
         ]]>
-    </script>    
-    <script class="text-reader-nav-tpl" type="text/x-handlebars-template">    
+    </script>
+    <script class="text-reader-nav-tpl" type="text/x-handlebars-template">
         <![CDATA[
         \{{#if showNavigation}}
         <div class="tr-nav-wrap tr-nav-\{{tabsPosition}}">
