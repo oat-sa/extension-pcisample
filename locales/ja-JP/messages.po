@@ -1,0 +1,93 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TAO 2021.10\n"
+"PO-Revision-Date: 2021-11-29T18:00:52\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: ja-JP\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: ja-JP\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+msgid "Add page"
+msgstr ""
+
+msgid "Allow multi pages"
+msgstr ""
+
+msgid "Bottom"
+msgstr ""
+
+msgid "Button based"
+msgstr ""
+
+msgid "Button labels"
+msgstr ""
+
+msgid "Button labels."
+msgstr ""
+
+msgid "Columns:"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Display"
+msgstr ""
+
+msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "Navigation"
+msgstr ""
+
+msgid "Navigation."
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "Page"
+msgstr ""
+
+msgid "Page height (px)"
+msgstr ""
+
+msgid "Page height (px)."
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Remove Tooltip"
+msgstr ""
+
+msgid "Right"
+msgstr ""
+
+msgid "Tab based"
+msgstr ""
+
+msgid "Tabs + buttons"
+msgstr ""
+
+msgid "Tabs position"
+msgstr ""
+
+msgid "Tabs position."
+msgstr ""
+
+msgid "Tooltips"
+msgstr ""
+
+msgid "Top"
+msgstr ""
+
