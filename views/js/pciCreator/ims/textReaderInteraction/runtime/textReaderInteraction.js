@@ -78,7 +78,9 @@ define([
              * Interaction destroy function
              */
             oncompleted: function oncompleted() {
-                $container.off().empty();
+                $container.off();
+                $('.tr-wrap .js-page-container', $container).empty();
+                $('.tr-wrap .js-nav-container', $container).empty();
             }
         };
     };
