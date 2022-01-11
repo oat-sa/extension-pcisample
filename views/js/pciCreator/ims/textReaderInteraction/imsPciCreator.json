@@ -3,7 +3,7 @@
     "typeIdentifier": "textReaderInteraction",
     "label": "Text reader",
     "description": "The Paging widget combines a scrolling widget with additional paging controls.",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "author": "Aleh Hutnikau",
     "email": "contact@taotesting.com",
     "tags": [
