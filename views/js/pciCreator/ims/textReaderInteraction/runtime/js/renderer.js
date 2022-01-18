@@ -8,7 +8,7 @@ define(
     ],
     function ($, _, Handlebars, Tabs) {
         'use strict';
-        
+
         return function (options) {
             var self = this;
             var defaultOptions = {
@@ -113,11 +113,11 @@ define(
                 _.assign(self.options, defaultOptions, options);
 
                 if (!self.options.templates.pages) {
-                    pagesTpl = $('.text-reader-pages-tpl').html().replace("<![CDATA[", "").replace("]]>", "");
+                    pagesTpl = $('.text-reader-pages-tpl', self.options.$container).html().replace("<![CDATA[", "").replace("]]>", "");
                     self.options.templates.pages = Handlebars.compile(pagesTpl);
                 }
                 if (!self.options.templates.navigation) {
-                    navTpl = $('.text-reader-nav-tpl').html().replace("<![CDATA[", "").replace("]]>", "");
+                    navTpl = $('.text-reader-nav-tpl', self.options.$container).html().replace("<![CDATA[", "").replace("]]>", "");
                     self.options.templates.navigation = Handlebars.compile(navTpl);
                 }
             };
