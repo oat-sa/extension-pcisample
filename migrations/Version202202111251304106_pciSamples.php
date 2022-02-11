@@ -13,7 +13,7 @@ use oat\qtiItemPci\model\PciModel;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version202201111538504106_pciSamples extends AbstractMigration
+final class Version202202111251304106_pciSamples extends AbstractMigration
 {
 
     public function getDescription(): string
@@ -28,7 +28,7 @@ final class Version202201111538504106_pciSamples extends AbstractMigration
             $registry->removeAllVersions('textReaderInteraction');
         }
         $this->addReport(
-            $this->propagate(new RegisterPciTextReaderIMS())(['1.1.1'])
+            $this->propagate(new RegisterPciTextReaderIMS())(['1.0.1'])
         );
     }
 
