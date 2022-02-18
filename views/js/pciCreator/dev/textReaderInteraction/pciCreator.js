@@ -60,9 +60,21 @@ define([
                 navigation: 'both',
                 multiPages: true,
                 pages: [
-                    {label : 'Page 1', content : ['page 1 column 1'], id : 0},
-                    {label : 'Page 2', content : ['page 2 column 1', 'page 2 column 2'], id : 1},
-                    {label : 'Page 3', content : ['page 3 column 1', 'page 3 column 2', 'page 3 column 3'], id : 2}
+                    {
+                        label: 'Page 1',
+                        content: [__('page %d column %d', 1, 1)],
+                        id: 0
+                    },
+                    {
+                        label: 'Page 2',
+                        content: [__('page %d column %d', 2, 1), __('page %d column %d', 2, 2)],
+                        id: 1
+                    },
+                    {
+                        label: 'Page 3',
+                        content: [__('page %d column %d', 3, 1), __('page %d column %d', 3, 2), __('page %d column %d', 3, 3)],
+                        id: 2
+                    }
                 ],
                 buttonLabels : {
                     prev : 'Previous',
