@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: TAO 2021.10\n"
-"PO-Revision-Date: 2021-11-29T18:00:52\n"
+"Project-Id-Version: TAO 2021.11\n"
+"PO-Revision-Date: 2022-02-15T09:44:49\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ja-JP\n"
@@ -14,25 +14,25 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 msgid "Add page"
-msgstr ""
+msgstr "ページ追加"
 
 msgid "Allow multi pages"
-msgstr ""
+msgstr "マルチページ"
 
 msgid "Bottom"
-msgstr ""
+msgstr "下部"
 
 msgid "Button based"
-msgstr ""
+msgstr "ボタン"
 
 msgid "Button labels"
-msgstr ""
+msgstr "ボタンラベル"
 
 msgid "Button labels."
-msgstr ""
+msgstr "ボタンラベル."
 
 msgid "Columns:"
-msgstr ""
+msgstr "カラム:"
 
 msgid "Delete"
 msgstr ""
@@ -41,16 +41,16 @@ msgid "Display"
 msgstr ""
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr ""
+msgstr "このボックスをチェックすると、テキストリーダーで複数のページを表示したり、ページ間を移動したりすることができます。"
 
 msgid "Left"
 msgstr ""
 
 msgid "Navigation"
-msgstr ""
+msgstr "ナビゲーション"
 
 msgid "Navigation."
-msgstr ""
+msgstr "ナビゲーション."
 
 msgid "Next"
 msgstr ""
@@ -58,11 +58,14 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
+msgid "page %d column %d"
+msgstr "ページ %d カラム %d"
+
 msgid "Page height (px)"
-msgstr ""
+msgstr "ページ高さ (px)"
 
 msgid "Page height (px)."
-msgstr ""
+msgstr "ページ高さ (px)."
 
 msgid "Previous"
 msgstr ""
@@ -74,16 +77,16 @@ msgid "Right"
 msgstr ""
 
 msgid "Tab based"
-msgstr ""
+msgstr "タブ"
 
 msgid "Tabs + buttons"
-msgstr ""
+msgstr "タブ + ボタン"
 
 msgid "Tabs position"
-msgstr ""
+msgstr "タブ位置"
 
 msgid "Tabs position."
-msgstr ""
+msgstr "タブ位置."
 
 msgid "Tooltips"
 msgstr ""
