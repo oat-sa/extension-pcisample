@@ -18,6 +18,8 @@
  *
  *
  */
+
+use oat\pciSamples\model\ServiceProvider\UpgradeProcessServiceProvider;
 use oat\pciSamples\scripts\install\RegisterPciTextReaderIMS;
 use oat\pciSamples\scripts\install\RegisterPciTextReaderOAT;
 
@@ -54,5 +56,8 @@ return array(
 
 		#BASE URL (usually the domain root)
 		'BASE_URL' => ROOT_URL.'pciSamples/',
-	)
+	),
+    'containerServiceProviders' => [
+        UpgradeProcessServiceProvider::class,
+    ],
 );
