@@ -22,6 +22,7 @@ declare(strict_types=1);
 
 namespace oat\pciSamples\model\LegacyPciHelper;
 
+use Exception;
 use oat\generis\model\OntologyAwareTrait;
 use oat\oatbox\reporting\Report;
 use oat\pciSamples\model\LegacyPciHelper\Task\UpgradeTextReaderInteractionTask;
@@ -66,18 +67,27 @@ class LegacyTextReaderItemUpdate
 
             foreach ($this->getPciInteractions($xmlItem) as $pciInteraction) {
                 if ($this->legacyDetection->isTextReaderWithImage($pciInteraction)) {
-                    $this->queueDispatcher
-                        ->getQueue(
-                            $queueName ?? $this->queueDispatcher->getDefaultQueue()->getName()
-                        )->enqueue(
-                            $this->queueDispatcher->createTask(
-                                new UpgradeTextReaderInteractionTask(),
-                                [
-                                    'itemUri' => $itemResource->getUri()
-                                ],
-                                sprintf("text-reader-%s", $itemUri)
+                    try {
+                        $this->queueDispatcher
+                            ->getQueue(
+                                $queueName ?? $this->queueDispatcher->getDefaultQueue()->getName()
+                            )->enqueue(
+                                $this->queueDispatcher->createTask(
+                                    new UpgradeTextReaderInteractionTask(),
+                                    [
+                                        'itemUri' => $itemResource->getUri()
+                                    ],
+                                    sprintf("text-reader-%s", $itemUri)
+                                )
+                            );
+                    } catch (Exception $exception) {
+                        $report->add(Report::createError(
+                            sprintf(
+                                "Item contain legacy text reader interaction but failed on task creation with this message: %s",
+                                $exception->getMessage()
                             )
-                        );
+                        ));
+                    }
 
                     $report->add(Report::createInfo(
                         sprintf(
