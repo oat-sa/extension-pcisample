@@ -30,9 +30,9 @@ use oat\oatbox\filesystem\Directory;
 use oat\oatbox\reporting\Report;
 use oat\oatbox\service\ServiceManagerAwareTrait;
 use oat\pciSamples\model\LegacyPciHelper\TextReaderLegacyDetection;
-use oat\taoItems\model\preview\OntologyItemNotFoundException;
 use oat\taoQtiItem\helpers\QtiFile;
 use oat\taoQtiItem\model\qti\interaction\PortableCustomInteraction;
+use oat\taoQtiItem\model\qti\Item;
 use oat\taoQtiItem\model\qti\Parser;
 use oat\taoQtiItem\model\qti\Service as QtiService;
 use taoItems_models_classes_ItemsService;
@@ -47,26 +47,24 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
 
     public function __invoke($params)
     {
-        Report::createInfo('Starting a task');
-        if (!isset($params['itemUri'])) {
-            throw new WrongTaskPayloadException(
-                sprintf('Could not find a resource with that uri: %s',
-                    $params['itemUri'] ?? '<no value set>')
-            );
-        }
-
+        $this->validatePayload($params);
         $itemResource = $this->getResource($params['itemUri']);
 
         if (!$itemResource->exists()) {
-            throw new OntologyItemNotFoundException();
+            return Report::createWarning('Item resource does not exist');
         }
+
         $this->itemDirectory = $this->getItemService()->getItemDirectory($itemResource);
-        $itemXmlFile = $this->itemDirectory->getFile(QtiFile::FILE);
+        $itemXmlFile = $this->getItemService()->getItemDirectory($itemResource)->getFile(QtiFile::FILE);
         $parser = new Parser($itemXmlFile->read());
-        $item = $parser->load();
+        $xmlItem = $parser->load();
+
+        if (!$this->isLegacyTextReader($xmlItem)) {
+            return Report::createSuccess("Item does not contain Legacy PCI Text Reader");
+        }
 
         /** @var PortableCustomInteraction $pciInteraction */
-        foreach ($item->getBody()->getElements(PortableCustomInteraction::class) as $pciInteraction) {
+        foreach ($xmlItem->getBody()->getElements(PortableCustomInteraction::class) as $pciInteraction) {
             if ($this->getTextReaderLegacyDetection()->isTextReaderWithImage($pciInteraction)) {
                 $properties = $pciInteraction->getProperties();
                 foreach ($properties['pages'] as $page) {
@@ -79,11 +77,19 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
         }
 
         try {
-            $this->getQtiService()->saveDataItemToRdfItem($item, $itemResource);
+            $this->getQtiService()->saveDataItemToRdfItem($xmlItem, $itemResource);
         } catch (Exception $e) {
-            return Report::createError('Task failed');
+            return Report::createError(
+                sprintf('Task failed with item %s', $itemResource->getUri())
+            );
         }
-        return  Report::createSuccess('Task Success');
+        return  Report::createSuccess(
+            sprintf(
+                "Item %s has been modified with label: %s",
+                $itemResource->getUri(),
+                $itemResource->getLabel()
+            )
+        );
     }
 
     private function extractImages(array $content)
@@ -112,6 +118,32 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
         }
 
         return $properties;
+    }
+
+    private function getPciInteractions(Item $xmlItem): array
+    {
+        return $xmlItem->getBody()->getElements(PortableCustomInteraction::class);
+    }
+
+    private function isLegacyTextReader(Item $item): bool
+    {
+        foreach ($this->getPciInteractions($item) as $pciInteraction) {
+            if ($this->getTextReaderLegacyDetection()->isTextReaderWithImage($pciInteraction)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function validatePayload($params): void
+    {
+        if (!isset($params['itemUri'])) {
+            throw new WrongTaskPayloadException(
+                sprintf('Could not find a resource with that uri: %s',
+                    $params['itemUri'] ?? '<no value set>')
+            );
+        }
     }
 
     private function getItemService(): taoItems_models_classes_ItemsService

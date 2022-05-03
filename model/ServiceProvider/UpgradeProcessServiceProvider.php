@@ -42,7 +42,6 @@ class UpgradeProcessServiceProvider implements ContainerServiceProviderInterface
             ->public()
             ->args([
                 service(taoItems_models_classes_ItemsService::class),
-                service(TextReaderLegacyDetection::class),
                 service(QueueDispatcherInterface::class)
             ]);
 
