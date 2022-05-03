@@ -30,6 +30,7 @@ use oat\oatbox\filesystem\Directory;
 use oat\oatbox\reporting\Report;
 use oat\oatbox\service\ServiceManagerAwareTrait;
 use oat\pciSamples\model\LegacyPciHelper\TextReaderLegacyDetection;
+use oat\taoItems\model\preview\OntologyItemNotFoundException;
 use oat\taoQtiItem\helpers\QtiFile;
 use oat\taoQtiItem\model\qti\interaction\PortableCustomInteraction;
 use oat\taoQtiItem\model\qti\Parser;
@@ -48,13 +49,16 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
     {
         Report::createInfo('Starting a task');
         if (!isset($params['itemUri'])) {
-            throw new Exception('Item payload has not been set');
+            throw new WrongTaskPayloadException(
+                sprintf('Could not find a resource with that uri: %s',
+                    $params['itemUri'] ?? '<no value set>')
+            );
         }
 
         $itemResource = $this->getResource($params['itemUri']);
 
         if (!$itemResource->exists()) {
-            throw new Exception('Could not find a resouce with that uri');
+            throw new OntologyItemNotFoundException();
         }
         $this->itemDirectory = $this->getItemService()->getItemDirectory($itemResource);
         $itemXmlFile = $this->itemDirectory->getFile(QtiFile::FILE);
