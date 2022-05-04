@@ -92,7 +92,7 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
         );
     }
 
-    private function extractImages(array $content)
+    private function extractImages(array $content): array
     {
         $images = [];
         foreach ($content as $element) {
@@ -108,7 +108,7 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
         return $images;
     }
 
-    private function addImagesToProperties(array $images, array $properties)
+    private function addImagesToProperties(array $images, array $properties): array
     {
         foreach ($images as $image) {
             $properties['content-' . $image['fileName']] = sprintf(

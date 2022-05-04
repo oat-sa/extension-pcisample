@@ -48,10 +48,10 @@ class TextReaderLegacyDetection
         return false;
     }
 
-    private function pageContentHasImage(array $content)
+    private function pageContentHasImage(array $content): bool
     {
-        return array_filter($content, function ($var) {
+        return !empty(array_filter($content, function ($var) {
             return false !== strrpos($var, self::IMAGE_ATTRIBUTE_SUBSTRING);
-        });
+        }));
     }
 }
