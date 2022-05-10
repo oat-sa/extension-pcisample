@@ -23,9 +23,12 @@ declare(strict_types=1);
 namespace oat\pciSamples\model\ServiceProvider;
 
 use oat\generis\model\DependencyInjection\ContainerServiceProviderInterface;
+use oat\pciSamples\model\LegacyPciHelper\ImageToPropertiesHelper;
 use oat\pciSamples\model\LegacyPciHelper\LegacyTextReaderItemUpdate;
 use oat\pciSamples\model\LegacyPciHelper\TextReaderLegacyDetection;
 use oat\tao\model\taskQueue\QueueDispatcherInterface;
+use oat\taoMediaManager\model\fileManagement\FileManagement;
+use oat\taoMediaManager\model\MediaSource;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use taoItems_models_classes_ItemsService;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
@@ -36,6 +39,16 @@ class UpgradeProcessServiceProvider implements ContainerServiceProviderInterface
     public function __invoke(ContainerConfigurator $configurator): void
     {
         $services = $configurator->services();
+
+        $services->set(MediaSource::class, MediaSource::class)
+            ->private();
+
+        $services->set(ImageToPropertiesHelper::class, ImageToPropertiesHelper::class)
+            ->public()
+            ->args([
+                service(MediaSource::class),
+                service(FileManagement::SERVICE_ID)
+            ]);
 
         $services
             ->set(LegacyTextReaderItemUpdate::class, LegacyTextReaderItemUpdate::class)

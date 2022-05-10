@@ -29,8 +29,10 @@ use oat\oatbox\extension\AbstractAction;
 use oat\oatbox\filesystem\Directory;
 use oat\oatbox\reporting\Report;
 use oat\oatbox\service\ServiceManagerAwareTrait;
+use oat\pciSamples\model\LegacyPciHelper\ImageToPropertiesHelper;
 use oat\pciSamples\model\LegacyPciHelper\TextReaderLegacyDetection;
 use oat\taoQtiItem\helpers\QtiFile;
+use oat\taoQtiItem\model\qti\interaction\CustomInteraction;
 use oat\taoQtiItem\model\qti\interaction\PortableCustomInteraction;
 use oat\taoQtiItem\model\qti\Item;
 use oat\taoQtiItem\model\qti\Parser;
@@ -55,7 +57,7 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
         }
 
         $this->itemDirectory = $this->getItemService()->getItemDirectory($itemResource);
-        $itemXmlFile = $this->getItemService()->getItemDirectory($itemResource)->getFile(QtiFile::FILE);
+        $itemXmlFile = $this->itemDirectory->getFile(QtiFile::FILE);
         $parser = new Parser($itemXmlFile->read());
         $xmlItem = $parser->load();
 
@@ -63,24 +65,16 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
             return Report::createSuccess("Item does not contain Legacy PCI Text Reader");
         }
 
-        /** @var PortableCustomInteraction $pciInteraction */
-        foreach ($xmlItem->getBody()->getElements(PortableCustomInteraction::class) as $pciInteraction) {
-            if ($this->getTextReaderLegacyDetection()->isTextReaderWithImage($pciInteraction)) {
-                $properties = $pciInteraction->getProperties();
-                foreach ($properties['pages'] as $page) {
-                    $images = $this->extractImages($page['content']);
-                    $properties = $this->addImagesToProperties($images, $properties);
-                }
-
-                $pciInteraction->setProperties($properties);
-            }
-        }
-
         try {
+            $this->addImagesToProperties($xmlItem);
             $this->getQtiService()->saveDataItemToRdfItem($xmlItem, $itemResource);
         } catch (Exception $e) {
             return Report::createError(
-                sprintf('Task failed with item %s', $itemResource->getUri())
+                sprintf(
+                    'Task failed with item %s with error: %s',
+                    $itemResource->getUri(),
+                    $e->getMessage()
+                )
             );
         }
         return  Report::createSuccess(
@@ -108,21 +102,9 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
         return $images;
     }
 
-    private function addImagesToProperties(array $images, array $properties): array
-    {
-        foreach ($images as $image) {
-            $properties['content-' . $image['fileName']] = sprintf(
-                "data:image/png;base64,%s",
-                base64_encode($this->itemDirectory->getFile($image['fileName'])->read())
-            );
-        }
-
-        return $properties;
-    }
-
     private function getPciInteractions(Item $xmlItem): array
     {
-        return $xmlItem->getBody()->getElements(PortableCustomInteraction::class);
+        return $xmlItem->getBody()->getElements(CustomInteraction::class);
     }
 
     private function isLegacyTextReader(Item $item): bool
@@ -159,5 +141,25 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
     private function getQtiService(): QtiService
     {
         return $this->getServiceManager()->getContainer()->get(QtiService::class);
+    }
+
+    private function getImageToPropertyHelper(): ImageToPropertiesHelper
+    {
+        return $this->getServiceManager()->getContainer()->get(ImageToPropertiesHelper::class);
+    }
+
+    private function addImagesToProperties(Item $xmlItem): void
+    {
+        foreach ($xmlItem->getBody()->getElements(PortableCustomInteraction::class) as $pciInteraction) {
+            if ($this->getTextReaderLegacyDetection()->isTextReaderWithImage($pciInteraction)) {
+                $properties = $pciInteraction->getProperties();
+                foreach ($properties['pages'] as $page) {
+                    $images = $this->extractImages($page['content']);
+                    $properties = $this->getImageToPropertyHelper()->addImagesToProperties($images, $properties, $this->itemDirectory);
+                }
+
+                $pciInteraction->setProperties($properties);
+            }
+        }
     }
 }
