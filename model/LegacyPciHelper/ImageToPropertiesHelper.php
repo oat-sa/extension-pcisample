@@ -24,6 +24,7 @@ namespace oat\pciSamples\model\LegacyPciHelper;
 
 use oat\oatbox\filesystem\Directory;
 use oat\taoMediaManager\model\fileManagement\FileManagement;
+use oat\taoMediaManager\model\fileManagement\FlySystemManagement;
 use oat\taoMediaManager\model\MediaSource;
 
 class ImageToPropertiesHelper
@@ -31,7 +32,7 @@ class ImageToPropertiesHelper
     /** @var MediaSource */
     private $mediaSource;
 
-    /** @var FileManagement */
+    /** @var FlySystemManagement */
     private $fileManagement;
 
     public function __construct(MediaSource $mediaSource, FileManagement $fileManagement)
@@ -50,7 +51,7 @@ class ImageToPropertiesHelper
                     $image['fileName'],
                     $this->fileManagement->getFileStream(
                         $fileInfo['link']
-                    )->read(1024 * 8)
+                    )->getContents()
                 );
                 continue;
             }
