@@ -53,7 +53,7 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
         $itemResource = $this->getResource($params['itemUri']);
 
         if (!$itemResource->exists()) {
-            return Report::createWarning('Item resource does not exist');
+            return Report::createError('Item resource does not exist');
         }
 
         $this->itemDirectory = $this->getItemService()->getItemDirectory($itemResource);
@@ -62,7 +62,7 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
         $xmlItem = $parser->load();
 
         if (!$this->isLegacyTextReader($xmlItem)) {
-            return Report::createSuccess("Item does not contain Legacy PCI Text Reader");
+            return Report::createWarning("Item does not contain Legacy PCI Text Reader");
         }
 
         try {
@@ -91,7 +91,8 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
         $images = [];
         foreach ($content as $element) {
             $dom = new DOMDocument;
-            $dom->loadHTML($element);
+            // https://stackoverflow.com/questions/8218230/php-domdocument-loadhtml-not-encoding-utf-8-correctly
+            $dom->loadHTML('<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' . $element);
             foreach ($dom->getElementsByTagName('img') as $image) {
                 $images[] = [
                     'fileName' => $image->getAttribute('src'),
