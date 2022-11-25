@@ -24,7 +24,6 @@ namespace oat\pciSamples\model\LegacyPciHelper;
 
 use oat\oatbox\filesystem\Directory;
 use oat\taoMediaManager\model\fileManagement\FileManagement;
-use oat\taoMediaManager\model\fileManagement\FlySystemManagement;
 use oat\taoMediaManager\model\MediaSource;
 
 class ImageToPropertiesHelper
@@ -32,7 +31,7 @@ class ImageToPropertiesHelper
     /** @var MediaSource */
     private $mediaSource;
 
-    /** @var FlySystemManagement */
+    /** @var FileManagement */
     private $fileManagement;
 
     public function __construct(MediaSource $mediaSource, FileManagement $fileManagement)
