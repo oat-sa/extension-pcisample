@@ -27,7 +27,7 @@ use oat\taoQtiItem\model\qti\interaction\PortableCustomInteraction;
 
 class TextReaderLegacyDetection
 {
-    private const IMAGE_ATTRIBUTE_SUBSTRING = '<img src=';
+    private const IMAGE_ATTRIBUTE_SUBSTRING = '<img';
 
     public function isTextReaderWithImage(Interaction $interaction): bool
     {

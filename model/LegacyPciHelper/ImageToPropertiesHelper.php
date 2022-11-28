@@ -50,7 +50,7 @@ class ImageToPropertiesHelper
                     $image['fileName'],
                     $this->fileManagement->getFileStream(
                         $fileInfo['link']
-                    )->read(1024 * 8)
+                    )->getContents()
                 );
                 continue;
             }
