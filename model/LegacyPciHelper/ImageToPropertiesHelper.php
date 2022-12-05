@@ -53,7 +53,7 @@ class ImageToPropertiesHelper
                 $data = $itemDirectory->getFile($image['fileName'])->read();
             }
 
-            if (empty($image['fileName']) || !is_string($data)) {
+            if (!is_string($data)) {
                 throw new \Exception(sprintf('Failed to get data: %s', $image['fileName']));
             }
 
