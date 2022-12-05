@@ -33,9 +33,11 @@ use oat\pciSamples\model\LegacyPciHelper\ImageToPropertiesHelper;
 use oat\pciSamples\model\LegacyPciHelper\TextReaderLegacyDetection;
 use oat\taoQtiItem\helpers\QtiFile;
 use oat\taoQtiItem\model\qti\interaction\CustomInteraction;
+use oat\taoQtiItem\model\qti\interaction\ImsPortableCustomInteraction;
 use oat\taoQtiItem\model\qti\interaction\PortableCustomInteraction;
 use oat\taoQtiItem\model\qti\Item;
 use oat\taoQtiItem\model\qti\Parser;
+use oat\taoQtiItem\model\qti\QtiNamespace;
 use oat\taoQtiItem\model\qti\Service as QtiService;
 use taoItems_models_classes_ItemsService;
 
@@ -158,6 +160,12 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
                     $images = $this->extractImages($page['content']);
                     $properties = $this->getImageToPropertyHelper()->addImagesToProperties($images, $properties, $this->itemDirectory);
                 }
+
+                /* @var ImsPortableCustomInteraction $pciInteraction */
+                $pciInteraction->setNamespace(new QtiNamespace(
+                    ImsPortableCustomInteraction::NS_URI,
+                    ImsPortableCustomInteraction::NS_NAME
+                ));
 
                 $pciInteraction->setProperties($properties);
             }
