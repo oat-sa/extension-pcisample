@@ -22,6 +22,7 @@ declare(strict_types=1);
 
 namespace oat\pciSamples\model\LegacyPciHelper;
 
+use Exception;
 use oat\oatbox\filesystem\Directory;
 use oat\taoMediaManager\model\fileManagement\FileManagement;
 use oat\taoMediaManager\model\MediaSource;
@@ -45,19 +46,22 @@ class ImageToPropertiesHelper
         foreach ($images as $image) {
             if ($this->isImageMediaManager($image['fileName'])) {
                 $fileInfo = $this->mediaSource->getFileInfo($image['fileName']);
-                $properties = $this->addBase64Image(
-                    $properties,
-                    $image['fileName'],
-                    $this->fileManagement->getFileStream(
-                        $fileInfo['link']
-                    )->getContents()
-                );
-                continue;
+
+                $data = $this->fileManagement->getFileStream(
+                    $fileInfo['link']
+                )->getContents();
+            } else {
+                $data = $itemDirectory->getFile($image['fileName'])->read();
             }
+
+            if (!is_string($data)) {
+                throw new Exception(sprintf('Failed to get data: %s', $image['fileName']));
+            }
+
             $properties = $this->addBase64Image(
                 $properties,
                 $image['fileName'],
-                $itemDirectory->getFile($image['fileName'])->read()
+                $data
             );
         }
 
