@@ -22,6 +22,7 @@
 use oat\pciSamples\model\ServiceProvider\UpgradeProcessServiceProvider;
 use oat\pciSamples\scripts\install\RegisterPciTextReaderIMS;
 use oat\pciSamples\scripts\install\RegisterPciTextReaderOAT;
+use oat\pciSamples\scripts\install\RegisterUpgardeTextReaderInteractionEvent;
 
 return array(
     'name' => 'pciSamples',
@@ -36,7 +37,8 @@ return array(
     'install' => array(
         'php'	=> array(
 			RegisterPciTextReaderOAT::class,
-			RegisterPciTextReaderIMS::class
+			RegisterPciTextReaderIMS::class,
+            RegisterUpgardeTextReaderInteractionEvent::class,
 		)
     ),
     'update' => 'oat\\pciSamples\\scripts\\update\\Updater',
