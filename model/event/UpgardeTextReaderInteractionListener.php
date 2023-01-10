@@ -23,7 +23,9 @@ declare(strict_types=1);
 
 namespace oat\pciSamples\model\event;
 
+use Exception;
 use oat\oatbox\service\ConfigurableService;
+use oat\oatbox\reporting\Report;
 use oat\taoQtiItem\model\event\ItemImported;
 use oat\pciSamples\model\LegacyPciHelper\Task\UpgradeTextReaderInteractionTask;
 
@@ -39,10 +41,25 @@ class UpgardeTextReaderInteractionListener extends ConfigurableService
      */
     public function whenItemImport(ItemImported $event): void
     {
-        $upgradeTextReaderInteraction = new UpgradeTextReaderInteractionTask();
-        $upgradeTextReaderInteraction->setServiceLocator($this->getServiceLocator());
-        $upgradeTextReaderInteraction(
-            ['itemUri' => $event->getRdfItem()->getUri()]
-        );
+        try {
+            $upgradeTextReaderInteraction = new UpgradeTextReaderInteractionTask();
+            $upgradeTextReaderInteraction->setServiceLocator($this->getServiceLocator());
+            $report = $upgradeTextReaderInteraction(
+                ['itemUri' => $event->getRdfItem()->getUri()]
+            );
+
+            if ($report->getType() === Report::TYPE_SUCCESS) {
+                $this->logInfo($report->getMessage());
+            } elseif ($report->getType() === Report::TYPE_WARNING) {
+                $this->logWarning($report->getMessage());
+            }
+        } catch (Exception $exception) {
+            $this->logError(
+                sprintf(
+                    "chinnu-- Upgrade TextReaderInteraction task failed with this message: %s",
+                    $exception->getMessage()
+                )
+            );
+        }
     }
 }
