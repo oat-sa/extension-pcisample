@@ -37,7 +37,7 @@ class UpgardeTextReaderInteractionListener extends ConfigurableService
     /**
      * Call UpgradeTextReaderInteractionTask when ItemImported event happens
      * @param ItemImported $event
-     * @return null
+     * @return void
      */
     public function whenItemImport(ItemImported $event): void
     {
@@ -56,7 +56,7 @@ class UpgardeTextReaderInteractionListener extends ConfigurableService
         } catch (Exception $exception) {
             $this->logError(
                 sprintf(
-                    "chinnu-- Upgrade TextReaderInteraction task failed with this message: %s",
+                    "Upgrade TextReaderInteraction task failed with this message: %s",
                     $exception->getMessage()
                 )
             );
