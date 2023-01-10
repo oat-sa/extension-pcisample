@@ -27,13 +27,22 @@ use oat\oatbox\service\ConfigurableService;
 use oat\taoQtiItem\model\event\ItemImported;
 use oat\pciSamples\model\LegacyPciHelper\Task\UpgradeTextReaderInteractionTask;
 
+/**
+ * Listener for ItemImported event
+ */
 class UpgardeTextReaderInteractionListener extends ConfigurableService
 {
-
+    /**
+     * Call UpgradeTextReaderInteractionTask when ItemImported event happens
+     * @param ItemImported $event
+     * @return null
+     */
     public function whenItemImport(ItemImported $event): void
     {
         $upgradeTextReaderInteraction = new UpgradeTextReaderInteractionTask();
         $upgradeTextReaderInteraction->setServiceLocator($this->getServiceLocator());
-        $upgradeTextReaderInteraction(['itemUri' => $event->getRdfItem()->getUri()]);
+        $upgradeTextReaderInteraction(
+            ['itemUri' => $event->getRdfItem()->getUri()]
+        );
     }
 }
