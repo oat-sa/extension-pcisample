@@ -52,17 +52,18 @@ class LegacyTextReaderItemUpdate
     {
         foreach ($this->getItemResources() as $itemResource) {
             try {
-                $this->queueDispatcher
-                    ->getQueue($queueName ?? $this->queueDispatcher->getDefaultQueue()->getName())
-                    ->enqueue(
-                        $this->queueDispatcher->createTask(
-                            new UpgradeTextReaderInteractionTask(),
-                            [
-                                'itemUri' => $itemResource->getUri()
-                            ],
-                            sprintf("text-reader-%s", $itemResource->getUri())
-                        )
-                    );
+                $this->queueDispatcher->linkTaskToQueue(
+                    UpgradeTextReaderInteractionTask::class,
+                    $queueName ?: $this->queueDispatcher->getDefaultQueue()
+                );
+
+                $this->queueDispatcher->createTask(
+                    new UpgradeTextReaderInteractionTask(),
+                    [
+                        'itemUri' => $itemResource->getUri(),
+                    ],
+                    sprintf("TextReaderUpgradeForItem-%s", $itemResource->getUri())
+                );
             } catch (Exception $exception) {
                 $report->add(Report::createError(
                     sprintf(
