@@ -34,11 +34,8 @@ class LegacyTextReaderItemUpdate
 {
     use OntologyAwareTrait;
 
-    /** @var taoItems_models_classes_ItemsService */
-    private $itemsService;
-
-    /** @var QueueDispatcherInterface */
-    private $queueDispatcher;
+    private taoItems_models_classes_ItemsService $itemsService;
+    private QueueDispatcherInterface $queueDispatcher;
 
     public function __construct(
         taoItems_models_classes_ItemsService $itemsService,
@@ -48,7 +45,7 @@ class LegacyTextReaderItemUpdate
         $this->queueDispatcher = $queueDispatcher;
     }
 
-    public function updateAllItems(Report $report, ?string $queueName): void
+    public function updateAllItems(Report $report, ?string $queueName, bool $skipWithoutImages = true): void
     {
         foreach ($this->getItemResources() as $itemResource) {
             try {
@@ -61,13 +58,14 @@ class LegacyTextReaderItemUpdate
                     new UpgradeTextReaderInteractionTask(),
                     [
                         'itemUri' => $itemResource->getUri(),
+                        'skipItemsWithoutImages' => $skipWithoutImages
                     ],
                     sprintf("TextReaderUpgradeForItem-%s", $itemResource->getUri())
                 );
             } catch (Exception $exception) {
                 $report->add(Report::createError(
                     sprintf(
-                        "Item contain legacy text reader interaction but failed on task creation with this message: %s",
+                        "Item failed on task creation with this message: %s",
                         $exception->getMessage()
                     )
                 ));
