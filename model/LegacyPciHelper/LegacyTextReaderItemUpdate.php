@@ -51,7 +51,7 @@ class LegacyTextReaderItemUpdate
             try {
                 $this->queueDispatcher->linkTaskToQueue(
                     UpgradeTextReaderInteractionTask::class,
-                    $queueName ?: $this->queueDispatcher->getDefaultQueue()
+                    $queueName ?: $this->queueDispatcher->getDefaultQueue()->getName()
                 );
 
                 $this->queueDispatcher->createTask(
