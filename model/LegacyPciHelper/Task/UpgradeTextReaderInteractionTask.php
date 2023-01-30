@@ -98,7 +98,7 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
     {
         $images = [];
         foreach ($content as $element) {
-            $dom = new DOMDocument;
+            $dom = new DOMDocument();
             // https://stackoverflow.com/questions/8218230/php-domdocument-loadhtml-not-encoding-utf-8-correctly
             $dom->loadHTML('<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' . $element);
             foreach ($dom->getElementsByTagName('img') as $image) {
@@ -145,8 +145,10 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
     {
         if (!isset($params['itemUri'])) {
             throw new WrongTaskPayloadException(
-                sprintf('Could not find a resource with that uri: %s',
-                    $params['itemUri'] ?? '<no value set>')
+                sprintf(
+                    'Could not find a resource with that uri: %s',
+                    $params['itemUri'] ?? '<no value set>'
+                )
             );
         }
 

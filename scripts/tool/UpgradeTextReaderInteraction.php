@@ -51,7 +51,8 @@ class UpgradeTextReaderInteraction extends ScriptAction
 
     protected function provideDescription(): string
     {
-        return 'This command will execute update on all items that contain old PCI Text Reader to upgrade it to IMS version 1.0.0';
+        return 'This command will execute update on all items that contain old PCI Text Reader' .
+            PHP_EOL . 'to upgrade it to IMS version 1.0.0';
     }
 
     protected function run(): Report
@@ -67,7 +68,6 @@ class UpgradeTextReaderInteraction extends ScriptAction
         );
 
         return $report;
-
     }
 
     private function getLegacyTextReaderItemUpdate(): LegacyTextReaderItemUpdate
