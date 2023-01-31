@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2022 (original work) Open Assessment Technologies SA;
+ * Copyright (c) 2022-2023 (original work) Open Assessment Technologies SA;
  */
 
 declare(strict_types=1);
@@ -28,6 +28,7 @@ use oat\taoQtiItem\model\qti\interaction\PortableCustomInteraction;
 class TextReaderLegacyDetection
 {
     private const IMAGE_ATTRIBUTE_SUBSTRING = '<img';
+    private const TEXT_READER_TYPE_IDENTIFIER = 'textReaderInteraction';
 
     public function isTextReaderWithImage(Interaction $interaction): bool
     {
@@ -40,7 +41,7 @@ class TextReaderLegacyDetection
     public function isLegacyTextReader(Interaction $interaction): bool
     {
         return $interaction instanceof PortableCustomInteraction &&
-            $interaction->getTypeIdentifier() === 'textReaderInteraction';
+            $interaction->getTypeIdentifier() === static::TEXT_READER_TYPE_IDENTIFIER;
     }
 
     private function isPagesContainsImages(array $pages): bool
