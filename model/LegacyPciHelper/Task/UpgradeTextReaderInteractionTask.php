@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2022 (original work) Open Assessment Technologies SA;
+ * Copyright (c) 2022-2023 (original work) Open Assessment Technologies SA;
  */
 
 declare(strict_types=1);
@@ -49,7 +49,7 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
     /** @var Directory */
     private $itemDirectory;
 
-    public function __invoke($params)
+    public function __invoke($params): Report
     {
         $this->validatePayload($params);
         $itemResource = $this->getResource($params['itemUri']);
@@ -67,8 +67,14 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
             return Report::createWarning("Item does not contain Legacy PCI Text Reader");
         }
 
+        if ($params['skipItemsWithoutImages'] && !$this->isLegacyTextReaderWithImages($xmlItem)) {
+            return Report::createWarning("Item does not contain any Text Reader with image, SKIPPING");
+        }
+
         try {
-            $this->addImagesToProperties($xmlItem);
+            $params['skipItemsWithoutImages']
+                ? $this->upgradeItemPCIsWithImages($xmlItem)
+                : $this->upgradeItemPCIsAll($xmlItem);
             $this->getQtiService()->saveDataItemToRdfItem($xmlItem, $itemResource);
         } catch (Exception $e) {
             return Report::createError(
@@ -92,7 +98,7 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
     {
         $images = [];
         foreach ($content as $element) {
-            $dom = new DOMDocument;
+            $dom = new DOMDocument();
             // https://stackoverflow.com/questions/8218230/php-domdocument-loadhtml-not-encoding-utf-8-correctly
             $dom->loadHTML('<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' . $element);
             foreach ($dom->getElementsByTagName('img') as $image) {
@@ -113,6 +119,17 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
     private function isLegacyTextReader(Item $item): bool
     {
         foreach ($this->getPciInteractions($item) as $pciInteraction) {
+            if ($this->getTextReaderLegacyDetection()->isLegacyTextReader($pciInteraction)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function isLegacyTextReaderWithImages(Item $item): bool
+    {
+        foreach ($this->getPciInteractions($item) as $pciInteraction) {
             if ($this->getTextReaderLegacyDetection()->isTextReaderWithImage($pciInteraction)) {
                 return true;
             }
@@ -121,12 +138,23 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
         return false;
     }
 
+    /**
+     * @throws WrongTaskPayloadException
+     */
     private function validatePayload($params): void
     {
         if (!isset($params['itemUri'])) {
             throw new WrongTaskPayloadException(
-                sprintf('Could not find a resource with that uri: %s',
-                    $params['itemUri'] ?? '<no value set>')
+                sprintf(
+                    'Could not find a resource with that uri: %s',
+                    $params['itemUri'] ?? '<no value set>'
+                )
+            );
+        }
+
+        if (!isset($params['skipItemsWithoutImages']) || !is_bool($params['skipItemsWithoutImages'])) {
+            throw new WrongTaskPayloadException(
+                'Missing required param skipItemsWithoutImages'
             );
         }
     }
@@ -151,7 +179,7 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
         return $this->getServiceManager()->getContainer()->get(ImageToPropertiesHelper::class);
     }
 
-    private function addImagesToProperties(Item $xmlItem): void
+    private function upgradeItemPCIsWithImages(Item $xmlItem): void
     {
         foreach ($xmlItem->getBody()->getElements(PortableCustomInteraction::class) as $pciInteraction) {
             if ($this->getTextReaderLegacyDetection()->isTextReaderWithImage($pciInteraction)) {
@@ -161,13 +189,26 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
                     $properties = $this->getImageToPropertyHelper()->addImagesToProperties($images, $properties, $this->itemDirectory);
                 }
 
-                /* @var ImsPortableCustomInteraction $pciInteraction */
-                $pciInteraction->setNamespace(new QtiNamespace(
-                    ImsPortableCustomInteraction::NS_URI,
-                    ImsPortableCustomInteraction::NS_NAME
-                ));
-
+                $this->setUpgradedNamespace($pciInteraction);
                 $pciInteraction->setProperties($properties);
+            }
+        }
+    }
+
+    private function setUpgradedNamespace(CustomInteraction $pciInteraction): void
+    {
+        /* @var ImsPortableCustomInteraction $pciInteraction */
+        $pciInteraction->setNamespace(new QtiNamespace(
+            ImsPortableCustomInteraction::NS_URI,
+            ImsPortableCustomInteraction::NS_NAME
+        ));
+    }
+
+    private function upgradeItemPCIsAll(Item $xmlItem): void
+    {
+        foreach ($xmlItem->getBody()->getElements(PortableCustomInteraction::class) as $pciInteraction) {
+            if ($this->getTextReaderLegacyDetection()->isLegacyTextReader($pciInteraction)) {
+                $this->setUpgradedNamespace($pciInteraction);
             }
         }
     }

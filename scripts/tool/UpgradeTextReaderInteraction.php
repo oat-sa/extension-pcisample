@@ -28,7 +28,7 @@ use oat\pciSamples\model\LegacyPciHelper\LegacyTextReaderItemUpdate;
 
 class UpgradeTextReaderInteraction extends ScriptAction
 {
-    protected function provideOptions()
+    protected function provideOptions(): array
     {
         return [
             'task-queue' => [
@@ -37,13 +37,22 @@ class UpgradeTextReaderInteraction extends ScriptAction
                 'description' => 'Task queue where operations has to be executed',
                 'required' => false,
                 'cast' => 'string'
+            ],
+            'skip-items-without-images' => [
+                'prefix' => 'sn',
+                'longPrefix' => 'skip-noimage',
+                'description' => 'Set false if you need to convert PCIs even if they do not contain images',
+                'required' => false,
+                'defaultValue' => true,
+                'cast' => 'bool'
             ]
         ];
     }
 
-    protected function provideDescription()
+    protected function provideDescription(): string
     {
-        return 'This command will execute update on all items that contain old PCI Text Reader to upgrade it to version 1.0.0';
+        return 'This command will execute update on all items that contain old PCI Text Reader' .
+            PHP_EOL . 'to upgrade it to IMS version 1.0.0';
     }
 
     protected function run(): Report
@@ -52,10 +61,13 @@ class UpgradeTextReaderInteraction extends ScriptAction
             'Creating tasks for items required change'
         );
 
-        $this->getLegacyTextReaderItemUpdate()->updateAllItems($report, $this->getOption('task-queue'));
+        $this->getLegacyTextReaderItemUpdate()->updateAllItems(
+            $report,
+            $this->getOption('task-queue'),
+            $this->getOption('skip-items-without-images')
+        );
 
         return $report;
-
     }
 
     private function getLegacyTextReaderItemUpdate(): LegacyTextReaderItemUpdate
