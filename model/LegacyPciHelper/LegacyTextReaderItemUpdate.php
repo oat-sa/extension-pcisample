@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2022 (original work) Open Assessment Technologies SA;
+ * Copyright (c) 2022-2023 (original work) Open Assessment Technologies SA;
  */
 
 declare(strict_types=1);
@@ -34,11 +34,8 @@ class LegacyTextReaderItemUpdate
 {
     use OntologyAwareTrait;
 
-    /** @var taoItems_models_classes_ItemsService */
-    private $itemsService;
-
-    /** @var QueueDispatcherInterface */
-    private $queueDispatcher;
+    private taoItems_models_classes_ItemsService $itemsService;
+    private QueueDispatcherInterface $queueDispatcher;
 
     public function __construct(
         taoItems_models_classes_ItemsService $itemsService,
@@ -48,25 +45,27 @@ class LegacyTextReaderItemUpdate
         $this->queueDispatcher = $queueDispatcher;
     }
 
-    public function updateAllItems(Report $report, ?string $queueName): void
+    public function updateAllItems(Report $report, ?string $queueName, bool $skipWithoutImages = true): void
     {
         foreach ($this->getItemResources() as $itemResource) {
             try {
-                $this->queueDispatcher
-                    ->getQueue($queueName ?? $this->queueDispatcher->getDefaultQueue()->getName())
-                    ->enqueue(
-                        $this->queueDispatcher->createTask(
-                            new UpgradeTextReaderInteractionTask(),
-                            [
-                                'itemUri' => $itemResource->getUri()
-                            ],
-                            sprintf("text-reader-%s", $itemResource->getUri())
-                        )
-                    );
+                $this->queueDispatcher->linkTaskToQueue(
+                    UpgradeTextReaderInteractionTask::class,
+                    $queueName ?: $this->queueDispatcher->getDefaultQueue()->getName()
+                );
+
+                $this->queueDispatcher->createTask(
+                    new UpgradeTextReaderInteractionTask(),
+                    [
+                        'itemUri' => $itemResource->getUri(),
+                        'skipItemsWithoutImages' => $skipWithoutImages
+                    ],
+                    sprintf("TextReaderUpgradeForItem-%s", $itemResource->getUri())
+                );
             } catch (Exception $exception) {
                 $report->add(Report::createError(
                     sprintf(
-                        "Item contain legacy text reader interaction but failed on task creation with this message: %s",
+                        "Item failed on task creation with this message: %s",
                         $exception->getMessage()
                     )
                 ));
