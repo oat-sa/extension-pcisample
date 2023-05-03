@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -20,10 +21,10 @@
 
 namespace oat\pciSamples\model\update;
 
-use oat\taoQtiItem\model\update\ItemUpdater;
+use oat\taoQtiItem\model\qti\interaction\PortableCustomInteraction;
 use oat\taoQtiItem\model\qti\Item;
 use oat\taoQtiItem\model\qti\Value;
-use oat\taoQtiItem\model\qti\interaction\PortableCustomInteraction;
+use oat\taoQtiItem\model\update\ItemUpdater;
 
 /**
  * Description of ItemFixTextReaderDefaultValue
@@ -37,6 +38,7 @@ class ItemFixTextReaderDefaultValue extends ItemUpdater
      *
      * @param oat\taoQtiItem\modal\Item $item
      * @param string $itemFile
+     *
      * @return boolean
      */
     protected function updateItem(Item $item, $itemFile)
@@ -44,20 +46,20 @@ class ItemFixTextReaderDefaultValue extends ItemUpdater
         $changed = false;
         $requireFix = false;
         $interactions = $item->getInteractions();
+
         foreach ($interactions as $interaction) {
             if ($interaction instanceof PortableCustomInteraction && $interaction->getTypeIdentifier() === 'textReaderInteraction') {
-
                 $response = $interaction->getResponse();
                 $currentDefaultVal = $response->getDefaultValue();
 
-                if(!is_array($currentDefaultVal) || empty($currentDefaultVal) || count($currentDefaultVal) !== 1){
+                if (!is_array($currentDefaultVal) || empty($currentDefaultVal) || count($currentDefaultVal) !== 1) {
                     $requireFix = true;
-                }else{
+                } else {
                     $val = $currentDefaultVal[0];
                     $requireFix = !($val instanceof Value && $val->getValue() === 'true');
                 }
 
-                if($requireFix){
+                if ($requireFix) {
                     $defaultValue = new Value();
                     $defaultValue->setValue('true');
                     $response->setDefaultValue([$defaultValue]);
@@ -65,6 +67,7 @@ class ItemFixTextReaderDefaultValue extends ItemUpdater
                 }
             }
         }
+
         return $changed;
     }
 }

@@ -58,14 +58,14 @@ class LegacyTextReaderItemUpdate
                     new UpgradeTextReaderInteractionTask(),
                     [
                         'itemUri' => $itemResource->getUri(),
-                        'skipItemsWithoutImages' => $skipWithoutImages
+                        'skipItemsWithoutImages' => $skipWithoutImages,
                     ],
-                    sprintf("TextReaderUpgradeForItem-%s", $itemResource->getUri())
+                    sprintf('TextReaderUpgradeForItem-%s', $itemResource->getUri())
                 );
             } catch (Exception $exception) {
                 $report->add(Report::createError(
                     sprintf(
-                        "Item failed on task creation with this message: %s",
+                        'Item failed on task creation with this message: %s',
                         $exception->getMessage()
                     )
                 ));

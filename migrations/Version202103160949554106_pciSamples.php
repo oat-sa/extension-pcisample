@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace oat\pciSamples\migrations;
 
 use Doctrine\DBAL\Schema\Schema;
-use oat\qtiItemPci\model\IMSPciModel;
-use oat\tao\scripts\tools\migrations\AbstractMigration;
 use Doctrine\Migrations\Exception\IrreversibleMigration;
 use oat\pciSamples\scripts\install\RegisterPciTextReaderIMS;
+use oat\qtiItemPci\model\IMSPciModel;
+use oat\tao\scripts\tools\migrations\AbstractMigration;
 
 /**
  * Auto-generated Migration: Please modify to your needs!
@@ -23,8 +23,9 @@ final class Version202103160949554106_pciSamples extends AbstractMigration
     public function up(Schema $schema): void
     {
         $registry = (new IMSPciModel())->getRegistry();
+
         if ($registry->has('textReaderInteraction')) {
-            /** @noinspection PhpUnhandledExceptionInspection */
+            /* @noinspection PhpUnhandledExceptionInspection */
             $registry->removeAllVersions('textReaderInteraction');
         }
 

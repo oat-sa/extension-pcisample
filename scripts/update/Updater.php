@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -15,12 +16,11 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
  * Copyright (c) 2015 (original work) Open Assessment Technologies SA;
- *
- *
  */
 
 namespace oat\pciSamples\scripts\update;
 
+use common_ext_ExtensionUpdater;
 use oat\pciSamples\scripts\install\RegisterPciTextReaderOAT;
 use oat\qtiItemPci\model\IMSPciModel;
 use oat\taoQtiItem\model\HookRegistry;
@@ -28,23 +28,21 @@ use oat\taoQtiItem\model\HookRegistry;
 /**
  * @deprecated use migrations instead. See https://github.com/oat-sa/generis/wiki/Tao-Update-Process
  */
-class Updater extends \common_ext_ExtensionUpdater
+class Updater extends common_ext_ExtensionUpdater
 {
-
     /**
-     *
      * @param string $currentVersion
+     * @param mixed $initialVersion
+     *
      * @return string $versionUpdatedTo
      */
     public function update($initialVersion)
     {
-
         if ($this->isBetween('0', '0.2.1')) {
             $this->setVersion('0.2.1');
         }
 
         if ($this->isVersion('0.2.1')) {
-
             HookRegistry::getRegistry()->remove('pciSamplesCreator');
 
             $this->setVersion('1.0.0');
@@ -66,7 +64,8 @@ class Updater extends \common_ext_ExtensionUpdater
 
         if ($this->isVersion('2.1.0')) {
             $registry = (new IMSPciModel())->getRegistry();
-            if($registry->has('textReaderInteraction')){
+
+            if ($registry->has('textReaderInteraction')) {
                 $registry->removeAllVersions('textReaderInteraction');
             }
             call_user_func(new RegisterPciTextReaderOAT(), ['0.5.0']);

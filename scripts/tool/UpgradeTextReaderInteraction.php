@@ -36,7 +36,7 @@ class UpgradeTextReaderInteraction extends ScriptAction
                 'longPrefix' => 'task-queue',
                 'description' => 'Task queue where operations has to be executed',
                 'required' => false,
-                'cast' => 'string'
+                'cast' => 'string',
             ],
             'skip-items-without-images' => [
                 'prefix' => 'sn',
@@ -44,8 +44,8 @@ class UpgradeTextReaderInteraction extends ScriptAction
                 'description' => 'Set false if you need to convert PCIs even if they do not contain images',
                 'required' => false,
                 'defaultValue' => true,
-                'cast' => 'bool'
-            ]
+                'cast' => 'bool',
+            ],
         ];
     }
 

@@ -57,8 +57,9 @@ final class Version202203161157144106_pciSamples extends AbstractMigration
         string $version
     ): void {
         $registry = $model->getRegistry();
+
         if ($registry->has('textReaderInteraction')) {
-            /** @noinspection PhpUnhandledExceptionInspection */
+            /* @noinspection PhpUnhandledExceptionInspection */
             $registry->removeAllVersions('textReaderInteraction');
         }
 

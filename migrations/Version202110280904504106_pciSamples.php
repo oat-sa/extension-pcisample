@@ -23,6 +23,7 @@ final class Version202110280904504106_pciSamples extends AbstractMigration
     public function up(Schema $schema): void
     {
         $registry = (new IMSPciModel())->getRegistry();
+
         if ($registry->has('textReaderInteraction')) {
             $registry->removeAllVersions('textReaderInteraction');
         }

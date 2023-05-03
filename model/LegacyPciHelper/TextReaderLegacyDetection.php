@@ -33,6 +33,7 @@ class TextReaderLegacyDetection
     public function isTextReaderWithImage(Interaction $interaction): bool
     {
         $interactionProperties = $interaction->getProperties();
+
         return $this->isLegacyTextReader($interaction) &&
             isset($interactionProperties['pages']) &&
             $this->isPagesContainsImages($interactionProperties['pages']);
@@ -51,6 +52,7 @@ class TextReaderLegacyDetection
                 return true;
             }
         }
+
         return false;
     }
 

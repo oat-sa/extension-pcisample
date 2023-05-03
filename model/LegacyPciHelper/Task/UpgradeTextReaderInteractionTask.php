@@ -64,11 +64,11 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
         $xmlItem = $parser->load();
 
         if (!$this->isLegacyTextReader($xmlItem)) {
-            return Report::createWarning("Item does not contain Legacy PCI Text Reader");
+            return Report::createWarning('Item does not contain Legacy PCI Text Reader');
         }
 
         if ($params['skipItemsWithoutImages'] && !$this->isLegacyTextReaderWithImages($xmlItem)) {
-            return Report::createWarning("Item does not contain any Text Reader with image, SKIPPING");
+            return Report::createWarning('Item does not contain any Text Reader with image, SKIPPING');
         }
 
         try {
@@ -85,9 +85,10 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
                 )
             );
         }
+
         return  Report::createSuccess(
             sprintf(
-                "Item %s has been modified with label: %s",
+                'Item %s has been modified with label: %s',
                 $itemResource->getUri(),
                 $itemResource->getLabel()
             )
@@ -97,10 +98,12 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
     private function extractImages(array $content): array
     {
         $images = [];
+
         foreach ($content as $element) {
             $dom = new DOMDocument();
             // https://stackoverflow.com/questions/8218230/php-domdocument-loadhtml-not-encoding-utf-8-correctly
             $dom->loadHTML('<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' . $element);
+
             foreach ($dom->getElementsByTagName('img') as $image) {
                 $images[] = [
                     'fileName' => $image->getAttribute('src'),
@@ -139,6 +142,8 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
     }
 
     /**
+     * @param mixed $params
+     *
      * @throws WrongTaskPayloadException
      */
     private function validatePayload($params): void
@@ -184,6 +189,7 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
         foreach ($xmlItem->getBody()->getElements(PortableCustomInteraction::class) as $pciInteraction) {
             if ($this->getTextReaderLegacyDetection()->isTextReaderWithImage($pciInteraction)) {
                 $properties = $pciInteraction->getProperties();
+
                 foreach ($properties['pages'] as $page) {
                     $images = $this->extractImages($page['content']);
                     $properties = $this->getImageToPropertyHelper()->addImagesToProperties($images, $properties, $this->itemDirectory);

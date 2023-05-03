@@ -71,7 +71,7 @@ class ImageToPropertiesHelper
     private function addBase64Image(array $properties, string $fileName, string $image): array
     {
         $properties['content-' . $fileName] = sprintf(
-            "data:image/png;base64,%s",
+            'data:image/png;base64,%s',
             base64_encode($image)
         );
 
