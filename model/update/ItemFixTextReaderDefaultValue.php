@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -45,19 +46,21 @@ class ItemFixTextReaderDefaultValue extends ItemUpdater
         $requireFix = false;
         $interactions = $item->getInteractions();
         foreach ($interactions as $interaction) {
-            if ($interaction instanceof PortableCustomInteraction && $interaction->getTypeIdentifier() === 'textReaderInteraction') {
-
+            if (
+                $interaction instanceof PortableCustomInteraction
+                && $interaction->getTypeIdentifier() === 'textReaderInteraction'
+            ) {
                 $response = $interaction->getResponse();
                 $currentDefaultVal = $response->getDefaultValue();
 
-                if(!is_array($currentDefaultVal) || empty($currentDefaultVal) || count($currentDefaultVal) !== 1){
+                if (!is_array($currentDefaultVal) || empty($currentDefaultVal) || count($currentDefaultVal) !== 1) {
                     $requireFix = true;
-                }else{
+                } else {
                     $val = $currentDefaultVal[0];
                     $requireFix = !($val instanceof Value && $val->getValue() === 'true');
                 }
 
-                if($requireFix){
+                if ($requireFix) {
                     $defaultValue = new Value();
                     $defaultValue->setValue('true');
                     $response->setDefaultValue([$defaultValue]);

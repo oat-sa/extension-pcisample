@@ -186,7 +186,11 @@ class UpgradeTextReaderInteractionTask extends AbstractAction
                 $properties = $pciInteraction->getProperties();
                 foreach ($properties['pages'] as $page) {
                     $images = $this->extractImages($page['content']);
-                    $properties = $this->getImageToPropertyHelper()->addImagesToProperties($images, $properties, $this->itemDirectory);
+                    $properties = $this->getImageToPropertyHelper()->addImagesToProperties(
+                        $images,
+                        $properties,
+                        $this->itemDirectory
+                    );
                 }
 
                 $this->setUpgradedNamespace($pciInteraction);
