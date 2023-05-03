@@ -46,7 +46,10 @@ class ItemFixTextReaderDefaultValue extends ItemUpdater
         $requireFix = false;
         $interactions = $item->getInteractions();
         foreach ($interactions as $interaction) {
-            if ($interaction instanceof PortableCustomInteraction && $interaction->getTypeIdentifier() === 'textReaderInteraction') {
+            if (
+                $interaction instanceof PortableCustomInteraction
+                && $interaction->getTypeIdentifier() === 'textReaderInteraction'
+            ) {
                 $response = $interaction->getResponse();
                 $currentDefaultVal = $response->getDefaultValue();
 
