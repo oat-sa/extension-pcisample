@@ -31,11 +31,11 @@ use oat\taoMediaManager\model\fileManagement\FileManagement;
 use oat\taoMediaManager\model\MediaSource;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use taoItems_models_classes_ItemsService;
+
 use function Symfony\Component\DependencyInjection\Loader\Configurator\service;
 
 class UpgradeProcessServiceProvider implements ContainerServiceProviderInterface
 {
-
     public function __invoke(ContainerConfigurator $configurator): void
     {
         $services = $configurator->services();

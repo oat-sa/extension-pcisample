@@ -13,7 +13,6 @@ use oat\pciSamples\model\update\ItemFixTextReaderDefaultValue;
  */
 class FixTextReaderDefaultValue implements Action
 {
-
     public function __invoke($params)
     {
         $run = false;
@@ -28,7 +27,7 @@ class FixTextReaderDefaultValue implements Action
         // maybe it's a dirty way but it's quicker. too much modification would have been required in ItemUpdater
         $adapter = $dir->getFileSystem()->getAdapter();
         if (!$adapter instanceof Local) {
-            throw new \Exception(__CLASS__.' can only handle local files');
+            throw new \Exception(__CLASS__ . ' can only handle local files');
         }
 
         $itemUpdater = new ItemFixTextReaderDefaultValue($adapter->getPathPrefix());

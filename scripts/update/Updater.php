@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -30,7 +31,6 @@ use oat\taoQtiItem\model\HookRegistry;
  */
 class Updater extends \common_ext_ExtensionUpdater
 {
-
     /**
      *
      * @param string $currentVersion
@@ -44,7 +44,6 @@ class Updater extends \common_ext_ExtensionUpdater
         }
 
         if ($this->isVersion('0.2.1')) {
-
             HookRegistry::getRegistry()->remove('pciSamplesCreator');
 
             $this->setVersion('1.0.0');
@@ -66,7 +65,7 @@ class Updater extends \common_ext_ExtensionUpdater
 
         if ($this->isVersion('2.1.0')) {
             $registry = (new IMSPciModel())->getRegistry();
-            if($registry->has('textReaderInteraction')){
+            if ($registry->has('textReaderInteraction')) {
                 $registry->removeAllVersions('textReaderInteraction');
             }
             call_user_func(new RegisterPciTextReaderOAT(), ['0.5.0']);

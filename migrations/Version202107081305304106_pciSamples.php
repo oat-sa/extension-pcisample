@@ -15,7 +15,6 @@ use oat\pciSamples\scripts\install\RegisterPciTextReaderOAT;
  */
 final class Version202107081305304106_pciSamples extends AbstractMigration
 {
-
     public function getDescription(): string
     {
         return 'Restore the previous version of the Text Reader interaction';
@@ -43,7 +42,6 @@ final class Version202107081305304106_pciSamples extends AbstractMigration
                 ['1.0.0']
             )
         );
-
     }
 
     public function down(Schema $schema): void
