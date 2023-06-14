@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-06-07 10:39\n"
+"PO-Revision-Date: 2023-06-14 15:14\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ar\n"
@@ -45,13 +45,13 @@ msgid "Delete"
 msgstr ""
 
 msgid "Display"
-msgstr ""
+msgstr "عرض"
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
 msgstr ""
 
 msgid "Left"
-msgstr ""
+msgstr "يسار"
 
 msgid "Navigation"
 msgstr ""
@@ -96,5 +96,5 @@ msgid "Tooltips"
 msgstr ""
 
 msgid "Top"
-msgstr ""
+msgstr "أعلى"
 
