@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-06-07 10:39\n"
+"PO-Revision-Date: 2023-09-05 05:10\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ja\n"
@@ -60,10 +60,10 @@ msgid "Navigation."
 msgstr "ナビゲーション."
 
 msgid "Next"
-msgstr ""
+msgstr "次へ"
 
 msgid "Page"
-msgstr ""
+msgstr "ページ"
 
 msgid "Page height (px)"
 msgstr "ページ高さ (px)"
@@ -72,10 +72,10 @@ msgid "Page height (px)."
 msgstr "ページ高さ (px)."
 
 msgid "Previous"
-msgstr ""
+msgstr "前へ"
 
 msgid "Remove Tooltip"
-msgstr ""
+msgstr "ツールチップを削除"
 
 msgid "Right"
 msgstr "右"
@@ -93,7 +93,7 @@ msgid "Tabs position."
 msgstr "タブ位置."
 
 msgid "Tooltips"
-msgstr ""
+msgstr "ツールチップ"
 
 msgid "Top"
 msgstr "トップ"
