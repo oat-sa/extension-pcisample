@@ -25,7 +25,8 @@
         "oat-sa/tao-core" : ">=50.24.6",
         "oat-sa/generis" : ">=15.22",
         "oat-sa/extension-tao-testqti" : ">=41.0.0",
-        "oat-sa/extension-tao-itemqti-pci" : ">=7.0.0"
+        "oat-sa/extension-tao-itemqti-pci" : ">=7.0.0",
+        "oat-sa/extension-tao-mediamanager" : ">=12.0.0"
     },
     "autoload" : {
         "psr-4" : {
