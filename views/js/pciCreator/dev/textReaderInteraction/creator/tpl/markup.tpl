@@ -16,7 +16,7 @@
                 </li>
                 \{{/each}}
             </ul>
-            \{{/if}}     
+            \{{/if}}
             <div class="tr-pages-wrap clearfix">
                 <div class="tr-pages" style="height: \{{pageWrapperHeight}}px">
                     \{{#each pages}}
@@ -34,20 +34,20 @@
             </div>
         </div>
         ]]>
-    </script>    
-    <script class="text-reader-nav-tpl" type="text/x-handlebars-template">    
+    </script>
+    <script class="text-reader-nav-tpl" type="text/x-handlebars-template">
         <![CDATA[
         \{{#if showNavigation}}
         <div class="tr-nav-wrap tr-nav-\{{tabsPosition}}">
             <div class="tr-nav">
                 <div class="tr-nav__col js-prev-page">
-                    <button class="btn-info small">\{{../buttonLabels.prev}}</button>
+                    <button class="btn-info small">\{{buttonLabels.prev}}</button>
                 </div>
                 <div class="tr-nav__col">
-                    {{__ "Page"}} <span class="js-current-page">\{{../currentPage}}</span> / \{{../pagesNum}}
+                    {{__ "Page"}} <span class="js-current-page">\{{currentPage}}</span> / \{{pagesNum}}
                 </div>
                 <div class="tr-nav__col js-next-page">
-                    <button class="btn-info small">\{{../buttonLabels.next}}</button>
+                    <button class="btn-info small">\{{buttonLabels.next}}</button>
                 </div>
             </div>
         </div>
