@@ -2,7 +2,7 @@ define(
     [
         'taoQtiItem/portableLib/jquery_2_1_1',
         'taoQtiItem/portableLib/lodash',
-        'taoQtiItem/portableLib/handlebars',
+        'taoQtiItem/portableLib/handlebars_4',
         'textReaderInteraction/runtime/js/tabs',
         'taoQtiItem/portableLib/OAT/util/html',
         'taoQtiItem/portableLib/jquery.qtip'
@@ -26,7 +26,7 @@ define(
                 return $1 + resolved + $3;
             });
         };
-        
+
         return function (options) {
             var self = this;
             var defaultOptions = {

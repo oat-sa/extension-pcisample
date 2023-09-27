@@ -2,7 +2,7 @@ define(
     [
         'taoQtiItem/portableLib/jquery_2_1_1',
         'taoQtiItem/portableLib/lodash',
-        'taoQtiItem/portableLib/handlebars',
+        'taoQtiItem/portableLib/handlebars_4',
         'textReaderInteraction/runtime/js/tabs',
         'taoQtiItem/portableLib/jquery.qtip'
     ],
