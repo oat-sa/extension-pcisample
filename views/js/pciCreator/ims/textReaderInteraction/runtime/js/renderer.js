@@ -4,9 +4,10 @@ define(
         'taoQtiItem/portableLib/lodash',
         'taoQtiItem/portableLib/handlebars',
         'textReaderInteraction/runtime/js/tabs',
+        'taoQtiItem/portableLib/OAT/util/tooltip',
         'taoQtiItem/portableLib/jquery.qtip'
     ],
-    function ($, _, Handlebars, Tabs) {
+    function ($, _, Handlebars, Tabs, tooltipRenderer) {
         'use strict';
 
         return function (options) {
@@ -178,6 +179,8 @@ define(
                     $container = this.options.$container.find('.js-page-container')
                         .html(markup)
                         .toggleClass('light-mode', !templateData.multiPages);
+
+                    tooltipRenderer.render($container);
                 }
 
                 //init tabs
