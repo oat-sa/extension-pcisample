@@ -323,24 +323,25 @@ $buttonDisabledBgDolor: #afb4bb;
         margin-left: 70px;
         border-left: 1px solid #dddddd;
     }
-}
-
-/* tooltips */
-.qti-item {
-    .tooltip-active {
+    /* tooltips */
+    [data-role="tooltip-target"] {
         color: $info;
         text-decoration: dashed underline $info;
         cursor: pointer;
 
         &:after {
-            @include tao-icon-setup;
-            @include icon-info;
-
-            font-size: 0.9rem;
+            content: "ⓘ";
+            font-size: 80%;
             vertical-align: super;
             margin-left: 2px;
-            display: inline-block;
             text-decoration: none;
+            display: inline-block;
+        }
+    }
+
+    [data-role="tooltip-content"] {
+        &[aria-hidden="true"] {
+            display: none;
         }
     }
 }
