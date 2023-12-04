@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-06-14 15:14\n"
+"PO-Revision-Date: 2023-12-04 15:50\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ar\n"
@@ -21,79 +21,79 @@ msgstr ""
 "Language-Team: Arabic\n"
 
 msgid "Add page"
-msgstr ""
+msgstr "أضف صفحة"
 
 msgid "Allow multi pages"
-msgstr ""
+msgstr "السماح بصفحات متعددة"
 
 msgid "Bottom"
-msgstr ""
+msgstr "الأسفل"
 
 msgid "Button based"
-msgstr ""
+msgstr "على أساس الزر"
 
 msgid "Button labels"
-msgstr ""
+msgstr "تسميات الأزرار"
 
 msgid "Button labels."
-msgstr ""
+msgstr "تسميات الأزرار."
 
 msgid "Columns:"
-msgstr ""
+msgstr "أعمدة:"
 
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 msgid "Display"
 msgstr "عرض"
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr ""
+msgstr "إذا تم اختيار هذا المربع، فسيسمح قارئ النص بعرض أكثر من صفحة واحدة والتنقل بينها."
 
 msgid "Left"
 msgstr "يسار"
 
 msgid "Navigation"
-msgstr ""
+msgstr "تصفح"
 
 msgid "Navigation."
-msgstr ""
+msgstr "تصفح."
 
 msgid "Next"
-msgstr ""
+msgstr "التالي"
 
 msgid "Page"
-msgstr ""
+msgstr "صفحة"
 
 msgid "Page height (px)"
-msgstr ""
+msgstr "ارتفاع الصفحة (px)"
 
 msgid "Page height (px)."
-msgstr ""
+msgstr "ارتفاع الصفحة (px)."
 
 msgid "Previous"
-msgstr ""
+msgstr "سابق"
 
 msgid "Remove Tooltip"
-msgstr ""
+msgstr "إزالة أداة الإشارة"
 
 msgid "Right"
-msgstr ""
+msgstr "صحيح"
 
 msgid "Tab based"
-msgstr ""
+msgstr "على أساس علامة التبويب"
 
 msgid "Tabs + buttons"
-msgstr ""
+msgstr "علامات التبويب + أزرار"
 
 msgid "Tabs position"
-msgstr ""
+msgstr "موضع علامات التبويب"
 
 msgid "Tabs position."
-msgstr ""
+msgstr "موضع علامات التبويب."
 
 msgid "Tooltips"
-msgstr ""
+msgstr "أداة الإشارات"
 
 msgid "Top"
 msgstr "أعلى"
