@@ -4,7 +4,7 @@ msgstr ""
 "PO-Revision-Date: 2023-06-07 10:39\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: nb_NO\n"
+"Language: nn_NO\n"
 "sourceLanguage: en-US\n"
 "targetLanguage: en-US\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,86 +15,86 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: tao-open-source\n"
 "X-Crowdin-Project-ID: 590867\n"
-"X-Crowdin-Language: nb\n"
+"X-Crowdin-Language: nn-NO\n"
 "X-Crowdin-File: /[oat-sa.extension-pcisample] develop/locales/en-US/messages.po\n"
 "X-Crowdin-File-ID: 651\n"
-"Language-Team: Norwegian Bokmal\n"
+"Language-Team: Norwegian Nynorsk\n"
 
 msgid "Add page"
-msgstr "Legg til side"
+msgstr ""
 
 msgid "Allow multi pages"
-msgstr "Tillat flere sider"
+msgstr ""
 
 msgid "Bottom"
-msgstr "Bunn"
+msgstr ""
 
 msgid "Button based"
-msgstr "Knappbasert"
+msgstr ""
 
 msgid "Button labels"
-msgstr "Knapp tekster"
+msgstr ""
 
 msgid "Button labels."
-msgstr "Knapp tekster."
+msgstr ""
 
 msgid "Columns:"
-msgstr "Kolonner:"
+msgstr ""
 
 msgid "Delete"
-msgstr "Slett"
+msgstr ""
 
 msgid "Display"
-msgstr "Vise"
+msgstr ""
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr "Hvis denne boksen er huket av, vil tekstleseren vise mer enn én side og kunne navigere mellom dem."
+msgstr ""
 
 msgid "Left"
-msgstr "Venstre"
+msgstr ""
 
 msgid "Navigation"
-msgstr "Navigasjon"
+msgstr ""
 
 msgid "Navigation."
-msgstr "Navigasjon."
+msgstr ""
 
 msgid "Next"
-msgstr "Neste"
+msgstr ""
 
 msgid "Page"
-msgstr "Side"
+msgstr ""
 
 msgid "Page height (px)"
-msgstr "Side høyde (px)"
+msgstr ""
 
 msgid "Page height (px)."
-msgstr "Side høyde (px)."
+msgstr ""
 
 msgid "Previous"
-msgstr "Forrige"
+msgstr ""
 
 msgid "Remove Tooltip"
-msgstr "Fjern verktøytips"
+msgstr ""
 
 msgid "Right"
-msgstr "Høyre"
+msgstr ""
 
 msgid "Tab based"
-msgstr "Tabbasert"
+msgstr ""
 
 msgid "Tabs + buttons"
-msgstr "Tabulator + knapper"
+msgstr ""
 
 msgid "Tabs position"
-msgstr "Tab posisjon"
+msgstr ""
 
 msgid "Tabs position."
-msgstr "Tab posisjon."
+msgstr ""
 
 msgid "Tooltips"
-msgstr "Verktøytips"
+msgstr ""
 
 msgid "Top"
-msgstr "Topp"
+msgstr ""
 

@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-06-07 10:39\n"
+"PO-Revision-Date: 2023-12-04 15:50\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: nb_NO\n"
+"Language: de\n"
 "sourceLanguage: en-US\n"
 "targetLanguage: en-US\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,86 +15,86 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: tao-open-source\n"
 "X-Crowdin-Project-ID: 590867\n"
-"X-Crowdin-Language: nb\n"
+"X-Crowdin-Language: de\n"
 "X-Crowdin-File: /[oat-sa.extension-pcisample] develop/locales/en-US/messages.po\n"
 "X-Crowdin-File-ID: 651\n"
-"Language-Team: Norwegian Bokmal\n"
+"Language-Team: German\n"
 
 msgid "Add page"
-msgstr "Legg til side"
+msgstr "Seite hinzufügen"
 
 msgid "Allow multi pages"
-msgstr "Tillat flere sider"
+msgstr "Mehrere Seiten erlauben"
 
 msgid "Bottom"
-msgstr "Bunn"
+msgstr "Unterer Rand"
 
 msgid "Button based"
-msgstr "Knappbasert"
+msgstr "Button-basiert"
 
 msgid "Button labels"
-msgstr "Knapp tekster"
+msgstr "Button Bezeichnung"
 
 msgid "Button labels."
-msgstr "Knapp tekster."
+msgstr "Button Bezeichnung."
 
 msgid "Columns:"
-msgstr "Kolonner:"
+msgstr "Spalte:"
 
 msgid "Delete"
-msgstr "Slett"
+msgstr "Löschen"
 
 msgid "Display"
-msgstr "Vise"
+msgstr "Anzeige"
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr "Hvis denne boksen er huket av, vil tekstleseren vise mer enn én side og kunne navigere mellom dem."
+msgstr "Wenn dieses Kästchen markiert ist, ermöglicht der Textleser die Anzeige von mehr als einer Seite und die Navigation zwischen ihnen."
 
 msgid "Left"
-msgstr "Venstre"
+msgstr "Links"
 
 msgid "Navigation"
-msgstr "Navigasjon"
+msgstr "Navigation"
 
 msgid "Navigation."
-msgstr "Navigasjon."
+msgstr "Navigation."
 
 msgid "Next"
-msgstr "Neste"
+msgstr "Nächste"
 
 msgid "Page"
-msgstr "Side"
+msgstr "Seite"
 
 msgid "Page height (px)"
-msgstr "Side høyde (px)"
+msgstr "Seitenhöhe (Pixel)"
 
 msgid "Page height (px)."
-msgstr "Side høyde (px)."
+msgstr "Seitenhöhe (Pixel)."
 
 msgid "Previous"
-msgstr "Forrige"
+msgstr "Vorherige"
 
 msgid "Remove Tooltip"
-msgstr "Fjern verktøytips"
+msgstr "Hinweis entfernen"
 
 msgid "Right"
-msgstr "Høyre"
+msgstr "Rechts"
 
 msgid "Tab based"
-msgstr "Tabbasert"
+msgstr "Tab-basiert"
 
 msgid "Tabs + buttons"
-msgstr "Tabulator + knapper"
+msgstr "Tabs und Buttons"
 
 msgid "Tabs position"
-msgstr "Tab posisjon"
+msgstr "Anordnung der Registerkarten (Tabs)"
 
 msgid "Tabs position."
-msgstr "Tab posisjon."
+msgstr "Anordnung der Registerkarten."
 
 msgid "Tooltips"
-msgstr "Verktøytips"
+msgstr "Hinweise"
 
 msgid "Top"
-msgstr "Topp"
+msgstr "Oben"
 
