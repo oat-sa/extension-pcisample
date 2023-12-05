@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-06-07 10:39\n"
+"PO-Revision-Date: 2023-12-04 15:50\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: nb_NO\n"
+"Language: ar\n"
 "sourceLanguage: en-US\n"
 "targetLanguage: en-US\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,89 +12,89 @@ msgstr ""
 "X-Poedit-Basepath: ../../\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
 "X-Crowdin-Project: tao-open-source\n"
 "X-Crowdin-Project-ID: 590867\n"
-"X-Crowdin-Language: nb\n"
+"X-Crowdin-Language: ar\n"
 "X-Crowdin-File: /[oat-sa.extension-pcisample] develop/locales/en-US/messages.po\n"
 "X-Crowdin-File-ID: 651\n"
-"Language-Team: Norwegian Bokmal\n"
+"Language-Team: Arabic\n"
 
 msgid "Add page"
-msgstr "Legg til side"
+msgstr "أضف صفحة"
 
 msgid "Allow multi pages"
-msgstr "Tillat flere sider"
+msgstr "السماح بصفحات متعددة"
 
 msgid "Bottom"
-msgstr "Bunn"
+msgstr "الأسفل"
 
 msgid "Button based"
-msgstr "Knappbasert"
+msgstr "على أساس الزر"
 
 msgid "Button labels"
-msgstr "Knapp tekster"
+msgstr "تسميات الأزرار"
 
 msgid "Button labels."
-msgstr "Knapp tekster."
+msgstr "تسميات الأزرار."
 
 msgid "Columns:"
-msgstr "Kolonner:"
+msgstr "أعمدة:"
 
 msgid "Delete"
-msgstr "Slett"
+msgstr "حذف"
 
 msgid "Display"
-msgstr "Vise"
+msgstr "عرض"
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr "Hvis denne boksen er huket av, vil tekstleseren vise mer enn én side og kunne navigere mellom dem."
+msgstr "إذا تم اختيار هذا المربع، فسيسمح قارئ النص بعرض أكثر من صفحة واحدة والتنقل بينها."
 
 msgid "Left"
-msgstr "Venstre"
+msgstr "يسار"
 
 msgid "Navigation"
-msgstr "Navigasjon"
+msgstr "تصفح"
 
 msgid "Navigation."
-msgstr "Navigasjon."
+msgstr "تصفح."
 
 msgid "Next"
-msgstr "Neste"
+msgstr "التالي"
 
 msgid "Page"
-msgstr "Side"
+msgstr "صفحة"
 
 msgid "Page height (px)"
-msgstr "Side høyde (px)"
+msgstr "ارتفاع الصفحة (px)"
 
 msgid "Page height (px)."
-msgstr "Side høyde (px)."
+msgstr "ارتفاع الصفحة (px)."
 
 msgid "Previous"
-msgstr "Forrige"
+msgstr "سابق"
 
 msgid "Remove Tooltip"
-msgstr "Fjern verktøytips"
+msgstr "إزالة أداة الإشارة"
 
 msgid "Right"
-msgstr "Høyre"
+msgstr "صحيح"
 
 msgid "Tab based"
-msgstr "Tabbasert"
+msgstr "على أساس علامة التبويب"
 
 msgid "Tabs + buttons"
-msgstr "Tabulator + knapper"
+msgstr "علامات التبويب + أزرار"
 
 msgid "Tabs position"
-msgstr "Tab posisjon"
+msgstr "موضع علامات التبويب"
 
 msgid "Tabs position."
-msgstr "Tab posisjon."
+msgstr "موضع علامات التبويب."
 
 msgid "Tooltips"
-msgstr "Verktøytips"
+msgstr "أداة الإشارات"
 
 msgid "Top"
-msgstr "Topp"
+msgstr "أعلى"
 
