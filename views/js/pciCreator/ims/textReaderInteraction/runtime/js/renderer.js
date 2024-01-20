@@ -5,16 +5,17 @@ define(
         'taoQtiItem/portableLib/handlebars',
         'textReaderInteraction/runtime/js/tabs',
         'taoQtiItem/portableLib/OAT/util/tooltip',
-        'taoQtiItem/portableLib/jquery.qtip'
+        'taoQtiItem/portableLib/jquery.qtip',
+        'textReaderInteraction/runtime/js/xincludeLoader',
     ],
-    function ($, _, Handlebars, Tabs, tooltipRenderer) {
+    function ($, _, Handlebars, Tabs, tooltipRenderer, $qtip ,xincludeLoader) {
         'use strict';
 
         return function (options) {
             var self = this;
             var defaultOptions = {
-                state : 'sleep',
-                templates : {}
+                state: 'sleep',
+                templates: {}
             };
             var currentPage = 0;
 
@@ -68,7 +69,7 @@ define(
                     decorationHeight += $(window).height() - getHeight($container.get(0));
                 }
 
-                $box.parentsUntil($container).each(function() {
+                $box.parentsUntil($container).each(function () {
                     decorationHeight += getExtraHeight(this);
                 });
 
@@ -109,6 +110,7 @@ define(
             this.options = {};
 
             this.init = function () {
+                console.log('textReader Renderer');
                 var pagesTpl,
                     navTpl;
                 _.assign(self.options, defaultOptions, options);
@@ -149,6 +151,11 @@ define(
 
                 this.options.$container.trigger('beforerenderpages.' + self.eventNs);
 
+                function loadXInclude($xiElement) {
+                    const baseUrl = 'http://backoffice.docker.localhost/taoQtiItem/QtiCreator/getFile?uri=http%3A%2F%2Fbackoffice.docker.localhost%2Fontologies%2Ftao.rdf%23i659fe53132aab96f66cde965628ab8&lang=en-US&relPath=';
+                    return xincludeLoader.load($xiElement, baseUrl);
+                }
+
                 //render pages template
                 if (self.options.templates.pages) {
                     _.assign(templateData, data, self.getTemplateData(data));
@@ -159,38 +166,63 @@ define(
                     elements = $.parseHTML(markup, document.implementation.createHTMLDocument('virtual')) || [];
                     interaction = self.options.interaction;
                     renderer = interaction && interaction.renderer;
-                    markup = elements.map(function(element) {
-                        var selectorContainer = document.createElement('div');
-                        selectorContainer.appendChild(element);
-                        images = selectorContainer.querySelectorAll('img');
-                        images = [].slice.call(images);
-                        images.forEach(function(image) {
-                            var src = image.getAttribute('src');
-                            var content = data['content-' + src];
-                            if (renderer) {
-                                image.setAttribute('src', renderer.resolveUrl(src));
-                            } else if (content) {
-                                image.setAttribute('src', content);
-                            }
+
+                    let loadPromises = elements.map(function(element) {
+                        let $element = $(element);
+
+                        let includes = $element.find('*').filter(function() {
+                            return this.tagName.toLowerCase() === 'xi:include';
                         });
-                        return element.outerHTML || element.textContent;
-                    }).join('');
 
-                    $container = this.options.$container.find('.js-page-container')
-                        .html(markup)
-                        .toggleClass('light-mode', !templateData.multiPages);
+                        if (includes.length > 0) {
+                            // Map over includes and return an array of Promises
+                            let includePromises = includes.get().map(xiElement => {
+                                return loadXInclude($(xiElement)).then(resolved => {
+                                    $(xiElement).replaceWith(resolved.data);
+                                });
+                            });
 
-                    tooltipRenderer.render($container);
+                            // Wait for all xi:include elements to be processed, then return the updated $element
+                            return Promise.all(includePromises).then(() => {
+                                return $('<div>').append($element.clone()).html();
+                            });
+                        } else {
+                            var selectorContainer = document.createElement('div');
+                            selectorContainer.appendChild(element);
+                            images = selectorContainer.querySelectorAll('img');
+                            images = [].slice.call(images);
+                            images.forEach(function (image) {
+                                var src = image.getAttribute('src');
+                                var content = data['content-' + src];
+                                if (renderer) {
+                                    image.setAttribute('src', renderer.resolveUrl(src));
+                                } else if (content) {
+                                    image.setAttribute('src', content);
+                                }
+                            });
+
+                            return Promise.resolve($('<div>').append($element.clone()).html());
+                        }
+                    });
+
+                    Promise.all(loadPromises).then(updatedElements => {
+                        const markup = updatedElements.join('');
+                        $container = this.options.$container.find('.js-page-container')
+                            .html(markup)
+                            .toggleClass('light-mode', !templateData.multiPages);
+
+                        tooltipRenderer.render($container);
+                    });
                 }
 
                 //init tabs
                 self.tabsManager = new Tabs(this.options.$container.find('.js-page-tabs'), {
-                    afterSelect : function (index) {
+                    afterSelect: function (index) {
                         currentPage = parseInt(index, 10);
                         self.updateNav();
                         self.options.$container.trigger('selectpage.' + self.eventNs, index);
                     },
-                    beforeCreate : function () {
+                    beforeCreate: function () {
                         self.tabsManager = this;
                         currentPage = 0;
                         self.options.$container.trigger('createpager.' + self.eventNs);
@@ -208,7 +240,7 @@ define(
                     autoHeight(templateData.multiPages);
 
                     // apply the auto height twice to counter both a sizing issue and a flickering issue
-                    _.defer(function() {
+                    _.defer(function () {
                         autoHeight(templateData.multiPages);
                     });
                 }
@@ -222,16 +254,16 @@ define(
              * Function renders tooltips in pages
              * @return {object} this
              */
-            this.renderTooltips = function(data) {
+            this.renderTooltips = function (data) {
                 var tooltipsData = (_.isArray(data.tooltips)) ? data.tooltips : [],
                     $tooltips = this.options.$container.find('.tooltip'),
                     tooltipsContent = {};
 
-                tooltipsData.forEach(function(tooltipData) {
+                tooltipsData.forEach(function (tooltipData) {
                     tooltipsContent[tooltipData.id] = tooltipData.content;
                 });
 
-                $tooltips.each(function() {
+                $tooltips.each(function () {
                     var $currentTooltip = $(this),
                         currentId = $currentTooltip.data('identifier'),
                         content = tooltipsContent[currentId];
@@ -296,8 +328,8 @@ define(
              */
             this.updateNav = function () {
                 var tabsNum = this.tabsManager.countTabs(),
-                    $prevBtn =  this.options.$container.find('.js-prev-page button'),
-                    $nextBtn =  this.options.$container.find('.js-next-page button');
+                    $prevBtn = this.options.$container.find('.js-prev-page button'),
+                    $nextBtn = this.options.$container.find('.js-next-page button');
 
                 this.options.$container.find('.js-current-page').text((currentPage + 1));
 
@@ -330,16 +362,16 @@ define(
                 }
 
                 return {
-                    state : self.options.state,
-                    currentPage : currentPage + 1,
-                    pagesNum : data.pages.length,
-                    multiPages : multiPages,
-                    showTabs : multiPages && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'buttons',
-                    showNavigation : multiPages && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'tabs',
-                    authoring : self.options.state === 'question',
+                    state: self.options.state,
+                    currentPage: currentPage + 1,
+                    pagesNum: data.pages.length,
+                    multiPages: multiPages,
+                    showTabs: multiPages && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'buttons',
+                    showNavigation: multiPages && (data.pages.length > 1 || data.onePageNavigation) && data.navigation !== 'tabs',
+                    authoring: self.options.state === 'question',
                     pageHeight: pageHeight,
-                    pageWrapperHeight : pageWrapperHeight,
-                    showRemovePageButton : data.pages.length > 1 && self.options.state === 'question'
+                    pageWrapperHeight: pageWrapperHeight,
+                    showRemovePageButton: data.pages.length > 1 && self.options.state === 'question'
                 };
             };
 
@@ -349,8 +381,8 @@ define(
              */
             this.getTemplateOptions = function () {
                 return {
-                    helpers : {
-                        inc : function (value) {
+                    helpers: {
+                        inc: function (value) {
                             return parseInt(value, 10) + 1;
                         }
                     }
