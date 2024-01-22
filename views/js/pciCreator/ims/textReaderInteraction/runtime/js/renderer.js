@@ -110,7 +110,6 @@ define(
             this.options = {};
 
             this.init = function () {
-                console.log('textReader Renderer');
                 var pagesTpl,
                     navTpl;
                 _.assign(self.options, defaultOptions, options);

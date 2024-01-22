@@ -16,35 +16,67 @@
  * Copyright (c) 2023 (original work) Open Assessment Technologies SA;
  */
 
-define(['jquery', 'lodash', 'taoQtiItem/qtiItem/helper/simpleParser', 'taoQtiItem/qtiItem/core/Loader'], function ($, _, simpleParser, Loader) {
-    'use strict';
+define(
+    ['taoQtiItem/portableLib/jquery_2_1_1', 'taoQtiItem/portableLib/lodash'],
+    function ($, _) {
+        'use strict';
 
-    const xincludeLoader = {
-        name: 'xincludeLoader',
-        load: function load(xinclude, baseUrl, callback) {
-            const href = xinclude.attr('href');
-            if (href && baseUrl) {
-                const fileUrl = `text!${baseUrl}${href}`;
-                // reset the previous definition of the XML, to receive updated passage
-                require.undef(fileUrl);
-                // require xml
-                require([fileUrl], function (stimulusXml) {
-                    const $wrapper = $.parseXML(stimulusXml);
-                    const $sampleXMLrootNode = $wrapper.children;
-                    const $stimulus = $('<include>').append($sampleXMLrootNode);
-                    const mathNs = 'm'; //for 'http://www.w3.org/1998/Math/MathML'
-                    const data = simpleParser.parse($stimulus, {
-                        ns: {
-                            math: mathNs
+        const xincludeLoader = {
+            name: 'xincludeLoader',
+            load: function load(xinclude, baseUrl) {
+                const self = this;
+                const href = xinclude.attr('href');
+
+                // Return a new Promise
+                return new Promise((resolve, reject) => {
+                    if (href && baseUrl) {
+                        const fileUrl = `text!${baseUrl}${href}`;
+                        // reset the previous definition of the XML, to receive updated passage
+                        require.undef(fileUrl);
+                        // require xml
+                        require([fileUrl], function (stimulusXml) {
+                            const data = self.parseXmlToDom(stimulusXml);
+                            resolve({ xinclude, data }); // Resolve with an object containing xinclude and data
+                        }, function () {
+                            // In case the file does not exist, reject the promise
+                            reject(new Error('File not found'));
+                        });
+                    } else {
+                        reject(new Error('href or baseUrl is missing'));
+                    }
+                });
+            },
+            parseXmlToDom: function parseXmlToDom(xmlString) {
+                // Parse the XML string into a document object
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+
+                // Function to recursively convert XML to HTML
+                function convertXMLToHTML(xmlNode) {
+                    // Create a corresponding HTML element for the XML node
+                    const htmlNode = document.createElement(xmlNode.nodeName);
+
+                    // Copy attributes
+                    for (let i = 0; i < xmlNode.attributes.length; i++) {
+                        const attr = xmlNode.attributes[i];
+                        htmlNode.setAttribute(attr.name, attr.value);
+                    }
+
+                    // Recursively convert child nodes
+                    xmlNode.childNodes.forEach(childNode => {
+                        if (childNode.nodeType === Node.ELEMENT_NODE) {
+                            htmlNode.appendChild(convertXMLToHTML(childNode));
+                        } else if (childNode.nodeType === Node.TEXT_NODE) {
+                            htmlNode.appendChild(document.createTextNode(childNode.nodeValue));
                         }
                     });
-                    callback(xinclude, data);
-                }, function () {
-                    //in case the file does not exist
-                    callback(xinclude, false);
-                });
+
+                    return htmlNode;
+                }
+
+                // Convert the XML document to HTML
+                return convertXMLToHTML(xmlDoc.documentElement);
             }
-        }
-    };
-    return xincludeLoader;
-});
+        };
+        return xincludeLoader;
+    });
