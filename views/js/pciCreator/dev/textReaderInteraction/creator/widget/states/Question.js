@@ -47,7 +47,7 @@ define([
             $form = self.widget.$form,
             interaction = self.widget.element,
             properties = interaction.properties,
-            pageIds = _.pluck(properties.pages, 'id'),
+            pageIds = _.map(properties.pages, 'id'),
             maxPageId = Math.max.apply(null, pageIds),
             tooltipBuffer;
 
