@@ -34,6 +34,7 @@
         "src" : [
             "./imsPciCreator.js",
             "./creator/js/userTooltips.js",
+            "./creator/js/xincludeLoader.js",
             "./creator/tpl/userTooltips/authoring.tpl",
             "./creator/tpl/userTooltips/markup.tpl",
             "./creator/tpl/markup.tpl",
@@ -42,6 +43,7 @@
             "./creator/tpl/pages.tpl",
             "./creator/widget/Widget.js",
             "./creator/widget/states/Question.js",
+            "./creator/widget/states/Sleep.js",
             "./creator/widget/states/states.js"
         ],
         "stylesheets" : [
