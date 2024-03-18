@@ -33,9 +33,8 @@ define([
         function () {
             const widget = this.widget;
             const interaction = widget.element;
-            return Promise.all(
-                xincludeLoader.loadByElementPages(interaction.properties.pages, interaction.renderer.getOption('baseUrl'))
-            ).then(pagesWithInclusionsResolved => {
+            return xincludeLoader.loadByElementPages(interaction.properties.pages, interaction.renderer.getOption('baseUrl'))
+            .then(pagesWithInclusionsResolved => {
                 interaction.properties.pages = pagesWithInclusionsResolved;
                 interaction.widgetRenderer.renderAll(interaction.properties);
             });
