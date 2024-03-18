@@ -20,7 +20,7 @@ define([
     'core/promise',
     'taoQtiItem/qtiCreator/widgets/states/factory',
     'taoQtiItem/qtiCreator/widgets/interactions/states/Sleep',
-    'textReaderInteraction/creator/js/xincludeLoader',
+    'taoQtiItem/portableLib/OAT/xincludeLoader',
 ], function (
     Promise,
     stateFactory,
