@@ -23,7 +23,7 @@ final class Version202403181749474106_pciSamples extends AbstractMigration
 
     public function up(Schema $schema): void
     {
-        $this->runAction(new RegisterPciTextReaderIMS(), ['1.2']);
+        $this->runAction(new RegisterPciTextReaderIMS(), ['1.2.0']);
     }
 
     public function down(Schema $schema): void
