@@ -173,7 +173,17 @@ define(
                                 image.setAttribute('src', content);
                             }
                         });
-                        return element.outerHTML || element.textContent;
+
+                        anchors = selectorContainer.querySelectorAll('a');
+                        // anchors = [].slice.call(anchors);
+                        anchors.forEach(function(anchor) {
+                            var href = anchor.getAttribute('href');
+                            if (href && !href.trim().startsWith('#')) {
+                                anchor.setAttribute('target', '_blank');
+                                anchor.setAttribute('rel', 'noopener noreferer');
+                            }
+                        });
+                      return element.outerHTML || element.textContent;
                     }).join('');
 
                     $container = this.options.$container.find('.js-page-container')
