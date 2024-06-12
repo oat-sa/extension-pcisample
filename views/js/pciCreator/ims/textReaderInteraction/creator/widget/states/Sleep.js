@@ -1,21 +1,3 @@
-/**
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; under version 2
- * of the License (non-upgradable).
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- *
- * Copyright (c) 2024 (original work) Open Assessment Technologies;
- *
- */
 define([
     'core/promise',
     'taoQtiItem/qtiCreator/widgets/states/factory',
@@ -25,9 +7,25 @@ define([
     Promise,
     stateFactory,
     Sleep,
-    xincludeLoader,
+    xincludeLoader
 ) {
     'use strict';
+
+    function removeMediaDataAttributes(pages) {
+        pages.forEach(page => {
+            page.content.forEach(contentItem => {
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = contentItem;
+                const mediaObjects = tempDiv.querySelectorAll('object[type*="video"], object[type*="audio"]');
+                mediaObjects.forEach(obj => {
+                    obj.removeAttribute('data');
+                });
+                page.content = [tempDiv.innerHTML];
+            });
+        });
+        return pages;
+    }
+
     return stateFactory.extend(
         Sleep,
         function () {
@@ -35,12 +33,12 @@ define([
             const interaction = widget.element;
             const pages = structuredClone(interaction.properties.pages);
             return xincludeLoader.loadByElementPages(pages, interaction.renderer.getOption('baseUrl'))
-            .then(pagesWithInclusionsResolved => {
-                let properties = structuredClone(interaction.properties);
-                properties.pages = pagesWithInclusionsResolved;
-                interaction.widgetRenderer.renderAll(properties);
-            });
+                .then(pagesWithInclusionsResolved => {
+                    let properties = structuredClone(interaction.properties);
+                    properties.pages = removeMediaDataAttributes(pagesWithInclusionsResolved);
+                    interaction.widgetRenderer.renderAll(properties);
+                });
         },
-        function () {},
+        function () {}
     );
 });
