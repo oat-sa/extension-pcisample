@@ -33,10 +33,12 @@ define([
         function () {
             const widget = this.widget;
             const interaction = widget.element;
-            return xincludeLoader.loadByElementPages(interaction.properties.pages, interaction.renderer.getOption('baseUrl'))
+            const pages = structuredClone(interaction.properties.pages);
+            return xincludeLoader.loadByElementPages(pages, interaction.renderer.getOption('baseUrl'))
             .then(pagesWithInclusionsResolved => {
-                interaction.properties.pages = pagesWithInclusionsResolved;
-                interaction.widgetRenderer.renderAll(interaction.properties);
+                let properties = structuredClone(interaction.properties);
+                properties.pages = pagesWithInclusionsResolved;
+                interaction.widgetRenderer.renderAll(properties);
             });
         },
         function () {},
