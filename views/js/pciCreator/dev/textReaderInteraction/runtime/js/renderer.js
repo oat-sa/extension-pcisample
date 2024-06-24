@@ -161,6 +161,7 @@ define(
                     $container,
                     $pages,
                     markup,
+                    anchors,
                     fixedMarkup,
                     decorationHeight;
 
