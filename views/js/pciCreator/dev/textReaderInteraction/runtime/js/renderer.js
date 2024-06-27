@@ -32,7 +32,7 @@ define(
          *
          * @param {String} html - the html to parse
          * @param {Object} renderer
-         * @returns {String} the html without updated URLs
+         * @returns {String} the html with fixed anchor targets
          */
         var fixAnchorTargets = function(html, renderer) {
             html = html || '';
@@ -44,8 +44,8 @@ define(
             });
         };
       
-      return function (options) {
-        var self = this;
+        return function (options) {
+            var self = this;
             var defaultOptions = {
                 state : 'sleep',
                 templates : {},
@@ -178,7 +178,6 @@ define(
                     $container,
                     $pages,
                     markup,
-                    anchors,
                     fixedMarkup,
                     decorationHeight;
 
@@ -197,7 +196,7 @@ define(
                         );
 
                         fixedMarkup = fixAnchorTargets(
-                            markup,
+                            fixedMarkup,
                             self.options.interaction.renderer
                         );
                     }

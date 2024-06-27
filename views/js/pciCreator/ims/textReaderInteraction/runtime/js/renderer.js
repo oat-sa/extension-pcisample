@@ -146,6 +146,7 @@ define(
                 var interaction;
                 var renderer;
                 var images;
+                var anchors;
 
                 this.options.$container.trigger('beforerenderpages.' + self.eventNs);
 
