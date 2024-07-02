@@ -27,6 +27,23 @@ define(
             });
         };
         
+        /**
+         * Add all html anchors a "_blank" target by default
+         *
+         * @param {String} html - the html to parse
+         * @param {Object} renderer
+         * @returns {String} the html with fixed anchor targets
+         */
+        var fixAnchorTargets = function(html, renderer) {
+            html = html || '';
+
+            return html.replace(/(<a\s+[^>]*)(?=\s*>)/ig, function(substr, $1) {
+                // Remove any existing target attribute and replace with target="_blank"
+                var modifiedTag = $1.replace(/\btarget\s*=\s*["'][^"']*["']/ig, '').trim();
+                return modifiedTag + ' target="_blank"';
+            });
+        };
+      
         return function (options) {
             var self = this;
             var defaultOptions = {
@@ -175,6 +192,11 @@ define(
                     if (self.options.interaction !== 'undefined' && typeof self.options.interaction.renderer !== 'undefined') {
                         fixedMarkup = fixMarkupMediaSources(
                             markup,
+                            self.options.interaction.renderer
+                        );
+
+                        fixedMarkup = fixAnchorTargets(
+                            fixedMarkup,
                             self.options.interaction.renderer
                         );
                     }
