@@ -25,7 +25,11 @@
         },
         "libraries" : [],
         "src" : [
-            "./runtime/textReaderInteraction.js"
+            "./runtime/textReaderInteraction.js",
+            "./runtime/js/renderer.js",
+            "./runtime/js/tabs.js",
+            "./runtime/css/jquery.qtip.css",
+            "./runtime/css/textReaderInteraction.css"
         ]
     },
     "creator" : {
