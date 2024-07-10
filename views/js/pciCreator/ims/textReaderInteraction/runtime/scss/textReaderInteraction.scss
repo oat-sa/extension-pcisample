@@ -325,18 +325,26 @@ $buttonDisabledBgDolor: #afb4bb;
     }
     /* tooltips */
     [data-role="tooltip-target"] {
-        color: $info;
-        text-decoration: dashed underline $info;
+        color: $textColor;
+        outline: none;
+        text-decoration: underline;
         cursor: pointer;
+        position: relative;
+
+        &:hover {
+            color: $info;
+        }
+        
+        &:focus-visible {
+            color: $info;
+            border: 1px dashed $info;    
+        }
 
         &:after {
-            content: "ⓘ";
-            font-size: 80%;
-            vertical-align: super;
-            margin-left: 2px;
-            text-decoration: none;
-            display: inline-block;
+            content: none;
         }
+
+
     }
 
     [data-role="tooltip-content"] {
