@@ -230,59 +230,6 @@ define(
             };
 
             /**
-             * Function renders tooltips in pages
-             * @return {object} this
-             */
-            this.renderTooltips = function(data) {
-
-                // const $tooltipTargets = this.options.$container.find('[data-role="tooltip-target"]');
-                // $tooltipTargets.each(function() {
-                //     const $tooltipContent = $(this).next('[data-role="tooltip-content"]');
-                    
-                //     Popper.createPopper($(this)[0], $tooltipContent[0]);
-
-                //     console.log($(this)[0]);
-                //     console.log($tooltipContent[0]);
-
-                // }); 
-
-                // var tooltipsData = (_.isArray(data.tooltips)) ? data.tooltips : [],
-                //     $tooltips = this.options.$container.find('.tooltip'),
-                //     tooltipsContent = {};
-
-                // tooltipsData.forEach(function(tooltipData) {
-                //     console.log(tooltipData);
-                //     tooltipsContent[tooltipData.id] = tooltipData.content;
-                // });
-
-                // $tooltips.each(function() {
-                //     var $currentTooltip = $(this),
-                //         currentId = $currentTooltip.data('identifier'),
-                //         content = tooltipsContent[currentId];
-
-                //     if (content && content.trim()) {
-                //         $currentTooltip.addClass('tooltip-active');
-                //         $currentTooltip.qtip({
-                //             overwrite: true,
-                //             theme: 'default',
-                //             content: {
-                //                 text: content
-                //             },
-                //             position: {
-                //                 target: 'mouse',
-                //                 my: 'bottom center',
-                //                 at: 'top center'
-                //             }
-                //         });
-                //     }
-                // });
-
-
-
-                return this;
-            };
-
-            /**
              * Function renders interaction navigation (<i>Prev</i> <i>Next</i> buttons, current page number).
              * @param {object} data - interaction properties
              * @return {object} this
@@ -311,7 +258,6 @@ define(
              */
             this.renderAll = function (data) {
                 this.renderPages(data);
-                this.renderTooltips(data);
                 this.renderNavigation(data);
                 return this;
             };
