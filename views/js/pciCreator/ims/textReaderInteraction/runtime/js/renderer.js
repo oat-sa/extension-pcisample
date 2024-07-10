@@ -234,35 +234,50 @@ define(
              * @return {object} this
              */
             this.renderTooltips = function(data) {
-                var tooltipsData = (_.isArray(data.tooltips)) ? data.tooltips : [],
-                    $tooltips = this.options.$container.find('.tooltip'),
-                    tooltipsContent = {};
 
-                tooltipsData.forEach(function(tooltipData) {
-                    tooltipsContent[tooltipData.id] = tooltipData.content;
-                });
+                // const $tooltipTargets = this.options.$container.find('[data-role="tooltip-target"]');
+                // $tooltipTargets.each(function() {
+                //     const $tooltipContent = $(this).next('[data-role="tooltip-content"]');
+                    
+                //     Popper.createPopper($(this)[0], $tooltipContent[0]);
 
-                $tooltips.each(function() {
-                    var $currentTooltip = $(this),
-                        currentId = $currentTooltip.data('identifier'),
-                        content = tooltipsContent[currentId];
+                //     console.log($(this)[0]);
+                //     console.log($tooltipContent[0]);
 
-                    if (content && content.trim()) {
-                        $currentTooltip.addClass('tooltip-active');
-                        $currentTooltip.qtip({
-                            overwrite: true,
-                            theme: 'default',
-                            content: {
-                                text: content
-                            },
-                            position: {
-                                target: 'mouse',
-                                my: 'bottom center',
-                                at: 'top center'
-                            }
-                        });
-                    }
-                });
+                // }); 
+
+                // var tooltipsData = (_.isArray(data.tooltips)) ? data.tooltips : [],
+                //     $tooltips = this.options.$container.find('.tooltip'),
+                //     tooltipsContent = {};
+
+                // tooltipsData.forEach(function(tooltipData) {
+                //     console.log(tooltipData);
+                //     tooltipsContent[tooltipData.id] = tooltipData.content;
+                // });
+
+                // $tooltips.each(function() {
+                //     var $currentTooltip = $(this),
+                //         currentId = $currentTooltip.data('identifier'),
+                //         content = tooltipsContent[currentId];
+
+                //     if (content && content.trim()) {
+                //         $currentTooltip.addClass('tooltip-active');
+                //         $currentTooltip.qtip({
+                //             overwrite: true,
+                //             theme: 'default',
+                //             content: {
+                //                 text: content
+                //             },
+                //             position: {
+                //                 target: 'mouse',
+                //                 my: 'bottom center',
+                //                 at: 'top center'
+                //             }
+                //         });
+                //     }
+                // });
+
+
 
                 return this;
             };
