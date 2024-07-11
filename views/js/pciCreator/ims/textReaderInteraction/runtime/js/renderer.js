@@ -176,7 +176,7 @@ define(
                         });
 
                         anchors = selectorContainer.querySelectorAll('a');
-                        // anchors = [].slice.call(anchors);
+
                         anchors.forEach(function(anchor) {
                             var href = anchor.getAttribute('href');
                             if (href && !href.trim().startsWith('#')) {
@@ -191,7 +191,13 @@ define(
                         .html(markup)
                         .toggleClass('light-mode', !templateData.multiPages);
 
-                    tooltipRenderer.render($container);
+                    if(data.showTooltips) {
+                        //render tooltips if only specified explicitly
+                        tooltipRenderer.render($container);
+                    }else{
+                        //remove also tooltip anchors
+                        $container.find('[data-role="tooltip-target"]').removeAttr('data-role').removeAttr('aria-describedby');
+                    }
                 }
 
                 //init tabs
