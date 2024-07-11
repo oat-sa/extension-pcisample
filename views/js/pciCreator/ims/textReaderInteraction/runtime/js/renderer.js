@@ -191,12 +191,11 @@ define(
                         .html(markup)
                         .toggleClass('light-mode', !templateData.multiPages);
 
-                    if(data.showTooltips) {
-                        //render tooltips if only specified explicitly
-                        tooltipRenderer.render($container);
-                    }else{
-                        //remove also tooltip anchors
+                    if(data.hideTooltips) {
+                        //remove tooltip anchors
                         $container.find('[data-role="tooltip-target"]').removeAttr('data-role').removeAttr('aria-describedby');
+                    }else{
+                        tooltipRenderer.render($container);
                     }
                 }
 
