@@ -14,7 +14,7 @@ use oat\tao\scripts\tools\migrations\AbstractMigration;
  *
  * phpcs:disable Squiz.Classes.ValidClassName
  */
-final class Version202406120835514106_pciSamples extends AbstractMigration
+final class Version202407171445484106_pciSamples extends AbstractMigration
 {
     public function getDescription(): string
     {
