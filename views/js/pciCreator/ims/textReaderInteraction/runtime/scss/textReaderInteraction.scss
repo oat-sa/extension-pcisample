@@ -358,10 +358,12 @@ $buttonDisabledBgDolor: #afb4bb;
 }
 
 /* tooltips override styles for the previewer */
-.qti-item {
-    .textReaderInteraction {
-        [data-role="tooltip-target"] {
-            @include tooltip-styles();
+.preview-container {
+    .qti-item {
+        .textReaderInteraction {
+            [data-role="tooltip-target"] {
+                @include tooltip-styles();
+            }
         }
     }
 }
