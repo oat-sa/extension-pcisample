@@ -176,7 +176,7 @@ define(
                         });
 
                         anchors = selectorContainer.querySelectorAll('a');
-                        // anchors = [].slice.call(anchors);
+
                         anchors.forEach(function(anchor) {
                             var href = anchor.getAttribute('href');
                             if (href && !href.trim().startsWith('#')) {
@@ -191,7 +191,12 @@ define(
                         .html(markup)
                         .toggleClass('light-mode', !templateData.multiPages);
 
-                    tooltipRenderer.render($container);
+                    if(data.hideTooltips) {
+                        //remove tooltip anchors
+                        $container.find('[data-role="tooltip-target"]').removeAttr('data-role').removeAttr('aria-describedby');
+                    }else{
+                        tooltipRenderer.render($container);
+                    }
                 }
 
                 //init tabs
@@ -230,44 +235,6 @@ define(
             };
 
             /**
-             * Function renders tooltips in pages
-             * @return {object} this
-             */
-            this.renderTooltips = function(data) {
-                var tooltipsData = (_.isArray(data.tooltips)) ? data.tooltips : [],
-                    $tooltips = this.options.$container.find('.tooltip'),
-                    tooltipsContent = {};
-
-                tooltipsData.forEach(function(tooltipData) {
-                    tooltipsContent[tooltipData.id] = tooltipData.content;
-                });
-
-                $tooltips.each(function() {
-                    var $currentTooltip = $(this),
-                        currentId = $currentTooltip.data('identifier'),
-                        content = tooltipsContent[currentId];
-
-                    if (content && content.trim()) {
-                        $currentTooltip.addClass('tooltip-active');
-                        $currentTooltip.qtip({
-                            overwrite: true,
-                            theme: 'default',
-                            content: {
-                                text: content
-                            },
-                            position: {
-                                target: 'mouse',
-                                my: 'bottom center',
-                                at: 'top center'
-                            }
-                        });
-                    }
-                });
-
-                return this;
-            };
-
-            /**
              * Function renders interaction navigation (<i>Prev</i> <i>Next</i> buttons, current page number).
              * @param {object} data - interaction properties
              * @return {object} this
@@ -296,7 +263,6 @@ define(
              */
             this.renderAll = function (data) {
                 this.renderPages(data);
-                this.renderTooltips(data);
                 this.renderNavigation(data);
                 return this;
             };
