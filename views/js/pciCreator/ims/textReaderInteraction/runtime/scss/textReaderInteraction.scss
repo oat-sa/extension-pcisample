@@ -5,6 +5,27 @@ $buttonBgColor: #266d9c;
 $buttonDisabledColor: #000;
 $buttonDisabledBgDolor: #afb4bb;
 
+@mixin tooltip-styles {
+    color: $textColor;
+    outline: none;
+    text-decoration: underline;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+        color: $info;
+    }
+    
+    &:focus-visible {
+        color: $info;
+        border: 1px dashed $info;    
+    }
+
+    &:after {
+        content: none;
+    }
+}
+
 .textReaderInteraction {
     margin-top: 10px;
 
@@ -323,25 +344,26 @@ $buttonDisabledBgDolor: #afb4bb;
         margin-left: 70px;
         border-left: 1px solid #dddddd;
     }
-    /* tooltips */
+
     [data-role="tooltip-target"] {
-        color: $info;
-        text-decoration: dashed underline $info;
-        cursor: pointer;
-
-        &:after {
-            content: "ⓘ";
-            font-size: 80%;
-            vertical-align: super;
-            margin-left: 2px;
-            text-decoration: none;
-            display: inline-block;
-        }
+        @include tooltip-styles();
     }
-
+    
+    /* tooltips */
     [data-role="tooltip-content"] {
         &[aria-hidden="true"] {
             display: none;
+        }
+    }
+}
+
+/* tooltips override styles for the previewer */
+.preview-container {
+    .qti-item {
+        .textReaderInteraction {
+            [data-role="tooltip-target"] {
+                @include tooltip-styles();
+            }
         }
     }
 }

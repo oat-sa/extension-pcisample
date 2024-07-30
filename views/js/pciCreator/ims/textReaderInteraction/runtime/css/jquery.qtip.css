@@ -10,7 +10,7 @@
  * Plugins: tips modal viewport svg imagemap ie6
  * Styles: core basic css3
  */
-.qtip{
+ .qtip{
     position: absolute;
     left: -28000px;
     top: -28000px;
@@ -19,8 +19,8 @@
     max-width: 280px;
     min-width: 50px;
 
-    font-size: 10.5px;
-    line-height: 12px;
+    font-size: 1.05rem;
+    line-height: 1.33;
 
     direction: ltr;
 
@@ -30,7 +30,7 @@
 
 .qtip-content{
     position: relative;
-    padding: 5px 9px;
+    padding: 4px 8px;
     overflow: hidden;
 
     text-align: left;
@@ -102,14 +102,14 @@
 
 /* Default tooltip style */
 .qtip-default{
-    border: 1px solid #F1D031;
+    border-radius: 4px;
 
-    background-color: #FFFFA3;
-    color: #555;
+    background-color: #121212;
+    color: #FFF;
 }
 
 .qtip-default .qtip-titlebar{
-    background-color: #FFEF93;
+    background-color: #121212;
 }
 
 .qtip-default .qtip-icon{
