@@ -23,7 +23,7 @@
     "require": {
         "oat-sa/oatbox-extension-installer": "~1.1||dev-master",
         "oat-sa/tao-core" : ">=54.0.0",
-        "oat-sa/generis" : ">=15.22",
+        "oat-sa/generis" : "dev-feat/REL-1723/update-flysystem-lib as 16.0.0",
         "oat-sa/extension-tao-testqti" : ">=41.0.0",
         "oat-sa/extension-tao-itemqti-pci" : ">=7.0.0",
         "oat-sa/extension-tao-mediamanager" : ">=12.0.0"
