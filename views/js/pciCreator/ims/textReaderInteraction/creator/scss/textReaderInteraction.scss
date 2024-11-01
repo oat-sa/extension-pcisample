@@ -43,6 +43,14 @@
                 color: #a4bbc5;
             }
         }
+
+        .mini-tlb {
+            transform: translateX(-100%) translateX(-4px);
+
+            .icon-bin {
+                margin: 0;
+            }
+        }
     }
 
     .tr-column-select {
