@@ -5,6 +5,9 @@
         .tr-passage-column {
             border: 1px dashed #3E7DA7;
         }
+        .tr-page {
+            overflow-y: visible;
+        }
     }
 }
 
@@ -45,7 +48,8 @@
         }
 
         .mini-tlb {
-            transform: translateX(-100%) translateX(-4px);
+            transform: translateX(-10px);
+            z-index: 1000; /* above html-editable-shield */
 
             .icon-bin {
                 margin: 0;
