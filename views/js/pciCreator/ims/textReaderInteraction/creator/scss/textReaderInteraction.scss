@@ -57,6 +57,7 @@
         .mini-tlb {
             transform: translateX(-10px);
             z-index: 1000; /* above html-editable-shield */
+            right: -32px !important;
 
             .icon-bin {
                 margin: 0;
