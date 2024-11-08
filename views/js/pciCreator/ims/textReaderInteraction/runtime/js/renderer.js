@@ -5,9 +5,10 @@ define(
         'taoQtiItem/portableLib/handlebars',
         'textReaderInteraction/runtime/js/tabs',
         'taoQtiItem/portableLib/OAT/util/tooltip',
-        'taoQtiItem/portableLib/jquery.qtip'
+        'taoQtiItem/portableLib/OAT/util/xml',
+        'taoQtiItem/portableLib/jquery.qtip',
     ],
-    function ($, _, Handlebars, Tabs, tooltipRenderer) {
+    function ($, _, Handlebars, Tabs, tooltipRenderer, xmlNsHandler) {
         'use strict';
 
         return function (options) {
@@ -156,16 +157,32 @@ define(
 
                     markup = self.options.templates.pages(templateData, self.getTemplateOptions());
 
-                    // resolve image source
+                    markup = xmlNsHandler.removeNamespace(markup); //<qh5:figure>, <qh5:figcaption>
+
                     elements = $.parseHTML(markup, document.implementation.createHTMLDocument('virtual')) || [];
                     interaction = self.options.interaction;
                     renderer = interaction && interaction.renderer;
-                    markup = elements.map(function(element) {
+                    markup = elements.map((element) => {
                         var selectorContainer = document.createElement('div');
                         selectorContainer.appendChild(element);
+
+                        // image wrap-left/wrap-right/centering
+                        const figures = selectorContainer.querySelectorAll('figure');
+                        figures.forEach((figure) => {
+                            const image = figure.querySelector('img');
+                            if (image) {
+                                const imageWidth = image.getAttribute('width');
+                                if (imageWidth) {
+                                    figure.setAttribute('width', imageWidth);
+                                    image.setAttribute('width', '100%');
+                                }
+                            }
+                        });
+
+                        // resolve image source
                         images = selectorContainer.querySelectorAll('img');
                         images = [].slice.call(images);
-                        images.forEach(function(image) {
+                        images.forEach((image) => {
                             var src = image.getAttribute('src');
                             var content = data['content-' + src];
                             if (renderer) {
@@ -175,26 +192,27 @@ define(
                             }
                         });
 
-                        anchors = selectorContainer.querySelectorAll('a');
 
-                        anchors.forEach(function(anchor) {
+                        // open links in another tab
+                        anchors = selectorContainer.querySelectorAll('a');
+                        anchors.forEach((anchor) => {
                             var href = anchor.getAttribute('href');
                             if (href && !href.trim().startsWith('#')) {
                                 anchor.setAttribute('target', '_blank');
                                 anchor.setAttribute('rel', 'noopener noreferer');
                             }
                         });
-                      return element.outerHTML || element.textContent;
+                        return element.outerHTML || element.textContent;
                     }).join('');
 
                     $container = this.options.$container.find('.js-page-container')
                         .html(markup)
                         .toggleClass('light-mode', !templateData.multiPages);
 
-                    if(data.hideTooltips) {
+                    if (data.hideTooltips) {
                         //remove tooltip anchors
                         $container.find('[data-role="tooltip-target"]').removeAttr('data-role').removeAttr('aria-describedby');
-                    }else{
+                    } else {
                         tooltipRenderer.render($container);
                     }
                 }
