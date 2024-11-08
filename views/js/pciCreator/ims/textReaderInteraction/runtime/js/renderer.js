@@ -173,7 +173,7 @@ define(
                             if (image) {
                                 const imageWidth = image.getAttribute('width');
                                 if (imageWidth) {
-                                    figure.setAttribute('width', imageWidth);
+                                    figure.style.width = imageWidth;
                                     image.setAttribute('width', '100%');
                                 }
                             }
