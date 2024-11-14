@@ -8,6 +8,13 @@
         .tr-page {
             overflow-y: visible;
         }
+
+        /* cleanup after figure/image wrap-left/wrap-right */
+        .container-editor:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
     }
 }
 
@@ -48,8 +55,8 @@
         }
 
         .mini-tlb {
-            transform: translateX(-10px);
             z-index: 1000; /* above html-editable-shield */
+            right: -22px !important;
 
             .icon-bin {
                 margin: 0;
