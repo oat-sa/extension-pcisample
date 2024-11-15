@@ -376,7 +376,8 @@ define([
                         related : interaction,
                         colIndex : colIndex,
                         highlight: true,
-                        areaBroker: widget.getAreaBroker()
+                        areaBroker: widget.getAreaBroker(),
+                        flushDeletingWidgetsOnDestroy: true
                     });
 
                     $editor.on('editorready', function() {
