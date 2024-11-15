@@ -15,10 +15,10 @@ $buttonDisabledBgDolor: #afb4bb;
     &:hover {
         color: $info;
     }
-    
+
     &:focus-visible {
         color: $info;
-        border: 1px dashed $info;    
+        border: 1px dashed $info;
     }
 
     &:after {
@@ -98,6 +98,10 @@ $buttonDisabledBgDolor: #afb4bb;
         box-shadow: 1px 1px 3px 0 #888888;
         margin: 10px;
         overflow-y: auto;
+
+        table td, table th {
+            border: 1px solid currentColor;
+        }
     }
 
     .light-mode {
@@ -348,7 +352,7 @@ $buttonDisabledBgDolor: #afb4bb;
     [data-role="tooltip-target"] {
         @include tooltip-styles();
     }
-    
+
     /* tooltips */
     [data-role="tooltip-content"] {
         &[aria-hidden="true"] {
