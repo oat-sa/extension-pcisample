@@ -377,6 +377,7 @@ define([
                         colIndex : colIndex,
                         highlight: true,
                         areaBroker: widget.getAreaBroker(),
+                        qtiInclude: false,
                         flushDeletingWidgetsOnDestroy: true
                     });
 
