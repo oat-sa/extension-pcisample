@@ -62,7 +62,7 @@ define([
                 },
                 currentPage = 0;
 
-            containerEditor.destroy($container.find('.tr-passage'));
+            destroyContainerEditor(containerEditor, $container.find('.tr-passage'));
 
             if ($button.hasClass('js-add-page-before')) {
                 properties.pages.unshift(pageData);
@@ -79,7 +79,7 @@ define([
         $container.on('click.' + interaction.typeIdentifier, '.js-remove-page', function () {
             var tabNum = $(this).data('page-num');
 
-            containerEditor.destroy($container.find('.tr-passage'));
+            destroyContainerEditor(containerEditor, $container.find('.tr-passage'));
             properties.pages.splice(tabNum, 1);
             interaction.widgetRenderer.renderAll(properties);
         });
@@ -127,7 +127,7 @@ define([
 
         //Destroy page CKeditors when page rerenders
         $container.on('beforerenderpages.' + interaction.typeIdentifier, function () {
-            containerEditor.destroy($container.find('.tr-passage'));
+            destroyContainerEditor(containerEditor, $container.find('.tr-passage'));
         });
 
         //Init page CKeditors after render
@@ -200,8 +200,8 @@ define([
 
         $container.off('.' + interaction.typeIdentifier);
 
-        containerEditor.destroy($container.find('.js-page-column'));
-        
+        destroyContainerEditor(containerEditor, $container.find('.js-page-column'));
+
         creatorContext.trigger('registerBeforeSaveProcess', new Promise(function(resolve, reject) {
             var assetManager = interaction.renderer.getAssetManager();
             var sources = [];
@@ -376,7 +376,9 @@ define([
                         related : interaction,
                         colIndex : colIndex,
                         highlight: true,
-                        areaBroker: widget.getAreaBroker()
+                        areaBroker: widget.getAreaBroker(),
+                        qtiInclude: false,
+                        flushDeletingWidgetsOnDestroy: true
                     });
 
                     $editor.on('editorready', function() {
@@ -424,6 +426,17 @@ define([
         if (pageData && typeof pageData.content[colIndex] !== 'undefined') {
             pageData.content[colIndex] = text;
         }
+    }
+
+    function destroyContainerEditor(containerEditor, $container) {
+        //fix for Table widget - content is not saved if it's destroyed while in 'active' state
+        $container.find('.widget-table').each(function( idx, elem ) {
+            const widget = $(elem).data('widget');
+            if (widget && widget.getCurrentState().name !== 'sleep') {
+                widget.changeState('sleep');
+            }
+        });
+        containerEditor.destroy($container);
     }
 
     return stateQuestion;
