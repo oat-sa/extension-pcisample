@@ -1,12 +1,56 @@
 @import "inc/bootstrap";
 
+$textReaderPageBg: #FFFFFF;
+$textReaderBorder: #3E7DA7;
+$textReaderTooltipBg: #FFFFA3;
+$textReaderTooltipBorder: #F1D031;
+$textReaderIconColor: #266d9c;
+$textReaderIconHoverColor: #a4bbc5;
+$textReaderLinkColor: #0e5d91;
+$textReaderTextColor: #000000;
+
+@mixin ltr() {
+    &,
+    body [dir=ltr] & {
+        @content;
+    }
+}
+
+@mixin rtl() {
+    [dir=rtl] & {
+        @content;
+    }
+}
+
+:root {
+    --color-textreader-page-bg: #{$textReaderPageBg};
+    --color-textreader-border: #{$textReaderBorder};
+    --color-textreader-tooltip-bg: #{$textReaderTooltipBg};
+    --color-textreader-tooltip-border: #{$textReaderTooltipBorder};
+    --color-textreader-icon: #{$textReaderIconColor};
+    --color-textreader-icon-hover: #{$textReaderIconHoverColor};
+    --color-textreader-link: #{$textReaderLinkColor};
+    --color-textreader-text: #{$textReaderTextColor};
+}
+
 .edit-question {
     .textReaderInteraction {
+        --textreader-page-bg-color: var(--color-textreader-page-bg);
+        --textreader-border-color: var(--color-textreader-border);
+        --textreader-tooltip-bg-color: var(--color-textreader-tooltip-bg);
+        --textreader-tooltip-border-color: var(--color-textreader-tooltip-border);
+        --textreader-icon-color: var(--color-textreader-icon);
+        --textreader-icon-hover-color: var(--color-textreader-icon-hover);
+        --textreader-link-color: var(--color-textreader-link);
+        --textreader-text-color: var(--color-textreader-text);
+
         .tr-passage-column {
-            border: 1px dashed #3E7DA7;
+            border: 1px dashed var(--textreader-border-color);
         }
+
         .tr-page {
             overflow-y: visible;
+            background-color: var(--textreader-page-bg-color);
         }
 
         /* cleanup after figure/image wrap-left/wrap-right */
@@ -34,7 +78,7 @@
         }
         .tr-column-select {
             select {
-                color: #0e5d91;
+                color: var(--textreader-link-color);
                 width: 35px;
                 min-width: 35px;
                 padding: 0;
@@ -47,10 +91,10 @@
             cursor: pointer;
             float: right;
             margin: 10px;
-            color: #266d9c;
+            color: var(--textreader-icon-color);
 
             &:hover {
-                color: #a4bbc5;
+                color: var(--textreader-icon-hover-color);
             }
         }
 
@@ -66,7 +110,7 @@
 
     .tr-column-select {
         margin: 10px;
-        color: #0e5d91;
+        color: var(--textreader-link-color);
     }
 
     .tr-tab-buttons__item {
@@ -81,24 +125,31 @@
             cursor: pointer;
             width: 14px;
             height: 14px;
-            color: #266d9c;
+            color: var(--textreader-icon-color);
             font-size: 1.2rem;
 
             &:hover, &:focus {
-                color: #a4bbc5;
+                color: var(--textreader-icon-hover-color);
                 font-weight: bold;
             }
         }
     }
 }
 
+@mixin tooltip-styles {
+    color: var(--textreader-text-color);
+    background-color: var(--textreader-tooltip-bg-color);
+    border: 1px solid var(--textreader-tooltip-border-color);
+}
+
 // those styles are only used for the existing items using the old tooltip system
 .item-editor-item {
     .tooltip {
-        border: 1px solid #F1D031;
+        @include tooltip-styles;
+        border: 1px solid var(--textreader-tooltip-border-color);
         padding: 3px;
         font-weight: bold;
-        background-color: #FFFFA3;
+        background-color: var(--textreader-tooltip-bg-color);
     }
 
     .inline-text-wrapper {
