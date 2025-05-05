@@ -3,10 +3,21 @@
 $buttonColor: #fff;
 $buttonBgColor: #266d9c;
 $buttonDisabledColor: #000;
-$buttonDisabledBgDolor: #afb4bb;
+$buttonDisabledBgColor: #afb4bb;
+$textColor: #222222;
+$borderColor: #dddddd;
+$tabsBgColor: #f2f2f2;
+$activeTabColor: #0e5d91;
+$activeTabBgColor: #ffffff;
+$pagesBgColor: #eeeeee;
+$pageBgColor: #FFFFFF;
+$shadowColor: #888888;
+$boxShadowColor: #E8E8E8;
+$navGradientStart: #ffffff;
+$navGradientEnd: #f2f2f2;
 
 @mixin tooltip-styles {
-    color: $textColor;
+    color: var(--textreader-text-color);
     outline: none;
     text-decoration: underline;
     cursor: pointer;
@@ -27,13 +38,29 @@ $buttonDisabledBgDolor: #afb4bb;
 }
 
 .textReaderInteraction {
+    --textreader-page-bg-color: #{$pageBgColor};
+    --textreader-text-color: #{$textColor};
+    --textreader-border-color: #{$borderColor};
+    --textreader-tabs-bg-color: #{$tabsBgColor};
+    --textreader-active-tab-color: #{$activeTabColor};
+    --textreader-active-tab-bg-color: #{$activeTabBgColor};
+    --textreader-pages-bg-color: #{$pagesBgColor};
+    --textreader-shadow-color: #{$shadowColor};
+    --textreader-box-shadow-color: #{$boxShadowColor};
+    --textreader-nav-gradient-start: #{$navGradientStart};
+    --textreader-nav-gradient-end: #{$navGradientEnd};
+    --textreader-button-color: #{$buttonColor};
+    --textreader-button-bg-color: #{$buttonBgColor};
+    --textreader-button-disabled-color: #{$buttonDisabledColor};
+    --textreader-button-disabled-bg-color: #{$buttonDisabledBgColor};
+
     margin-top: 10px;
 
     // button style had to been copied to do not depend on platform
     .btn-info {
-        color: $buttonColor;
-        background-color: $buttonBgColor;
-        border: 1px solid $buttonBgColor;
+        color: var(--textreader-button-color);
+        background-color: var(--textreader-button-bg-color);
+        border: 1px solid var(--textreader-button-bg-color);
         border-radius: 3px;
         text-shadow: 1px 1px 0 blacken($buttonBgColor, .2);
         height: 25px;
@@ -47,12 +74,12 @@ $buttonDisabledBgDolor: #afb4bb;
 
         &[disabled] {
             outline: none;
-            background-color: $buttonDisabledBgDolor;
-            border-color: $buttonDisabledBgDolor;
+            background-color: var(--textreader-button-disabled-bg-color);
+            border-color: var(--textreader-button-disabled-bg-color);
             text-shadow: 1px 1px 0 blacken($buttonBgColor, .2);
             cursor: not-allowed;
             opacity: 0.55;
-            color: $buttonDisabledColor;
+            color: var(--textreader-button-disabled-color);
         }
     }
 
@@ -82,22 +109,23 @@ $buttonDisabledBgDolor: #afb4bb;
         position: relative;
         overflow-y: auto;
         overflow-x: hidden;
-        background-color: #eeeeee;
-        border: 1px solid #dddddd;
+        background-color: var(--textreader-pages-bg-color);
+        border: 1px solid var(--textreader-border-color);
     }
     .tr-pages-wrap {
         position: relative;
-        border: 1px solid #dddddd;
+        border: 1px solid var(--textreader-border-color);
         padding: 10px;
     }
 
     .tr-page {
-        background-color: #FFFFFF;
-        border: 1px solid #ddd;
-        -webkit-box-shadow: 1px 1px 3px 0px #888888;
-        box-shadow: 1px 1px 3px 0 #888888;
+        background-color: var(--textreader-page-bg-color);
+        border: 1px solid var(--textreader-border-color);
+        -webkit-box-shadow: 1px 1px 3px 0px var(--textreader-shadow-color);
+        box-shadow: 1px 1px 3px 0 var(--textreader-shadow-color);
         margin: 10px;
         overflow-y: auto;
+        color: var(--textreader-text-color);
 
         table td, table th {
             border: 1px solid currentColor;
@@ -133,9 +161,9 @@ $buttonDisabledBgDolor: #afb4bb;
             z-index: 10;
         }
         .tr-tab-buttons__item.tr-active-tab {
-            color: #0e5d91;
+            color: var(--textreader-active-tab-color);
             font-weight: bold;
-            background-color: #ffffff;
+            background-color: var(--textreader-active-tab-bg-color);
             z-index: 20;
         }
     }
@@ -147,12 +175,12 @@ $buttonDisabledBgDolor: #afb4bb;
         position: relative;
         line-height: 25px;
         border-radius: 3px;
-        border: 1px solid #dddddd;
+        border: 1px solid var(--textreader-border-color);
         cursor: pointer;
-        background-color: #f2f2f2;
+        background-color: var(--textreader-tabs-bg-color);
 
         &:hover {
-            color: #0e5d91;
+            color: var(--textreader-active-tab-color);
             font-weight: bold;
         }
         .tr-tab-label {
@@ -188,8 +216,8 @@ $buttonDisabledBgDolor: #afb4bb;
             z-index: 0;
             top: 2px;
             &.tr-active-tab {
-                box-shadow: 1px -2px 3px #E8E8E8;
-                border-bottom-color: #ffffff;
+                box-shadow: 1px -2px 3px var(--textreader-box-shadow-color);
+                border-bottom-color: var(--textreader-active-tab-bg-color);
             }
         }
     }
@@ -197,7 +225,7 @@ $buttonDisabledBgDolor: #afb4bb;
     .tr-tabs-left {
         .tr-pages-wrap {
             margin-left: 70px;
-            border-left: 1px solid #dddddd;
+            border-left: 1px solid var(--textreader-border-color);
         }
         .tr-tab-buttons {
             position: absolute;
@@ -220,8 +248,8 @@ $buttonDisabledBgDolor: #afb4bb;
                 position: relative;
                 left: 0px;
                 &.tr-active-tab {
-                    border-right-color: #ffffff;
-                    box-shadow: -3px 2px 3px #E8E8E8;
+                    border-right-color: var(--textreader-active-tab-bg-color);
+                    box-shadow: -3px 2px 3px var(--textreader-box-shadow-color);
                 }
             }
         }
@@ -236,7 +264,7 @@ $buttonDisabledBgDolor: #afb4bb;
     .tr-tabs-right {
         .tr-pages-wrap {
             margin-right: 70px;
-            border-right: 1px solid #dddddd;
+            border-right: 1px solid var(--textreader-border-color);
         }
         .tr-tab-buttons {
             position: absolute;
@@ -257,8 +285,8 @@ $buttonDisabledBgDolor: #afb4bb;
                 width: 55px;
                 position: relative;
                 &.tr-active-tab {
-                    border-left-color: #ffffff;
-                    box-shadow: 2px 2px 3px #E8E8E8;
+                    border-left-color: var(--textreader-active-tab-bg-color);
+                    box-shadow: 2px 2px 3px var(--textreader-box-shadow-color);
                 }
             }
         }
@@ -279,9 +307,9 @@ $buttonDisabledBgDolor: #afb4bb;
             position: absolute;
             left: 0;
             bottom: 0;
-            border-left: 1px solid #dddddd;
-            border-right: 1px solid #dddddd;
-            border-bottom: 1px solid #dddddd;
+            border-left: 1px solid var(--textreader-border-color);
+            border-right: 1px solid var(--textreader-border-color);
+            border-bottom: 1px solid var(--textreader-border-color);
             padding: 0 10px 5px 10px;
             height: 34px;
             width: 100%;
@@ -296,8 +324,8 @@ $buttonDisabledBgDolor: #afb4bb;
                 position: relative;
 
                 &.tr-active-tab {
-                    border-top-color: #ffffff;
-                    box-shadow: 2px 2px 3px #E8E8E8;
+                    border-top-color: var(--textreader-active-tab-bg-color);
+                    box-shadow: 2px 2px 3px var(--textreader-box-shadow-color);
                 }
             }
         }
@@ -309,18 +337,18 @@ $buttonDisabledBgDolor: #afb4bb;
     }
 
     .tr-nav-wrap {
-        border: 1px solid #dddddd;
+        border: 1px solid var(--textreader-border-color);
         border-top: none;
     }
     .tr-nav {
         display: table;
         width: 100%;
         padding: 5px 10px;
-        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f2f2f2));
-        background: -webkit-linear-gradient(top, #fff, #f2f2f2);
-        background: -moz-linear-gradient(top, #fff, #f2f2f2);
-        background: -ms-linear-gradient(top, #fff, #f2f2f2);
-        background: -o-linear-gradient(top, #fff, #f2f2f2);
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(var(--textreader-nav-gradient-start)), to(var(--textreader-nav-gradient-end)));
+        background: -webkit-linear-gradient(top, var(--textreader-nav-gradient-start), var(--textreader-nav-gradient-end));
+        background: -moz-linear-gradient(top, var(--textreader-nav-gradient-start), var(--textreader-nav-gradient-end));
+        background: -ms-linear-gradient(top, var(--textreader-nav-gradient-start), var(--textreader-nav-gradient-end));
+        background: -o-linear-gradient(top, var(--textreader-nav-gradient-start), var(--textreader-nav-gradient-end));
         table-layout: fixed;
         font-weight: bold;
     }
@@ -341,12 +369,12 @@ $buttonDisabledBgDolor: #afb4bb;
     }
     .tr-nav-right {
         margin-right: 70px;
-        border-right: 1px solid #dddddd;
+        border-right: 1px solid var(--textreader-border-color);
         position: relative;
     }
     .tr-nav-left {
         margin-left: 70px;
-        border-left: 1px solid #dddddd;
+        border-left: 1px solid var(--textreader-border-color);
     }
 
     [data-role="tooltip-target"] {
