@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2025-12-05 08:48\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: sk\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
+"X-Crowdin-Project: tao-open-source\n"
+"X-Crowdin-Project-ID: 590867\n"
+"X-Crowdin-Language: sk\n"
+"X-Crowdin-File: /[oat-sa.extension-pcisample] develop/locales/en-US/messages.po\n"
+"X-Crowdin-File-ID: 651\n"
+"Language-Team: Slovak\n"
+
+msgid "Add page"
+msgstr "Pridať stránku"
+
+msgid "Allow multi pages"
+msgstr "Povoliť viacero strán"
+
+msgid "Bottom"
+msgstr "Spodná časť"
+
+msgid "Button based"
+msgstr "Na základe tlačidiel"
+
+msgid "Button labels"
+msgstr "Štítky tlačidiel"
+
+msgid "Button labels."
+msgstr "Štítky tlačidiel."
+
+msgid "Columns:"
+msgstr "Stĺpce:"
+
+msgid "Delete"
+msgstr "Odstrániť"
+
+msgid "Display"
+msgstr "Displej"
+
+msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
+msgstr "Ak je toto políčko začiarknuté, čítačka textu umožní zobraziť viac ako jednu stránku a prepínať medzi nimi."
+
+msgid "Left"
+msgstr "Vľavo"
+
+msgid "Navigation"
+msgstr "Navigácia"
+
+msgid "Navigation."
+msgstr "Navigácia."
+
+msgid "Next"
+msgstr "Ďalej"
+
+msgid "Page"
+msgstr "Strana"
+
+msgid "Page height (px)"
+msgstr "Výška stránky (px)"
+
+msgid "Page height (px)."
+msgstr "Výška stránky (px)."
+
+msgid "Previous"
+msgstr "Predchádzajúce"
+
+msgid "Remove Tooltip"
+msgstr "Odstrániť popis"
+
+msgid "Right"
+msgstr "Vpravo"
+
+msgid "Tab based"
+msgstr "Na základe kariet"
+
+msgid "Tabs + buttons"
+msgstr "Karty + tlačidlá"
+
+msgid "Tabs position"
+msgstr "Pozícia kariet"
+
+msgid "Tabs position."
+msgstr "Pozícia kariet."
+
+msgid "Tooltips"
+msgstr "Popisy nástrojov"
+
+msgid "Top"
+msgstr "Hore"
+
