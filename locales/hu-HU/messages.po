@@ -1,0 +1,100 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: tao-open-source\n"
+"PO-Revision-Date: 2025-12-05 08:48\n"
+"Last-Translator: TAO Translation Team <translation@tao.lu>\n"
+"MIME-Version: 1.0\n"
+"Language: hu\n"
+"sourceLanguage: en-US\n"
+"targetLanguage: en-US\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Basepath: ../../\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: tao-open-source\n"
+"X-Crowdin-Project-ID: 590867\n"
+"X-Crowdin-Language: hu\n"
+"X-Crowdin-File: /[oat-sa.extension-pcisample] develop/locales/en-US/messages.po\n"
+"X-Crowdin-File-ID: 651\n"
+"Language-Team: Hungarian\n"
+
+msgid "Add page"
+msgstr "Oldal hozzáadása"
+
+msgid "Allow multi pages"
+msgstr "Több oldal engedélyezése"
+
+msgid "Bottom"
+msgstr "Alsó"
+
+msgid "Button based"
+msgstr "Gomb alapú"
+
+msgid "Button labels"
+msgstr "Gombfeliratok"
+
+msgid "Button labels."
+msgstr "Gombfeliratok."
+
+msgid "Columns:"
+msgstr "Oszlopok:"
+
+msgid "Delete"
+msgstr "Töröl"
+
+msgid "Display"
+msgstr "Kijelző"
+
+msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
+msgstr "Ha ez a jelölőnégyzet be van jelölve, a szövegolvasó lehetővé teszi egynél több oldal megjelenítését és a közöttük való navigálást."
+
+msgid "Left"
+msgstr "Balra"
+
+msgid "Navigation"
+msgstr "Navigáció"
+
+msgid "Navigation."
+msgstr "Navigáció."
+
+msgid "Next"
+msgstr "Következő"
+
+msgid "Page"
+msgstr "Oldal"
+
+msgid "Page height (px)"
+msgstr "Oldalmagasság (px)"
+
+msgid "Page height (px)."
+msgstr "Oldalmagasság (px)."
+
+msgid "Previous"
+msgstr "Előző"
+
+msgid "Remove Tooltip"
+msgstr "Elemleírás eltávolítása"
+
+msgid "Right"
+msgstr "Jobbra"
+
+msgid "Tab based"
+msgstr "Tab alapú"
+
+msgid "Tabs + buttons"
+msgstr "Fülek + gombok"
+
+msgid "Tabs position"
+msgstr "Tabulátorok pozíciója"
+
+msgid "Tabs position."
+msgstr "Tabulátorok pozíciója."
+
+msgid "Tooltips"
+msgstr "Elemleírások"
+
+msgid "Top"
+msgstr "Felső"
+
