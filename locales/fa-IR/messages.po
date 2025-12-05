@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-12-04 15:51\n"
+"PO-Revision-Date: 2025-12-05 08:48\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
-"Language: ar\n"
+"Language: fa\n"
 "sourceLanguage: en-US\n"
 "targetLanguage: en-US\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,89 +12,89 @@ msgstr ""
 "X-Poedit-Basepath: ../../\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
-"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Crowdin-Project: tao-open-source\n"
 "X-Crowdin-Project-ID: 590867\n"
-"X-Crowdin-Language: ar\n"
+"X-Crowdin-Language: fa\n"
 "X-Crowdin-File: /[oat-sa.extension-pcisample] develop/locales/en-US/messages.po\n"
 "X-Crowdin-File-ID: 651\n"
-"Language-Team: Arabic\n"
+"Language-Team: Persian\n"
 
 msgid "Add page"
-msgstr "أضف صفحة"
+msgstr ""
 
 msgid "Allow multi pages"
-msgstr "السماح بصفحات متعددة"
+msgstr ""
 
 msgid "Bottom"
-msgstr "الأسفل"
+msgstr ""
 
 msgid "Button based"
-msgstr "على أساس الزر"
+msgstr ""
 
 msgid "Button labels"
-msgstr "تسميات الأزرار"
+msgstr ""
 
 msgid "Button labels."
-msgstr "تسميات الأزرار."
+msgstr ""
 
 msgid "Columns:"
-msgstr "أعمدة:"
+msgstr ""
 
 msgid "Delete"
-msgstr "حذف"
+msgstr ""
 
 msgid "Display"
-msgstr "عرض"
+msgstr ""
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr "إذا تم اختيار هذا المربع، فسيسمح قارئ النص بعرض أكثر من صفحة واحدة والتنقل بينها."
+msgstr ""
 
 msgid "Left"
-msgstr "يسار"
+msgstr ""
 
 msgid "Navigation"
-msgstr "تصفح"
+msgstr ""
 
 msgid "Navigation."
-msgstr "تصفح."
+msgstr ""
 
 msgid "Next"
-msgstr "التالي"
+msgstr ""
 
 msgid "Page"
-msgstr "صفحة"
+msgstr ""
 
 msgid "Page height (px)"
-msgstr "ارتفاع الصفحة (px)"
+msgstr ""
 
 msgid "Page height (px)."
-msgstr "ارتفاع الصفحة (px)."
+msgstr ""
 
 msgid "Previous"
-msgstr "سابق"
+msgstr ""
 
 msgid "Remove Tooltip"
-msgstr "إزالة أداة الإشارة"
+msgstr ""
 
 msgid "Right"
-msgstr "صحيح"
+msgstr ""
 
 msgid "Tab based"
-msgstr "على أساس علامة التبويب"
+msgstr ""
 
 msgid "Tabs + buttons"
-msgstr "علامات التبويب + أزرار"
+msgstr ""
 
 msgid "Tabs position"
-msgstr "موضع علامات التبويب"
+msgstr ""
 
 msgid "Tabs position."
-msgstr "موضع علامات التبويب."
+msgstr ""
 
 msgid "Tooltips"
-msgstr "أداة الإشارات"
+msgstr ""
 
 msgid "Top"
-msgstr "أعلى"
+msgstr ""
 
