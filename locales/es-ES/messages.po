@@ -1,5 +1,5 @@
 msgid ""
-msgstr " {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr ""
 "Project-Id-Version: tao-open-source\n"
 "PO-Revision-Date: 2023-06-07 10:39\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
@@ -21,80 +21,80 @@ msgstr " {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 "Language-Team: Spanish\n"
 
 msgid "Add page"
-msgstr "Add page {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Add page"
 
 msgid "Allow multi pages"
-msgstr "Allow multi pages {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Allow multi pages"
 
 msgid "Bottom"
-msgstr "Bottom {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Bottom"
 
 msgid "Button based"
-msgstr "Button based {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Button based"
 
 msgid "Button labels"
-msgstr "Button labels {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Button labels"
 
 msgid "Button labels."
-msgstr "Button labels. {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Button labels."
 
 msgid "Columns:"
-msgstr "Columns: {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Columns:"
 
 msgid "Delete"
-msgstr "Delete {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Delete"
 
 msgid "Display"
-msgstr "Muestra {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Muestra"
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr "If this box is checked the text reader will allow to display more than one page and to navigate between them. {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "If this box is checked the text reader will allow to display more than one page and to navigate between them."
 
 msgid "Left"
-msgstr "Izquierda {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Izquierda"
 
 msgid "Navigation"
-msgstr "Navigation {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Navigation"
 
 msgid "Navigation."
-msgstr "Navigation. {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Navigation."
 
 msgid "Next"
-msgstr "Next {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Next"
 
 msgid "Page"
-msgstr "Page {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Page"
 
 msgid "Page height (px)"
-msgstr "Page height (px) {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Page height (px)"
 
 msgid "Page height (px)."
-msgstr "Page height (px). {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Page height (px)."
 
 msgid "Previous"
-msgstr "Previous {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Previous"
 
 msgid "Remove Tooltip"
-msgstr "Remove Tooltip {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Remove Tooltip"
 
 msgid "Right"
-msgstr "Right {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Right"
 
 msgid "Tab based"
-msgstr "Tab based {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Tab based"
 
 msgid "Tabs + buttons"
-msgstr "Tabs + buttons {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Tabs + buttons"
 
 msgid "Tabs position"
-msgstr "Tabs position {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Tabs position"
 
 msgid "Tabs position."
-msgstr "Tabs position. {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Tabs position."
 
 msgid "Tooltips"
-msgstr "Tooltips {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Tooltips"
 
 msgid "Top"
-msgstr "Arriba {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
+msgstr "Arriba"
 
