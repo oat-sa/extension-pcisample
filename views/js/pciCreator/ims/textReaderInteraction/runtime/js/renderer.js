@@ -106,6 +106,15 @@ define(
                 $passage.css('height', 'calc(100vh - ' + (decorationHeight + getWrapperHeight(multiPages)) + 'px)');
             }
 
+            function rubyRenderer(html) {
+                html = html || '';
+                var rubyTags = /\{(ruby|rt|rb|rp)\}|\{\/(ruby|rt|rb|rp)\}/g;
+
+                return html.replace(rubyTags, (match, open, close) => {
+                    return open ? `<${open}>` : `</${close}>`;
+                });
+            };
+
             this.eventNs = 'textReaderInteraction';
             this.options = {};
 
@@ -204,6 +213,8 @@ define(
                         });
                         return element.outerHTML || element.textContent;
                     }).join('');
+
+                    markup = rubyRenderer(markup);
 
                     $container = this.options.$container.find('.js-page-container')
                         .html(markup)

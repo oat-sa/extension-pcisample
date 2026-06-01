@@ -26,7 +26,7 @@ define(
                 return $1 + resolved + $3;
             });
         };
-        
+
         /**
          * Add all html anchors a "_blank" target by default
          *
@@ -43,7 +43,16 @@ define(
                 return modifiedTag + ' target="_blank"';
             });
         };
-      
+
+        var fixRubyRender = function(html, renderer) {
+            html = html || '';
+            var rubyTags = /\{(ruby|rt|rb|rp)\}|\{\/(ruby|rt|rb|rp)\}/g;
+
+            return html.replace(rubyTags, (match, open, close) => {
+                return open ? `<${open}>` : `</${close}>`;
+            });
+        };
+
         return function (options) {
             var self = this;
             var defaultOptions = {
@@ -199,6 +208,8 @@ define(
                             fixedMarkup,
                             self.options.interaction.renderer
                         );
+
+                        fixedMarkup = fixRubyRender(fixedMarkup);
                     }
 
                     $container = this.options.$container.find('.js-page-container')

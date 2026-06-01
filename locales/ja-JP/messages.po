@@ -1,5 +1,5 @@
 msgid ""
-msgstr ""
+msgstr " {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 "Project-Id-Version: tao-open-source\n"
 "PO-Revision-Date: 2023-09-05 05:10\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
@@ -21,80 +21,80 @@ msgstr ""
 "Language-Team: Japanese\n"
 
 msgid "Add page"
-msgstr "ページ追加"
+msgstr "ページ追加 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Allow multi pages"
-msgstr "マルチページ"
+msgstr "マルチページ {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Bottom"
-msgstr "下部"
+msgstr "下部 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Button based"
-msgstr "ボタン"
+msgstr "ボタン {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Button labels"
-msgstr "ボタンラベル"
+msgstr "ボタンラベル {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Button labels."
-msgstr "ボタンラベル."
+msgstr "ボタンラベル. {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Columns:"
-msgstr "カラム:"
+msgstr "カラム: {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Delete"
-msgstr "削除"
+msgstr "削除 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Display"
-msgstr "画面表示"
+msgstr "画面表示 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr "このボックスをチェックすると、テキストリーダーで複数のページを表示したり、ページ間を移動したりすることができます。"
+msgstr "このボックスをチェックすると、テキストリーダーで複数のページを表示したり、ページ間を移動したりすることができます。 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Left"
-msgstr "左"
+msgstr "左 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Navigation"
-msgstr "ナビゲーション"
+msgstr "ナビゲーション {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Navigation."
-msgstr "ナビゲーション."
+msgstr "ナビゲーション. {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Next"
-msgstr "次へ"
+msgstr "次へ {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Page"
-msgstr "ページ"
+msgstr "ページ {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Page height (px)"
-msgstr "ページ高さ (px)"
+msgstr "ページ高さ (px) {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Page height (px)."
-msgstr "ページ高さ (px)."
+msgstr "ページ高さ (px). {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Previous"
-msgstr "前へ"
+msgstr "前へ {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Remove Tooltip"
-msgstr "ツールチップを削除"
+msgstr "ツールチップを削除 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Right"
-msgstr "右"
+msgstr "右 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Tab based"
-msgstr "タブ"
+msgstr "タブ {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Tabs + buttons"
-msgstr "タブ + ボタン"
+msgstr "タブ + ボタン {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Tabs position"
-msgstr "タブ位置"
+msgstr "タブ位置 {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Tabs position."
-msgstr "タブ位置."
+msgstr "タブ位置. {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Tooltips"
-msgstr "ツールチップ"
+msgstr "ツールチップ {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
 msgid "Top"
-msgstr "トップ"
+msgstr "トップ {ruby}{rb}6{/rb}{rt}7{/rt}{/ruby}"
 
