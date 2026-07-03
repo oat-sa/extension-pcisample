@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2025-12-05 08:48\n"
+"PO-Revision-Date: 2026-07-03 13:35\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: sk\n"
@@ -27,16 +27,16 @@ msgid "Allow multi pages"
 msgstr "Povoliť viacero strán"
 
 msgid "Bottom"
-msgstr "Spodná časť"
+msgstr "Dolný"
 
 msgid "Button based"
 msgstr "Na základe tlačidiel"
 
 msgid "Button labels"
-msgstr "Štítky tlačidiel"
+msgstr "Názvy tlačidiel"
 
 msgid "Button labels."
-msgstr "Štítky tlačidiel."
+msgstr "Názvy tlačidiel."
 
 msgid "Columns:"
 msgstr "Stĺpce:"
@@ -45,10 +45,10 @@ msgid "Delete"
 msgstr "Odstrániť"
 
 msgid "Display"
-msgstr "Displej"
+msgstr "Zobraziť"
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr "Ak je toto políčko začiarknuté, čítačka textu umožní zobraziť viac ako jednu stránku a prepínať medzi nimi."
+msgstr "Ak je toto políčko zaškrtnuté, čítačka textu umožní zobraziť viac ako jednu stránku a prechádzať medzi nimi."
 
 msgid "Left"
 msgstr "Vľavo"
@@ -93,7 +93,7 @@ msgid "Tabs position."
 msgstr "Pozícia kariet."
 
 msgid "Tooltips"
-msgstr "Popisy nástrojov"
+msgstr "Nápoveda"
 
 msgid "Top"
 msgstr "Hore"
