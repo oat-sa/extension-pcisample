@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-06-07 10:39\n"
+"PO-Revision-Date: 2026-07-03 13:35\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: nl\n"
@@ -60,7 +60,7 @@ msgid "Navigation."
 msgstr "Navigatie."
 
 msgid "Next"
-msgstr ""
+msgstr "Volgende"
 
 msgid "Page"
 msgstr "Pagina"
@@ -72,7 +72,7 @@ msgid "Page height (px)."
 msgstr "Pagina hoogte (px)."
 
 msgid "Previous"
-msgstr ""
+msgstr "Vorige"
 
 msgid "Remove Tooltip"
 msgstr "Verwijder tooltip"
@@ -93,7 +93,7 @@ msgid "Tabs position."
 msgstr "Positie tabbladen."
 
 msgid "Tooltips"
-msgstr ""
+msgstr "Knopinfo"
 
 msgid "Top"
 msgstr "Boven"
