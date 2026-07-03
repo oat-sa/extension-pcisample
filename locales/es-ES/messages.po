@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-06-07 10:39\n"
+"PO-Revision-Date: 2026-07-03 13:35\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: es\n"
@@ -21,79 +21,79 @@ msgstr ""
 "Language-Team: Spanish\n"
 
 msgid "Add page"
-msgstr ""
+msgstr "Añadir página"
 
 msgid "Allow multi pages"
-msgstr ""
+msgstr "Permitir múltiples páginas"
 
 msgid "Bottom"
-msgstr ""
+msgstr "Abajo"
 
 msgid "Button based"
-msgstr ""
+msgstr "Basado en el botón"
 
 msgid "Button labels"
-msgstr ""
+msgstr "Etiquetas de botón"
 
 msgid "Button labels."
-msgstr ""
+msgstr "Etiquetas de botón."
 
 msgid "Columns:"
-msgstr ""
+msgstr "Columnas:"
 
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "Display"
 msgstr "Muestra"
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr ""
+msgstr "Si esta casilla está marcada, el lector de texto le permitirá mostrar más de una página y navegar entre ellos."
 
 msgid "Left"
 msgstr "Izquierda"
 
 msgid "Navigation"
-msgstr ""
+msgstr "Navegación"
 
 msgid "Navigation."
-msgstr ""
+msgstr "Navegación."
 
 msgid "Next"
-msgstr ""
+msgstr "Siguiente"
 
 msgid "Page"
-msgstr ""
+msgstr "Página"
 
 msgid "Page height (px)"
-msgstr ""
+msgstr "Altura de página (px)"
 
 msgid "Page height (px)."
-msgstr ""
+msgstr "Page height (px)."
 
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 msgid "Remove Tooltip"
-msgstr ""
+msgstr "Eliminar descripción"
 
 msgid "Right"
-msgstr ""
+msgstr "Derecha"
 
 msgid "Tab based"
-msgstr ""
+msgstr "Basado en la pestaña"
 
 msgid "Tabs + buttons"
-msgstr ""
+msgstr "Tabs + buttons"
 
 msgid "Tabs position"
-msgstr ""
+msgstr "Posición de las pestañas"
 
 msgid "Tabs position."
-msgstr ""
+msgstr "Posición de las pestañas."
 
 msgid "Tooltips"
-msgstr ""
+msgstr "Consejos"
 
 msgid "Top"
 msgstr "Arriba"
