@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2023-06-07 10:39\n"
+"PO-Revision-Date: 2026-07-03 13:35\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: nl_BE\n"
@@ -21,25 +21,25 @@ msgstr ""
 "Language-Team: Dutch, Belgium\n"
 
 msgid "Add page"
-msgstr ""
+msgstr "Pagina toevoegen"
 
 msgid "Allow multi pages"
-msgstr ""
+msgstr "Meerdere pagina's toestaan"
 
 msgid "Bottom"
-msgstr ""
+msgstr "Onder"
 
 msgid "Button based"
-msgstr ""
+msgstr "Knop gebaseerd"
 
 msgid "Button labels"
-msgstr ""
+msgstr "Knoplabel"
 
 msgid "Button labels."
-msgstr ""
+msgstr "Knoppenlabels."
 
 msgid "Columns:"
-msgstr ""
+msgstr "Kolommen:"
 
 msgid "Delete"
 msgstr ""
@@ -48,52 +48,52 @@ msgid "Display"
 msgstr ""
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr ""
+msgstr "Indien dit vakje is aangevinkt, kan de tekstlezer meer dan één pagina weergeven en tussen de pagina's navigeren."
 
 msgid "Left"
 msgstr ""
 
 msgid "Navigation"
-msgstr ""
+msgstr "Navigatie"
 
 msgid "Navigation."
-msgstr ""
+msgstr "Navigatie."
 
 msgid "Next"
-msgstr ""
+msgstr "Volgende"
 
 msgid "Page"
-msgstr ""
+msgstr "Pagina"
 
 msgid "Page height (px)"
-msgstr ""
+msgstr "Pagina hoogte (px)"
 
 msgid "Page height (px)."
-msgstr ""
+msgstr "Pagina hoogte (px)."
 
 msgid "Previous"
-msgstr ""
+msgstr "Vorige"
 
 msgid "Remove Tooltip"
-msgstr ""
+msgstr "Verwijder tooltip"
 
 msgid "Right"
 msgstr ""
 
 msgid "Tab based"
-msgstr ""
+msgstr "Gebaseerd op tabs"
 
 msgid "Tabs + buttons"
-msgstr ""
+msgstr "Tabs + knoppen"
 
 msgid "Tabs position"
-msgstr ""
+msgstr "Positie tabbladen"
 
 msgid "Tabs position."
-msgstr ""
+msgstr "Positie tabbladen."
 
 msgid "Tooltips"
-msgstr ""
+msgstr "Knopinfo"
 
 msgid "Top"
 msgstr ""

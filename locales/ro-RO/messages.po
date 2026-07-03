@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tao-open-source\n"
-"PO-Revision-Date: 2025-12-05 08:48\n"
+"PO-Revision-Date: 2026-07-03 13:35\n"
 "Last-Translator: TAO Translation Team <translation@tao.lu>\n"
 "MIME-Version: 1.0\n"
 "Language: ro\n"
@@ -21,80 +21,80 @@ msgstr ""
 "Language-Team: Romanian\n"
 
 msgid "Add page"
-msgstr ""
+msgstr "Adaugă pagină"
 
 msgid "Allow multi pages"
-msgstr ""
+msgstr "Permite pagini multiple"
 
 msgid "Bottom"
-msgstr ""
+msgstr "Jos"
 
 msgid "Button based"
-msgstr ""
+msgstr "Buton bazat"
 
 msgid "Button labels"
-msgstr ""
+msgstr "Etichete buton"
 
 msgid "Button labels."
-msgstr ""
+msgstr "Etichete butoane."
 
 msgid "Columns:"
-msgstr ""
+msgstr "Coloane:"
 
 msgid "Delete"
-msgstr ""
+msgstr "Ștergere"
 
 msgid "Display"
-msgstr ""
+msgstr "Afişare"
 
 msgid "If this box is checked the text reader will allow to display more than one page and to navigate between them."
-msgstr ""
+msgstr "În cazul în care această casetă este bifată, cititorul de text va permite afișarea mai multor pagini și navigarea între ele."
 
 msgid "Left"
-msgstr ""
+msgstr "Stânga"
 
 msgid "Navigation"
-msgstr ""
+msgstr "Navigaţie"
 
 msgid "Navigation."
-msgstr ""
+msgstr "Navigare."
 
 msgid "Next"
-msgstr ""
+msgstr "Următoarea"
 
 msgid "Page"
-msgstr ""
+msgstr "Pagină"
 
 msgid "Page height (px)"
-msgstr ""
+msgstr "Înălțimea paginii (px)"
 
 msgid "Page height (px)."
-msgstr ""
+msgstr "Page height (px)."
 
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 msgid "Remove Tooltip"
-msgstr ""
+msgstr "Elimină Sfatul de instrumente"
 
 msgid "Right"
-msgstr ""
+msgstr "Dreapta"
 
 msgid "Tab based"
-msgstr ""
+msgstr "Fila bazată pe"
 
 msgid "Tabs + buttons"
-msgstr ""
+msgstr "Tabs + buttons"
 
 msgid "Tabs position"
-msgstr ""
+msgstr "Poziția taburilor"
 
 msgid "Tabs position."
-msgstr ""
+msgstr "Poziția taburilor."
 
 msgid "Tooltips"
-msgstr ""
+msgstr "Instrumente"
 
 msgid "Top"
-msgstr ""
+msgstr "Sus"
 
