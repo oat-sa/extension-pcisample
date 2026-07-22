@@ -5,8 +5,8 @@ module.exports = function(grunt) {
     var testUrl     = 'http://127.0.0.1:' + grunt.option('testPort');
     var root        = grunt.option('root');
 
-    var testRunners = root + '/pciSamples/views/js/test/**/test.html';
-    var testFiles = root + '/pciSamples/views/js/test/**/test.js';
+    var testRunners = root + '/pciSamples/views/js/pciCreator/**/test.html';
+    var testFiles = root + '/pciSamples/views/js/pciCreator/**/test.js';
 
     //extract unit tests
     var extractTests = function extractTests(){
