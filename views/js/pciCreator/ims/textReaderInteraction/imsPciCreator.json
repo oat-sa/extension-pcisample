@@ -3,7 +3,7 @@
     "typeIdentifier": "textReaderInteraction",
     "label": "Text reader",
     "description": "The Paging widget combines a scrolling widget with additional paging controls.",
-    "version": "1.3.4",
+    "version": "1.3.5",
     "author": "Aleh Hutnikau",
     "email": "contact@taotesting.com",
     "tags": ["reader", "paging"],
@@ -22,6 +22,7 @@
         "src": [
             "./runtime/textReaderInteraction.js",
             "./runtime/js/renderer.js",
+            "./runtime/js/buttonLabel.js",
             "./runtime/js/tabs.js",
             "./runtime/css/jquery.qtip.css",
             "./runtime/css/textReaderInteraction.css"

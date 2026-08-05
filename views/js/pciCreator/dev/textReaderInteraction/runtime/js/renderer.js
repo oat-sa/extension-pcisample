@@ -4,11 +4,14 @@ define(
         'taoQtiItem/portableLib/lodash',
         'taoQtiItem/portableLib/handlebars',
         'textReaderInteraction/runtime/js/tabs',
+        'textReaderInteraction/runtime/js/buttonLabel',
         'taoQtiItem/portableLib/OAT/util/html',
         'taoQtiItem/portableLib/jquery.qtip'
     ],
-    function ($, _, Handlebars, Tabs, htmlRenderer) {
+    function ($, _, Handlebars, Tabs, buttonLabel, htmlRenderer) {
         'use strict';
+
+        var prepareButtonLabel = buttonLabel.prepareButtonLabel;
 
         /**
          * Replace all identified relative media urls by the absolute one.
@@ -348,6 +351,7 @@ define(
                 var multiPages = data.multiPages === 'true' || data.multiPages === true || typeof data.multiPages === 'undefined';
                 var pageHeight = data.pageHeight;
                 var pageWrapperHeight = pageHeight;
+                var buttonLabels = data.buttonLabels || {};
 
                 if (pageHeight !== 'auto') {
                     pageHeight = parseInt(pageHeight, 10);
@@ -365,7 +369,11 @@ define(
                     authoring : self.options.state === 'question',
                     pageHeight: pageHeight,
                     pageWrapperHeight : pageWrapperHeight,
-                    showRemovePageButton : data.pages.length > 1 && self.options.state === 'question'
+                    showRemovePageButton : data.pages.length > 1 && self.options.state === 'question',
+                    buttonLabels : {
+                        prev : prepareButtonLabel(buttonLabels.prev),
+                        next : prepareButtonLabel(buttonLabels.next)
+                    }
                 };
             };
 
