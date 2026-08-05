@@ -4,11 +4,12 @@ define(
         'taoQtiItem/portableLib/lodash',
         'taoQtiItem/portableLib/handlebars',
         'textReaderInteraction/runtime/js/tabs',
+        'textReaderInteraction/runtime/js/buttonLabel',
         'taoQtiItem/portableLib/OAT/util/tooltip',
         'taoQtiItem/portableLib/OAT/util/xml',
         'taoQtiItem/portableLib/jquery.qtip',
     ],
-    function ($, _, Handlebars, Tabs, tooltipRenderer, xmlNsHandler) {
+    function ($, _, Handlebars, Tabs, buttonLabel, tooltipRenderer, xmlNsHandler) {
         'use strict';
 
         return function (options) {
@@ -18,6 +19,7 @@ define(
                 templates : {}
             };
             var currentPage = 0;
+            var prepareButtonLabel = buttonLabel.prepareButtonLabel;
 
             /**
              * Computes the full height of an element, plus its margin.
@@ -318,6 +320,7 @@ define(
                 var multiPages = data.multiPages === 'true' || data.multiPages === true || typeof data.multiPages === 'undefined';
                 var pageHeight = data.pageHeight;
                 var pageWrapperHeight = pageHeight;
+                var buttonLabels = data.buttonLabels || {};
 
                 if (pageHeight !== 'auto') {
                     pageHeight = parseInt(pageHeight, 10);
@@ -334,7 +337,11 @@ define(
                     authoring : self.options.state === 'question',
                     pageHeight: pageHeight,
                     pageWrapperHeight : pageWrapperHeight,
-                    showRemovePageButton : data.pages.length > 1 && self.options.state === 'question'
+                    showRemovePageButton : data.pages.length > 1 && self.options.state === 'question',
+                    buttonLabels : {
+                        prev : prepareButtonLabel(buttonLabels.prev),
+                        next : prepareButtonLabel(buttonLabels.next)
+                    }
                 };
             };
 
