@@ -25,6 +25,7 @@
         "src" : [
             "./runtime/js/textReaderInteraction.js",
             "./runtime/js/renderer.js",
+            "./runtime/js/buttonLabel.js",
             "./runtime/js/tabs.js"
         ]
     },
